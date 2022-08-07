@@ -1,0 +1,26 @@
+@mixin background-html() {
+    background-repeat: none;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: 2;
+    &::after{
+        content:"";
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.673);
+        width: 100%;
+        height: 100%;
+        left:0;
+        top:0;
+        z-index: -5;      
+    }
+}
+
+@mixin background($lien) {
+    background:($lien);
+    background-repeat: none;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: 2;
+}

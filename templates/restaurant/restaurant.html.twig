@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+{# {% block title %} {{resto.name}} {% endblock %} #}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('splide') }}
+{% endblock %}
+{% block body %}
+
+    <section class="slider-resto">
+        {# {% for image in resto.images %}
+        <img class= " slider-img  {% if loop.first %}active-slider{% endif %}"
+          src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
+            
+        {% endfor %} #}
+        <img class="slider-img active-slider" src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
+        <img class="slider-img" src="{{ asset('/build/images/site/resto1.jpg') }}" alt="">
+        <img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
+        <img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
+
+        <span class="control-slider-container">
+            {% for i in 0..3 %}
+                <div  class= "{% if loop.first %}active-control{% endif %} control-slider"></div> 
+            {% endfor %}
+         </span>
+    </section>
+    <section class="info-container-restaurant align-items-center d-flex">
+        <div class="action-btn-restaurant container d-flex">
+            <div class="cube-lateral mx-2">
+                <i class='bx bx-phone-call' ></i>
+            </div>
+            <div class="cube-lateral mx-2">
+                <i class='bx bxs-city' ></i>
+            </div>
+            <div class="cube-lateral mx-2">
+                <i class='bx bx-bowl-hot' ></i>
+            </div>
+            <div class="cube-lateral mx-2">
+                <i class="fa-duotone fa-burger-cheese"></i>
+            </div>
+        </div>
+    </section>
+    <section class="container info-restaurant-container">
+    <section class="slide-resto-info">
+    
+        
+    </section>
+   
+    </section>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    {{ encore_entry_script_tags('slider') }}
+    
+{% endblock %}

@@ -1,0 +1,26 @@
+.search-banner{
+    background-color: red;
+    width: 100%;
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .geo-icon{
+            min-width:40px;
+            max-width: 80px;
+            width: 100%;
+            min-height: 80px;
+            background:var(--secondary);
+        }
+        form{
+            background-color: var(--primary);
+            width:100%;
+            display: flex;
+            flex-direction: column;
+
+            input{
+            }
+        }
+    }
+}

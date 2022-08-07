@@ -1,0 +1,49 @@
+.info-container-restaurant{
+    background-color:var(--secondary);
+    min-height: 80px;
+    width: 100%;
+}
+
+.action-btn-restaurant{
+    .cube-lateral{
+        min-width: 60px;
+        min-height:60px;
+        background-color: var(--light);
+        margin: 1rem 0;
+        i{
+            color: var(--white);
+        }
+        transition: 0.5s all ease;
+        &:hover{
+            background-color: var(--primary);
+            transform: scale(1.05);
+        }
+    }
+}
+.info-restaurant-container{
+    overflow-x: hidden;
+    @media (max-width:992px) {
+        flex-direction: column;
+        .info-bar-restaurant{
+            margin:1rem 0 !important;
+        }
+    }
+    display: flex;
+    .slide-resto-info{
+        min-height: 50vh;
+        width: 100%;
+        background-color: var(--white);
+        margin:1rem 0;
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+    }
+
+    .info-bar-restaurant{
+        background-color: white;
+        width: 100%;
+        background-color: var(--white);
+        margin:1rem 0rem 1rem 1rem;
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+    }
+}

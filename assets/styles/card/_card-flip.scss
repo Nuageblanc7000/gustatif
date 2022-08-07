@@ -1,0 +1,186 @@
+//flip fastfood
+
+.container-flip-card{
+    perspective: 1000px;
+    width: 100%;
+}
+.card-flip{
+    cursor: pointer;
+    -moz-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    height: 400px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &:after{
+
+        content: '';
+        position: absolute;
+        z-index: -1;
+        border-radius: 5px;
+        box-shadow: 0 14px 50px -4px hsla(0, 0%, 0%, 0.15);
+        opacity: 0;
+    }
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1.4);
+  &:hover{
+      transform: translateZ(0px);
+
+  }
+  &:hover:after{
+      opacity: 1;
+  }
+}
+
+.card-flip-front{
+    z-index: 2;
+}
+
+
+.side{
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.card-flip-back{
+    transform: rotateY(180deg);
+    display: flex;
+    height: 100%;
+    position: relative;
+    box-shadow: 0px -1px 4px 9px rgba(0, 0, 0, 0.17);
+    border-radius: 20px;
+    overflow: hidden;
+    flex-direction: column;
+    z-index: 1;
+    &::after{
+        content: "";
+        background-color: rgba(0, 0, 0, 0.53);
+        top:0;
+        bottom: 0;
+        right: 0;
+        left:0;
+        width: 100%; 
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        user-select: none;
+
+    }
+}
+
+
+.card-fast-food, .card-restaurant{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    box-shadow: 0px -1px 4px 9px rgba(0, 0, 0, 0.226);
+    border-radius: 20px;
+    pointer-events: none;
+}
+.card-fast-food{
+    background-color: var(--secondary-light);
+}
+.card-random:nth-child(2){
+    @media (min-width:1200px) {
+        transform: translateY(-100px);
+    }
+}
+.card-restaurant{
+    background-color: var(--secondary);
+}
+
+.active-flip{
+    transform: translateZ(0px) rotateY(180deg) !important;
+  &:after{
+      display: none;
+  }
+}
+
+
+
+//composant card
+
+.city-container-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    background: #384041;
+    border-radius: 20px 0px 0px 20px;
+    min-height: 20px;
+    min-width: 50px;
+    max-width: 200px;
+    width: 100%;
+    padding:0.5rem 0;
+    span{
+        font-weight: bold;
+    }
+}
+.container-card-image-back{
+    img{
+        width:80px;
+        height: 80px;
+        object-fit: contain;  
+        padding:0.5rem 0; 
+    
+    }
+}
+
+.name-resto-card{
+    z-index: 2;
+    top:0;
+    color: white;
+    width: 100%;
+    text-align: center;
+    p{
+
+    }
+
+}
+
+.position-card{
+    display: flex;
+
+    img{
+        width:20px;
+        height: 20px;
+    }
+
+}
+
+.info-flip-card-back{
+    height: 100%;
+    display: flex;
+    color:white;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 1.8rem;
+    .info-flip-card-name{
+        font-weight: bold;
+        font-size:4rem;
+    }
+    p{
+        padding:0.5rem 0;
+        font-size: 2rem;
+    }
+}
+
+.note-card{
+    padding:0.5rem 0;
+}
+
+.container-flip-card:nth-child(2){
+    @media (min-width:992px) {    
+        transform: translateY(-40px);
+    }
+    .card-flip-front{
+        background-color: #5A5E5E;
+        
+    }
+}
+

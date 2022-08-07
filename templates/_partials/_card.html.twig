@@ -1,0 +1,37 @@
+{% set rating = 3 %}
+
+{% for resto in tab %}
+	<a class="card" href="#">
+		<figure class="ps-r figure-card">
+			<img src="{{asset('/build/images/site/' ~ resto.images[0] )}}" alt="">
+			
+		</figure>
+		<div class="info-card-rating">
+			<h2>{{resto.name}}</h2>
+			<span class="note">
+				{% for i in 1..5 %}
+					{% if resto.star < i %}
+						<i class="fa-regular fa-star"></i>
+					{% else %}
+						<i class="fa-solid fa-star"></i>
+					{% endif %}
+				{% endfor %}
+
+
+			</span>
+		</div>
+        <div class="d-flex justify-content-between align-items-center info-card-rating info-city-type-card">
+            <span class="info-city-card d-flex align-items-center">
+            <i class='bx bx-been-here' ></i>
+                {{resto.city}}
+            </span>
+            <span>
+            {% if resto.type != 'restaurant' %}
+            <img src="{{asset('/build/images/fast-black.svg')}}" alt="">
+            {% else %}
+            <img src="{{asset('/build/images/resto-black.svg')}}" alt="">
+            {% endif %}
+            </span>
+        </div>
+	</a>
+{% endfor %}

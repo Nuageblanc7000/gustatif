@@ -1,0 +1,58 @@
+.anim-bar-a{
+    position: relative;
+    &::after{
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: white;
+        transition:all 0.2s ease-in;
+        position: absolute;
+        bottom: 0;
+        left:0;
+    }
+
+}
+.anim-bar-a:hover.anim-bar-a::after{
+   width: 100%;
+}
+
+.animbar-inverse{
+    position: relative;
+    &::after{
+        content: '';
+        width: 0;
+        height: 1px;
+        background-color: var(--secondary);
+        transition:all 0.2s ease-in;
+        position: absolute;
+        bottom: 0;
+        left:0;
+       
+    }
+}
+.animbar-inverse:hover.animbar-inverse::after{
+    animation: anim-bar-inverse 0.4s ease alternate-reverse;
+ }
+ 
+@keyframes anim-bar-inverse {
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+
+.active-menu-pop
+{
+    height:initial !important;
+    transition: 1s all;
+    overflow:visible !important;
+    user-select:all;
+}
+
+
+.scale-anim{
+    scale:1.2;
+}

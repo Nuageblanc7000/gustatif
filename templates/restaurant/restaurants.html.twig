@@ -1,0 +1,28 @@
+{% set errors = false %}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Restaurant
+{% endblock %}
+
+{% block body %}
+	<section class="d-flex search-page container">
+
+		{% include "/_partials/_lateral_bar.html.twig" %}
+		<div class="overflow">
+			<section class="container-grid-card">
+				<span class="btn-filter-responsive">
+					<div class="pulse"></div>
+					Filtrer
+					<i class="fa-solid fa-filter"></i>
+				</span>
+				{% include "/_partials/_card.html.twig" %}
+			</section>
+		</div>
+	</section>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('active-lateral') }}
+{% endblock %}

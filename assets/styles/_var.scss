@@ -1,0 +1,60 @@
+//variable color,size,etc
+
+:root{
+    --body-color:#F5F5F5;
+    --white:#FCFCFC;
+    --grey:#EDEDED;
+    --primary:#feaa3a;
+    --secondary:#1c2826;
+    --linear:linear-gradient(-90deg, var(--g1), var(--g2));
+
+    --secondary:#384041;
+    --light:#f8fff4;
+    --color-1:#373f47;
+    --error:#D52941;
+    --color-2:#6D9DC5;
+    --color-3:#ECECEC;
+
+    
+    --g1: #FFB714;
+    --g2: #FFE579;
+    //font
+    --font:'Montserrat', sans-serif;
+    --title-font: 'Lobster', cursive;
+    --font-family1: 'Lobster', cursive;
+    --font-family2: 'Lobster Two', cursive;
+    --font-family3: 'Poppins', sans-serif;
+    //font weight
+    --bold:bold;
+    --medium:500;
+    --regular:400;
+    --thin:100;
+    //size container
+    --min-container:calc(100vh - 80px);
+    --box-shadow: 0 6px 9px 0 rgb(0 0 0 / 15%);
+    --box-shadow-nav: rgb(0 0 0 / 22%) 0px 2px 18px 0px;
+}
+$font-size:62.5%;
+
+// font-size police
+$p:1.6rem;
+$a:$p;
+$h2:4rem;
+$h3:2rem;
+
+
+//margin
+
+.m-a-l{
+    margin-left: auto;
+}
+
+.m-a-r{
+    margin-right: auto;
+}
+
+.bg-full{
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+}

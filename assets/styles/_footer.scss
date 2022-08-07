@@ -1,0 +1,33 @@
+
+.footer{
+    background-color:var(--secondary);
+    
+    padding:15px 20px;
+    .logo-footer{
+        img{
+            max-width:8rem;
+            max-height: 8rem;
+            object-fit: contain;
+            
+        }
+    }
+    nav{
+        ul{
+            @media (max-width:768px) {
+                flex-direction: column;
+            }
+            li{
+                display: flex;
+                padding:1rem 1rem;
+                flex: 1 1 auto;
+                justify-content: center;
+             
+
+                
+            }
+            a,li{
+                color:var(--white);
+            }
+        }
+    }
+}
