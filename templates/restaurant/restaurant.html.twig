@@ -1,58 +1,94 @@
+{% set restostar = 4 %}
+
+
 {% extends "base.html.twig" %}
 {# {% block title %} {{resto.name}} {% endblock %} #}
 {% block stylesheets %}
-    {{ parent() }}
-    {{ encore_entry_link_tags('splide') }}
+	{{ parent() }}
+	{{ encore_entry_link_tags('splide') }}
 {% endblock %}
 {% block body %}
 
-    <section class="slider-resto">
-        {# {% for image in resto.images %}
-        <img class= " slider-img  {% if loop.first %}active-slider{% endif %}"
-          src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
-            
-        {% endfor %} #}
-        <img class="slider-img active-slider" src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
-        <img class="slider-img" src="{{ asset('/build/images/site/resto1.jpg') }}" alt="">
-        <img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
-        <img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
+	<section class="container d-flex pt-3">
+        <aside class="container-navi-resto col-2">
+			
+				<div class="cube-lateral mx-2">
+					<i class="fa-solid fa-map-location"></i>
+				</div>
+				<div class="cube-lateral mx-2">
+					<i class="fa-solid fa-clock"></i>
+				</div>
+				<div class="cube-lateral mx-2">
+					<i class="fa-solid fa-utensils"></i>
+				</div>
+				<div class="cube-lateral mx-2">
+					<i class="fa-duotone fa-burger-cheese"></i>
+				</div>
+		
+		</aside>
+    <div class="col-10">
+		<div class="container-header-resto">
+			<h1>La boule bleu</h1>
+			<div class="container-header-star">
+				{% for i in 1..5 %}
+					{% if restostar < i %}
+						<i class="fa-regular fa-star"></i>
+					{% else %}
+						<i class="fa-solid fa-star"></i>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
 
-        <span class="control-slider-container">
-            {% for i in 0..3 %}
-                <div  class= "{% if loop.first %}active-control{% endif %} control-slider"></div> 
-            {% endfor %}
-         </span>
-    </section>
-    <section class="info-container-restaurant align-items-center d-flex">
-        <div class="action-btn-restaurant container d-flex">
-            <div class="cube-lateral mx-2">
-                <i class='bx bx-phone-call' ></i>
+		
+		<section
+			class="slider-resto">
+			{# {% for image in resto.images %}
+			        <img class= " slider-img  {% if loop.first %}active-slider{% endif %}"
+			          src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
+			            
+			        {% endfor %} #}
+
+			<img class="slider-img active-slider" src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
+			<img class="slider-img" src="{{ asset('/build/images/site/resto1.jpg') }}" alt="">
+			<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
+			<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
+
+			<span class="control-slider-container">
+				{% for i in 0..3 %}
+					<div class="{% if loop.first %}active-control{% endif %} control-slider"></div>
+				{% endfor %}
+			</span>
+		</section>
+
+        <section class="localization-resto">
+                <h2>
+                    Ou nous trouver ?
+                </h2>
+
+                <span class="position-info">
+                <picture>
+                <img src="{{asset('/build/images/position.svg')}}" alt="">
+                </picture>
+                <h3>    
+                  {# {{resto.adress}} #}
+                  Chemin du Vieux Port , 7382 Audregnies
+                </h3>
+                </span>
+            <div class="localization-resto-map">
+                
             </div>
-            <div class="cube-lateral mx-2">
-                <i class='bx bxs-city' ></i>
-            </div>
-            <div class="cube-lateral mx-2">
-                <i class='bx bx-bowl-hot' ></i>
-            </div>
-            <div class="cube-lateral mx-2">
-                <i class="fa-duotone fa-burger-cheese"></i>
-            </div>
-        </div>
-    </section>
-    <section class="container info-restaurant-container">
-    <section class="slide-resto-info">
+        </section>
+
+    </div>
+	</section>
     
-        
-    </section>
-   
-    </section>
-
 
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
-    
-    {{ encore_entry_script_tags('slider') }}
-    
+	{{ parent() }}
+
+	{{ encore_entry_script_tags('slider') }}
+
 {% endblock %}

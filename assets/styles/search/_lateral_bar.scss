@@ -225,7 +225,7 @@
         justify-content: space-between;
         cursor: pointer;
         &::after{
-            content:url('/public/build/images/check.svg');
+            content:url('/assets/images/check.svg');
             display: none;
             color:var(--white);
             width: 2rem;

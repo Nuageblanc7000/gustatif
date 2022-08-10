@@ -1,7 +1,7 @@
 
 .content-card{
     min-height: 60vh;
-    background-image: url('/public/build/images/line.svg');
+    background-image: url('/assets/images/home/ligne.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -107,7 +107,7 @@
         background-position: bottom -1px left 10px;
         background-repeat: no-repeat;
         background-size: contain;
-         background-image: url('/public/build/images/svgtop.svg');
+         background-image: url('/assets/images/home/top.svg');
         background-repeat: no-repeat;
     }
 
@@ -143,8 +143,7 @@
             justify-content: center;
             flex-direction: column;
             h2{
-                
-
+    
                 padding:1.8rem 0;
             }
             ul{

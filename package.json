@@ -22,6 +22,7 @@
         "@fortawesome/fontawesome-svg-core": "^6.1.2",
         "@splidejs/splide": "^4.0.7",
         "node-sass": "^7.0.1",
-        "sass-loader": "^13.0.2"
+        "sass": "^1.54.4",
+        "sass-loader": "^12.6.0"
     }
 }

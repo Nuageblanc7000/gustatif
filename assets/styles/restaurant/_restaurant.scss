@@ -1,49 +1,115 @@
-.info-container-restaurant{
-    background-color:var(--secondary);
-    min-height: 80px;
-    width: 100%;
-}
-
-.action-btn-restaurant{
-    .cube-lateral{
-        min-width: 60px;
-        min-height:60px;
-        background-color: var(--light);
-        margin: 1rem 0;
-        i{
-            color: var(--white);
-        }
-        transition: 0.5s all ease;
-        &:hover{
-            background-color: var(--primary);
-            transform: scale(1.05);
-        }
-    }
-}
-.info-restaurant-container{
-    overflow-x: hidden;
-    @media (max-width:992px) {
-        flex-direction: column;
-        .info-bar-restaurant{
-            margin:1rem 0 !important;
-        }
-    }
+.container-header-resto{
     display: flex;
-    .slide-resto-info{
-        min-height: 50vh;
-        width: 100%;
-        background-color: var(--white);
-        margin:1rem 0;
-        border-radius: 10px;
-        box-shadow: var(--box-shadow);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 100px;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    z-index: 1;
+    h1{
+        font-size: 5rem;
+        padding:0 1rem;
+        font-family: var(--title-font);
+        z-index: 2;
+        &::after{
+            content:'';
+            position: relative;
+            background-image: url('/assets/images/home/ligne.svg');
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            left:0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        
+        }
     }
 
-    .info-bar-restaurant{
-        background-color: white;
-        width: 100%;
-        background-color: var(--white);
-        margin:1rem 0rem 1rem 1rem;
-        border-radius: 10px;
-        box-shadow: var(--box-shadow);
+    .container-header-star{
+        padding: 0 1rem;
+        .fa-solid{
+          color: var(--primary);
+        }
     }
+}
+
+
+//nav page resto
+
+.container-navi-resto{
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    justify-content: space-around;
+    margin-right: 1rem;
+    max-height: 300px;
+    width: 60px;
+    top:220px;
+    background-color: var(--body);
+    box-shadow: var(--box-shadow-nav);
+    border-radius: 10px;
+    background-image: url('/assets/images/navi-resto.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    .cube-lateral{
+        background-color: var(--secondary);
+        border-radius: 5px;
+        width: 40px;
+        height: 40px;
+        transition: 0.5s ease-in;
+        cursor: pointer;
+        &:hover{
+          transform:  scale(1.1);
+        }
+
+        i{
+            color:var(--primary);
+        }
+    }
+}
+
+
+.localization-resto{
+    margin: 4rem 0;
+    padding:1rem;
+    box-shadow: var(--box-shadow);
+    background-color: var(--grey);
+    border-radius: 10px;
+
+    h2{
+        font-family: var(--title-font);
+        font-size: 4rem;
+        max-width: fit-content;
+        color:var(--secondary);
+        border-bottom: 1px solid var(--primary);
+        margin: 0 auto;
+    }
+
+    .position-info{
+        display: flex;
+        margin: 2rem auto;
+        align-items: center;
+        max-width: fit-content;
+        picture{
+        margin:0 1rem;
+        width: 40px;
+        height: 40px;
+        img{
+            max-width:100% ;
+            max-height: 100%;
+        }
+        }
+
+        h3{
+            font-family: var(--title-font2);
+            font-weight: bold;
+        }
+
+
+    }
+
 }
