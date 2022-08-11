@@ -1,23 +1,26 @@
 {% set restostar = 4 %}
+{% set tel = '0477679409' %}
 
 
 {% extends "base.html.twig" %}
 {# {% block title %} {{resto.name}} {% endblock %} #}
 {% block stylesheets %}
 	{{ parent() }}
-	{{ encore_entry_link_tags('splide') }}
+	 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+     integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+     crossorigin="">
 {% endblock %}
 {% block body %}
 
 	<section class="container d-flex pt-3">
         <aside class="container-navi-resto col-2">
 			
-				<div class="cube-lateral mx-2">
+				<a  class="cube-lateral mx-2" href="#localization" >
 					<i class="fa-solid fa-map-location"></i>
-				</div>
-				<div class="cube-lateral mx-2">
+				</a>
+				<a class="cube-lateral mx-2" href="#hourly">
 					<i class="fa-solid fa-clock"></i>
-				</div>
+				</a>
 				<div class="cube-lateral mx-2">
 					<i class="fa-solid fa-utensils"></i>
 				</div>
@@ -28,7 +31,12 @@
 		</aside>
     <div class="col-10">
 		<div class="container-header-resto">
-			<h1>La boule bleu</h1>
+			<h1>
+				{% trans %}
+					La boule bleu
+				{% endtrans %}
+			
+			</h1>
 			<div class="container-header-star">
 				{% for i in 1..5 %}
 					{% if restostar < i %}
@@ -53,17 +61,22 @@
 			<img class="slider-img" src="{{ asset('/build/images/site/resto1.jpg') }}" alt="">
 			<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
 			<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
+			<img class="slider-img" src="{{ asset('/build/images/site/fast1.jpg') }}" alt="">
+			<img class="slider-img" src="{{ asset('/build/images/site/fast1.jpg') }}" alt="">
 
 			<span class="control-slider-container">
-				{% for i in 0..3 %}
+				{% for i in 0..5 %}
 					<div class="{% if loop.first %}active-control{% endif %} control-slider"></div>
 				{% endfor %}
 			</span>
 		</section>
-
-        <section class="localization-resto">
+		
+		<div id="localization"></div>
+        <section  class="localization-resto">
                 <h2>
+				{% trans %}
                     Ou nous trouver ?
+				{% endtrans %}
                 </h2>
 
                 <span class="position-info">
@@ -71,14 +84,45 @@
                 <img src="{{asset('/build/images/position.svg')}}" alt="">
                 </picture>
                 <h3>    
-                  {# {{resto.adress}} #}
-                  Chemin du Vieux Port , 7382 Audregnies
+                  	{# {{resto.adress}} #}
+				  {% trans %}
+                  	Chemin du Vieux Port , 7382 Audregnies
+				  {% endtrans %}
                 </h3>
                 </span>
+
+				<a class="container-number-resto" href="tel:{{tel}}">
+					<div class="icon-number-resto">
+					<i class="fa-solid fa-mobile-screen"></i>
+					</div>
+					<div class="number-resto">
+						{{tel}}
+					</div>
+				</a>
             <div class="localization-resto-map">
+                <div id="map" data-l={{lati}} data-la={{longi}}></div>
                 
             </div>
         </section>
+		<div id="hourly"></div>
+		<section class="container-hourly">
+			<h2>
+                {% trans %}Horaire{% endtrans %}
+			
+            </h2>
+
+			<div class="hourly">
+         <ul>
+		  <li><span class="day">Lundi</span> <span class="container-hour"><span>17h-18h</span></span></li>
+		  <li><span class="day">Mardi</span> <span class="container-hour"><span>17h-18h</span></span></li>
+		  <li class="closed"><span class="day">Mercredi</span><span class="container-hour"><span>Fermé</span></span></li>
+		  <li><span class="day">Jeudi</span> <span class="container-hour"><span>17h-18h</span></span></li>
+		  <li><span class="day">Vendredi</span> <span class="container-hour"><span>17h-23h</span></span></li>
+		  <li><span class="day">Samedi</span> <span class="container-hour"><span>12h-22h30</span></span></li>
+		  <li><span class="day">Dimanche</span> <span class="container-hour"><span>12h-14h</span></span></li>
+		 </ul>
+			</div>
+		</section>
 
     </div>
 	</section>
@@ -89,6 +133,8 @@
 {% block javascripts %}
 	{{ parent() }}
 
+    <script defer src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+     integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+     crossorigin=""></script>
 	{{ encore_entry_script_tags('slider') }}
-
 {% endblock %}

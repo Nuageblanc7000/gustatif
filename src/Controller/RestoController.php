@@ -30,8 +30,12 @@ class RestoController extends AbstractController
     #[Route('/restaurant/{id}', name: 'restaurant')]
     public function restaurant(): Response
     {
+        $longi = "3.956659";
+        $lati = "50.454241";
         return $this->render('restaurant/restaurant.html.twig', [
             'resto' => '',
+            'longi' => $longi,
+            'lati' => $lati
         ]);
     }
 

@@ -1,5 +1,6 @@
 html{
     font-size: $font-size;
+    scroll-behavior: smooth;
 }
 *{
     box-sizing: border-box;
@@ -12,6 +13,7 @@ body{
     background: var(--body-color);
     font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
+
 
 }
 ul{

@@ -5,7 +5,7 @@ header{
     position: sticky;
     top:0;
     min-height: 50px;
-    z-index: 200;
+    z-index: 9999;
     box-shadow: var(--box-shadow-nav);
 }
 .header-container{
