@@ -2,7 +2,7 @@
     height: calc(70vh);
     position: relative;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 10px 10px 0 0;
     box-shadow: var(--box-shadow);
     .slider-img{
         object-fit: cover;

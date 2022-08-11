@@ -49,6 +49,7 @@
     max-height: 300px;
     width: 60px;
     top:220px;
+    z-index: 9000;
     background-color: var(--body);
     box-shadow: var(--box-shadow-nav);
     border-radius: 10px;
@@ -57,6 +58,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     .cube-lateral{
+        position: relative;
         background-color: var(--secondary);
         border-radius: 5px;
         width: 40px;
@@ -65,17 +67,49 @@
         cursor: pointer;
         &:hover{
           transform:  scale(1.1);
+          .sticker{
+            opacity: 1;
+          }
         }
 
         i{
             color:var(--primary);
+        }
+       
+        .sticker{
+            transition: 0.5s ease-in;
+            opacity: 0;
+            position: absolute;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow-nav);
+            user-select: none;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:1rem 2rem;
+            min-width: 110px;
+            width: 100%;
+            z-index: 250;
+            right: -125px;
+            border-radius: 5px;
+            color: var(--secondary);
+            &::after{
+                content:'<';
+                color: var(--white);
+                
+                position: absolute;
+                left:-10px;
+                font-size: 2rem;
+                font-weight: bold;
+            }
         }
     }
 }
 #localization,#hourly{
     min-height: 50px;
 }
-.localization-resto , .container-hourly{
+.localization-resto , .container-hourly, .container-information-resto{
     margin: 1rem 0;
     display: flex;
     flex-direction: column;
@@ -115,7 +149,7 @@
         }
 
         h3{
-            font-family: var(--title-font2);
+            font-family: var(--title-font3);
             font-weight: bold;
         }
 
@@ -152,6 +186,19 @@
         height: 100%;
         overflow: hidden;
         border-radius: 0px 10px 0 10px;
+        position: relative;
+        &::after{
+            content:'';
+            background-color: rgba(0, 0, 0, 0.106);
+            position: absolute;
+            z-index: 400;
+            left:0;
+            width: 100%;
+            height: 100%;
+            top:0;
+            bottom: 0;
+            right: 0;
+        }
         #map{
             width: 100%;
             min-height: 400px;
@@ -212,5 +259,62 @@
         margin: 2rem 0;
         padding: 1rem;
         border-radius: inherit;
+    }
+}
+
+
+.container-information-resto{
+    padding:1rem;
+    margin: 0;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    &::after{
+        position: absolute;
+        content:url('/assets/images/chef.png');
+        z-index: 1;
+        bottom: 0;
+        right: 0;
+    }
+    h2{
+        color:var(--secondary);
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    .container-description-resto{
+        p{}
+    }
+
+    .container-origine-cuisine{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3{
+            text-align: center;
+            border-bottom: 1px solid var(--primary);
+            width: fit-content;
+
+            padding: 1rem 0;
+        }
+        figure{
+            display: flex;
+            flex-direction: column;
+            z-index: 4;
+
+            margin:1rem 0;
+        
+            figcaption{
+                padding:1rem 0;
+                text-align: center;
+                font-family: var( --font-family2);
+                font-weight: 500;
+                font-size: 2rem;
+            }
+        }
+
+
+
     }
 }

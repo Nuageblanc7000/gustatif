@@ -14,19 +14,40 @@
 
 	<section class="container d-flex pt-3">
         <aside class="container-navi-resto col-2">
-			
-				<a  class="cube-lateral mx-2" href="#localization" >
+			<a class="cube-lateral mx-2" href="#information-resto">
+					<i class="fa-solid fa-circle-info"></i>
+					<span class="sticker">
+						{% trans %}
+						Information
+					{% endtrans %}
+					</span>
+				</a>
+				
+				<a class="cube-lateral mx-2" href="#recipe">
+					<i class="fa-solid fa-utensils"></i>
+					<span class="sticker">
+					{% trans %}
+						Plats
+					{% endtrans %}
+					</span>
+				</a>
+
+				<a  class="cube-lateral mx-2 " href="#localization" >
 					<i class="fa-solid fa-map-location"></i>
+					<span class="sticker">
+						{% trans %}
+							Localiser
+						{% endtrans %}
+					</span>
 				</a>
 				<a class="cube-lateral mx-2" href="#hourly">
 					<i class="fa-solid fa-clock"></i>
+					<span class="sticker">
+					{% trans %}
+						Horaire
+					{% endtrans %}
+					</span>
 				</a>
-				<div class="cube-lateral mx-2">
-					<i class="fa-solid fa-utensils"></i>
-				</div>
-				<div class="cube-lateral mx-2">
-					<i class="fa-duotone fa-burger-cheese"></i>
-				</div>
 		
 		</aside>
     <div class="col-10">
@@ -50,7 +71,7 @@
 
 		
 		<section
-			class="slider-resto">
+			class="slider-resto" id="information-resto">
 			{# {% for image in resto.images %}
 			        <img class= " slider-img  {% if loop.first %}active-slider{% endif %}"
 			          src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
@@ -70,7 +91,32 @@
 				{% endfor %}
 			</span>
 		</section>
-		
+		<section class="container-information-resto">
+			<h2>
+				{% trans %}
+					Qui sommes nous?
+				{% endtrans %}
+			</h2>
+
+			<article class="container-description-resto">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt temporibus harum sit autem corrupti nulla illum rerum doloribus nihil facere nostrum nesciunt voluptas quam dicta explicabo distinctio id, illo saepe.
+					Tempora, velit deleniti? Voluptate modi eligendi quam ducimus.
+				</p>
+			</article>	
+			<div class="container-origine-cuisine">
+			<h3>
+				Origines de la cuisine 
+			</h3>
+				<figure>
+				<img src="{{asset('/build/images/type-kitchen/italie-type.svg')}}" alt="">
+				<figcaption>
+				{# {{}} #}
+				Italienne
+				</figcaption>
+				</figure>
+			</div>
+		</section>
 		<div id="localization"></div>
         <section  class="localization-resto">
                 <h2>
