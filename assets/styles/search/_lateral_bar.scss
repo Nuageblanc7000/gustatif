@@ -1,3 +1,9 @@
+.open-error{
+    width: 100%;
+    .lateral-error{
+        opacity: 1;
+    }
+}
 .back-lateral{
       width:100%;
       position: fixed;
@@ -14,7 +20,7 @@
 .lateral{
     max-width: 400px;
     // overflow-x: hidden;
-    background-color: var(--secondary);
+    background-color: var(--grey);
     background-position: center center;
     background-size: cover;
     transition: 0.5s all cubic-bezier(0.19, 1, 0.22, 1);
@@ -128,10 +134,11 @@
     justify-content: center;
     align-items: center;
     i{
-        color: var(--secondary);
-        font-size: 3rem;
+       font-size: 2.3rem;
+        
     }
 }
+
 
 .form-search{
         input[type=search]{
@@ -152,6 +159,26 @@
     
             }
         }
+}
+.money-search
+{
+    min-height: 100px;
+    .cube-lateral{
+        min-height: inherit;
+    }
+    .range{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        min-height: inherit;
+        padding:0 1rem;
+        width: 100%;
+        .js-range{
+            display: flex;
+            justify-content: center;
+            padding:0.2rem 0;
+        }
+    }
 }
 
 .sticky-lateral{

@@ -1,5 +1,5 @@
 <div class="back"></div>
-<div class="lateral col-lg-4">
+<div class="lateral col-lg-4 {% if errors %}open-error{% endif %}">
     <div class="cross"><i class="fa-solid fa-xmark"></i></div>
 			<form class="sticky-lateral">
 				<div class="btn-lateral-container form-search">
@@ -53,11 +53,14 @@
 				{% include "/_partials/_errors.html.twig" with {'errors' : errors } %}
 
 
-				<div class="btn-lateral-container form-search">
-					<div class="cube-lateral">
+				<div class="btn-lateral-container form-search money-search">
+					<div class="cube-lateral money">
 						<i class="fa-solid fa-euro-sign"></i>
 					</div>
-					<input type="range" name="" id="">
+					<div class="range">
+						 <span class="js-range">Budget 3000 €</span>
+						<input type="range" name="" id="">
+					</div>
 				</div>
 				<div class="btn-lateral-container form-search">
 					<div class="cube-search-submit">

@@ -6,181 +6,312 @@
 {# {% block title %} {{resto.name}} {% endblock %} #}
 {% block stylesheets %}
 	{{ parent() }}
-	 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-     integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-     crossorigin="">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="">
 {% endblock %}
 {% block body %}
+	<div class="nav-responsive-resto">
+		<div class="container">
+			<div class="container-header-resto">
+				<h1>
+					{% trans %}
+					La boule bleu
+					{% endtrans %}
 
-	<section class="container d-flex pt-3">
-        <aside class="container-navi-resto col-2">
-			<a class="cube-lateral mx-2" href="#information-resto">
+				</h1>
+				<div class="container-header-star">
+					{% for i in 1..5 %}
+						{% if restostar < i %}
+							<i class="fa-regular fa-star"></i>
+						{% else %}
+							<i class="fa-solid fa-star"></i>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="nav-cube-responsive d-flex">
+				<a class="cube-lateral mx-2" href="#information-resto">
+
 					<i class="fa-solid fa-circle-info"></i>
 					<span class="sticker">
 						{% trans %}
 						Information
-					{% endtrans %}
-					</span>
-				</a>
-				
-				<a class="cube-lateral mx-2" href="#recipe">
-					<i class="fa-solid fa-utensils"></i>
-					<span class="sticker">
-					{% trans %}
-						Plats
-					{% endtrans %}
+						{% endtrans %}
 					</span>
 				</a>
 
-				<a  class="cube-lateral mx-2 " href="#localization" >
+				<a class="cube-lateral mx-2" href="#recipe">
+					<i class="fa-solid fa-utensils"></i>
+					<span class="sticker">
+						{% trans %}
+						Plats
+						{% endtrans %}
+					</span>
+				</a>
+
+				<a class="cube-lateral mx-2 " href="#localization">
 					<i class="fa-solid fa-map-location"></i>
 					<span class="sticker">
 						{% trans %}
-							Localiser
+						Localiser
 						{% endtrans %}
 					</span>
 				</a>
 				<a class="cube-lateral mx-2" href="#hourly">
 					<i class="fa-solid fa-clock"></i>
 					<span class="sticker">
-					{% trans %}
+						{% trans %}
 						Horaire
-					{% endtrans %}
+						{% endtrans %}
 					</span>
 				</a>
-		
-		</aside>
-    <div class="col-10">
-		<div class="container-header-resto">
-			<h1>
-				{% trans %}
-					La boule bleu
-				{% endtrans %}
-			
-			</h1>
-			<div class="container-header-star">
-				{% for i in 1..5 %}
-					{% if restostar < i %}
-						<i class="fa-regular fa-star"></i>
-					{% else %}
-						<i class="fa-solid fa-star"></i>
-					{% endif %}
-				{% endfor %}
 			</div>
 		</div>
+	</div>
+	<section class="container container-page-resto d-flex pt-3">
+		<aside class="container-navi-resto col-2">
+			<a class="cube-lateral mx-2" href="#information-resto">
+				<i class="fa-solid fa-circle-info"></i>
+				<span class="sticker">
+					{% trans %}
+					Information
+					{% endtrans %}
+				</span>
+			</a>
 
-		
-		<section
-			class="slider-resto" id="information-resto">
-			{# {% for image in resto.images %}
-			        <img class= " slider-img  {% if loop.first %}active-slider{% endif %}"
-			          src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
-			            
-			        {% endfor %} #}
+			<a class="cube-lateral mx-2" href="#recipe">
+				<i class="fa-solid fa-utensils"></i>
+				<span class="sticker">
+					{% trans %}
+					Plats
+					{% endtrans %}
+				</span>
+			</a>
 
-			<img class="slider-img active-slider" src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
-			<img class="slider-img" src="{{ asset('/build/images/site/resto1.jpg') }}" alt="">
-			<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
-			<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
-			<img class="slider-img" src="{{ asset('/build/images/site/fast1.jpg') }}" alt="">
-			<img class="slider-img" src="{{ asset('/build/images/site/fast1.jpg') }}" alt="">
+			<a class="cube-lateral mx-2 " href="#localization">
+				<i class="fa-solid fa-map-location"></i>
+				<span class="sticker">
+					{% trans %}
+					Localiser
+					{% endtrans %}
+				</span>
+			</a>
+			<a class="cube-lateral mx-2" href="#hourly">
+				<i class="fa-solid fa-clock"></i>
+				<span class="sticker">
+					{% trans %}
+					Horaire
+					{% endtrans %}
+				</span>
+			</a>
 
-			<span class="control-slider-container">
-				{% for i in 0..5 %}
-					<div class="{% if loop.first %}active-control{% endif %} control-slider"></div>
-				{% endfor %}
-			</span>
-		</section>
-		<section class="container-information-resto">
-			<h2>
-				{% trans %}
-					Qui sommes nous?
-				{% endtrans %}
-			</h2>
+		</aside>
+		<div class="col-12 col-lg-10 col-xl-10">
+			<div class="container-header-resto">
+				<h1>
+					{% trans %}
+					La boule bleu
+					{% endtrans %}
 
-			<article class="container-description-resto">
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt temporibus harum sit autem corrupti nulla illum rerum doloribus nihil facere nostrum nesciunt voluptas quam dicta explicabo distinctio id, illo saepe.
-					Tempora, velit deleniti? Voluptate modi eligendi quam ducimus.
-				</p>
-			</article>	
-			<div class="container-origine-cuisine">
-			<h3>
-				Origines de la cuisine 
-			</h3>
-				<figure>
-				<img src="{{asset('/build/images/type-kitchen/italie-type.svg')}}" alt="">
-				<figcaption>
-				{# {{}} #}
-				Italienne
-				</figcaption>
-				</figure>
+				</h1>
+				<div class="container-header-star">
+					{% for i in 1..5 %}
+						{% if restostar < i %}
+							<i class="fa-regular fa-star"></i>
+						{% else %}
+							<i class="fa-solid fa-star"></i>
+						{% endif %}
+					{% endfor %}
+				</div>
 			</div>
-		</section>
-		<div id="localization"></div>
-        <section  class="localization-resto">
-                <h2>
-				{% trans %}
-                    Ou nous trouver ?
-				{% endtrans %}
-                </h2>
 
-                <span class="position-info">
-                <picture>
-                <img src="{{asset('/build/images/position.svg')}}" alt="">
-                </picture>
-                <h3>    
-                  	{# {{resto.adress}} #}
-				  {% trans %}
-                  	Chemin du Vieux Port , 7382 Audregnies
-				  {% endtrans %}
-                </h3>
-                </span>
+
+			<section
+				class="slider-resto" id="information-resto">
+				{# {% for image in resto.images %}
+							        <img class= " slider-img  {% if loop.first %}active-slider{% endif %}"
+							          src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
+							            
+							        {% endfor %} #}
+
+				<img class="slider-img active-slider" src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
+				<img class="slider-img" src="{{ asset('/build/images/site/resto1.jpg') }}" alt="">
+				<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
+				<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
+				<img class="slider-img" src="{{ asset('/build/images/site/fast1.jpg') }}" alt="">
+				<img class="slider-img" src="{{ asset('/build/images/site/fast1.jpg') }}" alt="">
+
+				<span class="control-slider-container">
+					{% for i in 0..5 %}
+						<div class="{% if loop.first %}active-control{% endif %} control-slider"></div>
+					{% endfor %}
+				</span>
+			</section>
+			<section class="container-information-resto">
+				<h2>
+					{% trans %}
+					Qui sommes nous?
+					{% endtrans %}
+				</h2>
+
+				<article class="container-description-resto">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt temporibus harum sit autem corrupti nulla illum rerum doloribus nihil facere nostrum nesciunt voluptas quam dicta explicabo distinctio id, illo saepe.
+											Tempora, velit deleniti? Voluptate modi eligendi quam ducimus.
+					</p>
+				</article>
+				<div class="container-origine-cuisine">
+					<h3>
+						Origines de la cuisine
+					</h3>
+					<figure>
+						<img src="{{asset('/build/images/type-kitchen/italie-type.svg')}}" alt="">
+						<figcaption>
+							{# {{}} #}
+							Italienne
+						</figcaption>
+					</figure>
+				</div>
+			</section>
+
+			<div id="plats"></div>
+			<section class="container-plats">
+				<h2>Nos spécialités</h2>
+				<div class="container-plat">
+					<div class="plat">
+						<picture style="background-image:url({{asset('/images/restaurant/italian.jpg')}})"></picture>
+						<span>
+							Pâtes aux tomates pestos
+						</span>
+					</div>
+
+					<div class="plat">
+						<picture class="plat" style="background-image:url({{asset('/images/restaurant/italian.jpg')}})"></picture>
+						<span>
+							Pâtes aux tomates pestos
+						</span>
+					</div>
+
+
+					<div class="plat">
+						<picture class="plat" style="background-image:url({{asset('/images/restaurant/italian.jpg')}})"></picture>
+						<span>
+							Pâtes aux tomates pestos
+						</span>
+					</div>
+
+
+					<div class="plat">
+						<picture class="plat" style="background-image:url({{asset('/images/restaurant/italian.jpg')}})"></picture>
+						<span>
+							Pâtes aux tomates pestos
+						</span>
+					</div>
+				</div>
+
+
+			</section>
+
+
+			<div id="localization"></div>
+			<section class="localization-resto">
+				<h2>
+					{% trans %}
+					Ou nous trouver ?
+					{% endtrans %}
+				</h2>
+
+				<span class="position-info">
+					<picture>
+						<img src="{{asset('/build/images/position.svg')}}" alt="">
+					</picture>
+					<h3>
+						{# {{resto.adress}} #}
+
+						{% trans %}
+
+						Chemin du Vieux Port , 7382 Audregnies
+						{% endtrans %}
+					</h3>
+				</span>
 
 				<a class="container-number-resto" href="tel:{{tel}}">
 					<div class="icon-number-resto">
-					<i class="fa-solid fa-mobile-screen"></i>
+						<i class="fa-solid fa-mobile-screen"></i>
 					</div>
 					<div class="number-resto">
 						{{tel}}
 					</div>
 				</a>
-            <div class="localization-resto-map">
-                <div id="map" data-l={{lati}} data-la={{longi}}></div>
-                
-            </div>
-        </section>
-		<div id="hourly"></div>
-		<section class="container-hourly">
-			<h2>
-                {% trans %}Horaire{% endtrans %}
-			
-            </h2>
+				<div class="localization-resto-map">
+					<div id="map" data-l={{lati}} data-la={{longi}}></div>
 
-			<div class="hourly">
-         <ul>
-		  <li><span class="day">Lundi</span> <span class="container-hour"><span>17h-18h</span></span></li>
-		  <li><span class="day">Mardi</span> <span class="container-hour"><span>17h-18h</span></span></li>
-		  <li class="closed"><span class="day">Mercredi</span><span class="container-hour"><span>Fermé</span></span></li>
-		  <li><span class="day">Jeudi</span> <span class="container-hour"><span>17h-18h</span></span></li>
-		  <li><span class="day">Vendredi</span> <span class="container-hour"><span>17h-23h</span></span></li>
-		  <li><span class="day">Samedi</span> <span class="container-hour"><span>12h-22h30</span></span></li>
-		  <li><span class="day">Dimanche</span> <span class="container-hour"><span>12h-14h</span></span></li>
-		 </ul>
-			</div>
-		</section>
+				</div>
+			</section>
+			<div id="hourly"></div>
+			<section class="container-hourly">
+				<h2>
+					{% trans %}Horaire{% endtrans %}
 
-    </div>
+				</h2>
+
+				<div class="hourly">
+					<ul>
+						<li>
+							<span class="day">Lundi</span>
+							<span class="container-hour">
+								<span>17h-18h</span>
+							</span>
+						</li>
+						<li>
+							<span class="day">Mardi</span>
+							<span class="container-hour">
+								<span>17h-18h</span>
+							</span>
+						</li>
+						<li class="closed">
+							<span class="day">Mercredi</span>
+							<span class="container-hour">
+								<span>Fermé</span>
+							</span>
+						</li>
+						<li>
+							<span class="day">Jeudi</span>
+							<span class="container-hour">
+								<span>17h-18h</span>
+							</span>
+						</li>
+						<li>
+							<span class="day">Vendredi</span>
+							<span class="container-hour">
+								<span>17h-23h</span>
+							</span>
+						</li>
+						<li>
+							<span class="day">Samedi</span>
+							<span class="container-hour">
+								<span>12h-22h30</span>
+							</span>
+						</li>
+						<li>
+							<span class="day">Dimanche</span>
+							<span class="container-hour">
+								<span>12h-14h</span>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+		</div>
 	</section>
-    
+
 
 {% endblock %}
 
 {% block javascripts %}
 	{{ parent() }}
 
-    <script defer src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-     integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-     crossorigin=""></script>
+	<script defer src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
 	{{ encore_entry_script_tags('slider') }}
 {% endblock %}
