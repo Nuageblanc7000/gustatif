@@ -21,7 +21,7 @@ class UserController extends AbstractController
 {
 
 
-    #[Route('/register', name: 'app_user_register', methods: ['GET', 'POST'])]
+    #[Route('/register', name: 'user_register', methods: ['GET', 'POST'])]
     public function new(Request $request,EntityManagerInterface $em,MailService $mail, UserPasswordHasherInterface $hasher): Response
     {
         $user = new User();

@@ -25,7 +25,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
-
+    
     #[ORM\Column(type: 'string')]
     private $password;
 
@@ -37,6 +37,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToOne(mappedBy: 'userCurrent', targetEntity: TokenResolve::class, cascade: ['persist'])]
     private $tokenResolve;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $adress;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $zipcode;
+
+    #[ORM\Column(type: 'boolean')]
+    private $isResto = false;
 
     public function getId(): ?int
     {
@@ -146,6 +155,42 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         $this->tokenResolve = $tokenResolve;
+
+        return $this;
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(?string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    public function getZipcode(): ?int
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode(?int $zipcode): self
+    {
+        $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    public function isIsResto(): ?bool
+    {
+        return $this->isResto;
+    }
+
+    public function setIsResto(bool $isResto): self
+    {
+        $this->isResto = $isResto;
 
         return $this;
     }

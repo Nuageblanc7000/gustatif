@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -23,11 +24,16 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email',EmailType::class,[
-
             ])
             ->add('pseudo',TextType::class,[
                 'attr' =>[
                     'placeholder' => 'pseudo'
+                ]
+            ])
+            ->add('isResto',CheckboxType::class,[
+                'label' => $this->translator->trans('Etes vous restaurateur?'),
+                'attr' => [
+                    'class'=> 'form-boolean'
                 ]
             ])
             ->add('password',RepeatedType::class,

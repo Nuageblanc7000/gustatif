@@ -16,9 +16,9 @@
 		<div class="header-container-btn">
 		{% if  not app.user %}
 		
-			<a href="#">Connection</a>
+			<a href="{{path('login')}}" class="anim-bar-a">Connection</a>
 			<p class="pibe">|</p>
-			<a href="#">Inscription</a>
+			<a href="{{path('user_register')}}" class="anim-bar-a">Inscription</a>
 	
 				
 		{% endif %}

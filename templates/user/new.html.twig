@@ -1,12 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New User{% endblock %}
+{% block title %}Inscription{% endblock %}
 
 {% block body %}
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{form_rest(form)}}
+<div class="container-form-inscription">
+{# <div class="col-lg-6 container-img-inscription">
+    <img src="{{asset('/build/images/chefInscription.svg')}}" alt="chef">
+</div> #}
+<div class="inscriptionForm">
+ <img src="{{asset('/build/images/banner-logo.svg')}}" alt="chef">
+{{ form_start(form , {'attr':{'class':'form'}}) }}
+
+<div class="form-groups">
+    {{form_label(form.email)}}
+    {{ form_widget(form.email) }}
+    {{ form_errors(form.email) }}
+</div>
+<div class="form-groups">
+    {{form_label(form.pseudo)}}
+    {{ form_widget(form.pseudo) }}
+     {{ form_errors(form.pseudo) }}
+</div>
+<div class="form-groups">
+    {{ form_label(form.password.first) }}
+    {{ form_widget(form.password.first) }}
+    {{ form_label(form.password.second) }}
+    {{ form_widget(form.password.second) }}
+    {{ form_errors(form.password.first) }}
+</div>
+<div class="form-group">
+      {{ form_label(form.isResto) }}
+      {{ form_widget(form.isResto) }}
+      {{ form_errors(form.isResto) }}
+</div>
+    {# {{form_rest(form)}} #}
     <button class="btn">{{ button_label|default('S\'inscrire') }}</button>
 {{ form_end(form) }}
 
+<div class="info-form-user">
+<span> En m'inscrivant,je confirme que j'ai accepté :</span>
+<ul>
+    <li>
+        <a href="">
+            les Termes et conditions de Tolink
+        </a>
+    </li>
+     <li>
+        <a href="">
+        avoir lu la Politique de confidentialité
+        </a>
+    </li>
+</ul>
+</div>
+</div>
+
+</div>
 {% endblock %}

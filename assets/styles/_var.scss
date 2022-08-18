@@ -3,12 +3,14 @@
 :root{
     --body-color:#fbfbfb;
     --white:#FCFCFC;
+    --white2:#fff;
     --grey:#EDEDED;
     --primary:#feaa3a;
     --secondary:#1c2826;
     --linear:linear-gradient(-90deg, var(--g1), var(--g2));
 
     --secondary:#384041;
+    --secondary-light:#38404148;
     --light:#f8fff4;
     --color-1:#373f47;
     --error:#D52941;
@@ -33,7 +35,7 @@
     --regular:400;
     --thin:100;
     //size container
-    --min-container:calc(100vh - 80px);
+    --min-container:calc(100vh - 200px);
     --box-shadow: 0 6px 9px 0 rgb(0 0 0 / 15%);
     --box-shadow-nav: rgb(0 0 0 / 22%) 0px 2px 18px 0px;
 }
