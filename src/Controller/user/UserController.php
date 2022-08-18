@@ -34,7 +34,7 @@ class UserController extends AbstractController
             $em->persist($user);
             $em->flush();
             $mail->subscribeMail($user);
-            return $this->redirectToRoute('app_user_profil', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('login', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('user/new.html.twig', [

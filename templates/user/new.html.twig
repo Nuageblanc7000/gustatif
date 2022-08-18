@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}common{% endblock %}
 
 {% block body %}
-<div class="container-form-inscription">
-{# <div class="col-lg-6 container-img-inscription">
-    <img src="{{asset('/build/images/chefInscription.svg')}}" alt="chef">
-</div> #}
-<div class="inscriptionForm">
+<div class="bg-common">
+<div class="container-form-common">
+<div class="commonForm">
  <img src="{{asset('/build/images/banner-logo.svg')}}" alt="chef">
 {{ form_start(form , {'attr':{'class':'form'}}) }}
 
@@ -38,7 +36,7 @@
 {{ form_end(form) }}
 
 <div class="info-form-user">
-<span> En m'inscrivant,je confirme que j'ai accepté :</span>
+<span> En m'inscrivant, je confirme que j'ai accepté :</span>
 <ul>
     <li>
         <a href="">
@@ -54,5 +52,6 @@
 </div>
 </div>
 
+</div>
 </div>
 {% endblock %}
