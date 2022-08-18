@@ -2,16 +2,19 @@
 
 namespace App\Form;
 
+use App\Entity\City;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+
 
 class UserType extends AbstractType
 {
@@ -23,13 +26,21 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email',EmailType::class,[
-            ])
+            ->add('email',EmailType::class,[])
+
             ->add('pseudo',TextType::class,[
                 'attr' =>[
                     'placeholder' => 'pseudo'
-                ]
-            ])
+                    ]
+                    ])
+                    ->add('city',EntityType::class,[
+                        'class' => City::class,
+                        'choice_label' => 'localite',
+                        'placeholder' => 'Ville',
+                        'required'=> false,
+                        'autocomplete' => true
+                    ])
+                    
             ->add('isResto',CheckboxType::class,[
                 'label' => $this->translator->trans('Etes vous restaurateur?'),
                 'required' => false,

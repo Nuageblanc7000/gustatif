@@ -20,6 +20,11 @@
      {{ form_errors(form.pseudo) }}
 </div>
 <div class="form-groups">
+     {{ form_label(form.city) }}
+    {{ form_widget(form.city) }}
+    {{ form_errors(form.city) }}
+</div>
+<div class="form-groups">
     {{ form_label(form.password.first) }}
     {{ form_widget(form.password.first) }}
     {{ form_label(form.password.second) }}

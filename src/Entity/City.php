@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CityRepository::class)]
@@ -30,6 +32,14 @@ class City
 
     #[ORM\Column(type: 'string', length: 255)]
     private $geom;
+
+    #[ORM\OneToMany(mappedBy: 'city', targetEntity: User::class)]
+    private $user;
+
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -106,5 +116,40 @@ class City
         $this->geom = $geom;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+            $user->setCity($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->user->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getCity() === $this) {
+                $user->setCity(null);
+            }
+        }
+
+        return $this;
+    }
+
+    function __toString() : string
+    {
+        return $this->localite;
     }
 }

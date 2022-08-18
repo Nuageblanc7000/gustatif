@@ -47,6 +47,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isResto = false;
 
+    #[ORM\ManyToOne(targetEntity: City::class, inversedBy: 'user')]
+    private $city;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -191,6 +194,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsResto(bool $isResto): self
     {
         $this->isResto = $isResto;
+
+        return $this;
+    }
+
+    public function getCity(): ?City
+    {
+        return $this->city;
+    }
+
+    public function setCity(?City $city): self
+    {
+        $this->city = $city;
 
         return $this;
     }
