@@ -36,6 +36,7 @@ class UserType extends AbstractType
                     ->add('city',EntityType::class,[
                         'class' => City::class,
                         'choice_label' => 'localite',
+                        'label' => $this->translator->trans('ville'),
                         'placeholder' => 'Ville',
                         'required'=> false,
                         'autocomplete' => true

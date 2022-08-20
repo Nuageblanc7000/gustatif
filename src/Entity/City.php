@@ -36,9 +36,13 @@ class City
     #[ORM\OneToMany(mappedBy: 'city', targetEntity: User::class)]
     private $user;
 
+    #[ORM\OneToMany(mappedBy: 'city', targetEntity: Restaurant::class)]
+    private Collection $restaurants;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
+        $this->restaurants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -151,5 +155,35 @@ class City
     function __toString() : string
     {
         return $this->localite;
+    }
+
+    /**
+     * @return Collection<int, Restaurant>
+     */
+    public function getRestaurants(): Collection
+    {
+        return $this->restaurants;
+    }
+
+    public function addRestaurant(Restaurant $restaurant): self
+    {
+        if (!$this->restaurants->contains($restaurant)) {
+            $this->restaurants->add($restaurant);
+            $restaurant->setCity($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRestaurant(Restaurant $restaurant): self
+    {
+        if ($this->restaurants->removeElement($restaurant)) {
+            // set the owning side to null (unless already changed)
+            if ($restaurant->getCity() === $this) {
+                $restaurant->setCity(null);
+            }
+        }
+
+        return $this;
     }
 }

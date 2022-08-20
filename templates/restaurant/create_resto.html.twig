@@ -1,0 +1,87 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{% trans %}
+	Page création restaurant
+	{% endtrans %}
+{% endblock %}
+{% block body %}
+    <div class="bg-style-create">
+	<div class="container-resto-form">
+		<div class="title">
+			<h1>Création du restaurant</h1>
+		</div>
+		<div class="form-step">
+			{{form_start(form , {'attr':{'class':'form'}})}}
+			<h2>Nom de l'établissement</h2>
+			<div class="form-groups create-form-name">
+				<div class="design-form-input">
+					<div class="design-form-icon anim-icon"> <img src="{{asset('/build/images/resto-black.svg')}}" alt="chef icon" width="40px" height="40px"> </div>
+					{{form_widget(form.name)}}
+				</div>
+					{{form_errors(form.name)}}
+			</div>
+
+			<h2>Une petite description de votre établissement</h2>
+			<div class="form-groups create-form-coord">
+              <div class="container-design-form">
+				<div class="design-form-input">
+					<div class="design-form-icon anim-icon"> <img src="{{asset('/build/images/path.svg')}}" alt="chef icon" width="40px" height="40px"> </div>
+					{{form_widget(form.adress)}}
+				</div>
+					{{form_errors(form.adress)}}
+              </div>
+
+                    <div class="container-design-form">
+				<div class="design-form-input">
+					<div class="design-form-icon "> <img src="{{asset('/build/images/citySky.svg')}}" alt="chef icon" width="40px" height="40px"> </div>
+					{{form_widget(form.city)}}
+				</div>
+					{{form_errors(form.city)}}
+                    </div>
+
+                <div class="container-design-form">
+				<div class="design-form-input">
+					<div class="design-form-icon anim-icon"><img src="{{asset('/build/images/phone.svg')}}" alt="chef icon" width="40px" height="40px"></div>
+					{{form_widget(form.phone)}}
+				</div>
+					{{form_errors(form.phone)}}
+                </div>
+
+			</div>
+			<h2>Une petite description de votre établissement</h2>
+			<div class="form-groups create-form-descr">
+            <div class="container-design-form">
+				<div class="design-form-input">
+					<div class="design-form-icon anim-icon"><div class="design-form-icon"><img src="{{asset('/build/images/descriptionForm.svg')}}" alt="chef icon" width="40px" height="40px"></div></div>
+					{{form_widget(form.description)}}
+				</div>
+					{{form_errors(form.description)}}
+            </div>
+
+			</div>
+            <h2>Choisisez le(s) type et la ou les catégorie(s) qui correspond à votre établissement</h2>
+            <div class="form-groups create-form-coord">
+            <div class="container-design-form">
+				<div class="design-form-input or-cat">
+					<div class="design-form-icon "><img src="{{asset('/build/images/origine.svg')}}" alt="plateau" width="40px" height="40px"> </div>
+					{{form_widget(form.origine)}}
+				</div>
+					{{form_errors(form.origine)}}
+            </div>
+                <div class="container-design-form">
+                <div class="design-form-input or-cat">
+					<div class="design-form-icon "> <img src="{{asset('/build/images/origine.svg')}}" alt="plateau" width="40px" height="40px"> </div>
+					{{form_widget(form.category)}}
+				</div>
+					{{form_errors(form.category)}}
+                </div>
+			</div>
+                <button class="btn" type="submit">
+                    {% trans %}Créer le restaurant{% endtrans %}</button>
+                {{form_end(form)}}
+		</div>
+		{{form_rest(form)}}
+	</div>
+    </div>
+{% endblock %}

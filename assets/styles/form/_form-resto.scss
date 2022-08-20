@@ -1,0 +1,245 @@
+.bg-style-create{
+    @extend .container-fluid;
+    background-image: url('/assets/images/pencil.svg');
+    background-repeat:space;
+    background-size: cover;
+    background-position: center center;
+    min-height: inherit;
+}
+
+.container-resto-form{
+    @extend .container;
+    position: relative;
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+    min-height: inherit;
+    
+    .title{
+        min-height: 100px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 349px;
+
+        margin:2rem auto;
+        h1{
+            font-family: var(--font-family1);
+            z-index: 2;
+            color:var(--secondary);
+            font-size: 3rem;
+        }
+        // &::after{
+        //     content: '';
+        //     position: absolute;
+        //     width: 70%;
+        //     height: 100px;
+        //     left: 50%;
+        //     top: 50%;
+        //     transform: translate(-50%,-50%);
+
+        //     background: var(--white);
+        //     border-radius: 89px 0px 50px;
+        // }
+        // &::before{
+        //     content:'';
+        //     position: relative;
+        //     background-image: url('/assets/images/home/ligne.svg');
+        //     background-position: center center;
+        //     background-size: contain;
+        //     background-repeat: no-repeat;
+        //     position: absolute;
+        //     width: 80%;
+        //     height: 100px;
+        //     left: 50%;
+        //     top: 50%;
+        //     transform: translate(-50%,-50%);
+        //     z-index: 1;
+        // }
+    }
+
+}
+.form-step{
+    background-color: white;
+    
+    box-shadow: var(--box-shadow);
+    padding:1rem;
+    border-radius: 20px;
+
+    background-image: url('/assets/images/chefFormCreate.svg');
+    background-position: center center;
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 3;
+
+    .form{
+        ul{
+            li{
+                margin:0.2rem 0;
+                font-size: 1.4rem;
+                text-align: center;
+                color:var(--error2);
+            }
+        }
+    }
+    // &::after{
+    //     content:'';
+    //     width:100%;
+    //     height: 100%;
+    //     filter: blur(10px);
+    //     background-color: rgba(255, 255, 255, 0.557);
+    //     position: absolute;
+    //     left:0;
+    //     bottom: 0;
+    //     top: 0;
+    //     z-index: -1;
+    //     right:0;
+    // }
+    .form-groups{
+        .design-form-input{
+
+            .anim-icon{
+                transition: all 0.5s ease;
+                will-change: width;
+            }
+            &:hover{
+                .anim-icon{
+                    width: 42px;
+                }
+            }
+        }
+    }
+    h2{
+        margin:0 auto;
+        display: block;
+        text-align: center;
+        padding:1rem 0;
+        font-size: 1.9rem;
+        z-index: 4;
+    }
+
+    
+    .ts-wrapper.single.input-active{
+        background-color: var(--grey) !important;
+        width: 100% !important;
+    }
+    .create-form-name{
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+  .item{
+        background-color: var(--primary) !important;
+        background-image: none !important;
+        color:var(--secondary) !important;
+    }
+     
+    .ts-wrapper.single .ts-control{
+        background-color: inherit !important;
+        border: none !important;
+        background-image: none !important;
+    }
+
+    .ts-control{
+        background-color: inherit !important;
+        border: none !important;
+        background-image: none !important;
+    }
+
+    #resto_name{
+        min-height: 100%;
+    }
+}
+
+.design-form-input{
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    background-color: var(--grey);
+    margin:1rem 0.2rem;
+    border-radius: 5px;
+    display: flex;
+    min-height: 47px;
+    input{
+        padding:0 0 0 0.5rem;
+        &:focus{
+           outline: none;
+        }
+        &::placeholder{
+            font-weight: bold;
+            font-family: var(--font-family3);
+            opacity: 0.5;
+        }
+    }
+    #resto_city{
+        background-color: var(--grey) !important;
+    }
+    .ts-wrapper{
+        width:100%;
+        background-color: var(--grey);
+        border:none !important;
+    }
+    .ts-wrapper.single{
+        border:none !important;
+    }
+    .full-form-input{
+        width: 100%;
+        height: inherit;
+
+    }
+
+   
+    .design-form-icon{
+        background-color: var(--white);
+        transition: all 1s ease-in;
+        width: 80px;
+        height: inherit;
+        border-radius: 10px  0 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.create-form-coord{
+  
+    @media (min-width:992px) {
+        
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        .container-design-form{
+            margin:0rem 1rem !important;
+            flex:1;
+        }
+        
+    }
+}
+
+
+.create-form-descr{
+    min-height: 120px;
+    .container-design-form{
+        min-height: inherit;
+    }
+    .design-form-input{
+        min-height: inherit;
+        .design-form-icon{
+            min-height: inherit;
+        }
+    }
+
+       textarea{
+        min-height: inherit;
+           width:100%;
+           border:none;
+           background-color: inherit;
+           resize: none;
+           padding:5px;
+           &:focus{
+            outline: none;
+           }
+        
+    }
+
+
+}
