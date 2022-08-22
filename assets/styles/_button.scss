@@ -296,3 +296,112 @@
      transform: scale(1.4);
     }
  }
+
+
+
+
+
+
+ 
+
+ .button-container-2 {
+    position: relative;
+    width: auto;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7vh;
+    overflow: hidden;
+    border: 1px solid #000;
+    font-size: 16px;
+    font-weight: 300;
+    transition: 0.5s;
+    letter-spacing: 1px;
+    border-radius: 8px;
+   
+    button {
+     width: 101%;
+     height: 100%;
+     font-weight: 300;
+     letter-spacing: 1px;
+     font-weight: bold;
+   
+     @include button( var(--secondary) , "/assets/images/sprite-grey.png",
+     3000%,
+     100%,
+     none,
+     #fff);
+     cursor: pointer;
+     -webkit-animation: ani2 1s steps(29) forwards;
+     animation: ani2 1s steps(29) forwards;
+   
+     &:hover {
+      -webkit-animation: ani 1s steps(29) forwards;
+      animation: ani 1s steps(29) forwards;
+     }
+    }
+   }
+   
+   
+   .mas {
+       position: absolute;
+       color: #000;
+       text-align: center;
+       width: 101%;
+       font-family: 'Lato', sans-serif;
+       font-weight: 300;
+       position: absolute;
+       margin-top: 17px;
+       overflow: hidden;
+         font-weight: bold;
+   
+   }
+   
+   @-webkit-keyframes ani {
+    from {
+     -webkit-mask-position: 0 0;
+     mask-position: 0 0;
+    }
+   
+    to {
+     -webkit-mask-position: 100% 0;
+     mask-position: 100% 0;
+    }
+   }
+   
+   @keyframes ani {
+    from {
+     -webkit-mask-position: 0 0;
+     mask-position: 0 0;
+    }
+   
+    to {
+     -webkit-mask-position: 100% 0;
+     mask-position: 100% 0;
+    }
+   }
+   
+   @-webkit-keyframes ani2 {
+    from {
+     -webkit-mask-position: 100% 0;
+     mask-position: 100% 0;
+    }
+   
+    to {
+     -webkit-mask-position: 0 0;
+     mask-position: 0 0;
+    }
+   }
+   
+   @keyframes ani2 {
+    from {
+     -webkit-mask-position: 100% 0;
+     mask-position: 100% 0;
+    }
+   
+    to {
+     -webkit-mask-position: 0 0;
+     mask-position: 0 0;
+    }
+   }
+   

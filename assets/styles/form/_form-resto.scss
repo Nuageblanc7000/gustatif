@@ -97,18 +97,7 @@
     //     right:0;
     // }
     .form-groups{
-        .design-form-input{
-
-            .anim-icon{
-                transition: all 0.5s ease;
-                will-change: width;
-            }
-            &:hover{
-                .anim-icon{
-                    width: 42px;
-                }
-            }
-        }
+      
     }
     h2{
         margin:0 auto;
@@ -123,6 +112,7 @@
     .ts-wrapper.single.input-active{
         background-color: var(--grey) !important;
         width: 100% !important;
+        border: none;
     }
     .create-form-name{
         max-width: 300px;
@@ -130,15 +120,16 @@
     }
 
   .item{
-        background-color: var(--primary) !important;
         background-image: none !important;
         color:var(--secondary) !important;
+        border: none;
     }
      
     .ts-wrapper.single .ts-control{
         background-color: inherit !important;
         border: none !important;
         background-image: none !important;
+        border: none;
     }
 
     .ts-control{
@@ -150,6 +141,7 @@
     #resto_name{
         min-height: 100%;
     }
+
 }
 
 .design-form-input{
@@ -241,5 +233,88 @@
         
     }
 
+
+}
+.fileInput{
+ display: grid !important;
+ grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+ gap: 10px !important;
+ position: relative;
+
+}
+.img-collection{
+    height: 200px;
+    position: relative;
+}
+
+.input-collection{
+    display: none;
+}
+.label-input-file{
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px dashed var(--primary);
+    position: relative;
+    cursor: pointer;
+    &::after{
+        content:'+';
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        font-size: 4rem;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top:50%;
+        color:var(--primary);
+        left:50%;
+        box-shadow: var(--box-shadow);
+        transform: translate(-50%,-50%);
+
+    }
+    img{
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+    }
+    
+}
+
+.delete-btn-file{
+position: absolute;
+top:0;
+right:0;
+width:40px;
+height: 40px;
+background-color: var(--primary);
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+color:white;
+z-index: 8;
+font-size: 2rem;
+border: none;
+}
+
+
+#main > div > div > div.form-step > form > div:nth-child(8) {
+    .item{
+        background-image: none !important;
+        background-color: var(--primary);
+        color:var(--secondary) !important;
+        border: none !important;
+        box-shadow: none;
+    }
+
+}
+
+
+#add-image{
 
 }

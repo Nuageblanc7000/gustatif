@@ -60,6 +60,9 @@ class Restaurant
     #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Image::class, orphanRemoval: true)]
     private Collection $images;
 
+    #[ORM\Column(length: 255)]
+    private ?string $cover = null;
+
     public function __construct()
     {
         $this->plat = new ArrayCollection();
@@ -237,6 +240,18 @@ class Restaurant
                 $image->setRestaurant(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCover(): ?string
+    {
+        return $this->cover;
+    }
+
+    public function setCover(string $cover): self
+    {
+        $this->cover = $cover;
 
         return $this;
     }

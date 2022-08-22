@@ -26,7 +26,7 @@ Encore
     .addEntry('slider','./assets/javascript/slider.js')
     .addEntry('active-lateral','./assets/javascript/active-lateral.js')
     .addEntry('splide','./assets/splide.js')
-    .addEntry('splide','./assets/createFile.js')
+    .addEntry('create-file','./assets/javascript/createFile.js')
     .addEntry('fontAwesome','./assets/fontAwesome.js')
 
     

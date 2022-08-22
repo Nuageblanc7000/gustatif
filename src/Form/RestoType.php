@@ -7,14 +7,16 @@ use App\Entity\Origine;
 use App\Entity\Category;
 
 use App\Entity\Restaurant;
+use App\Form\ImageUploadType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class RestoType extends AbstractType
 {
@@ -55,48 +57,62 @@ class RestoType extends AbstractType
                     'placeholder' => '+3200000000'
                 ]
             ])
-            ->add('file',FileType::class,[
-                'mapped' => false,
-            ])
-
+            
             ->add('city',EntityType::class,[
                 'class' => City::class,
                 'choice_label' => 'localite',
                 'placeholder' => 'choisisez votre ville',
                 'autocomplete' => true,
                 'label'=>false,
-            ])
-            ->add('category',EntityType::class,[
-                'class' => Category::class,
-                'choice_label' =>'name',
-                'expanded' => false,
+                ])
+                ->add('category',EntityType::class,[
+                    'class' => Category::class,
+                    'choice_label' =>'name',
+                    'expanded' => false,
+                    
+                    'multiple' => true,
+                    'autocomplete' => true,
+                    'label'=>false,
+                    'attr' =>[
+                        'placeholder' => 'Catégorie du restaurant'
+                    ],
+                    'constraints' => [new Count(min:1 , minMessage: $this->translator->trans('Vous devez sélectioner une catégorie'),max:2, maxMessage: $this->translator->trans('Vous pouvez sélectionner deux catégories maximum'))]
+                    ])
+                    ->add('origine',EntityType::class,
+                    [
+                        'class' => Origine::class,
+                        'choice_label' =>'name',
+                        'expanded' => false,
+                        'multiple' => true,
+                        'autocomplete' => true,
+                        'label'=>false,
+                        'attr' =>
+                        [      
+                            'placeholder' => 'Origine de la cuisine'
+                        ],
+                        'constraints' => [new Count(min:1 , minMessage: $this->translator->trans('Vous devez sélectioner un type de cuisine'),max:2, maxMessage: $this->translator->trans('Vous pouvez sélectionner deux types de cuisine maximum'))], 
+
+                    ])
+                    ->add('images',CollectionType::class,[
+                        'entry_type' => ImageUploadType::class,
+                        'allow_add' => true,
+                        'allow_delete' => true,
+                        'required' => false,
+                        'mapped' => false,
+                        'label' =>  $this->translator->trans('Ajouter des images pour présenter votre établissement (Max:4) *'),
+                     'attr' => [
+                        'class' => 'fileInput'  ,'always_empty' =>false 
+                     ],
+                     'constraints' => [new Count(min:1 , minMessage: $this->translator->trans('Mini une image'),max:3, maxMessage:'vous avez dépassé le nombre d`\image autorisées')], 
+                    ])
+                    ;
+                }
                 
-                'multiple' => true,
-                'autocomplete' => true,
-                'label'=>false,
-                'attr' =>[
-                    'placeholder' => 'Catégorie du restaurant'
-                ],
-            ])
-            ->add('origine',EntityType::class,[
-                'class' => Origine::class,
-                'choice_label' =>'name',
-                'expanded' => false,
-                'multiple' => true,
-                'autocomplete' => true,
-                'label'=>false,
-                'attr' =>[
-
-                    'placeholder' => 'Origine de la cuisine'
-                    ]
-            ])
-        ;
-    }
-
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            'data_class' => Restaurant::class,
-        ]);
-    }
-}
+                public function configureOptions(OptionsResolver $resolver): void
+                {
+                    $resolver->setDefaults([
+                        'data_class' => Restaurant::class,
+                    ]);
+                }
+            }
+            

@@ -6,6 +6,7 @@
 	{% endtrans %}
 {% endblock %}
 {% block body %}
+ {% form_theme form '_partials/_collection.html.twig' %}
     <div class="bg-style-create">
 	<div class="container-resto-form">
 		<div class="title">
@@ -77,11 +78,27 @@
 					{{form_errors(form.category)}}
                 </div>
 			</div>
-                <button class="btn" type="submit">
-                    {% trans %}Créer le restaurant{% endtrans %}</button>
+
+			{# Mise en place du système d'image  #}
+			<div class="container-grid-img">
+			{{form_row(form.images)}}
+			{{ form_errors(form)}}
+			</div>
+
+			{# fin mise en place image  #}
+
+			<div class="button-container-2">
+			<span class="mas">Finaliser le restaurant</span>
+			<button type="submit" name="Hover">Finaliser le restaurant</button>
+		</div>
+			{{form_rest(form)}}
                 {{form_end(form)}}
 		</div>
-		{{form_rest(form)}}
 	</div>
     </div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+{{ encore_entry_script_tags('create-file') }}
+
 {% endblock %}

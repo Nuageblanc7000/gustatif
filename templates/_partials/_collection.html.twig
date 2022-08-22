@@ -1,0 +1,50 @@
+{# {% block _resto_images_widget %} #}
+{# définition du champ resto_image, la variable form correspond au champ resto_image#}
+{# {{form_widget(form)}}
+	<input type="hidden" id="widgets-counter" value="0"> #}
+{# {% endblock %}
+<div class="container-collectionss">
+	{% block _resto_images_entry_row %} #}
+{# entry précie le entry_type de notre restoType au niveau de la collection - donc chaque formulaire ImageType #}
+{# permet de juste afficher le widget donc plus les 0 1 2 3 ect #}
+{# {{form_widget(form)}}
+
+{% endblock %} #}
+{# </div>
+	{% block _resto_images_entry_widget %}
+		<div class="img-collection" id="block_{{id}}"> 
+                <div class="delete-btn-file">x</div>
+				{{form_label(form.path)}}
+			{{form_widget(form.path , {'attr':{'class':'input-collection' }}) }}
+			{{form_errors(form.path)}}
+    </div>
+{% endblock %} #}
+	{% block _resto_images_widget %}
+	{# définition du champ resto_image, la variable form correspond au champ resto_image#}
+	{{form_widget(form)}}
+	<input type="hidden" id="widgets-counter" value="0"> <div class="form-group">
+		<div class="button-container-2">
+			<span class="mas">Ajouter des images de votre établissement</span>
+			<button type="button" id="add-image" name="Hover">Ajouter des images de votre établissement</button>
+		</div>
+	</div>
+{% endblock %}
+<div class="container-collectionss">
+	{% block _resto_images_entry_row %}
+		{# entry précie le entry_type de notre restoType au niveau de la collection - donc chaque formulaire ImageType #}
+		{# permet de juste afficher le widget donc plus les 0 1 2 3 ect #}
+	{{form_widget(form)}}
+
+{% endblock %}
+</div>
+	{% block _resto_images_entry_widget %}
+		<div class="img-collection" id="block_{{id}}"> {{form_label(form.path)}}
+		<button type="button" class="delete-btn-file" data-action="delete" data-target="#block_{{id}}" title={% trans %} "Supprimer l'image" {% endtrans %}>
+			<i class="fa-solid fa-trash-can"></i>
+
+		</button>
+		{{form_widget(form.path , {'attr':{'class':'input-collection' }}) }}
+		{{form_errors(form.path)}}
+
+	</div>
+{% endblock %}

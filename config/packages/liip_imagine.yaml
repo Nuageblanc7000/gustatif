@@ -3,13 +3,12 @@ liip_imagine:
     # valid drivers options include "gd" or "gmagick" or "imagick"
     driver: "gd"
     twig:
-        mode: lazy
-    cache: dim/cache
-
-    #filtre pour les avatars des utilisateurs avec son nom son type, ça taille et son mode de découpe
+        # mode: lazy
     filter_sets:
-        avatar:
+        cache: ~
+        miniature:
+            quality: 75
             filters:
                 thumbnail:
-                    size: [80,80]
+                    size: [900 , 900]
                     mode: outbound

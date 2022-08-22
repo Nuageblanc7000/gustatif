@@ -21,6 +21,7 @@
 
 ###> liip/imagine-bundle ###
 /public/media/cache/
+/images/annonces/media/cache/
 ###< liip/imagine-bundle ###
 
 ###> symfony/webpack-encore-bundle ###

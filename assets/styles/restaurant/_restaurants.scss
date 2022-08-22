@@ -1,4 +1,59 @@
+
+.title-page-restaurants{
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  h1{
+    text-align: center;
+    font-family: var(--title-font);
+    font-size: 4rem;
+    z-index: 3;
+    &::after{
+      content: "";
+      background-image: url('/assets/images/home/ligne.svg');
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+       z-index: -1;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
 .search-page{
     // overflow: hidden;
     min-height: 100vh;
+    .overflow{
+      width: 100%;
+    }
+    .container-grid-card{
+      width: 100%;
+      position: relative;
+      padding:2rem 1rem;
+      background-color: var(--body);
+        display: grid;
+        gap:10px;
+        // width: 90%;
+        @media (min-width:768px){
+          grid-template-columns: repeat(2,1fr);
+        }
+        @media (min-width:576px) {
+          grid-template-columns: repeat(1,1fr);
+        }
+        @media (min-width:992px ) and (max-width: 1399px) {
+          grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+        }
+        @media (min-width:1400px ) {
+          width: 100%;
+          grid-template-columns: repeat(3,minmax(350px,1fr));
+        }
+        grid-template-columns: repeat(1,1fr);
+    }
 }
