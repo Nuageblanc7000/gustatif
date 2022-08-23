@@ -4,7 +4,7 @@
 
 
 {% extends "base.html.twig" %}
-{# {% block title %} {{resto.name}} {% endblock %} #}
+{% block title %} {{resto.name}} {% endblock %}
 {% block stylesheets %}
 	{{ parent() }}
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="">
@@ -29,7 +29,7 @@
 			</div>
 
 			<div class="nav-cube-responsive d-flex">
-				<a class="cube-lateral mx-2" href="#information-resto">
+				<div class="cube-lateral mx-2 resto-cube-r" >
 
 					<i class="fa-solid fa-circle-info"></i>
 					<span class="sticker">
@@ -37,72 +37,72 @@
 						Information
 						{% endtrans %}
 					</span>
-				</a>
+				</div>
 
-				<a class="cube-lateral mx-2" href="#recipe">
+				<div class="cube-lateral mx-2 resto-cube-r" >
 					<i class="fa-solid fa-utensils"></i>
 					<span class="sticker">
 						{% trans %}
 						Plats
 						{% endtrans %}
 					</span>
-				</a>
+				</div>
 
-				<a class="cube-lateral mx-2 " href="#localization">
+				<div class="cube-lateral mx-2 resto-cube-r" >
 					<i class="fa-solid fa-map-location"></i>
 					<span class="sticker">
 						{% trans %}
 						Localiser
 						{% endtrans %}
 					</span>
-				</a>
-				<a class="cube-lateral mx-2" href="#hourly">
+				</div>
+				<div class="cube-lateral mx-2 resto-cube-r">
 					<i class="fa-solid fa-clock"></i>
 					<span class="sticker">
 						{% trans %}
 						Horaire
 						{% endtrans %}
 					</span>
-				</a>
+				</div>
 			</div>
 		</div>
 	</div>
 	<section class="container container-page-resto d-flex pt-3">
 		<aside class="container-navi-resto col-2">
-			<a class="cube-lateral mx-2" href="#information-resto">
+			<div class="cube-lateral mx-2 resto-cube">
 				<i class="fa-solid fa-circle-info"></i>
 				<span class="sticker">
 					{% trans %}
 					Information
 					{% endtrans %}
 				</span>
-			</a>
+			</div>
 
-			<a class="cube-lateral mx-2" href="#recipe">
+			<div class="cube-lateral mx-2 resto-cube">
 				<i class="fa-solid fa-utensils"></i>
 				<span class="sticker">
 					{% trans %}
 					Plats
 					{% endtrans %}
 				</span>
-			</a>
+			</div>
 
-			<a class="cube-lateral mx-2 " href="#localization">
+			<div class="cube-lateral mx-2 resto-cube">
 				<i class="fa-solid fa-map-location"></i>
 				<span class="sticker">
 					{% trans %}
 					Localiser
 					{% endtrans %}
 				</span>
-			</a>
-			<a class="cube-lateral mx-2" href="#hourly">
+			</div>
+			<div class="cube-lateral mx-2 resto-cube">
 				<i class="fa-solid fa-clock"></i>
 				<span class="sticker">
 					{% trans %}
 					Horaire
 					{% endtrans %}
 				</span>
-			</a>
+			</div>
 
 		</aside>
 		<div class="col-12 col-lg-10 col-xl-10">
@@ -125,9 +125,9 @@
 			</div>
 
 
-			<section class="slider-resto" id="information-resto">
+			<section class="slider-resto">
 				{% for image in resto.images %}
-					<img class=" slider-img  {% if loop.first %}active-slider{% endif %}" src="{{ asset('/images/restaurant/' ~ image.path) }}" alt="image du restaurant - {{resto.name}} ">
+					<img class=" slider-img  {% if loop.first %} active-slider {% endif %} " src="{{ asset('/images/restaurant/' ~ image.path) }}" alt="image du restaurant - {{resto.name}} ">
 				{% endfor %}
 				<span class="control-slider-container">
 					{% for i in 0.. size  %}
@@ -135,7 +135,7 @@
 					{% endfor %}
 				</span>
 			</section>
-			<section class="container-information-resto">
+			<section class="container-information-resto js-move">
 				<h2>
 					{% trans %}
 					Qui sommes nous?
@@ -147,17 +147,36 @@
 						{{resto.description}}
 					</p>
 				</article>
-				<div class="container-origine-cuisine">
-					<h3>
+				<div class="container-infos-special">
+					<div class="container-origine-cuisine">
+						<h3>
+							{% trans %}
+							Origines de la cuisine
+							{% endtrans %}
+						</h3>
+						<div class="d-flex flex-wrap">
+							{% for origine in resto.origine %}
+
+								<figure class="px-2">
+									<img src="{{asset('/images/origines/' ~ origine.image) }}" alt="{{origine.name}}">
+									<figcaption>
+										{{origine.name}}
+									</figcaption>
+								</figure>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="container-origine-cuisine">
+					<h3> 
 						{% trans %}
-						Origines de la cuisine
+						Budget minimum
 						{% endtrans %}
 					</h3>
 					<div class="d-flex flex-wrap">
 						{% for origine in resto.origine %}
 
 							<figure class="px-2">
-								<img src="{{asset('/build/images/type-kitchen/italie-type.svg')}}" alt="">
+								<img src="{{asset('/images/origines/anglais.svg')}}" alt="">
 								<figcaption>
 									{{origine.name}}
 								</figcaption>
@@ -165,13 +184,15 @@
 						{% endfor %}
 					</div>
 				</div>
+				</div>
+
 			</section>
 
-			<div id="plats"></div>
+			<div class="js-move"></div>
 			<section class="container-plats">
 				<h2>
 					{% trans %}
-						Nos spécialités
+					Nos spécialités
 					{% endtrans %}
 				</h2>
 				<div class="container-plat">
@@ -210,7 +231,7 @@
 			</section>
 
 
-			<div id="localization"></div>
+			<div class="js-move"></div>
 			<section class="localization-resto">
 				<h2>
 					{% trans %}
@@ -240,7 +261,7 @@
 
 				</div>
 			</section>
-			<div id="hourly"></div>
+			<div class="js-move"></div>
 			<section class="container-hourly">
 				<h2>
 					{% trans %}Horaire{% endtrans %}
