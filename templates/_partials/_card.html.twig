@@ -1,7 +1,7 @@
 {% set path = '/images/restaurant/' %}
 {% set star = 3 %}
 {% for resto in restos %}
-	<a class="card" href="#">
+	<a class="card" href="{{path('resto_view',{'id':resto.id})}}">
 		<figure class="ps-r figure-card" style="background-image: url({{asset(path ~ resto.cover)|imagine_filter('miniature') }})"></figure>
 		<div class="info-card-rating">
 			<h2>{{resto.name}}</h2>

@@ -3,6 +3,7 @@
 
 const lateral = document.querySelector('.lateral')
 const btnFilter = document.querySelector('.btn-filter-responsive')
+console.log(btnFilter)
 const backLateral = document.querySelector('.back')
 const crossLateral = document.querySelector('.cross')
 

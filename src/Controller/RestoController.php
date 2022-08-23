@@ -4,10 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Image;
 use App\Form\RestoType;
+use App\Data\DataFilter;
+use App\Form\FilterType;
 use App\Entity\Restaurant;
-use App\Repository\RestaurantRepository;
 use App\Service\FileUploader;
 use Symfony\Component\Form\FormError;
+use App\Repository\RestaurantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,11 +20,18 @@ class RestoController extends AbstractController
 {
    
     
-    #[Route('/restaurants', name: 'restos_list')]
-    public function restaurants(RestaurantRepository $repo): Response
-    {
+    #[Route('/restaurants/{s?}', name: 'restos_list')]
+    public function restaurants(RestaurantRepository $repo , Request $req ): Response
+    {   
+        $data = new DataFilter();
+        $form= $this->createForm(FilterType::class,$data);
+        $form->handleRequest($req);
+        if($form->isSubmitted() && $form->isValid())
+        {
+        }
         return $this->render('restaurant/restaurants.html.twig', [
-            'restos' => $repo->findAll(),
+            'restos' => $repo->restoPaginator($data),
+            'form' => $form->createView()
         ]);
     }
 
@@ -53,7 +62,7 @@ class RestoController extends AbstractController
                     {
                         
                         $tmtFile =  $upload->upload($file->getPath());
-                        if( $key == 0 )  $resto->setCover($tmtFile);
+                        if( $key == array_key_first($files) )  $resto->setCover($tmtFile);
                         $img = new Image();
                         $img->setPath($tmtFile);
                         $em->persist($img);
@@ -75,12 +84,13 @@ class RestoController extends AbstractController
     }
     
     #[Route('/restaurant/{id}', name: 'resto_view')]
-    public function restaurant(): Response
+    public function restaurant(Restaurant $resto): Response
     {
-        $longi = "3.956659";
-        $lati = "50.454241";
+
+        $longi = $resto->getCity()->getLongitude();
+        $lati = $resto->getCity()->getLatitude();
         return $this->render('restaurant/restaurant.html.twig', [
-            'resto' => '',
+            'resto' => $resto,
             'longi' => $longi,
             'lati' => $lati
         ]);

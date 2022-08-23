@@ -1,29 +1,46 @@
-{% set errors = false %}
 {% extends 'base.html.twig' %}
 
 {% block title %}
-	Restaurant
+	{% trans %}
+	Restaurants
+	{% endtrans %}
 {% endblock %}
 
 {% block body %}
 	<section class="search-page container d-flex">
+
 		{% include "/_partials/_lateral_bar.html.twig" %}
 		<div class="overflow">
-	<div class="container-page-search">
-		<div class="title-page-restaurants">
-		<h1>Notre sélection d'établissements</h1>
-		</div>
-			<section class="container-grid-card">
-				<span class="btn-filter-responsive">
-					<div class="pulse"></div>
-					Filtrer
-					<i class="fa-solid fa-filter"></i>
-				</span>
-				{% include "/_partials/_card.html.twig" %}
-			</section>
-	</div>
+			<div class="container-page-search">
+				<div class="title-page-restaurants">
+					<h1>
+						{% trans %}
+						Notre sélection d'établissements
+						{% endtrans %}
+					</h1>
+				</div>
+				{% if restos|length > 0 %}
+					<section class="container-grid-card">
+						{% include "/_partials/_card.html.twig" %}
+					</section>
+				{% else %}
+					<section class="d-flex justify-content-center align-items-center">
+						
+						<picture>
+							<img src="{{asset('/build/images/nofound.svg')}}" alt="no found restaurant">
+						</picture>
+					</section>
+				{% endif %}
+			</div>
 		</div>
 	</section>
+						<span class="btn-filter-responsive">
+							<i class="fa-solid fa-filter"></i>
+							<div class="pulse"></div>
+							{% trans %}
+							Filtrer
+							{% endtrans %}
+						</span>
 {% endblock %}
 
 {% block javascripts %}

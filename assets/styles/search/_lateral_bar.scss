@@ -41,8 +41,11 @@
     .btn-lateral-container{
         width:100%;
     }
-    .lateral-error{
-        opacity: 1;
+    @media (min-width:1400px) {
+
+        .lateral-error{
+            opacity: 1;
+        }
     }
     }
     @media (min-width:1400px) {
@@ -193,7 +196,7 @@
         
     }
     @media (min-width:992px) and (height:600px) {
-        top: 0;
+        top: 80px;
         
     }
     top:0;
@@ -218,17 +221,20 @@
 .lateral-error{
     display: flex;
     background-color:var(--white);
-    opacity: 0;
+    @media (min-width:1400px) {
+        opacity: 0;
+    }
+    opacity: 1;
     padding:0.2rem 0.2rem;
     border-radius: 2px;
     transition: 0.5s all ease;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    p{
+    li{
         white-space: nowrap;
     }
-    i,p{
+    i,li{
         color:var(--error);
     }
     i{

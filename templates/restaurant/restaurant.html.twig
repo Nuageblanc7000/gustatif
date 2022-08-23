@@ -1,4 +1,5 @@
 {% set restostar = 4 %}
+{% set size =  resto.images|length -1 %}
 {% set tel = '0477679409' %}
 
 
@@ -13,9 +14,7 @@
 		<div class="container">
 			<div class="container-header-resto">
 				<h1>
-					{% trans %}
-					La boule bleu
-					{% endtrans %}
+					{{resto.name}}
 
 				</h1>
 				<div class="container-header-star">
@@ -126,23 +125,12 @@
 			</div>
 
 
-			<section
-				class="slider-resto" id="information-resto">
-				{# {% for image in resto.images %}
-							        <img class= " slider-img  {% if loop.first %}active-slider{% endif %}"
-							          src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
-							            
-							        {% endfor %} #}
-
-				<img class="slider-img active-slider" src="{{ asset('/build/images/site/resto0.jpg') }}" alt="">
-				<img class="slider-img" src="{{ asset('/build/images/site/resto1.jpg') }}" alt="">
-				<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
-				<img class="slider-img" src="{{ asset('/build/images/site/fast0.jpg') }}" alt="">
-				<img class="slider-img" src="{{ asset('/build/images/site/fast1.jpg') }}" alt="">
-				<img class="slider-img" src="{{ asset('/build/images/site/fast1.jpg') }}" alt="">
-
+			<section class="slider-resto" id="information-resto">
+				{% for image in resto.images %}
+					<img class=" slider-img  {% if loop.first %}active-slider{% endif %}" src="{{ asset('/images/restaurant/' ~ image.path) }}" alt="image du restaurant - {{resto.name}} ">
+				{% endfor %}
 				<span class="control-slider-container">
-					{% for i in 0..5 %}
+					{% for i in 0.. size  %}
 						<div class="{% if loop.first %}active-control{% endif %} control-slider"></div>
 					{% endfor %}
 				</span>
@@ -156,27 +144,36 @@
 
 				<article class="container-description-resto">
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt temporibus harum sit autem corrupti nulla illum rerum doloribus nihil facere nostrum nesciunt voluptas quam dicta explicabo distinctio id, illo saepe.
-											Tempora, velit deleniti? Voluptate modi eligendi quam ducimus.
+						{{resto.description}}
 					</p>
 				</article>
 				<div class="container-origine-cuisine">
 					<h3>
+						{% trans %}
 						Origines de la cuisine
+						{% endtrans %}
 					</h3>
-					<figure>
-						<img src="{{asset('/build/images/type-kitchen/italie-type.svg')}}" alt="">
-						<figcaption>
-							{# {{}} #}
-							Italienne
-						</figcaption>
-					</figure>
+					<div class="d-flex flex-wrap">
+						{% for origine in resto.origine %}
+
+							<figure class="px-2">
+								<img src="{{asset('/build/images/type-kitchen/italie-type.svg')}}" alt="">
+								<figcaption>
+									{{origine.name}}
+								</figcaption>
+							</figure>
+						{% endfor %}
+					</div>
 				</div>
 			</section>
 
 			<div id="plats"></div>
 			<section class="container-plats">
-				<h2>Nos spécialités</h2>
+				<h2>
+					{% trans %}
+						Nos spécialités
+					{% endtrans %}
+				</h2>
 				<div class="container-plat">
 					<div class="plat">
 						<picture style="background-image:url({{asset('/images/restaurant/italian.jpg')}})"></picture>
@@ -223,15 +220,10 @@
 
 				<span class="position-info">
 					<picture>
-						<img src="{{asset('/build/images/position.svg')}}" alt="">
+						<img src="{{asset('/build/images/position.svg')}}" alt="icon position">
 					</picture>
 					<h3>
-						{# {{resto.adress}} #}
-
-						{% trans %}
-
-						Chemin du Vieux Port , 7382 Audregnies
-						{% endtrans %}
+						{{resto.adress}}
 					</h3>
 				</span>
 
@@ -240,7 +232,7 @@
 						<i class="fa-solid fa-mobile-screen"></i>
 					</div>
 					<div class="number-resto">
-						{{tel}}
+						{{resto.phone}}
 					</div>
 				</a>
 				<div class="localization-resto-map">

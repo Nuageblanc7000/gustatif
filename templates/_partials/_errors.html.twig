@@ -1,8 +1,7 @@
-{% if errors %}
+
 					<div class="lateral-error-container ps-r">
 						<div class="lateral-error my-1">
 							<i class='bx bx-error-circle'></i>
-							<p>Une erreur est survenue</p>
+							{{form_errors(errors)}}
 						</div>
 					</div>
-{% endif %}

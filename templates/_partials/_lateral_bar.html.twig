@@ -1,72 +1,65 @@
+
 <div class="back"></div>
-<div class="lateral col-lg-4 {% if errors %}open-error{% endif %}">
+<div class="lateral col-lg-4 ">
     <div class="cross"><i class="fa-solid fa-xmark"></i></div>
-			<form class="sticky-lateral">
-				<div class="btn-lateral-container form-search">
+		{{form_start(form,{'attr':{'class':'sticky-lateral'}})}}
+		<div class="btn-lateral-container form-search">
 					<div class="cube-lateral">
 						<i class="fa-solid fa-location-dot"></i>
 					</div>
 					<div class="btn-lateral-container form-search">
-						<input type="search" name="" id="" placeholder="entrer une ville ou le nom du restaurant">
+						{{form_widget(form.s)}}
 					</div>
 				</div>
-				{% include "/_partials/_errors.html.twig" with {'errors' : errors } %}
-				
+						{% include "/_partials/_errors.html.twig" with {'errors' : form.s } %}
+
+					{% for item in form.categories %}
 				<div class="btn-lateral-container checkbox-lateral">
 					<div class="cube-lateral">
 						<i class="fa-solid fa-utensils"></i>
 					</div>
 					<div class="form-input-container">
-						<input type="checkbox" name="" id="resto" class="resto">
-						<label class="label-lateral" for="resto">Restaurants</label>
+						{{form_widget(item, {'attr':{'class':'resto'}} )}}
+						{{form_label(item)}}
 					</div>
 				</div>
-				{% include "/_partials/_errors.html.twig" with {'errors' : errors } %}
-				
+				{% include "/_partials/_errors.html.twig" with {'errors' : item } %}
+					{% endfor %}
 
-
-				<div class="btn-lateral-container checkbox-lateral">
-					<div class="cube-lateral">
-						<i class="fa-solid fa-burger"></i>
-					</div>
-					<div class="form-input-container">
-						<input type="checkbox" name="" id="fast" class="resto">
-						<label class="label-lateral" for="fast">Fast-foods</label>
-					</div>
-				</div>
-				{% include "/_partials/_errors.html.twig" with {'errors' : errors } %}
-				
 				<div class="btn-lateral-container p-0">
 					<div class="cube-lateral">
 						<i class="fa-solid fa-kitchen-set"></i>
 					</div>
 					<div class="form-input-container select-lateral">
-							<select name="" id="">
-							<option value="" class="fw-b">Type de cuisine</option>
-							<option value="">Italien</option>
-							<option value="">Grec</option>
-							<option value="">Asiatique</option>
-							<option value="">Américaine</option>
-							</select>
+							{{form_widget(form.t)}}
 					</div>
 				</div>
-				{% include "/_partials/_errors.html.twig" with {'errors' : errors } %}
-
-
-				<div class="btn-lateral-container form-search money-search">
-					<div class="cube-lateral money">
-						<i class="fa-solid fa-euro-sign"></i>
-					</div>
-					<div class="range">
-						 <span class="js-range">Budget 3000 €</span>
-						<input type="range" name="" id="">
-					</div>
-				</div>
+				{% include "/_partials/_errors.html.twig" with {'errors' : form.t } %}
 				<div class="btn-lateral-container form-search">
 					<div class="cube-search-submit">
 						<i class="fa-solid fa-filter"></i>
 					</div>
 					<button type="submit" class="btn-submit">Filtrer</button>
 				</div>
-			</form>
+		{{form_rest(form)}}
+		{{form_end(form)}}
+																{# <form class="sticky-lateral"> #}
+																	
+																	
+
+
+																	
+																	
+
+													{# 
+																	<div class="btn-lateral-container form-search money-search">
+																		<div class="cube-lateral money">
+																			<i class="fa-solid fa-euro-sign"></i>
+																		</div>
+																		<div class="range">
+																			<span class="js-range">Budget 3000 €</span>
+																			<input type="range" name="" id="">
+																		</div>
+																	</div> #}
+																{# </form> #}
 		</div>

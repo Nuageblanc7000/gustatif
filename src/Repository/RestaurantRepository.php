@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\DataFilter;
 use App\Entity\Restaurant;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -37,6 +38,34 @@ class RestaurantRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function restoPaginator(?DataFilter $data){
+       $query = $this->createQueryBuilder('r')
+       ->select('r','v','c','o')
+       ->leftJoin('r.city','v')
+       ->leftjoin('r.category','c')
+       ->leftJoin('r.origine','o')
+       ;
+
+       if(!empty($data->s)){
+        $query->andWhere('r.name LIKE :s')
+              ->orWhere('v.localite LIKE :s')
+              ->setParameter('s' , "%{$data->s}%");
+       }
+
+       if(!empty($data->categories)){
+        $query->andWhere('c.id IN (:cat)')
+           
+              ->setParameter('cat' , $data->categories);
+       }
+       if(!empty($data->t)){
+        $query->andWhere('o.id = :s')
+
+              ->setParameter('s' , $data->t);
+       }
+
+       return $query->getQuery()->getResult();
     }
 
 //    /**
