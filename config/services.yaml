@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     resto_images: '%kernel.project_dir%/public/images/restaurant'
+    resto_plats: '%kernel.project_dir%/public/images/plats'
     # restos_images: '%kernel.project_dir%/public/images/restaurant/'
 services:
     App\Service\FileUploader:

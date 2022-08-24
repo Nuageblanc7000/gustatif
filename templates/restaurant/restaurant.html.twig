@@ -108,10 +108,7 @@
 		<div class="col-12 col-lg-10 col-xl-10">
 			<div class="container-header-resto">
 				<h1>
-					{% trans %}
-					La boule bleu
-					{% endtrans %}
-
+					{{resto.name}}
 				</h1>
 				<div class="container-header-star">
 					{% for i in 1..5 %}
@@ -195,36 +192,15 @@
 					Nos spécialités
 					{% endtrans %}
 				</h2>
-				<div class="container-plat">
+				<div class= {% if resto.plat|length > 1 %} "container-plat" {% else %} "full-plat" {% endif %}  >
+				{% for plat in resto.plat %}
 					<div class="plat">
-						<picture style="background-image:url({{asset('/images/restaurant/italian.jpg')}})"></picture>
+						<picture style="background-image:url({{asset('/images/plats/' ~ plat.image )}})"></picture>
 						<span>
-							Pâtes aux tomates pestos
+						{{plat.name}}
 						</span>
 					</div>
-
-					<div class="plat">
-						<picture class="plat" style="background-image:url({{asset('/images/restaurant/italian.jpg')}})"></picture>
-						<span>
-							Pâtes aux tomates pestos
-						</span>
-					</div>
-
-
-					<div class="plat">
-						<picture class="plat" style="background-image:url({{asset('/images/restaurant/italian.jpg')}})"></picture>
-						<span>
-							Pâtes aux tomates pestos
-						</span>
-					</div>
-
-
-					<div class="plat">
-						<picture class="plat" style="background-image:url({{asset('/images/restaurant/italian.jpg')}})"></picture>
-						<span>
-							Pâtes aux tomates pestos
-						</span>
-					</div>
+				{% endfor %}
 				</div>
 
 

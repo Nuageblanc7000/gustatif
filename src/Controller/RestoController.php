@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Plat;
 use App\Entity\Image;
+use App\Form\PlatType;
 use App\Form\RestoType;
 use App\Data\DataFilter;
 use App\Form\FilterType;
@@ -71,18 +73,45 @@ class RestoController extends AbstractController
                     
                     $em->persist($resto);
                     $em->flush();
-                
-                    
                     $message = 'Félicitation votre restaurant vient être ajouté!';
                     $this->addFlash('succes',$message);
-
+                        // ajouter le return ! ici
                 }
         }
         return $this->renderForm('/restaurant/create_resto.html.twig',[
             'form' => $form
         ]);
     }
+    #[Route('/restaurant/plat',name:'create_plat')]
+    public function create_plat(Request $req, EntityManagerInterface $em , FileUploader $uploader , RestaurantRepository $repo) : Response
     
+    {
+        $plat = new Plat();
+        // $user = $this->getUser();
+        $form = $this->createForm(PlatType::class,$plat);
+        $form->handleRequest($req);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $datas = $form->get('images')->getData();
+            foreach ($datas as $data) {
+                $uploader->setTargetDirectory($this->getParameter('resto_plats'));
+                $path = $uploader->upload($data->getPath());
+                $plat->setName($data->getAlt());
+                $plat->setImage($path);
+                $plat->setRestaurant($repo->find(19));
+                $em->flush();
+                $em->persist($plat);
+                $em->flush();
+            }
+            dd('');
+
+            
+            // il faudra gérer le user !! pour lui donner l'id du resto et vérifier que le resto est bien à lui et qu'il n'ai 
+
+        }
+        return $this->renderForm('/restaurant/create_plat.html.twig',['form' =>$form]);
+    }
+
     #[Route('/restaurant/{id}', name: 'resto_view')]
     public function restaurant(Restaurant $resto): Response
     {

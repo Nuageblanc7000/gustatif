@@ -1,38 +1,25 @@
-{# {% block _resto_images_widget %} #}
-{# définition du champ resto_image, la variable form correspond au champ resto_image#}
-{# {{form_widget(form)}}
-	<input type="hidden" id="widgets-counter" value="0"> #}
-{# {% endblock %}
-<div class="container-collectionss">
-	{% block _resto_images_entry_row %} #}
-{# entry précie le entry_type de notre restoType au niveau de la collection - donc chaque formulaire ImageType #}
-{# permet de juste afficher le widget donc plus les 0 1 2 3 ect #}
-{# {{form_widget(form)}}
-
-{% endblock %} #}
-{# </div>
-	{% block _resto_images_entry_widget %}
-		<div class="img-collection" id="block_{{id}}"> 
-                <div class="delete-btn-file">x</div>
-				{{form_label(form.path)}}
-			{{form_widget(form.path , {'attr':{'class':'input-collection' }}) }}
-			{{form_errors(form.path)}}
-    </div>
-{% endblock %} #}
+	{% set add = '' %}
+	
 	{% block _resto_images_widget %}
 	{# définition du champ resto_image, la variable form correspond au champ resto_image#}
 	{{form_widget(form)}}
-	<input type="hidden" id="widgets-counter" value="0"> <div class="form-group">
+	<input type="hidden" id="widgets-counter" value="0"> 
+
+
+	{% if app.request.attributes.get('_route') == "resto_create" %} 
+	{% set add = 'Ajouter des images' %}
+		{% else %}
+		{% set add = 'Ajouter un plat' %}
+	{% endif %}
 		<div class="button-container-2">
-			<span class="mas">Ajouter des images de votre établissement</span>
-			<button type="button" id="add-image" name="Hover">Ajouter des images de votre établissement</button>
+			<span class="mas">{{add}}</span>
+			<button type="button" id="add-image" name="Hover">{{add}}</button>
 		</div>
-	</div>
+			
+
 {% endblock %}
 <div class="container-collectionss">
 	{% block _resto_images_entry_row %}
-		{# entry précie le entry_type de notre restoType au niveau de la collection - donc chaque formulaire ImageType #}
-		{# permet de juste afficher le widget donc plus les 0 1 2 3 ect #}
 	{{form_widget(form)}}
 
 {% endblock %}
@@ -44,7 +31,9 @@
 
 		</button>
 		{{form_widget(form.path , {'attr':{'class':'input-collection' }}) }}
+		<div class="form-create-error">
 		{{form_errors(form.path)}}
+		</div>
 
 	</div>
 {% endblock %}

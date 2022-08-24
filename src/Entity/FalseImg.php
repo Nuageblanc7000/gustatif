@@ -19,5 +19,17 @@ class FalseImg
 
         return $this;
     }
+
+    public function getAlt(): ?string
+    {
+        return $this->alt;
+    }
+
+    public function setAlt(string $alt): self
+    {
+        $this->alt = $alt;
+
+        return $this;
+    }
     
 }

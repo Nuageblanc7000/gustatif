@@ -103,7 +103,7 @@ class RestoType extends AbstractType
                      'attr' => [
                         'class' => 'fileInput'  ,'always_empty' =>false 
                      ],
-                     'constraints' => [new Count(min:1 , minMessage: $this->translator->trans('Mini une image'),max:3, maxMessage:'vous avez dépassé le nombre d`\image autorisées')], 
+                     'constraints' => [new Count(min:1 , minMessage: $this->translator->trans('Une image minimum requise'),max:4, maxMessage:'vous avez dépassé le nombre d`\image autorisées')], 
                     ])
                     ;
                 }

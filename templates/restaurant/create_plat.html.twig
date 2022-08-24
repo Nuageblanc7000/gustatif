@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {% trans %}Création des spécialités{% endtrans %} {% endblock %}
+
+{% block body %}
+ {% form_theme form '_partials/_collection_plat.html.twig' %}
+ <div class="container-bg-plat">
+ <div class="container-main-plat">
+   <h1>
+      {% trans %}
+           Ajouter jusque 4 de vos spécialités
+      {% endtrans %}
+   </h1>
+   <div class="container-more-info-plat-form">
+      <h2>Le saviez vous?</h2>
+      <p>
+      Ajouter une photo de vos plats, permet de donner envie aux utilisateurs de se rendre dans votre établissement.
+      </p>
+   </div>
+    {{form_start(form , {'attr':{'class':'form-plat-container'}})}}
+    <div class="container-grid-img grid-plat">
+			{{form_row(form.images)}}
+			{{ form_errors(form)}}
+			</div>
+
+   <div class="container-btn-action-form d-flex">
+      <button type="button" class="btn  me-2">Annuler</button>
+      <button type="submit" class="btn">J'ai terminé</button>
+   </div>
+    {{form_rest(form)}}
+    {{form_end(form)}}
+ </div>
+   
+ </div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+{{ encore_entry_script_tags('create-plat') }}
+{% endblock %}
