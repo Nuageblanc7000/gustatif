@@ -351,7 +351,7 @@
     &::after{
         position: absolute;
         content:url('/assets/images/chef.png');
-        z-index: 1;
+        z-index: -1;
         bottom: 0;
         right: 0;
     }
@@ -359,14 +359,18 @@
         color:var(--secondary);
         margin-top: 1rem;
         margin-bottom: 2rem;
+
     }
     .container-description-resto{
-        p{}
+        p{
+            text-align: center;
+        }
     }
 .container-infos-special{
     display: grid;
     gap:5px;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr))
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    align-items: baseline;
 }
     .container-origine-cuisine{
         display: flex;
@@ -377,6 +381,7 @@
             text-align: center;
             border-bottom: 1px solid var(--primary);
             width: fit-content;
+            color:var(--secondary);
 
             padding: 1rem 0;
         }
@@ -385,6 +390,7 @@
             flex-direction: column;
             z-index: 4;
             margin:0.5rem 0;
+            height: fit-content;
             img{
                 height: 60px;
                 width: 116px;
@@ -406,6 +412,9 @@
 
 .container-plats{
     padding:10px;
+    h2{
+        color: var(--secondary);
+    }
     .full-plat{
         display: grid;
         justify-content: center;
@@ -464,5 +473,12 @@
             }
         }
        
+    }
+
+    .resto-no-found-speciality{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:1rem 0;
     }
 }

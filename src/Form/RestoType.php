@@ -99,11 +99,11 @@ class RestoType extends AbstractType
                         'allow_delete' => true,
                         'required' => false,
                         'mapped' => false,
-                        'label' =>  $this->translator->trans('Ajouter des images pour présenter votre établissement (Max:4) *'),
+                        'label' =>  false,
                      'attr' => [
                         'class' => 'fileInput'  ,'always_empty' =>false 
                      ],
-                     'constraints' => [new Count(min:1 , minMessage: $this->translator->trans('Une image minimum requise'),max:4, maxMessage:'vous avez dépassé le nombre d`\image autorisées')], 
+                     'constraints' => [new Count(max:4,maxMessage:'vous avez dépassé le nombre d`\image autorisées')], 
                     ])
                     ;
                 }

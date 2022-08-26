@@ -80,16 +80,53 @@
 			</div>
 
 			{# Mise en place du système d'image  #}
+			{% if app.request.attributes.get('_route') == "resto_modify"  %}
+				{% include "/_partials/_preview_image.html.twig" %}
+			{% endif %}
+			<div class="groups-form">
+				<h2>
+				{% trans %}
+					Ajouter jusque 4 images de votre établissement
+				{% endtrans %}
+				</h2>
+			</div>
 			<div class="container-grid-img">
+
 			{{form_row(form.images)}}
+			<div class="form-create-error">
 			{{ form_errors(form)}}
+			</div>
 			</div>
 
 			{# fin mise en place image  #}
 
 			<div class="button-container-2">
-			<span class="mas">Finaliser l'ajout du restaurant</span>
-			<button type="submit" name="Hover">Finaliser l'ajout du restaurant</button>
+			{% if app.request.attributes.get('_route') == "resto_modify" %}
+			
+
+			<span class="mas">
+				{% trans %}
+				Finaliser la modification
+				{% endtrans %}
+			 </span>
+			<button type="submit" name="Hover">
+				{% trans %}
+				Finaliser la modification
+				{% endtrans %}
+			</button>
+			
+			{% else %}
+			<span class="mas">
+				{% trans %}
+				Finaliser l'ajout du restaurant
+				{% endtrans %}
+			 </span>
+			<button type="submit" name="Hover">
+				{% trans %}
+				Finaliser l'ajout du restaurant
+				{% endtrans %}
+			</button>
+			{% endif %}
 		</div>
 			{{form_rest(form)}}
                 {{form_end(form)}}

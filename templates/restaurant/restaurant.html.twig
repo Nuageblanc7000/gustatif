@@ -123,13 +123,19 @@
 
 
 			<section class="slider-resto">
+			{% if resto.images|length > 0 %}
 				{% for image in resto.images %}
-					<img class=" slider-img  {% if loop.first %} active-slider {% endif %} " src="{{ asset('/images/restaurant/' ~ image.path) }}" alt="image du restaurant - {{resto.name}} ">
+					<img class=" slider-img  {% if loop.first %} active-slider {% endif %} " src="{{ asset('/images/restaurant/' ~ image.path)|imagine_filter('bg_r') }}" alt="image du restaurant - {{resto.name}} ">
 				{% endfor %}
 				<span class="control-slider-container">
 					{% for i in 0.. size  %}
 						<div class="{% if loop.first %}active-control{% endif %} control-slider"></div>
 					{% endfor %}
+				{% else %}
+					<img class=" slider-img"  src="{{ asset('/build/images/fast.svg') }}" alt="image du restaurant - {{resto.name}} ">
+					<div class="active-control control-slider"></div>
+			{% endif %}
+
 				</span>
 			</section>
 			<section class="container-information-resto js-move">
@@ -153,9 +159,8 @@
 						</h3>
 						<div class="d-flex flex-wrap">
 							{% for origine in resto.origine %}
-
 								<figure class="px-2">
-									<img src="{{asset('/images/origines/' ~ origine.image) }}" alt="{{origine.name}}">
+									<img src="{{asset('/images/origines/' ~ origine.image)}}" alt="{{origine.name}}">
 									<figcaption>
 										{{origine.name}}
 									</figcaption>
@@ -170,15 +175,12 @@
 						{% endtrans %}
 					</h3>
 					<div class="d-flex flex-wrap">
-						{% for origine in resto.origine %}
-
 							<figure class="px-2">
-								<img src="{{asset('/images/origines/anglais.svg')}}" alt="">
+								{# <img src="{{asset('/images/origines/anglais.svg')}}" alt=""> #}
 								<figcaption>
-									{{origine.name}}
+										25€
 								</figcaption>
 							</figure>
-						{% endfor %}
 					</div>
 				</div>
 				</div>
@@ -192,8 +194,9 @@
 					Nos spécialités
 					{% endtrans %}
 				</h2>
-				<div class= {% if resto.plat|length > 1 %} "container-plat" {% else %} "full-plat" {% endif %}  >
-				{% for plat in resto.plat %}
+				{% if resto.speciality is not null %}
+				<div class= {% if resto.speciality.plats|length > 1 %} "container-plat" {% else %} "full-plat" {% endif %}  >
+				{% for plat in resto.speciality.plats %}
 					<div class="plat">
 						<picture style="background-image:url({{asset('/images/plats/' ~ plat.image )}})"></picture>
 						<span>
@@ -202,6 +205,10 @@
 					</div>
 				{% endfor %}
 				</div>
+
+				{% else %}
+					<h3 class="resto-no-found-speciality"> {% trans %}L'établissement n'as pas encore ajouté de spécialité {% endtrans %}</h3>
+				{% endif %}
 
 
 			</section>

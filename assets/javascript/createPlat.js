@@ -1,9 +1,9 @@
 const addImage = document.querySelector("#add-image");
 const imageStamp = document.querySelectorAll(".container-file");
-console.log(imageStamp,'test')
 let inputCollection = [];
 let inputs = 1;
 const limit = 3
+
 function addImages(e=null) {
   e !== null ? e.stopPropagation() : ''
   inputCollection = document.querySelectorAll(".input-collection");

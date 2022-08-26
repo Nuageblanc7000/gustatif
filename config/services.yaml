@@ -6,9 +6,12 @@
 parameters:
     resto_images: '%kernel.project_dir%/public/images/restaurant'
     resto_plats: '%kernel.project_dir%/public/images/plats'
+    resto_mini_images: '%kernel.project_dir%/public/media/cache/miniature/images/restaurant'
+    resto_bg_images: '%kernel.project_dir%/public/media/cache/bg_r/images/restaurant'
     # restos_images: '%kernel.project_dir%/public/images/restaurant/'
 services:
     App\Service\FileUploader:
+    App\Service\DeleteImageService:
     App\Service\MailService: ~
     # default configuration for services in *this* file
     _defaults:

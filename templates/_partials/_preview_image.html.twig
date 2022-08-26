@@ -1,0 +1,19 @@
+	
+    
+
+	<div class="form-groups">
+	<h2> {% trans %} Image actuel de l'établissemnt{% endtrans %}</h2>
+		{% if images|length == 4 %}
+		<p class="justify-content-center d-flex"> {% trans %}supprimé des images pour en ajouter d'autres {% endtrans %}</p>
+		{% endif %}
+	</div>
+	<div class="container-preview-image">
+				{% for image in images %}
+
+				<picture class="preview-image" style="background-image:url('{{asset("/images/restaurant/" ~ image.path)}}');">
+					<a type="button" class="delete-btn-file"  href={{path('resto_image_delete',{id : image.id , token: csrf_token('delete' ~ image.id )})}}  title={% trans %} "Supprimer l'image" {% endtrans %}>
+					    <i class="fa-solid fa-trash-can"></i>
+					</a>
+				</picture>	
+				{% endfor %}
+				</div>

@@ -1,38 +1,33 @@
-	{% set add = '' %}
-	
-	{% block _resto_images_widget %}
+
+
+{% block _resto_images_widget %}
 	{# définition du champ resto_image, la variable form correspond au champ resto_image#}
 	{{form_widget(form)}}
-	<input type="hidden" id="widgets-counter" value="0"> 
+	<input type="hidden" id="widgets-counter" value="0">
 
 
-	{% if app.request.attributes.get('_route') == "resto_create" %} 
-	{% set add = 'Ajouter des images' %}
-		{% else %}
-		{% set add = 'Ajouter un plat' %}
-	{% endif %}
-		<div class="button-container-2">
-			<span class="mas">{{add}}</span>
-			<button type="button" id="add-image" name="Hover">{{add}}</button>
-		</div>
-			
+	<div class="button-container-2 container-btn-form">
+		<span class="mas">{% trans %}Ajouter des images{% endtrans %} </span>
+		<button type="button" id="add-image" name="Hover">{% trans %}Ajouter des images{% endtrans %}</button>
+	</div>
+
 
 {% endblock %}
 <div class="container-collectionss">
 	{% block _resto_images_entry_row %}
-	{{form_widget(form)}}
+		{{form_widget(form)}}
 
-{% endblock %}
+	{% endblock %}
 </div>
-	{% block _resto_images_entry_widget %}
-		<div class="img-collection" id="block_{{id}}"> {{form_label(form.path)}}
+{% block _resto_images_entry_widget %}
+	<div class="img-collection" id="block_{{id}}">
+		{{form_label(form.path)}}
 		<button type="button" class="delete-btn-file" data-action="delete" data-target="#block_{{id}}" title={% trans %} "Supprimer l'image" {% endtrans %}>
 			<i class="fa-solid fa-trash-can"></i>
-
 		</button>
 		{{form_widget(form.path , {'attr':{'class':'input-collection' }}) }}
 		<div class="form-create-error">
-		{{form_errors(form.path)}}
+			{{form_errors(form.path)}}
 		</div>
 
 	</div>

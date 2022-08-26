@@ -318,3 +318,25 @@ border: none;
         }
     }
 }
+.full-preview-image{
+    grid-template-columns: repeat(auto-fit,minmax(200px,400px));
+    .preview-image{
+        height: 400px;
+    }
+}
+.container-preview-image{
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+}
+.preview-image{
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+    display: flex;
+}
+

@@ -43,9 +43,6 @@ class Restaurant
     #[ORM\JoinColumn(nullable: false)]
     private ?City $city = null;
 
-    #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Plat::class)]
-    private Collection $plat;
-
     #[Assert\Valid]
     #[Assert\All(new NotBlank(message:'Veuillez indiqer une valeur'))]
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'restaurants')]
@@ -62,6 +59,9 @@ class Restaurant
 
     #[ORM\Column(length: 255)]
     private ?string $cover = null;
+
+    #[ORM\OneToOne(mappedBy: 'restaurant', cascade: ['persist', 'remove'])]
+    private ?Speciality $speciality = null;
 
     public function __construct()
     {
@@ -132,36 +132,6 @@ class Restaurant
     public function setCity(?City $city): self
     {
         $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Plat>
-     */
-    public function getPlat(): Collection
-    {
-        return $this->plat;
-    }
-
-    public function addPlat(Plat $plat): self
-    {
-        if (!$this->plat->contains($plat)) {
-            $this->plat->add($plat);
-            $plat->setRestaurant($this);
-        }
-
-        return $this;
-    }
-
-    public function removePlat(Plat $plat): self
-    {
-        if ($this->plat->removeElement($plat)) {
-            // set the owning side to null (unless already changed)
-            if ($plat->getRestaurant() === $this) {
-                $plat->setRestaurant(null);
-            }
-        }
 
         return $this;
     }
@@ -252,6 +222,28 @@ class Restaurant
     public function setCover(string $cover): self
     {
         $this->cover = $cover;
+
+        return $this;
+    }
+
+    public function getSpeciality(): ?Speciality
+    {
+        return $this->speciality;
+    }
+
+    public function setSpeciality(?Speciality $speciality): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($speciality === null && $this->speciality !== null) {
+            $this->speciality->setRestaurant(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($speciality !== null && $speciality->getRestaurant() !== $this) {
+            $speciality->setRestaurant($this);
+        }
+
+        $this->speciality = $speciality;
 
         return $this;
     }

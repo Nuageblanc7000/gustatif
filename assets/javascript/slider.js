@@ -24,7 +24,10 @@ const slider = (key) =>{
     if (n > (images.length -1)) n = 0;
     images.item(n).classList.add('active-slider')
     controls.item(n).classList.add('active-control')
-    autoplay = setInterval(prev,time)
+    if(images.length > 1){
+
+      autoplay = setInterval(prev,time)
+    }
 }
 autoplay = setInterval(prev,time)
 
