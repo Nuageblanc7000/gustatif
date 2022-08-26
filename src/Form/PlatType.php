@@ -30,7 +30,7 @@ class PlatType extends AbstractType
                  'attr' => [
                     'class' => 'fileInput'  ,'always_empty' =>false 
                  ],
-                 'constraints' => [new Count(min:1 , minMessage: $this->translator->trans('Mini une image'),max:4, maxMessage:'vous avez dépassé le nombre d`\image autorisées')], 
+                 'constraints' => [new Count(max:4, maxMessage:'vous avez dépassé le nombre d`\image autorisées')], 
                 ])
             
         ;

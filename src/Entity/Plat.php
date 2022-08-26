@@ -19,7 +19,7 @@ class Plat
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plats',cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'plats',cascade: ['persist'])]
     private ?Speciality $speciality = null;
 
     public function getId(): ?int

@@ -11,10 +11,23 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $tabOrgineFr = ['Italienne','Belge','Africaine','Anglaise','Française','Irlandaise','Islandaise','Bulgare','Suisse','Ukrainienne','Grecque'];
+        $tabOrgineFr = 
+        ['Italienne',
+        'Belge',
+        'Africaine',
+        'Anglaise',
+        'Française',
+        'Irlandaise',
+        'Islandaise',
+        'Bulgare',
+        'Suisse',
+        'Ukrainienne',
+        'Grecque'
+    ];
         for ($i=0; $i < count($tabOrgineFr) ; $i++) { 
             $Origine = new Origine();
             $Origine->setName($tabOrgineFr[$i]);
+            $Origine->setImage(strtolower($tabOrgineFr[$i]).'.svg');
             $manager->persist($Origine);
         }
         $tabCategory = ['fast-food','restaurant'];

@@ -15,9 +15,13 @@
         text-align: center;
         font-family: var(--title-font);
     }
+    h1,h2,h3{
+        color: var(--secondary);
+    }
     .container-more-info-plat-form{
        h2{
         text-align: center;
+
        }
         margin: 0 auto;
         p{
@@ -75,6 +79,29 @@
         }
         to{
             background-color: var(--body);
+        }
+    }
+}
+.container-preview-plat{
+    display: grid;
+    @media (min-width:768px) {    
+        grid-template-columns: repeat(auto-fit,minmax(200px,300px));
+    }
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    justify-content: center;
+    gap: 5px;
+    .preview-plat{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        
+        .preview-plat-title{
+            background-color: var(--white);
+            color:var(--secondary);
+            width: 100%;
+            text-align: center;
+            font-size: 1.4rem;
+            padding:0.5rem 0.2rem;
         }
     }
 }

@@ -20,7 +20,7 @@ class DeleteImageService
         $this->em = $em;
     }
 
-    public function delete(Plat | Image  $image)
+    public function delete(object $image)
     {
        
         try {

@@ -17,10 +17,23 @@
       Ajouter une photo de vos plats, permet de donner envie aux utilisateurs de se rendre dans votre établissement.
       </p>
    </div>
+
+         	<div class="container-preview-plat">
+   {% for plat in plats %}
+				<picture class="preview-image preview-plat" style="background-image:url('{{asset("/images/plats/" ~ plat.image)}}');">
+					<a type="button" class="delete-btn-file"  href={{path('resto_image_delete',{id : plat.id , token: csrf_token('delete' ~ plat.id )})}}  title={% trans %} "Supprimer l'image" {% endtrans %}>
+					    <i class="fa-solid fa-trash-can"></i>
+					</a>
+               <div class="preview-plat-title">{{plat.name}}</div>
+				</picture>	
+   {% endfor %}
+            </div>
     {{form_start(form , {'attr':{'class':'form-plat-container'}})}}
     <div class="container-grid-img grid-plat">
 			{{form_row(form.images)}}
+         	<div class="form-create-error">
 			{{ form_errors(form)}}
+				</div>
 			</div>
 
    <div class="container-btn-action-form d-flex">

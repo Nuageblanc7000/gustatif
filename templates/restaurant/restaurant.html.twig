@@ -194,7 +194,7 @@
 					Nos spécialités
 					{% endtrans %}
 				</h2>
-				{% if resto.speciality is not null %}
+				{% if resto.speciality is not empty and resto.speciality.plats|length > 0 %}
 				<div class= {% if resto.speciality.plats|length > 1 %} "container-plat" {% else %} "full-plat" {% endif %}  >
 				{% for plat in resto.speciality.plats %}
 					<div class="plat">
@@ -226,8 +226,13 @@
 					<picture>
 						<img src="{{asset('/build/images/position.svg')}}" alt="icon position">
 					</picture>
-					<h3>
+					<h3 class="">
+						<span>
 						{{resto.adress}}
+						</span>
+						<span>
+							{{resto.city.localite}} - {{resto.city.code}} 
+						</span>
 					</h3>
 				</span>
 

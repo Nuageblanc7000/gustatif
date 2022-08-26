@@ -20,7 +20,9 @@
 					<div class="design-form-icon anim-icon"> <img src="{{asset('/build/images/resto-black.svg')}}" alt="chef icon" width="40px" height="40px"> </div>
 					{{form_widget(form.name)}}
 				</div>
+					<div class="form-create-error">
 					{{form_errors(form.name)}}
+				</div>
 			</div>
 
 			<h2>Votre situation géographique</h2>
@@ -30,7 +32,9 @@
 					<div class="design-form-icon anim-icon"> <img src="{{asset('/build/images/path.svg')}}" alt="chef icon" width="40px" height="40px"> </div>
 					{{form_widget(form.adress)}}
 				</div>
+					<div class="form-create-error">
 					{{form_errors(form.adress)}}
+				</div>
               </div>
 
                     <div class="container-design-form">
@@ -38,7 +42,9 @@
 					<div class="design-form-icon "> <img src="{{asset('/build/images/citySky.svg')}}" alt="chef icon" width="40px" height="40px"> </div>
 					{{form_widget(form.city)}}
 				</div>
+					<div class="form-create-error">
 					{{form_errors(form.city)}}
+				</div>
                     </div>
 
                 <div class="container-design-form">
@@ -46,7 +52,9 @@
 					<div class="design-form-icon anim-icon"><img src="{{asset('/build/images/phone.svg')}}" alt="chef icon" width="40px" height="40px"></div>
 					{{form_widget(form.phone)}}
 				</div>
+					<div class="form-create-error">
 					{{form_errors(form.phone)}}
+				</div>
                 </div>
 
 			</div>
@@ -57,7 +65,9 @@
 					<div class="design-form-icon anim-icon"><div class="design-form-icon"><img src="{{asset('/build/images/descriptionForm.svg')}}" alt="chef icon" width="40px" height="40px"></div></div>
 					{{form_widget(form.description)}}
 				</div>
+					<div class="form-create-error">
 					{{form_errors(form.description)}}
+				</div>
             </div>
 
 			</div>
@@ -68,14 +78,18 @@
 					<div class="design-form-icon "><img src="{{asset('/build/images/origine.svg')}}" alt="plateau" width="40px" height="40px"> </div>
 					{{form_widget(form.origine)}}
 				</div>
+					<div class="form-create-error">
 					{{form_errors(form.origine)}}
+				</div>
             </div>
                 <div class="container-design-form">
                 <div class="design-form-input or-cat">
 					<div class="design-form-icon "> <img src="{{asset('/build/images/origine.svg')}}" alt="plateau" width="40px" height="40px"> </div>
 					{{form_widget(form.category)}}
 				</div>
+				<div class="form-create-error">
 					{{form_errors(form.category)}}
+				</div>
                 </div>
 			</div>
 

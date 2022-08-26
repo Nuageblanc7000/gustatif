@@ -1,14 +1,16 @@
 const addImage = document.querySelector("#add-image");
 const imageStamp = document.querySelectorAll(".container-file");
+const preview = document.querySelectorAll('.preview-image').length
+let lengths = 0
 let inputCollection = [];
-let inputs = 1;
-const limit = 3
-
+let inputs = 0;
+const limit = 4
+let counter = 0
 function addImages(e=null) {
   e !== null ? e.stopPropagation() : ''
   inputCollection = document.querySelectorAll(".input-collection");
   inputs = inputCollection.length;
-  if (inputs + imageStamp.length <= limit) {
+  if (inputs + preview < limit) {
     const widgetCounter = document.querySelector("#widgets-counter");
     const index = +widgetCounter.value;
     const platImages = document.querySelector("#plat_images");
@@ -24,8 +26,12 @@ function addImages(e=null) {
 }
 
   addImage.addEventListener("click",(e)=> {
-    e.stopPropagation()
-    addImages(e)
+    if (inputs + preview < limit) {
+      e.stopPropagation()
+      addImages(e)
+    }else{
+      return;
+    }
 
   });
 
