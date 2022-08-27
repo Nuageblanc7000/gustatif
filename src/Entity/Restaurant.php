@@ -60,12 +60,13 @@ class Restaurant
     #[ORM\Column(length: 255)]
     private ?string $cover = null;
 
-    #[ORM\OneToOne(mappedBy: 'restaurant', cascade: ['persist', 'remove'])]
-    private ?Speciality $speciality = null;
 
     #[ORM\ManyToOne(inversedBy: 'restaurant')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
+
+    #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Plat::class)]
+    private Collection $plats;
 
     public function __construct()
     {
@@ -73,6 +74,7 @@ class Restaurant
         $this->category = new ArrayCollection();
         $this->origine = new ArrayCollection();
         $this->images = new ArrayCollection();
+        $this->plats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -230,28 +232,6 @@ class Restaurant
         return $this;
     }
 
-    public function getSpeciality(): ?Speciality
-    {
-        return $this->speciality;
-    }
-
-    public function setSpeciality(?Speciality $speciality): self
-    {
-        // unset the owning side of the relation if necessary
-        if ($speciality === null && $this->speciality !== null) {
-            $this->speciality->setRestaurant(null);
-        }
-
-        // set the owning side of the relation if necessary
-        if ($speciality !== null && $speciality->getRestaurant() !== $this) {
-            $speciality->setRestaurant($this);
-        }
-
-        $this->speciality = $speciality;
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -260,6 +240,36 @@ class Restaurant
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Plat>
+     */
+    public function getPlats(): Collection
+    {
+        return $this->plats;
+    }
+
+    public function addPlat(Plat $plat): self
+    {
+        if (!$this->plats->contains($plat)) {
+            $this->plats->add($plat);
+            $plat->setRestaurant($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlat(Plat $plat): self
+    {
+        if ($this->plats->removeElement($plat)) {
+            // set the owning side to null (unless already changed)
+            if ($plat->getRestaurant() === $this) {
+                $plat->setRestaurant(null);
+            }
+        }
 
         return $this;
     }

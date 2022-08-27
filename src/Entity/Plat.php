@@ -19,8 +19,9 @@ class Plat
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    #[ORM\ManyToOne(inversedBy: 'plats',cascade: ['persist'])]
-    private ?Speciality $speciality = null;
+    #[ORM\ManyToOne(inversedBy: 'plats')]
+    private ?Restaurant $restaurant = null;
+
 
     public function getId(): ?int
     {
@@ -51,14 +52,14 @@ class Plat
         return $this;
     }
 
-    public function getSpeciality(): ?Speciality
+    public function getRestaurant(): ?Restaurant
     {
-        return $this->speciality;
+        return $this->restaurant;
     }
 
-    public function setSpeciality(?Speciality $speciality): self
+    public function setRestaurant(?Restaurant $restaurant): self
     {
-        $this->speciality = $speciality;
+        $this->restaurant = $restaurant;
 
         return $this;
     }

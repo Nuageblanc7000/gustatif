@@ -11,6 +11,8 @@ use App\Entity\FalseImg;
 use App\Form\FilterType;
 use App\Entity\Restaurant;
 use App\Entity\Speciality;
+use App\Repository\ImageRepository;
+use App\Repository\PlatRepository;
 use App\Service\FileUploader;
 use App\Service\DeleteImageService;
 use Symfony\Component\Form\FormError;
@@ -32,6 +34,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpFoundation\Test\Constraint\ResponseStatusCodeSame;
 use Symfony\Component\Config\Definition\Exception\ForbiddenOverwriteException;
+use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 
 class RestoController extends AbstractController
 {
@@ -89,9 +92,6 @@ class RestoController extends AbstractController
                     }
                     $resto->setUser($user);
                     $em->persist($resto);
-                    $special = new Speciality();
-                    $special->setRestaurant($resto);
-                    $em->persist($special);
                     $em->flush();
                     $message = 'Félicitation votre restaurant vient être ajouté!';
                     $this->addFlash('succes', $message);
@@ -104,17 +104,26 @@ class RestoController extends AbstractController
     }
     #[IsGranted('ROLE_USER')]
     #[Route('/restaurant/plat/{id}', name: 'create_plat')]
+    /**
+     * Undocumented function
+     *
+     * @param Request $req
+     * @param Restaurant $resto
+     * @param EntityManagerInterface $em
+     * @param FileUploader $uploader
+     * @param RestaurantRepository $repo
+     * @return Response
+     */
     public function create_plat(Request $req,Restaurant $resto, EntityManagerInterface $em, FileUploader $uploader, RestaurantRepository $repo): Response
-
     {
         $user = $this->getUser();
-        if(!$repo->findOneBy(['user' => $user]))
+        if($resto->getUser() !== $user)
         {
           // gestion de la securité avec retour vers page 403
-            dd('stop');
+            return  throw new AccessDeniedHttpException(message:'Accès refusé',code:403);
         }
         $limit = 4;
-        $plats = $resto->getSpeciality()->getPlats();
+        $plats = $resto->getPlats();
         $countPlat = count($plats);
         $plat = new Plat();
         $form = $this->createForm(PlatType::class, $plat);
@@ -134,10 +143,12 @@ class RestoController extends AbstractController
                    $plat->setName($data->getAlt());
                    $plat->setImage($path);
                    $em->persist($plat);
-                   $resto->getSpeciality()->addPlat($plat);
+                   $resto->addPlat($plat);
                 }
                 $em->flush();
+                return $this->redirect($req->headers->get('referer'));
             }
+
         }
         return $this->renderForm('/restaurant/create_plat.html.twig', ['form' => $form ,'plats' => $plats ]);
     }
@@ -155,9 +166,9 @@ class RestoController extends AbstractController
      */
     public  function modify_resto(Restaurant $resto, Request $req, EntityManagerInterface $em, FileUploader $upload, RestaurantRepository $repo): Response
     {
-
         $user = $this->getUser();
-        if(!$repo->findOneBy(['user' => $user]))
+
+        if($resto->getUser() !== $user)
         {
           // gestion de la securité avec retour vers page 403
             return  throw new AccessDeniedHttpException(message:'Accès refusé',code:403);
@@ -187,7 +198,7 @@ class RestoController extends AbstractController
                     $em->flush();
                     $message = 'Félicitation votre restaurant vient être ajouté!';
                     $this->addFlash('succes', $message);
-                    return $this->redirectToRoute('home');
+                    return $this->redirect($req->headers->get('referer'));
                 } else {
                     $form->get('images')->addError(new FormError('Les comptes non-abonnés ne peuvent avoir que ' . $limit . 'images'));
                 }
@@ -202,38 +213,69 @@ class RestoController extends AbstractController
     }
     #[Route('restaurant/images/update/{id}/{token}', name: 'resto_image_delete')]
     /**
-     *  permet la suppression d'une image ou d'un plat avec vérification par token utilisation du service delete
+     * permet la suppression d'une image
      *
      * @param Request $req
      * @param [type] $token
      * @param null|Image $image
-     * @param Plat|null $plat
      * @param DeleteImageService $deleteImageService
      * @return void
      */
-    public function updateImageResto(Request $req, $token, null|Image $image,Plat|null $plat, DeleteImageService $deleteImageService)
+    public function updateImageResto(Request $req, $token, Image $image, DeleteImageService $deleteImageService)
     {
-        $entity = $image === null ? $plat : $image;
-        $entityId = $image === null ? $plat->getId() : $image->getId();
-        $target = $image === null ? 'images' : 'plats';
-        $path = $image === null ? $plat->getImage() : $image->getPath();
-        if ($this->isCsrfTokenValid('delete'.$entityId, $token)) {
+   //vérifier si les images appartiennent à l'utilisateur avant tout
+        $idResto =  $image->getRestaurant()->getId();
+    
+        if ($this->isCsrfTokenValid('delete'.$image->getId(), $token)) {
                 $deleteImageService->setTargetDirectory(
                     [
-                        $this->getParameter('resto_'.$target) . '/' . $path,
-                        $this->getParameter('resto_mini_'.$target) . '/' .$path,
-                        $this->getParameter('resto_bg_'. $target) . '/' . $path
+                        $this->getParameter('resto_images') . '/' .$image->getPath(),
+                        $this->getParameter('resto_mini_images') . '/' .$image->getPath(),
+                        $this->getParameter('resto_bg_images') . '/' . $image->getPath()
                     ]
                     );
-    
-                    $deleteImageService->delete($entity);
+                    $deleteImageService->delete($image);
                 
             $this->addFlash('sucess', 'félicitation');
-            return $this->redirect($req->headers->get('referer'), Response::HTTP_FOUND);
+            return $this->redirectToRoute('resto_modify',['id' => $idResto], Response::HTTP_FOUND);
         } else {
             throw $this->createNotFoundException('aucun résultat');
         }
     }
+
+
+    #[Route('restaurant/plat/update/{id}/{token}', name: 'resto_plat_delete')]
+    /**
+     * permet la supression d'un plat
+     *
+     * @param Request $req
+     * @param [type] $token
+     * @param Plat $plat
+     * @param DeleteImageService $deleteImageService
+     * @return void
+     */
+    public function updatePlatImage(Request $req, $token, Plat $plat, DeleteImageService $deleteImageService)
+    {
+   //vérifier si les images appartiennent à l'utilisateur avant tout
+        $idResto =  $plat->getRestaurant()->getId();
+    
+        if ($this->isCsrfTokenValid('delete'.$plat->getId(), $token)) {
+                $deleteImageService->setTargetDirectory(
+                    [
+                        $this->getParameter('resto_plats') . '/' .$plat->getImage(),
+                        $this->getParameter('resto_mini_plats') . '/' .$plat->getImage(),
+                        $this->getParameter('resto_bg_plats') . '/' . $plat->getImage()
+                    ]
+                    );
+                    $deleteImageService->delete($plat);
+                
+            $this->addFlash('sucess', 'félicitation');
+            return $this->redirectToRoute('create_plat',['id' => $idResto], Response::HTTP_FOUND);
+        } else {
+            throw $this->createNotFoundException('aucun résultat');
+        }
+    }
+
 
     #[Route('/restaurant/{id}', name: 'resto_view')]
     /**

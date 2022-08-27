@@ -50,6 +50,7 @@ function addImages(e=null) {
         const target = button.dataset.target;
         const elementTarget = document.querySelector(target);
         if (elementTarget) {
+          inputs--
           elementTarget.remove();
         }
       });
@@ -84,13 +85,6 @@ function display(e = null, parent) {
     if (e !== null) currentParent.innerHTML = `<img  src=${e.target.result} />`;
 }
 
-function input(collection) {
-    collection.forEach((element) => {
-        console.log(element);
-    });
-}
-
-
 function initialVue()
 {
   document.querySelectorAll(".input-collection").forEach((file) => {
@@ -107,4 +101,3 @@ function initialVue()
 }
 updateCounter();
 handleDeleteButtons();
-initialVue()

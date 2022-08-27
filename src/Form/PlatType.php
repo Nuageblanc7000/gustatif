@@ -28,7 +28,7 @@ class PlatType extends AbstractType
                     'mapped' => false,
                     'label' => false,
                  'attr' => [
-                    'class' => 'fileInput'  ,'always_empty' =>false 
+                    'class' => 'container-grid-all'  ,'always_empty' =>false 
                  ],
                  'constraints' => [new Count(max:4, maxMessage:'vous avez dépassé le nombre d`\image autorisées')], 
                 ])

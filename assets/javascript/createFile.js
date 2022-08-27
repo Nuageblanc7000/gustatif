@@ -43,12 +43,12 @@ function addImages(e=null) {
 
   const handleDeleteButtons = () => {
     var deletes = document.querySelectorAll("button[data-action='delete']");
-
     deletes.forEach((button) => {
       button.addEventListener("click", () => {
         const target = button.dataset.target;
         const elementTarget = document.querySelector(target);
         if (elementTarget) {
+          inputs--
           elementTarget.remove();
         }
       });
@@ -93,10 +93,10 @@ function input(collection) {
 function initialVue()
 {
   document.querySelectorAll(".input-collection").forEach((file) => {
-    file.addEventListener('load',(e)=>{
-      e.stopPropagation();
-      viewImage(e);   
-    })
+    // file.addEventListener('load',(e)=>{
+    //   e.stopPropagation();
+    //   viewImage(e);   
+    // })
     file.addEventListener("change", (e) => {
       e.stopPropagation();
       viewImage(e);
@@ -106,4 +106,3 @@ function initialVue()
 }
 updateCounter();
 handleDeleteButtons();
-initialVue()

@@ -7,7 +7,7 @@
 		<p class="justify-content-center d-flex"> {% trans %}supprimé des images pour en ajouter d'autres {% endtrans %}</p>
 		{% endif %}
 	</div>
-	<div class="container-preview-image">
+	<div class="container-grid-all">
 				{% for image in images %}
 
 				<picture class="preview-image" style="background-image:url('{{asset("/images/restaurant/" ~ image.path)}}');">

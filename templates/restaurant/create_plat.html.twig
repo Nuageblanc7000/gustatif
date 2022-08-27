@@ -6,6 +6,7 @@
  {% form_theme form '_partials/_collection_plat.html.twig' %}
  <div class="container-bg-plat">
  <div class="container-main-plat">
+   <div class="form-step">
    <h1>
       {% trans %}
            Ajouter jusque 4 de vos spécialités
@@ -20,12 +21,14 @@
 
          	<div class="container-preview-plat">
    {% for plat in plats %}
+         <div>
 				<picture class="preview-image preview-plat" style="background-image:url('{{asset("/images/plats/" ~ plat.image)}}');">
-					<a type="button" class="delete-btn-file"  href={{path('resto_image_delete',{id : plat.id , token: csrf_token('delete' ~ plat.id )})}}  title={% trans %} "Supprimer l'image" {% endtrans %}>
+					<a type="button" class="delete-btn-file"  href={{path('resto_plat_delete',{id : plat.id , token: csrf_token('delete' ~ plat.id )})}}  title={% trans %} "Supprimer l'image" {% endtrans %}>
 					    <i class="fa-solid fa-trash-can"></i>
 					</a>
-               <div class="preview-plat-title">{{plat.name}}</div>
 				</picture>	
+               <div class="preview-plat-title">{{plat.name}}</div>
+         </div>
    {% endfor %}
             </div>
     {{form_start(form , {'attr':{'class':'form-plat-container'}})}}
@@ -37,11 +40,12 @@
 			</div>
 
    <div class="container-btn-action-form d-flex">
-      <button type="button" class="btn  me-2">Annuler</button>
-      <button type="submit" class="btn">J'ai terminé</button>
+      <a href="" class="btn-flip-card me-2">Retour vers la page profil</a>
+      <button type="submit" class="btn-flip-card">Sauvegarder les nouvelles spécialités</button>
    </div>
     {{form_rest(form)}}
     {{form_end(form)}}
+   </div>
  </div>
    
  </div>

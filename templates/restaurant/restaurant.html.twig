@@ -132,7 +132,7 @@
 						<div class="{% if loop.first %}active-control{% endif %} control-slider"></div>
 					{% endfor %}
 				{% else %}
-					<img class=" slider-img"  src="{{ asset('/build/images/fast.svg') }}" alt="image du restaurant - {{resto.name}} ">
+					<img class=" slider-img active-slider"  src="{{ asset('/build/images/site/default_resto.jpg') }}" alt="image du restaurant - {{resto.name}} ">
 					<div class="active-control control-slider"></div>
 			{% endif %}
 
@@ -194,9 +194,9 @@
 					Nos spécialités
 					{% endtrans %}
 				</h2>
-				{% if resto.speciality is not empty and resto.speciality.plats|length > 0 %}
-				<div class= {% if resto.speciality.plats|length > 1 %} "container-plat" {% else %} "full-plat" {% endif %}  >
-				{% for plat in resto.speciality.plats %}
+				{% if resto.plats is not empty and resto.plats|length > 0 %}
+				<div class= {% if resto.plats|length > 1 %} "container-plat" {% else %} "full-plat" {% endif %}  >
+				{% for plat in resto.plats %}
 					<div class="plat">
 						<picture style="background-image:url({{asset('/images/plats/' ~ plat.image )}})"></picture>
 						<span>
