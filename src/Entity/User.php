@@ -203,6 +203,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setIsResto(bool $isResto): self
     {
+        //on ajoute le role restaurateur si c'est true
+        if($isResto){
+            $this->setRoles(['ROLE_RESTAURATEUR']);
+          }
         $this->isResto = $isResto;
 
         return $this;

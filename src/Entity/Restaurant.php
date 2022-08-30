@@ -68,6 +68,9 @@ class Restaurant
     #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Plat::class)]
     private Collection $plats;
 
+    #[ORM\OneToOne(inversedBy: 'restaurant', cascade: ['persist', 'remove'])]
+    private ?Schedule $schedule = null;
+
     public function __construct()
     {
         $this->plat = new ArrayCollection();
@@ -270,6 +273,18 @@ class Restaurant
                 $plat->setRestaurant(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSchedule(): ?Schedule
+    {
+        return $this->schedule;
+    }
+
+    public function setSchedule(?Schedule $schedule): self
+    {
+        $this->schedule = $schedule;
 
         return $this;
     }

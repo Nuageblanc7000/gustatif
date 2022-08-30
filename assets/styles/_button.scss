@@ -40,6 +40,24 @@
     transition: 0.5s ease;
     cursor: pointer;
 }
+
+
+.btn{
+    font-size: 2rem;
+    font-family: var(--title-font);
+    border:none;
+    background-color: var(--primary);
+    border-radius: 5px;
+    padding:1rem 4rem;
+    border:1px solid var(--primary);
+    color:var(--secondary);
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 .btn-mini{
     @extend %min-btn;
     background-color: var(--background-white);

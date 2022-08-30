@@ -22,7 +22,6 @@ function addImages(e=null) {
     widgetCounter.value = index + 1;
     handleDeleteButtons()
     initialVue()
-
   }
 }
   addImage.addEventListener("click",(e)=> {
@@ -93,10 +92,10 @@ function input(collection) {
 function initialVue()
 {
   document.querySelectorAll(".input-collection").forEach((file) => {
-    // file.addEventListener('load',(e)=>{
-    //   e.stopPropagation();
-    //   viewImage(e);   
-    // })
+    file.addEventListener('load',(e)=>{
+      e.stopPropagation();
+      viewImage(e);   
+    })
     file.addEventListener("change", (e) => {
       e.stopPropagation();
       viewImage(e);
@@ -106,3 +105,4 @@ function initialVue()
 }
 updateCounter();
 handleDeleteButtons();
+initialVue()

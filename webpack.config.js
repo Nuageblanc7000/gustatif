@@ -24,6 +24,7 @@ Encore
     .addEntry('nav-responsive','./assets/javascript/nav-responsive.js')
     .addEntry('flip-card','./assets/javascript/flip-card.js')
     .addEntry('slider','./assets/javascript/slider.js')
+    .addEntry('time','./assets/javascript/time.js')
     .addEntry('active-lateral','./assets/javascript/active-lateral.js')
     .addEntry('splide','./assets/splide.js')
     .addEntry('create-file','./assets/javascript/createFile.js')

@@ -8,12 +8,14 @@ use App\Form\PlatType;
 use App\Form\RestoType;
 use App\Data\DataFilter;
 use App\Entity\FalseImg;
+use App\Entity\Schedule;
 use App\Form\FilterType;
 use App\Entity\Restaurant;
 use App\Entity\Speciality;
-use App\Repository\ImageRepository;
-use App\Repository\PlatRepository;
+use App\Form\ScheduleType;
 use App\Service\FileUploader;
+use App\Repository\PlatRepository;
+use App\Repository\ImageRepository;
 use App\Service\DeleteImageService;
 use Symfony\Component\Form\FormError;
 use App\Repository\RestaurantRepository;
@@ -32,9 +34,9 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Test\Constraint\ResponseStatusCodeSame;
 use Symfony\Component\Config\Definition\Exception\ForbiddenOverwriteException;
-use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 
 class RestoController extends AbstractController
 {
@@ -276,6 +278,25 @@ class RestoController extends AbstractController
         }
     }
 
+    #[IsGranted('ROLE_RESTAURATEUR')]
+    #[Route('/restaurant/horaire/{id}','schedule_gestion')]
+    /**
+     * Permet de gérer l'horaire
+     *
+     * @param Request $req
+     * @param DayRepository $repo
+     * @return void
+     */
+    public function hourly(Request $req , Schedule $schedule , EntityManagerInterface $em ){
+        $form = $this->createForm(ScheduleType::class,$schedule);
+
+        $form->handleRequest($req);
+        if($form->isSubmitted() && $form->isValid()){
+                $em->persist($schedule);
+                $em->flush();
+        }
+        return $this->render('/restaurant/schedule_gestion.html.twig',['form'=> $form->createView()]);
+    }
 
     #[Route('/restaurant/{id}', name: 'resto_view')]
     /**

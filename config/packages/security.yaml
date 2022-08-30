@@ -38,6 +38,10 @@ security:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profil, roles: ROLE_USER }
 
+    role_hierarchy:
+        ROLE_RESTAURATEUR: ROLE_USER
+        ROLE_ADMIN: ROLE_RESTAURATEUR
+        
 when@test:
     security:
         password_hashers:

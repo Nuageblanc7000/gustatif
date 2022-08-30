@@ -1,0 +1,107 @@
+.container-main-schedule{
+    @extend .container;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-height: inherit;
+    
+        h1{
+            text-align: center;
+            font-size: 2.7rem;
+            font-family: var(--font-family1);
+        }
+        .js-timer{
+            display: flex;
+            margin: 0rem 0;
+            justify-content: center;
+            align-items: center;
+            span{
+                width: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding:0.5rem 0;
+                border:2px unset var(--secondary);
+                font-size: 4rem;
+            }
+            i{
+                padding:0 0.5rem;
+            }
+
+        }
+        .legend-form-schedule{
+            background-color: var(--secondary);
+            color:var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+            border:none;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            padding:0.5rem 1rem;
+            .close-pannel{
+  
+                width: 90px;
+                height: 50px;
+                display: block;
+                margin: 1rem 0;
+                img{
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            h2{
+                font-size: 2.1rem;
+                text-align: center;
+            }
+            span{
+                font-size: 1.3rem;
+            }
+        }
+}
+
+.container-form-schedule{
+    margin-bottom: 2rem;
+    .form-step{
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        .form-group-times{
+
+            display: grid;
+            grid-template-columns: repeat(3,minmax(80px,300px));
+            gap: 10px;
+            padding:0 0.3rem;
+            justify-content: space-between;
+            margin:2rem 0;
+            
+            input{
+                border:none;
+                text-align:end;
+                background-color: transparent;
+            }
+        }
+        .title-group-time{
+            span{
+                font-weight: bold;
+                text-align: center;
+                font-size: 1.8rem;
+                font-family: var(--title-font);
+            }
+        }
+        button[type="submit"]{
+            @extend .btn;
+        }
+    }
+
+
+}
+
+.bg-error-time{
+    background-color: var(--error2) !important;
+    color: white!important;
+}

@@ -116,30 +116,12 @@
     }
 }
 
-.btn{
-    font-size: 2rem;
-    font-family: var(--title-font2);
-    border:none;
-    background-color: var(--primary);
-    border-radius: 5px;
-    padding:1rem 4rem;
-    border:1px solid var(--primary);
-    color:var(--secondary);
-    margin-top: 4rem;
-    color:var(--white);
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 .form-message-errors{
     display: flex;
     justify-content: center;
     align-items: center;
     margin:1rem 0;
     background-color: var(--error2);
-    color:var(--secondary);
+    color:var(--white);
     border-radius: 5px;
 }

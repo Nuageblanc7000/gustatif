@@ -101,3 +101,4 @@ function initialVue()
 }
 updateCounter();
 handleDeleteButtons();
+initialVue()

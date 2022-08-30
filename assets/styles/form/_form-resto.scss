@@ -232,7 +232,6 @@
 
 }
 .img-collection{
-    height: 200px;
     position: relative;
 }
 
@@ -241,7 +240,7 @@
 }
 .label-input-file{
     width: inherit;
-    height: inherit;
+    min-height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -311,8 +310,8 @@ border: none;
 .form-create-error{
     ul{
         li{
-            margin:0.2rem 0;
             font-size: 1.4rem;
+            margin:1rem 0;
             text-align: center;
             color:var(--error2);
         }

@@ -20,6 +20,7 @@
 	{% endblock %}
 </div>
 {% block _resto_images_entry_widget %}
+
 	<div class="img-collection" id="block_{{id}}">
 		{{form_label(form.path)}}
 		<button type="button" class="delete-btn-file" data-action="delete" data-target="#block_{{id}}" title={% trans %} "Supprimer l'image" {% endtrans %}>
@@ -30,5 +31,5 @@
 			{{form_errors(form.path)}}
 		</div>
 
-	</div>
+</div>
 {% endblock %}
