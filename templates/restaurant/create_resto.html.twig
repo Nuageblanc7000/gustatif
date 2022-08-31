@@ -1,16 +1,35 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
+{% if app.request.attributes.get('_route') == "resto_modify"  %}
 	{% trans %}
-	Page création restaurant
+	 	Modifier le restaurant
 	{% endtrans %}
+	{% else %}
+		{% trans %}
+			Création restaurant
+	{% endtrans %}
+{% endif %}
 {% endblock %}
 {% block body %}
  {% form_theme form '_partials/_collection.html.twig' %}
     <div class="bg-style-create">
 	<div class="container-resto-form">
 		<div class="title">
-			<h1>Création du restaurant</h1>
+
+			<h1>
+			{% if app.request.attributes.get('_route') == "resto_modify"  %}
+					{% trans %}
+						Modifier le restaurant
+				{% endtrans %}
+				
+				{% else %}
+					
+				{% trans %}
+						Création du restaurant
+				{% endtrans %}
+			{% endif %}
+			</h1>
 		</div>
 		<div class="form-step">
 			{{form_start(form , {'attr':{'class':'form'}})}}

@@ -1,124 +1,140 @@
-.profil-main-container{
-    @extend .container;
+.profil-main-container {
+  @extend .container;
 
-    background-image:url('/assets/images/profil/home-bg-profil.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    min-height: inherit;
-    .nav-profil-home{
-        min-height: 65px;
-        max-width: 700px;
-        margin: 4rem auto;
-        box-shadow: var(--box-shadow-nav);
-        background-color: var(--color-grey-ligtht);
-        border-radius: 5px;
-        padding:20px;
-
-        ul{
-            width: 100%;
-            min-height: inherit;
-            display: grid;
-            gap: 5px;
-            grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
-            
-            li{
-                min-height: 100%;
-                border-radius: 10px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                cursor: pointer;
-                transition: 0.3s ease-in background-color;
-                svg{
-                    width:40px !important;
-                    height: 40px !important;
-                }
-                a{
-                    width:100%;
-                    min-height: 100%;
-                    display: inherit;
-                    padding:5px;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    color:var(--secondary);
-                }
-            }
-            li:hover{
-                  background-color: var(--secondary);
-                  svg path{
-                    fill:var(--white) !important;
-                  }
-                  color:var(--primary)!important;
-                  a{
-                    color:var(--primary)!important;
-                  }
-                }
-                .sticker{
-                    text-align: center;
-                    display: none;
-                }
-            @media (min-width:576px) {
-                .sticker{
-                    display: block;
-                }
-            }
-        }
-    }
-.resto-main-container-profil{
-    position: relative;
-    max-width: 1000px;
-    margin: 1rem auto;
+  background-image: url("/assets/images/profil/home-bg-profil.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: inherit;
+  h1{
+    text-align: center;
+  }
+  .nav-profil-home {
+    min-height: 65px;
+    max-width: 700px;
+    margin: 4rem auto;
+    box-shadow: var(--box-shadow-nav);
     background-color: var(--color-grey-ligtht);
-    box-shadow: var(--box-shadow);
-    h3{
+    border-radius: 5px;
+    padding: 20px;
+    
+    ul {
+      width: 100%;
+      min-height: inherit;
+      display: grid;
+      gap: 5px;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+
+      li {
+        min-height: 100%;
+        border-radius: 10px;
         display: flex;
         flex-direction: column;
-        // justify-content: flex-end;
-        position: relative;
-        font-family: var( --title-font);
-        margin:1rem 0;
+        justify-content: center;
         align-items: center;
-        &::after{
-            content: '';
-            font-size: 4rem;
-            min-height: 20px;
-            bottom: 0;
-            position: absolute;
+        cursor: pointer;
+        transition: 0.3s ease-in background-color;
+        svg {
+          width: 40px !important;
+          height: 40px !important;
         }
+        a {
+          width: 100%;
+          min-height: 100%;
+          display: inherit;
+          padding: 5px;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          color: var(--secondary);
+        }
+      }
+      li:hover {
+        background-color: var(--secondary);
+        svg path {
+          fill: var(--white) !important;
+        }
+        color: var(--primary) !important;
+        a {
+          color: var(--primary) !important;
+        }
+      }
+      .sticker {
+        text-align: center;
+        display: none;
+      }
+      @media (min-width: 576px) {
+        .sticker {
+          display: block;
+        }
+      }
+    }
+  }
+  .resto-main-container-profil {
+    position: relative;
+    max-width: 1000px;
+    padding: 10px;
+    margin: 2rem auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-grey-ligtht);
+    box-shadow: var(--box-shadow);
+    h3 {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+      font-family: var(--title-fonT);
+      margin: 1rem 0;
+      align-items: center;
+      &::after {
+        content: "";
+        font-size: 4rem;
+        min-height: 20px;
+        bottom: 0;
+        position: absolute;
+      }
     }
 
-    .resto-container-profil{
-        width:100%;
-        display: grid;
-        padding:10px;
-        border-radius: 15px;
-        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-        gap: 10px;
+    .resto-container-profil {
+      width: 100%;
+      display: grid;
+      border-radius: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      min-height: 100px;
+
+      .box-resto-profil {
+        background-color: var(--body);
+        box-shadow: var(--box-shadow);
+        min-height: 100%;
         min-height: 100px;
-        
-        .box-resto-profil{
-            background-color: var(--body);
-            box-shadow: var(--box-shadow);
-            min-height: 100%;
-            min-height: 100px;
-            padding:1rem;
-            svg{
-                width:80px;
-                height: 80px;
-                margin:0.5rem 0;
-            }
-            a{
-                width:100%;
-                min-height: 100%;
-                display: flex;
-                justify-content: center;
-                flex-direction: column;
-                align-items: center;
-            }
+        padding: 1rem;
+        svg {
+          width: 80px;
+          height: 80px;
+          margin: 0.5rem 0;
         }
+        a {
+          width: 100%;
+          min-height: 100%;
+          display: flex;
+          text-align: center;
+          color: var(--secondary);
+          font-family: var(--font-family3);
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
     }
-}
+  }
+  .profil-not-resto-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }

@@ -166,7 +166,7 @@ class RestoController extends AbstractController
      * @param FileUploader $upload
      * @return Response
      */
-    public  function modify_resto(Restaurant $resto, Request $req, EntityManagerInterface $em, FileUploader $upload, RestaurantRepository $repo): Response
+    public  function modify_resto(Restaurant $resto, Request $req, EntityManagerInterface $em, FileUploader $upload): Response
     {
         $user = $this->getUser();
 
