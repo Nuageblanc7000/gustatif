@@ -1,0 +1,45 @@
+.avatar-step{
+    max-width: 400px;
+    margin: 0 auto;
+    .container-preview-avatar{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5px;
+        .before-avatar-container,.after-avatar-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+
+    .avatar-btn{
+        display: none;
+    }
+    .label-avatar{
+        margin: 0rem auto;
+        margin-top:2rem;
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        background-color: var(--primary);
+        box-shadow: var(--box-shadow);
+        padding:0.5rem;
+        border-radius: 5px;
+        color:var(--white);
+        transition: transform ease 0.5s;
+        cursor: pointer;
+        &:hover{
+            transform: scale(0.955);
+        }
+    }
+
+    .container-btn-action-form{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 5px;
+        .button-container-2{
+            width: 100%;
+        }
+    }
+}

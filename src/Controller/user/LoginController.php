@@ -13,7 +13,12 @@ class LoginController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         if ($this->getUser()) {
-            return $this->redirectToRoute('app_profil');
+        
+            if(in_array('ROLE_RESTAURATEUR',$this->getUser()->getRoles())){
+                return $this->redirectToRoute('app_profil_restaurateur');
+            }else{
+                return $this->redirectToRoute('app_profil_user');
+            }
         }
 
 

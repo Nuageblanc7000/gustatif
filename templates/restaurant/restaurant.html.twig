@@ -1,7 +1,6 @@
 {% set restostar = 4 %}
 {% set size =  resto.images|length -1 %}
-{% set tel = '0477679409' %}
-
+{% set days = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'] %}
 
 {% extends "base.html.twig" %}
 {% block title %} {{resto.name}} {% endblock %}
@@ -176,7 +175,7 @@
 					</h3>
 					<div class="d-flex flex-wrap">
 							<figure class="px-2">
-								{# <img src="{{asset('/images/origines/anglais.svg')}}" alt=""> #}
+
 								<figcaption>
 										25€
 								</figcaption>
@@ -236,7 +235,7 @@
 					</h3>
 				</span>
 
-				<a class="container-number-resto" href="tel:{{tel}}">
+				<a class="container-number-resto" href="tel:{{resto.phone}}">
 					<div class="icon-number-resto">
 						<i class="fa-solid fa-mobile-screen"></i>
 					</div>
@@ -258,48 +257,22 @@
 
 				<div class="hourly">
 					<ul>
+					{% for key,time in resto.schedule.timetables %}
+						
 						<li>
-							<span class="day">Lundi</span>
+						
+							<span class="day">{{days[key]}}</span>
 							<span class="container-hour">
-								<span>17h-18h</span>
+								<span>
+								{% if time.open == null and time.close == null %}
+								 Fermé
+								 {% else %}
+								{{time.open|format_datetime('none', 'short', locale='fr')}}-{{time.close|format_datetime('none', 'short', locale='fr')}}
+								{% endif %}
+								</span>
 							</span>
 						</li>
-						<li>
-							<span class="day">Mardi</span>
-							<span class="container-hour">
-								<span>17h-18h</span>
-							</span>
-						</li>
-						<li class="closed">
-							<span class="day">Mercredi</span>
-							<span class="container-hour">
-								<span>Fermé</span>
-							</span>
-						</li>
-						<li>
-							<span class="day">Jeudi</span>
-							<span class="container-hour">
-								<span>17h-18h</span>
-							</span>
-						</li>
-						<li>
-							<span class="day">Vendredi</span>
-							<span class="container-hour">
-								<span>17h-23h</span>
-							</span>
-						</li>
-						<li>
-							<span class="day">Samedi</span>
-							<span class="container-hour">
-								<span>12h-22h30</span>
-							</span>
-						</li>
-						<li>
-							<span class="day">Dimanche</span>
-							<span class="container-hour">
-								<span>12h-14h</span>
-							</span>
-						</li>
+					{% endfor %}
 					</ul>
 				</div>
 			</section>

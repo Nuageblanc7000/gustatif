@@ -68,13 +68,14 @@ class RestoController extends AbstractController
      */
     
      function resto_create(Request $req, EntityManagerInterface $em, FileUploader $upload, TranslatorInterface $translator): Response
-    { 
+     { 
+        $user = $this->getUser();
+        // $this->denyAccessUnlessGranted('RESTO_VIEW', $user);
         $resto = new Restaurant();
         $form = $this->createForm(RestoType::class, $resto);
         $form->handleRequest($req);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $this->getUser();
             $countInput = count($form->get('images')->getData());
             if ($countInput <= 0) {
                 $form->get('images')->addError(new FormError('Veuillez Ajouter au minimum une image'));
@@ -223,11 +224,16 @@ class RestoController extends AbstractController
      * @param DeleteImageService $deleteImageService
      * @return void
      */
-    public function updateImageResto(Request $req, $token, Image $image, DeleteImageService $deleteImageService)
+    public function updateImageResto(Request $req, $token, Image $image, DeleteImageService $deleteImageService , EntityManagerInterface $em)
     {
    //vérifier si les images appartiennent à l'utilisateur avant tout
-        $idResto =  $image->getRestaurant()->getId();
-    
+   $resto = $image->getRestaurant();   
+   $idResto =  $image->getRestaurant()->getId();
+        if($resto->getCover() === $image->getPath()){
+            $resto->setCover('');
+            $em->persist($resto);
+            $em->flush();
+        }
         if ($this->isCsrfTokenValid('delete'.$image->getId(), $token)) {
                 $deleteImageService->setTargetDirectory(
                     [
@@ -237,7 +243,7 @@ class RestoController extends AbstractController
                     ]
                     );
                     $deleteImageService->delete($image);
-                
+                    
             $this->addFlash('sucess', 'félicitation');
             return $this->redirectToRoute('resto_modify',['id' => $idResto], Response::HTTP_FOUND);
         } else {

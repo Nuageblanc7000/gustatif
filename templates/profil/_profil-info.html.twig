@@ -1,0 +1,115 @@
+<section class="resto-main-container-profil info-user-profil">
+	<div class="profil-info-all">
+		<picture>
+		{% if app.user.avatar is empty %}
+			<img src="{{asset('/build/images/avatar/avatar-default.svg')}}" alt="photo profil de {{app.user.pseudo}}">
+			{% else %}
+				<img src="{{asset('/images/avatar/' ~ app.user.avatar )|imagine_filter('avatar_mini') }}" alt="photo profil de {{app.user.pseudo}}">
+		{% endif %}
+		
+		</picture>
+		<h2>
+			{% trans %}profil de
+			{% endtrans %}
+			{{app.user.pseudo}}</h2>
+		<div class="profil-info-container">
+			<div class="adress-profil">
+				<span>
+					<span class="adress-profil-title">
+						{% trans %}
+						Rue :
+						{% endtrans %}
+					</span>
+					{% if app.user.adress is empty %}
+						{% trans %}
+						---
+						{% endtrans %}
+					{% else %}
+						{{app.user.adress}}
+					{% endif %}
+				</span>
+                <!--    --> 
+                <span>
+					<span class="adress-profil-title">
+						{% trans %}
+						Ville : 
+						{% endtrans %}
+					</span>
+					{% if app.user.city is empty %}
+						{% trans %}
+						---
+						{% endtrans %}
+					{% else %}
+						{{app.user.city.localite}}
+					{% endif %}
+				</span>
+                <span>
+					<span class="adress-profil-title">
+						{% trans %}
+						Code postal :
+						{% endtrans %}
+					</span>
+					{% if app.user.city is empty %}
+						{% trans %}
+						---
+						{% endtrans %}
+					{% else %}
+						{{app.user.city.code}}
+					{% endif %}
+				</span>
+
+                    <span>
+					<span class="adress-profil-title">
+						{% trans %}
+						Email :
+						{% endtrans %}
+					</span>
+						{{app.user.email}}
+				</span>
+
+			</div>
+		</div>
+	</div>
+	<div class="resto-container-profil">
+		<div class="box-resto-profil">
+			<a href="{{path('app_profil_edit')}}">
+				<i class="fa-solid fa-user-pen"></i>
+				<span>
+					{% trans %}
+					Modifier mon profil
+					{% endtrans %}
+				</span>
+			</a>
+		</div>
+		<div class="box-resto-profil">
+			<a href="{{path('app_profil_modify_password')}}">
+				<i class="fa-solid fa-lock"></i>
+				<span>
+					{% trans %}
+					Changer mon mot de passe
+					{% endtrans %}
+				</span>
+			</a>
+		</div>
+		<div class="box-resto-profil">
+			<a href="{{path('app_profil_modify_avatar')}}">
+				<i class="fa-solid fa-camera-retro"></i>
+				<span>
+					{% trans %}
+					Modifier ma photo
+					{% endtrans %}
+				</span>
+			</a>
+		</div>
+		<div class="box-resto-profil">
+			<a href="{{path('app_profil_delete')}}">
+				<i class="fa-solid fa-user-xmark"></i>
+				<span>
+					{% trans %}
+					Supprimer mon compte
+					{% endtrans %}
+				</span>
+			</a>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,14 @@
+<section class="resto-main-container-profil">
+	<h2>{% trans %}Statistique du restaurant{% endtrans %}</h2>
+	<div class="resto-container-profil">
+		{% if app.user.restaurant|length > 0 %}
+			{{ render_chart(chart, {'class': 'my-chart'}) }}
+		{% else %}
+			<h3>
+				{% trans %}
+				Veuillez créer un établissement pour obtenir des Statistiques
+				{% endtrans %}
+			</h3>
+		{% endif %}
+	</div>
+</section>

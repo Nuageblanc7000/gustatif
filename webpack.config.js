@@ -29,6 +29,8 @@ Encore
     .addEntry('splide','./assets/splide.js')
     .addEntry('create-file','./assets/javascript/createFile.js')
     .addEntry('create-plat','./assets/javascript/createPlat.js')
+    .addEntry('profil-action','./assets/javascript/profil-action.js')
+    .addEntry('avatar-js','./assets/javascript/avatar.js')
     .addEntry('fontAwesome','./assets/fontAwesome.js')
 
     

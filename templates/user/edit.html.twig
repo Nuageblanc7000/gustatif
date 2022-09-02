@@ -1,7 +1,77 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}
+	{% trans %}Mise à jour utilisateur{% endtrans %}
+{% endblock %}
 
 {% block body %}
+	<div class="bg-style-create">
+		<div class="container-resto-form">
+			<div class="title">
+				<h1>
+					{% trans %}Mise à jour de votre compte
+					{% endtrans %}</h1>
+			</div>
 
-{% endblock %}
+			<div class="form-step">
+				{{form_start(form)}}
+				<h2>{% trans %}Votre pseudo{% endtrans %}</h2>
+				<div class="form-groups">
+					{{form_widget(form.pseudo)}}
+				</div>
+				<div class="form-errors">
+					{{form_errors(form.pseudo)}}
+				</div>
+				<h2>{% trans %}Votre Email{% endtrans %}</h2>
+				<div class="form-groups">
+					{{form_widget(form.email)}}
+				</div>
+				<div class="form-errors">
+					{{form_errors(form.email)}}
+				</div>
+				<h2>{% trans %}Situation géographique{% endtrans %}</h2>
+				<div class="form-groups create-form-coord">
+					<div class="container-design-form">
+						<div class="design-form-input">
+							<div class="design-form-icon anim-icon">
+								<img src="{{asset('/build/images/path.svg')}}" alt="chef icon" width="40px" height="40px">
+							</div>
+							{{form_widget(form.adress)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.adress)}}
+						</div>
+					</div>
+
+					<div class="container-design-form">
+						<div class="design-form-input">
+							<div class="design-form-icon ">
+								<img src="{{asset('/build/images/citySky.svg')}}" alt="chef icon" width="40px" height="40px">
+							</div>
+							{{form_widget(form.city)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.city)}}
+						</div>
+					</div>
+
+
+				</div>
+				<div class="button-container-2">
+					<span class="mas">
+						{% trans %}
+							Mettre à jour
+						{% endtrans %}
+					</span>
+					<button type="submit" name="Hover">
+						{% trans %}
+						Mettre à jour
+						{% endtrans %}
+					</button>
+                </div>
+					{{form_rest(form)}}
+					{{form_end(form)}}
+				</div>
+			</div>
+		</diV>
+	{% endblock %}

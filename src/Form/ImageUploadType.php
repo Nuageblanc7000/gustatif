@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\FalseImg;
-use App\Form\UpdateImageType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\File;
@@ -11,7 +10,7 @@ use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+
 
 class ImageUploadType extends AbstractType
 {

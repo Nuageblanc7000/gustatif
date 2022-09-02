@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields:'pseudo',message:'Ce pseudo existe déjà')]
@@ -54,6 +54,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Restaurant::class, orphanRemoval: true)]
     private Collection $restaurant;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $avatar = null;
 
     public function __construct()
     {
@@ -238,10 +241,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             $this->restaurant->add($restaurant);
             $restaurant->setUser($this);
         }
-
         return $this;
     }
-
     public function removeRestaurant(Restaurant $restaurant): self
     {
         if ($this->restaurant->removeElement($restaurant)) {
@@ -250,6 +251,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $restaurant->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
 
         return $this;
     }

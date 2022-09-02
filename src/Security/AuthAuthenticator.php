@@ -48,8 +48,12 @@ class AuthAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
-
-        return new RedirectResponse($this->urlGenerator->generate('app_profil'));
+        $user = $token->getUser();
+        if(in_array('ROLE_RESTAURATEUR',$user->getRoles())){
+            return new RedirectResponse($this->urlGenerator->generate('app_profil_restaurateur'));
+        }else{
+            return new RedirectResponse($this->urlGenerator->generate('app_profil_user'));
+        }
      
     }
 

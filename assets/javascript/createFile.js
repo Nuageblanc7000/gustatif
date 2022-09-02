@@ -57,7 +57,7 @@ function addImages(e=null) {
   
   function viewImage(event) {
       const file = event.target.files[0];
-      const file_extension_regex = /\.(jpeg|jpg|png|svg|mp4)$/i;
+      const file_extension_regex = /\.(jpeg|jpg|png|svg)$/i;
       const parent = event.target.parentNode;
       
       if (file) {

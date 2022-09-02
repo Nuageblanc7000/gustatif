@@ -18,3 +18,10 @@ liip_imagine:
                 thumbnail:
                     size: [1000, 900]
                     mode:   outbound
+                    
+        avatar_mini:
+            quality: 75
+            filters:
+                thumbnail:
+                    size: [100, 100]
+                    mode:   outbound

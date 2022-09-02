@@ -19,7 +19,7 @@
 					<label for="inputPassword">{% trans %}Mot de passe{% endtrans %}</label>
 					<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 				</div>
-
+				<span class="anim-bar-a"> <a  href="{{path('user_register')}}"  rel="noopener noreferrer">{% trans %}Vous n'avez pas de compte?{% endtrans %}</a> </span>
 				<input
 				type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 

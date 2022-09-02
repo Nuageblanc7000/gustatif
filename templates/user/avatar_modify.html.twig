@@ -1,0 +1,77 @@
+{% extends "base.html.twig" %}
+
+
+{% set default_avatar = asset('/build/images/avatar/avatar-default.svg') %}
+{% block title %}
+	{% trans %}Changement photo profil{% endtrans %}
+{% endblock %}
+
+{% block body %}
+	<div class="bg-style-create">
+		<div class="container-resto-form">
+			<div class="title">
+				<h1>
+					{% trans %}
+					Mise à jour avatar profil
+					{% endtrans %}
+				</h1>
+			</div>
+			<div class="form-step avatar-step">
+				<div class="container-preview-avatar">
+					<picture class="before-avatar-container">
+						<h2>
+							{% trans %}Photo actuel
+							{% endtrans %}</h2>
+						{% if app.user.avatar is empty %}
+							<img src="{{default_avatar}}" alt="avatar de l' utilisateur {{app.user.pseudo}}">
+						{% else %}
+							<img class="js-avatar" src="{{asset('/images/avatar/' ~ app.user.avatar )|imagine_filter('avatar_mini')}}" alt="avatar de l' utilisateur {{app.user.pseudo}}">
+						{% endif %}
+					</picture>
+				</div>
+				{{form_start(form)}}
+
+				{{form_label(form.path)}}
+				{{form_widget(form.path)}}
+				<div class="form-create-error">
+					{{form_errors(form.path)}}
+				</div>
+
+				{{form_rest(form)}}
+
+				<div class="container-btn-action-form">
+					<div class="button-container-2">
+						<span class="mas">
+							{% trans %}
+							Annuler
+							{% endtrans %}
+						</span>
+						<a href="{{app.request.headers.get('referer')}}" name="Hover">
+							{% trans %}
+							Annuler
+							{% endtrans %}
+						</a>
+					</div>
+
+					<div class="button-container-1">
+						<span class="mas-1">
+							{% trans %}
+							Valider
+							{% endtrans %}
+						</span>
+						<button type="submit" name="Hover">
+							{% trans %}
+							Valider
+							{% endtrans %}
+						</button>
+					</div>
+				</div>
+				{{form_end(form)}}
+
+			</div>
+		</div>
+	{% endblock %}
+	{% block javascriots %}
+		{{parent()}}
+		{{ encore_entry_script_tags('avatar-js') }}
+	{% endblock %}

@@ -15,7 +15,7 @@ class Schedule
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\OneToMany(mappedBy: 'schedule', targetEntity: Timetable::class)]
+    #[ORM\OneToMany(mappedBy: 'schedule', targetEntity: Timetable::class,orphanRemoval:true)]
     private Collection $timetables;
 
     #[ORM\OneToOne(mappedBy: 'schedule', cascade: ['persist', 'remove'])]
