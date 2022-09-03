@@ -2,14 +2,19 @@
     max-width: 400px;
     margin: 0 auto;
     .container-preview-avatar{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 5px;
+        display: flex;
+        justify-content: center;
         .before-avatar-container,.after-avatar-container{
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            max-width: 250px;
+
+            img{
+                object-fit: contain;
+                border-radius: 50%;
+            }
         }
     }
 
@@ -34,12 +39,12 @@
         }
     }
 
-    .container-btn-action-form{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-        gap: 5px;
-        .button-container-2{
-            width: 100%;
-        }
+}
+.container-btn-action-form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+    .button-container-2{
+        width: 100%;
     }
 }

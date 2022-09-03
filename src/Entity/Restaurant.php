@@ -65,7 +65,7 @@ class Restaurant
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Plat::class)]
+    #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Plat::class, orphanRemoval:true)]
     private Collection $plats;
 
     #[ORM\OneToOne(inversedBy: 'restaurant', cascade: ['persist', 'remove'])]

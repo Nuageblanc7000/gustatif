@@ -49,11 +49,8 @@ class AuthAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
         $user = $token->getUser();
-        if(in_array('ROLE_RESTAURATEUR',$user->getRoles())){
-            return new RedirectResponse($this->urlGenerator->generate('app_profil_restaurateur'));
-        }else{
-            return new RedirectResponse($this->urlGenerator->generate('app_profil_user'));
-        }
+        return new RedirectResponse($this->urlGenerator->generate('app_profil'));
+       
      
     }
 

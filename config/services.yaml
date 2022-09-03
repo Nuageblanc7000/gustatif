@@ -14,6 +14,7 @@ parameters:
 
     avatar_user: '%kernel.project_dir%/public/images/avatar'
     avatar_user_mini: '%kernel.project_dir%/public/media/cache/avatar_mini/images/avatar'
+    avatar_user_bg: '%kernel.project_dir%/public/media/cache/avatar_bg/images/avatar'
     # restos_images: '%kernel.project_dir%/public/images/restaurant/'
 services:
     App\Service\FileUploader:

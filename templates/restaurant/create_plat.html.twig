@@ -1,56 +1,82 @@
 {% extends "base.html.twig" %}
 
-{% block title %} {% trans %}Création des spécialités{% endtrans %} {% endblock %}
+{% block title %}
+	{% trans %}Création des spécialités{% endtrans %}
+{% endblock %}
 
 {% block body %}
- {% form_theme form '_partials/_collection_plat.html.twig' %}
- <div class="container-bg-plat">
- <div class="container-main-plat">
-   <div class="form-step">
-   <h1>
-      {% trans %}
-           Ajouter jusque 4 de vos spécialités
-      {% endtrans %}
-   </h1>
-   <div class="container-more-info-plat-form">
-      <h2>Le saviez vous?</h2>
-      <p>
-      Ajouter une photo de vos plats, permet de donner envie aux utilisateurs de se rendre dans votre établissement.
-      </p>
-   </div>
-
-         	<div class="container-preview-plat">
-   {% for plat in plats %}
-         <div>
-				<picture class="preview-image preview-plat" style="background-image:url('{{asset("/images/plats/" ~ plat.image)}}');">
-					<a type="button" class="delete-btn-file"  href={{path('resto_plat_delete',{id : plat.id , token: csrf_token('delete' ~ plat.id )})}}  title={% trans %} "Supprimer l'image" {% endtrans %}>
-					    <i class="fa-solid fa-trash-can"></i>
-					</a>
-				</picture>	
-               <div class="preview-plat-title">{{plat.name}}</div>
-         </div>
-   {% endfor %}
-            </div>
-    {{form_start(form , {'attr':{'class':'form-plat-container'}})}}
-    <div class="container-grid-img grid-plat">
-			{{form_row(form.images)}}
-         	<div class="form-create-error">
-			{{ form_errors(form)}}
+	{% form_theme form '_partials/_collection_plat.html.twig' %}
+	<div class="container-bg-plat">
+		<div class="container-main-plat">
+			<div class="form-step">
+				<h1>
+					{% trans %}
+					Ajouter jusque 4 de vos spécialités
+					{% endtrans %}
+				</h1>
+				<div class="container-more-info-plat-form">
+					<h2>Le saviez vous?</h2>
+					<p>
+						Ajouter une photo de vos plats, permet de donner envie aux utilisateurs de se rendre dans votre établissement.
+					</p>
 				</div>
-			</div>
 
-   <div class="container-btn-action-form d-flex">
-      <a href="" class="btn-flip-card me-2">Retour vers la page profil</a>
-      <button type="submit" class="btn-flip-card">Sauvegarder les nouvelles spécialités</button>
-   </div>
-    {{form_rest(form)}}
-    {{form_end(form)}}
-   </div>
- </div>
-   
- </div>
+				<div class="container-preview-plat">
+					{% for plat in plats %}
+						<div>
+							<picture class="preview-image preview-plat" style="background-image:url('{{asset("/images/plats/" ~ plat.image)}}');">
+								<a type="button" class="delete-btn-file" href={{path('resto_plat_delete',{id : plat.id , token: csrf_token('delete' ~ plat.id )} )}} title={% trans %} "Supprimer l'image" {% endtrans %}>
+									<i class="fa-solid fa-trash-can"></i>
+								</a>
+							</picture>
+							<div class="preview-plat-title">{{plat.name}}</div>
+						</div>
+					{% endfor %}
+				</div>
+				{{form_start(form , {'attr':{'class':'form-plat-container'}})}}
+				<div class="container-grid-img grid-plat">
+					{{form_row(form.images)}}
+					<div class="form-create-error">
+						{{ form_errors(form)}}
+					</div>
+				</div>
+
+				<div class="container-btn-action-form">
+					<div class="button-container-2">
+						<span class="mas-1">
+							{% trans %}
+							Annuler
+							{% endtrans %}
+						</span>
+						<a href="{{path('app_profil')}}" name="Hover">
+							{% trans %}
+							Annuler
+							{% endtrans %}
+						</a>
+					</div>
+
+					<div class="button-container-1">
+						<span class="mas-1">
+							{% trans %}
+							Sauvegarder
+							{% endtrans %}
+						</span>
+						<button type="submit" name="Hover">
+							{% trans %}
+							Sauvegarder
+							{% endtrans %}
+						</button>
+					</div>
+				</div>
+
+				{{form_rest(form)}}
+				{{form_end(form)}}
+			</div>
+		</div>
+
+	</div>
 {% endblock %}
 {% block javascripts %}
-{{ parent() }}
-{{ encore_entry_script_tags('create-plat') }}
+	{{ parent() }}
+	{{ encore_entry_script_tags('create-plat') }}
 {% endblock %}

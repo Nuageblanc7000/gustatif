@@ -23,9 +23,9 @@
 							{% trans %}Photo actuel
 							{% endtrans %}</h2>
 						{% if app.user.avatar is empty %}
-							<img src="{{default_avatar}}" alt="avatar de l' utilisateur {{app.user.pseudo}}">
+							<img class="js-avatar" src="{{default_avatar}}" alt="avatar de l' utilisateur {{app.user.pseudo}}">
 						{% else %}
-							<img class="js-avatar" src="{{asset('/images/avatar/' ~ app.user.avatar )|imagine_filter('avatar_mini')}}" alt="avatar de l' utilisateur {{app.user.pseudo}}">
+							<img class="js-avatar" src="{{asset('/images/avatar/' ~ app.user.avatar )|imagine_filter('avatar_bg')}}" alt="avatar de l' utilisateur {{app.user.pseudo}}">
 						{% endif %}
 					</picture>
 				</div>
@@ -46,7 +46,7 @@
 							Annuler
 							{% endtrans %}
 						</span>
-						<a href="{{app.request.headers.get('referer')}}" name="Hover">
+						<a href="{{path('app_profil')}}" name="Hover">
 							{% trans %}
 							Annuler
 							{% endtrans %}

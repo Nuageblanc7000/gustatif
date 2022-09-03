@@ -27,11 +27,9 @@ class UserController extends AbstractController
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $password = $hasher->hashPassword($user,$form->get('password')->getData());
             $user->setPassword($password);
-            $user->setAvatar('avatar-default.svg');
             $em->persist($user);
             $em->flush();
             $mail->subscribeMail($user);

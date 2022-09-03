@@ -7,36 +7,23 @@ use App\Entity\Image;
 use App\Form\PlatType;
 use App\Form\RestoType;
 use App\Data\DataFilter;
-use App\Entity\FalseImg;
 use App\Entity\Schedule;
 use App\Form\FilterType;
 use App\Entity\Restaurant;
-use App\Entity\Speciality;
 use App\Form\ScheduleType;
 use App\Service\FileUploader;
-use App\Repository\PlatRepository;
-use App\Repository\ImageRepository;
 use App\Service\DeleteImageService;
 use Symfony\Component\Form\FormError;
 use App\Repository\RestaurantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints\Count;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
-use Symfony\Component\HttpFoundation\Test\Constraint\ResponseStatusCodeSame;
-use Symfony\Component\Config\Definition\Exception\ForbiddenOverwriteException;
+
 
 class RestoController extends AbstractController
 {
@@ -284,7 +271,6 @@ class RestoController extends AbstractController
         }
     }
 
-    #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/horaire/{id}','schedule_gestion')]
     /**
      * Permet de gérer l'horaire

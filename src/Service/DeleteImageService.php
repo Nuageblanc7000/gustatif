@@ -12,17 +12,13 @@ class DeleteImageService
 {
 
     private $em;
-
-
-
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
     }
 
     public function delete(object $image)
-    {
-       
+    { 
         try {
             foreach ($this->getTargetDirectory() as $target) {
                  if (file_exists($target)) {

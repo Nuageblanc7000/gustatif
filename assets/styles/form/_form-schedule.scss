@@ -93,9 +93,9 @@
                 font-family: var(--title-font);
             }
         }
-        button[type="submit"]{
-            @extend .btn;
-        }
+        // button[type="submit"]{
+        //     @extend .btn;
+        // }
     }
 
 

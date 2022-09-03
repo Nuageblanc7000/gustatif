@@ -1,6 +1,5 @@
 {% extends "base.html.twig" %}
 {% set errors =  form.vars.errors[0].messageParameters is defined ?  form.vars.errors[0].messageParameters : [] %}
-{% set days = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'] %}
 {% block body %}
 
 
@@ -10,74 +9,100 @@
 				{% trans %}Créer l'horaire de votre établissement
 				{% endtrans %}</h1>
 
-                <div class="js-timer">
-                <span class="js-h"></span>
-                <i>:</i>
-                <span class="js-m"></span>
-                <i>:</i>
-                <span class="js-s"></span>
-                </div>
+			<div class="js-timer">
+				<span class="js-h"></span>
+				<i>:</i>
+				<span class="js-m"></span>
+				<i>:</i>
+				<span class="js-s"></span>
+			</div>
 		</div>
 		<div class="container-form-schedule">
+			{% set days = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'] %}
 			{{form_start(form)}}
-		<div class="legend-form-schedule">
-        <h2>{% trans %}Bon à savoir {% endtrans %}</h2>
-		
-				<span class="close-pannel"> <img src="/build/images/close.svg" alt="panneau fermé"></span>
-				<span>{% trans %}Laissé les champs vides si l'établissement est fermé. {% endtrans %}</span>
+			<div class="legend-form-schedule">
+				<h2>{% trans %}Bon à savoir
+					{% endtrans %}</h2>
+
+				<span class="close-pannel">
+					<img src="/build/images/close.svg" alt="panneau fermé"></span>
+				<span>{% trans %}Laissé les champs vides si l'établissement est fermé.
+					{% endtrans %}</span>
 
 			</span>
 		</div>
-			<div class="form-step">
-				<div class="form-group-times title-group-time">
-					<span>
+		<div class="form-step">
+			<div class="form-group-times title-group-time">
+				<span>
+					{% trans %}
+					Jour
+					{% endtrans %}</span>
+				<span>{% trans %}
+					Ouverture
+					{% endtrans %}
+				</span>
+				<span>{% trans %}Fermeture
+					{% endtrans %}</span>
+			</div>
+
+			{% for key,time in form.timetables %}
+
+				<div class="form-group-times {% for error in errors %} {% if error == key %} bg-error-time  {% endif %}{% endfor %}">
+					{{days[key]}}
+					<div class="d-flex flex-column">
+						{{form_widget(time.open)}}
+					</div>
+					<div class="d-flex flex-column">
+						{{form_widget(time.close)}}
+					</div>
+				</div>
+				<div class="form-groups-errors">
+					{% if  form_errors(time.open) %}
+						<div class="form-message-errors">
+							{{form_errors(time.open)}}
+						</div>
+						<div class="form-message-errors">
+							{{form_errors(time.close)}}
+						</div>
+					{% endif %}
+				</div>
+			{% endfor %}
+			<div class="form-message-errors">
+				{{form_errors(form)}}
+			</div>
+
+
+			<div class="container-btn-action-form">
+				<div class="button-container-2">
+					<span class="mas">
 						{% trans %}
-						Jour
-						{% endtrans %}</span>
-					<span>{% trans %}
-						Ouverture
+						Annuler
 						{% endtrans %}
 					</span>
-					<span>{% trans %}Fermeture
-						{% endtrans %}</span>
+					<a href="{{path('app_profil')}}" name="Hover">
+						{% trans %}
+						Annuler
+						{% endtrans %}
+					</a>
 				</div>
 
-				{% for key,time in form.timetables %}
-					{% set index = loop.index %}
-					<div class="form-group-times {% for error in errors %} {% if error == index %} bg-error-time  {% endif %}{% endfor %}">
-						{{days[key]}}
-						<div class="d-flex flex-column">
-							{{form_widget(time.open)}}
-						</div>
-						<div class="d-flex flex-column">
-							{{form_widget(time.close)}}
-						</div>
-					</div>
-					<div class="form-groups-errors">
-						{% if  form_errors(time.open) %}
-							<div class="form-message-errors">
-								{{form_errors(time.open)}}
-							</div>
-							<div class="form-message-errors">
-								{{form_errors(time.close)}}
-							</div>
-						{% endif %}
-					</div>
-				{% endfor %}
-				<div class="form-message-errors">
-					{{form_errors(form)}}
+				<div class="button-container-1">
+					<span class="mas-1">
+						{% trans %}
+						Sauvegarder l'horaire
+						{% endtrans %}
+					</span>
+					<button type="submit" name="Hover">
+						{% trans %}
+						Sauvegarder l'horaire
+						{% endtrans %}
+					</button>
 				</div>
-				<button type="submit">
-					{% trans %}Sauvegarder l'horaire
-					{% endtrans %}</button>
 			</div>
-			{{form_rest(form)}}
-			{{form_end(form)}}
 		</div>
+		{{form_rest(form)}}
+		{{form_end(form)}}
 	</div>
-{% endblock %}
-
-{% block javascripts %}
-	{{ parent() }}
-	{{ encore_entry_script_tags('time') }}
-{% endblock %}
+</div>{% endblock %}{% block javascripts %}
+{{ parent() }}
+{{ encore_entry_script_tags('time') }}{% endblock %}

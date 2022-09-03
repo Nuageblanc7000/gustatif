@@ -1,174 +1,199 @@
 {% extends "base.html.twig" %}
 
 {% block title %}
-{% if app.request.attributes.get('_route') == "resto_modify"  %}
-	{% trans %}
-	 	Modifier le restaurant
-	{% endtrans %}
+	{% if app.request.attributes.get('_route') == "resto_modify"  %}
+		{% trans %}
+		Modifier le restaurant
+		{% endtrans %}
 	{% else %}
 		{% trans %}
-			Création restaurant
-	{% endtrans %}
-{% endif %}
+		Création restaurant
+		{% endtrans %}
+	{% endif %}
 {% endblock %}
 {% block body %}
- {% form_theme form '_partials/_collection.html.twig' %}
-    <div class="bg-style-create">
-	<div class="container-resto-form">
-		<div class="title">
+	{% form_theme form '_partials/_collection.html.twig' %}
+	<div class="bg-style-create">
+		<div class="container-resto-form">
+			<div class="title">
 
-			<h1>
-			{% if app.request.attributes.get('_route') == "resto_modify"  %}
-					{% trans %}
+				<h1>
+					{% if app.request.attributes.get('_route') == "resto_modify"  %}
+						{% trans %}
 						Modifier le restaurant
-				{% endtrans %}
-				
-				{% else %}
-					
-				{% trans %}
+						{% endtrans %}
+
+					{% else %}
+
+						{% trans %}
 						Création du restaurant
-				{% endtrans %}
-			{% endif %}
-			</h1>
-		</div>
-		<div class="form-step">
-			{{form_start(form , {'attr':{'class':'form'}})}}
-			<h2>Nom de l'établissement</h2>
-			<div class="form-groups create-form-name">
-				<div class="design-form-input">
-					<div class="design-form-icon anim-icon"> <img src="{{asset('/build/images/resto-black.svg')}}" alt="chef icon" width="40px" height="40px"> </div>
-					{{form_widget(form.name)}}
-				</div>
+						{% endtrans %}
+					{% endif %}
+				</h1>
+			</div>
+			<div class="form-step">
+				{{form_start(form , {'attr':{'class':'form'}})}}
+				<h2>Nom de l'établissement</h2>
+				<div class="form-groups create-form-name">
+					<div class="design-form-input">
+						<div class="design-form-icon anim-icon">
+							<img src="{{asset('/build/images/resto-black.svg')}}" alt="chef icon" width="40px" height="40px">
+						</div>
+						{{form_widget(form.name)}}
+					</div>
 					<div class="form-create-error">
-					{{form_errors(form.name)}}
+						{{form_errors(form.name)}}
+					</div>
 				</div>
-			</div>
 
-			<h2>Votre situation géographique</h2>
-			<div class="form-groups create-form-coord">
-              <div class="container-design-form">
-				<div class="design-form-input">
-					<div class="design-form-icon anim-icon"> <img src="{{asset('/build/images/path.svg')}}" alt="chef icon" width="40px" height="40px"> </div>
-					{{form_widget(form.adress)}}
+				<h2>Votre situation géographique</h2>
+				<div class="form-groups create-form-coord">
+					<div class="container-design-form">
+						<div class="design-form-input">
+							<div class="design-form-icon anim-icon">
+								<img src="{{asset('/build/images/path.svg')}}" alt="chef icon" width="40px" height="40px">
+							</div>
+							{{form_widget(form.adress)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.adress)}}
+						</div>
+					</div>
+
+					<div class="container-design-form">
+						<div class="design-form-input">
+							<div class="design-form-icon ">
+								<img src="{{asset('/build/images/citySky.svg')}}" alt="chef icon" width="40px" height="40px">
+							</div>
+							{{form_widget(form.city)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.city)}}
+						</div>
+					</div>
+
+					<div class="container-design-form">
+						<div class="design-form-input">
+							<div class="design-form-icon anim-icon"><img src="{{asset('/build/images/phone.svg')}}" alt="chef icon" width="40px" height="40px"></div>
+							{{form_widget(form.phone)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.phone)}}
+						</div>
+					</div>
+
 				</div>
+				<h2>Description de votre établissement</h2>
+				<div class="form-groups create-form-descr">
+					<div class="container-design-form">
+						<div class="design-form-input">
+							<div class="design-form-icon anim-icon">
+								<div class="design-form-icon"><img src="{{asset('/build/images/descriptionForm.svg')}}" alt="chef icon" width="40px" height="40px"></div>
+							</div>
+							{{form_widget(form.description)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.description)}}
+						</div>
+					</div>
+
+				</div>
+				<h2>Choisissez le(s) type(s) et la ou les catégorie(s)  qui correspondent à votre établissement</h2>
+				<div class="form-groups create-form-coord">
+					<div class="container-design-form">
+						<div class="design-form-input or-cat">
+							<div class="design-form-icon "><img src="{{asset('/build/images/origine.svg')}}" alt="plateau" width="40px" height="40px">
+							</div>
+							{{form_widget(form.origine)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.origine)}}
+						</div>
+					</div>
+					<div class="container-design-form">
+						<div class="design-form-input or-cat">
+							<div class="design-form-icon ">
+								<img src="{{asset('/build/images/origine.svg')}}" alt="plateau" width="40px" height="40px">
+							</div>
+							{{form_widget(form.category)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.category)}}
+						</div>
+					</div>
+				</div>
+
+				{# Mise en place du système d'image  #}
+				{% if app.request.attributes.get('_route') == "resto_modify"  %}
+					{% include "/_partials/_preview_image.html.twig" %}
+				{% endif %}
+				<div class="groups-form">
+					<h2>
+						{% trans %}
+						Ajouter jusque 4 images de votre établissement
+						{% endtrans %}
+					</h2>
+				</div>
+				<div class="container-grid-img">
+
+					{{form_row(form.images)}}
 					<div class="form-create-error">
-					{{form_errors(form.adress)}}
+						{{ form_errors(form)}}
+					</div>
 				</div>
-              </div>
 
-                    <div class="container-design-form">
-				<div class="design-form-input">
-					<div class="design-form-icon "> <img src="{{asset('/build/images/citySky.svg')}}" alt="chef icon" width="40px" height="40px"> </div>
-					{{form_widget(form.city)}}
+				{# fin mise en place image  #}
+				<div class="container-btn-action-form">
+				<div class="button-container-2">
+					<span class="mas">
+						{% trans %}
+						Annuler
+						{% endtrans %}
+					</span>
+					<a href="{{path('app_profil')}}" name="Hover">
+						{% trans %}
+						Annuler
+						{% endtrans %}
+					</a>
 				</div>
-					<div class="form-create-error">
-					{{form_errors(form.city)}}
-				</div>
-                    </div>
 
-                <div class="container-design-form">
-				<div class="design-form-input">
-					<div class="design-form-icon anim-icon"><img src="{{asset('/build/images/phone.svg')}}" alt="chef icon" width="40px" height="40px"></div>
-					{{form_widget(form.phone)}}
-				</div>
-					<div class="form-create-error">
-					{{form_errors(form.phone)}}
-				</div>
-                </div>
+				<div class="button-container-1">
+					{% if app.request.attributes.get('_route') == "resto_modify" %}
 
+
+						<span class="mas-1">
+							{% trans %}
+							Finaliser la modification
+							{% endtrans %}
+						</span>
+						<button type="submit" name="Hover">
+							{% trans %}
+							Finaliser la modification
+							{% endtrans %}
+						</button>
+
+					{% else %}
+						<span class="mas-1">
+							{% trans %}
+							Finaliser l'ajout du restaurant
+							{% endtrans %}
+						</span>
+						<button type="submit" name="Hover">
+							{% trans %}
+							Finaliser l'ajout du restaurant
+							{% endtrans %}
+						</button>
+					{% endif %}
+				</div>
 			</div>
-			<h2>Description de votre établissement</h2>
-			<div class="form-groups create-form-descr">
-            <div class="container-design-form">
-				<div class="design-form-input">
-					<div class="design-form-icon anim-icon"><div class="design-form-icon"><img src="{{asset('/build/images/descriptionForm.svg')}}" alt="chef icon" width="40px" height="40px"></div></div>
-					{{form_widget(form.description)}}
-				</div>
-					<div class="form-create-error">
-					{{form_errors(form.description)}}
-				</div>
-            </div>
-
+				{{form_rest(form)}}
+				{{form_end(form)}}
 			</div>
-            <h2>Choisissez le(s) type(s) et la ou les catégorie(s)  qui correspondent à votre établissement</h2>
-            <div class="form-groups create-form-coord">
-            <div class="container-design-form">
-				<div class="design-form-input or-cat">
-					<div class="design-form-icon "><img src="{{asset('/build/images/origine.svg')}}" alt="plateau" width="40px" height="40px"> </div>
-					{{form_widget(form.origine)}}
-				</div>
-					<div class="form-create-error">
-					{{form_errors(form.origine)}}
-				</div>
-            </div>
-                <div class="container-design-form">
-                <div class="design-form-input or-cat">
-					<div class="design-form-icon "> <img src="{{asset('/build/images/origine.svg')}}" alt="plateau" width="40px" height="40px"> </div>
-					{{form_widget(form.category)}}
-				</div>
-				<div class="form-create-error">
-					{{form_errors(form.category)}}
-				</div>
-                </div>
-			</div>
-
-			{# Mise en place du système d'image  #}
-			{% if app.request.attributes.get('_route') == "resto_modify"  %}
-				{% include "/_partials/_preview_image.html.twig" %}
-			{% endif %}
-			<div class="groups-form">
-				<h2>
-				{% trans %}
-					Ajouter jusque 4 images de votre établissement
-				{% endtrans %}
-				</h2>
-			</div>
-			<div class="container-grid-img">
-
-			{{form_row(form.images)}}
-			<div class="form-create-error">
-			{{ form_errors(form)}}
-			</div>
-			</div>
-
-			{# fin mise en place image  #}
-
-			<div class="button-container-2">
-			{% if app.request.attributes.get('_route') == "resto_modify" %}
-			
-
-			<span class="mas">
-				{% trans %}
-				Finaliser la modification
-				{% endtrans %}
-			 </span>
-			<button type="submit" name="Hover">
-				{% trans %}
-				Finaliser la modification
-				{% endtrans %}
-			</button>
-			
-			{% else %}
-			<span class="mas">
-				{% trans %}
-				Finaliser l'ajout du restaurant
-				{% endtrans %}
-			 </span>
-			<button type="submit" name="Hover">
-				{% trans %}
-				Finaliser l'ajout du restaurant
-				{% endtrans %}
-			</button>
-			{% endif %}
-		</div>
-			{{form_rest(form)}}
-                {{form_end(form)}}
 		</div>
 	</div>
-    </div>
 {% endblock %}
 {% block javascripts %}
-{{ parent() }}
-{{ encore_entry_script_tags('create-file') }}
+	{{ parent() }}
+	{{ encore_entry_script_tags('create-file') }}
 
 {% endblock %}
