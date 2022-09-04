@@ -7,6 +7,23 @@
     min-height: inherit;
 }
 
+.bg-grey-style-create{
+    @extend .container-fluid;
+    background-image: url('/assets/images/pencil-grey.svg');
+    background-repeat:space;
+    background-size: cover;
+    background-position: center center;
+    min-height: inherit;
+    .container-resto-form{
+
+        .title{
+            h1{
+                color: var(--white) !important;
+                }
+        }
+    }
+}
+
 .container-resto-form{
     @extend .container;
     position: relative;
@@ -25,6 +42,7 @@
         margin:2rem auto;
         h1{
             font-family: var(--font-family1);
+            text-align: center;
             z-index: 2;
             color:var(--secondary);
             font-size: 3rem;

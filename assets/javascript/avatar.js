@@ -9,3 +9,8 @@ const  label_avatar = document.querySelector('.label-avatar')
 //             file_reader.addEventListener("load", (e) => {
 //         e.stopPropagation();
 //             })
+
+
+
+
+

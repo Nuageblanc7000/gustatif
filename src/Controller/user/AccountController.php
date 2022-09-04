@@ -14,6 +14,7 @@ use App\Service\AvatarDeleteService;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\TokenResolveRepository;
 use Liip\ImagineBundle\Config\Filter\Type\Interlace;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,6 +24,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AccountController extends AbstractController
 {
+    #[IsGranted('ROLE_USER')]
     #[Route('/profil', name: 'app_profil')]
     /**
      * Permet d'afficher le profil !RESTAURATEUR!
@@ -33,32 +35,37 @@ class AccountController extends AbstractController
     public function ProfilResto(ChartBuilderInterface $chartBuilder): Response
     {
         $user = $this->getUser();
+        if(in_array('ROLE_RESTAURATEUR',$user->getRoles())){
 
-        $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
-        //ici pour connaitre le nombre de commentaire du restaurant
-        $chart->setData([
-            'labels' => ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
-            'datasets' => [
-                [
-                    'label' => 'Nombre de visite sur la page',
-                    'backgroundColor' => '#feaa3a',
-                    'borderColor' => '#feaa3a',
-                    'data' => [0, 10, 5, 2, 20, 30, 45],
+            $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
+            //ici pour connaitre le nombre de commentaire du restaurant
+            $chart->setData([
+                'labels' => ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
+                'datasets' => [
+                    [
+                        'label' => 'Nombre de visite sur la page',
+                        'backgroundColor' => '#feaa3a',
+                        'borderColor' => '#feaa3a',
+                        'data' => [0, 10, 5, 2, 20, 30, 45],
+                    ],
                 ],
-            ],
-        ]);
-        $chart->setOptions([
-            'scales' => [
-                'y' => [
-                    'suggestedMin' => 0,
-                    'suggestedMax' => 100,
+            ]);
+            $chart->setOptions([
+                'scales' => [
+                    'y' => [
+                        'suggestedMin' => 0,
+                        'suggestedMax' => 100,
+                    ],
                 ],
-            ],
-        ]);
-
-        return $this->render('profil/index.html.twig', [
-            'chart' => $chart,
-        ]);
+            ]);
+    
+            return $this->render('profil/index.html.twig', [
+                'chart' => $chart,
+            ]);
+        }else{
+            return $this->render('profil/index.html.twig', [
+            ]);
+        }
     }
 
     /**
@@ -164,6 +171,21 @@ class AccountController extends AbstractController
     }
 
 
+
+    /**
+     * Route pour la confirmation de suppression 
+     *
+     * @return Response
+     */
+    #[Route('/profil/user/deleting',name:'profil_deleting')]
+    
+    public function beforeDeleting(): Response
+    {
+
+        return $this->render('/profil/_profil-delete.html.twig', []);
+    }
+
+
     /**
      * permet de supprimer un user
      *
@@ -175,7 +197,7 @@ class AccountController extends AbstractController
      * @return Response
      */
     #[Route('/profil/user/delete', name: 'profil_delete')]
-    public function FunctionName(UserRepository $userRepository,Request $req, TokenResolveRepository $tokenRepo, DeleteImageService $deleteImageService, AvatarDeleteService $avatarDeleteService ,TranslatorInterface $translator): Response
+    public function delete(UserRepository $userRepository,Request $req, TokenResolveRepository $tokenRepo, DeleteImageService $deleteImageService, AvatarDeleteService $avatarDeleteService ,TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
         $session = $req->getSession();

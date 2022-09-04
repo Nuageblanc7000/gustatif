@@ -28,7 +28,13 @@ use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 class RestoController extends AbstractController
 {
 
-
+    /**
+     * Affichage de tous les restaurants
+     *
+     * @param RestaurantRepository $repo
+     * @param Request $req
+     * @return Response
+     */
     #[Route('/restaurants', name: 'restos_list')]
     public function restaurants(RestaurantRepository $repo, Request $req): Response
     {
@@ -43,8 +49,6 @@ class RestoController extends AbstractController
         ]);
     }
 
-    #[IsGranted('ROLE_USER')]
-    #[Route('/restaurant/create', name: 'resto_create')]
     /**
      * permet la création d'un restaurant avec ajout d'image et gestion par service
      *
@@ -53,7 +57,8 @@ class RestoController extends AbstractController
      * @param FileUploader $upload
      * @return Response
      */
-    
+    #[IsGranted('ROLE_RESTAURATEUR')]
+    #[Route('/restaurant/create', name: 'resto_create')]
      function resto_create(Request $req, EntityManagerInterface $em, FileUploader $upload, TranslatorInterface $translator): Response
      { 
         $user = $this->getUser();
@@ -92,8 +97,6 @@ class RestoController extends AbstractController
             'form' => $form
         ]);
     }
-    #[IsGranted('ROLE_USER')]
-    #[Route('/restaurant/plat/{id}', name: 'create_plat')]
     /**
      * Undocumented function
      *
@@ -104,6 +107,8 @@ class RestoController extends AbstractController
      * @param RestaurantRepository $repo
      * @return Response
      */
+    #[IsGranted('ROLE_RESTAURATEUR')]
+    #[Route('/restaurant/plat/{id}', name: 'create_plat')]
     public function create_plat(Request $req,Restaurant $resto, EntityManagerInterface $em, FileUploader $uploader, RestaurantRepository $repo): Response
     {
         $user = $this->getUser();
@@ -143,8 +148,7 @@ class RestoController extends AbstractController
         return $this->renderForm('/restaurant/create_plat.html.twig', ['form' => $form ,'plats' => $plats ]);
     }
 
-    #[IsGranted('ROLE_USER')]
-    #[Route('/restaurant/modify/{id}', name: 'resto_modify')]
+
     /**
      * Modification d'une entity Restaurant
      *
@@ -154,6 +158,8 @@ class RestoController extends AbstractController
      * @param FileUploader $upload
      * @return Response
      */
+    #[IsGranted('ROLE_RESTAURATEUR')]
+    #[Route('/restaurant/modify/{id}', name: 'resto_modify')]
     public  function modify_resto(Restaurant $resto, Request $req, EntityManagerInterface $em, FileUploader $upload): Response
     {
         $user = $this->getUser();
@@ -201,7 +207,8 @@ class RestoController extends AbstractController
             'images' => $images
         ]);
     }
-    #[Route('restaurant/images/update/{id}/{token}', name: 'resto_image_delete')]
+
+
     /**
      * permet la suppression d'une image
      *
@@ -211,6 +218,8 @@ class RestoController extends AbstractController
      * @param DeleteImageService $deleteImageService
      * @return void
      */
+    #[IsGranted('ROLE_RESTAURATEUR')]
+    #[Route('restaurant/images/update/{id}/{token}', name: 'resto_image_delete')]
     public function updateImageResto(Request $req, $token, Image $image, DeleteImageService $deleteImageService , EntityManagerInterface $em)
     {
    //vérifier si les images appartiennent à l'utilisateur avant tout
@@ -238,8 +247,6 @@ class RestoController extends AbstractController
         }
     }
 
-
-    #[Route('restaurant/plat/update/{id}/{token}', name: 'resto_plat_delete')]
     /**
      * permet la supression d'un plat
      *
@@ -249,6 +256,8 @@ class RestoController extends AbstractController
      * @param DeleteImageService $deleteImageService
      * @return void
      */
+    #[IsGranted('ROLE_RESTAURATEUR')]
+    #[Route('restaurant/plat/update/{id}/{token}', name: 'resto_plat_delete')]
     public function updatePlatImage(Request $req, $token, Plat $plat, DeleteImageService $deleteImageService)
     {
    //vérifier si les images appartiennent à l'utilisateur avant tout
@@ -271,7 +280,7 @@ class RestoController extends AbstractController
         }
     }
 
-    #[Route('/restaurant/horaire/{id}','schedule_gestion')]
+
     /**
      * Permet de gérer l'horaire
      *
@@ -279,6 +288,8 @@ class RestoController extends AbstractController
      * @param DayRepository $repo
      * @return void
      */
+    #[IsGranted('ROLE_RESTAURATEUR')]
+    #[Route('/restaurant/horaire/{id}','schedule_gestion')]
     public function hourly(Request $req , Schedule $schedule , EntityManagerInterface $em ){
         $form = $this->createForm(ScheduleType::class,$schedule);
 
@@ -289,14 +300,17 @@ class RestoController extends AbstractController
         }
         return $this->render('/restaurant/schedule_gestion.html.twig',['form'=> $form->createView()]);
     }
+    
 
-    #[Route('/restaurant/{id}', name: 'resto_view')]
+
+
     /**
      * Affichage d'un restaurant en particulier + donnée pour la carte
      *
      * @param Restaurant $resto
      * @return Response
      */
+    #[Route('/restaurant/{id}', name: 'resto_view')]
     public function restaurant(Restaurant $resto): Response
     {
 
