@@ -71,6 +71,11 @@ class Restaurant
     #[ORM\OneToOne(inversedBy: 'restaurant', cascade: ['persist', 'remove'])]
     private ?Schedule $schedule = null;
 
+    #[ORM\OneToMany(mappedBy: 'resto', targetEntity: Comment::class)]
+    private Collection $comments;
+
+    public int $ratio;
+
     public function __construct()
     {
         $this->plat = new ArrayCollection();
@@ -78,8 +83,9 @@ class Restaurant
         $this->origine = new ArrayCollection();
         $this->images = new ArrayCollection();
         $this->plats = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
-
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -285,6 +291,63 @@ class Restaurant
     public function setSchedule(?Schedule $schedule): self
     {
         $this->schedule = $schedule;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+            $comment->setResto($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getResto() === $this) {
+                $comment->setResto(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+    //function rating
+
+    public function getNote(): int
+    {
+        $calc = 0;
+        foreach ($this->getComments() as  $rating) {
+           $note =  $rating->getRating();
+            $calc += $note;
+        }
+        $count = count($this->getComments());
+        return $this->ratio = floor($calc / $count);
+    }
+   
+
+    /**
+     * Set the value of ratio
+     *
+     * @return  self
+     */ 
+    public function setRatio(int $ratio)
+    {
+        $this->ratio = $ratio;
 
         return $this;
     }

@@ -161,7 +161,7 @@
             width: 100%;
             &:hover{
             color: var(--white);
-            background-color: var(--color-2);
+            background-color: var(--secondary);
     
             }
         }
@@ -213,7 +213,7 @@
 
 .cube-search-submit{
     @extend .cube-lateral;
-    background-color: var(--color-2);
+    background-color: var(--secondary);
 }
 
 

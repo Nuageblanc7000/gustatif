@@ -27,7 +27,7 @@
       min-height: inherit;
       display: grid;
       gap: 5px;
-      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
 
       li {
         min-height: 100%;
@@ -39,7 +39,7 @@
         cursor: pointer;
         transition: 0.3s ease-in background-color;
         svg {
-          width: 40px !important;
+          width: 100% !important;
           height: 40px !important;
         }
         a {

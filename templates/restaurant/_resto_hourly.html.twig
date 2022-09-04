@@ -1,0 +1,28 @@
+<div class="js-move"></div>
+<section class="container-hourly">
+				<h2>
+					{% trans %}Horaire{% endtrans %}
+
+				</h2>
+
+				<div class="hourly">
+					<ul>
+						{% for key,time in resto.schedule.timetables %}
+
+							<li>
+
+								<span class="day">{{days[key]}}</span>
+								<span class="container-hour">
+									<span>
+										{% if time.open == null and time.close == null %}
+											Fermé
+										{% else %}
+											{{time.open|format_datetime('none', 'short', locale='fr')}}-{{time.close|format_datetime('none', 'short', locale='fr')}}
+										{% endif %}
+									</span>
+								</span>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</section>

@@ -1,0 +1,40 @@
+<div class="js-move"></div>
+<section class="container-comments">
+    <h2>{% trans %}Liste des commentaires de l'établissement{% endtrans %} {{resto.name}}</h2>
+	<div class="container-comments-grid">
+		{% if resto.comments|length > 0 %}
+			{% for comment in resto.comments %}
+				<div class="comment-box">
+					<div class="date-comment">
+						<figure class="comment-avatar-resto">
+							<img src="{{asset('/images/avatar/' ~ comment.author.avatar )|imagine_filter('avatar_mini') }}" alt="photo profil de {{app.user.pseudo}}">
+							<figcaption>
+								{{comment.author.pseudo}}
+							</figcaption>
+						</figure>
+						<div class="container-header-star">
+							{% for i in 1..5 %}
+								{% if comment.rating < i %}
+									<i class="fa-regular fa-star"></i>
+								{% else %}
+									<i class="fa-solid fa-star"></i>
+								{% endif %}
+							{% endfor %}
+						</div>
+						<p>
+							{{comment.dateCom|date("d/m/Y")}}
+						</p>
+					</div>
+
+					<p>
+						{{comment.description}}
+					</p>
+				</div>
+			{% endfor %}
+		{% else %}
+            
+        {% endif %}
+        
+	</div>
+
+</section>

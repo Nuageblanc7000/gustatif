@@ -4,7 +4,7 @@
 		{% if app.user.avatar is empty %}
 			<img src="{{asset('/build/images/avatar/avatar-default.svg')}}" alt="photo profil de {{app.user.pseudo}}">
 			{% else %}
-				<img src="{{asset('/images/avatar/' ~ app.user.avatar )|imagine_filter('avatar_mini') }}" alt="photo profil de {{app.user.pseudo}}">
+				<img src="{{asset('/images/avatar/' ~ app.user.avatar )|imagine_filter('avatar_mini') }}" alt="profil de {{app.user.pseudo}}">
 		{% endif %}
 		
 		</picture>

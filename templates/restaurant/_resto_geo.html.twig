@@ -1,0 +1,37 @@
+<div class="js-move"></div>
+			<section class="localization-resto">
+				<h2>
+					{% trans %}
+					Ou nous trouver ?
+					{% endtrans %}
+				</h2>
+
+				<span class="position-info">
+					<picture>
+						<img src="{{asset('/build/images/position.svg')}}" alt="icon position">
+					</picture>
+					<h3 class="">
+						<span>
+							{{resto.adress}}
+						</span>
+						<span>
+							{{resto.city.localite}}
+							-
+							{{resto.city.code}}
+						</span>
+					</h3>
+				</span>
+
+				<a class="container-number-resto" href="tel:{{resto.phone}}">
+					<div class="icon-number-resto">
+						<i class="fa-solid fa-mobile-screen"></i>
+					</div>
+					<div class="number-resto">
+						{{resto.phone}}
+					</div>
+				</a>
+				<div class="localization-resto-map">
+					<div id="map" data-l={{lati}} data-la={{longi}}></div>
+
+				</div>
+			</section>

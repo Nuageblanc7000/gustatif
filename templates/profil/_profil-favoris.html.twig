@@ -1,6 +1,6 @@
-	{% if app.user.restaurant|length > 0 %}
+{% if app.user.comments|length > 0 %}
 
-			<h2> {% trans %}Liste de vos restaurants {% endtrans %}</h2>
+			<h2> {% trans %}Liste de vos restaurants favoris{% endtrans %}</h2>
 			{% for resto in app.user.restaurant %}
 				<section class="resto-main-container-profil">
                 
@@ -73,11 +73,11 @@
 			{% endfor %}
 		{% else %}
 		<div class="profil-not-resto-container">
-			<h1> {% trans %} Affichage de vos restaurants {% endtrans %}</h1>
+			<h1> {% trans %} Liste de vos restaurants favoris {% endtrans %}</h1>
 			<span class="profil-not-resto">
-				{% trans %}
-				Vous ne possédé actuellement aucun établissement
-				{% endtrans %}
+                {% trans %}
+                Aucun restaurants en favoris
+                {% endtrans %}
 			</span>
 		</div>
 		{% endif %}

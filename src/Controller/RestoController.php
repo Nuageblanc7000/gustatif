@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\Plat;
 use App\Entity\Image;
 use App\Form\PlatType;
+use App\Entity\Comment;
 use App\Form\RestoType;
 use App\Data\DataFilter;
 use App\Entity\Schedule;
 use App\Form\FilterType;
+use App\Form\CommentType;
 use App\Entity\Restaurant;
 use App\Form\ScheduleType;
 use App\Service\FileUploader;
@@ -311,15 +313,27 @@ class RestoController extends AbstractController
      * @return Response
      */
     #[Route('/restaurant/{id}', name: 'resto_view')]
-    public function restaurant(Restaurant $resto): Response
-    {
-
+    public function restaurant(Restaurant $resto, Request $req, EntityManagerInterface $em): Response
+    {   
+        $comment = new Comment();
+        $ratio = $resto->getNote();
+        $user= $this->getUser();
+        $form = $this->createForm(CommentType::class,$comment);
+        $form->handleRequest($req);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $comment->setAuthor($user)
+                    ->setResto($resto);
+            $em->persist($comment);
+            $em->flush();
+        }
         $longi = $resto->getCity()->getLongitude();
         $lati = $resto->getCity()->getLatitude();
         return $this->render('restaurant/restaurant.html.twig', [
             'resto' => $resto,
             'longi' => $longi,
-            'lati' => $lati
+            'lati' => $lati,
+            'form' => $form->createView(),
         ]);
     }
 }

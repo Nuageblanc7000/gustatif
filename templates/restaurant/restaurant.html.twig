@@ -1,9 +1,11 @@
-{% set restostar = 4 %}
+
 {% set size =  resto.images|length -1 %}
 {% set days = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'] %}
 
 {% extends "base.html.twig" %}
-{% block title %} {{resto.name}} {% endblock %}
+{% block title %}
+	{{resto.name}}
+{% endblock %}
 {% block stylesheets %}
 	{{ parent() }}
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="">
@@ -18,7 +20,7 @@
 				</h1>
 				<div class="container-header-star">
 					{% for i in 1..5 %}
-						{% if restostar < i %}
+						{% if resto.ratio < i %}
 							<i class="fa-regular fa-star"></i>
 						{% else %}
 							<i class="fa-solid fa-star"></i>
@@ -28,7 +30,7 @@
 			</div>
 
 			<div class="nav-cube-responsive d-flex">
-				<div class="cube-lateral mx-2 resto-cube-r" >
+				<div class="cube-lateral mx-2 resto-cube-r">
 
 					<i class="fa-solid fa-circle-info"></i>
 					<span class="sticker">
@@ -38,7 +40,7 @@
 					</span>
 				</div>
 
-				<div class="cube-lateral mx-2 resto-cube-r" >
+				<div class="cube-lateral mx-2 resto-cube-r">
 					<i class="fa-solid fa-utensils"></i>
 					<span class="sticker">
 						{% trans %}
@@ -47,7 +49,7 @@
 					</span>
 				</div>
 
-				<div class="cube-lateral mx-2 resto-cube-r" >
+				<div class="cube-lateral mx-2 resto-cube-r">
 					<i class="fa-solid fa-map-location"></i>
 					<span class="sticker">
 						{% trans %}
@@ -111,7 +113,7 @@
 				</h1>
 				<div class="container-header-star">
 					{% for i in 1..5 %}
-						{% if restostar < i %}
+						{% if resto.ratio < i %}
 							<i class="fa-regular fa-star"></i>
 						{% else %}
 							<i class="fa-solid fa-star"></i>
@@ -122,18 +124,18 @@
 
 
 			<section class="slider-resto">
-			{% if resto.images|length > 0 %}
-				{% for image in resto.images %}
-					<img class=" slider-img  {% if loop.first %} active-slider {% endif %} " src="{{ asset('/images/restaurant/' ~ image.path)|imagine_filter('bg_r') }}" alt="image du restaurant - {{resto.name}} ">
-				{% endfor %}
-				<span class="control-slider-container">
-					{% for i in 0.. size  %}
-						<div class="{% if loop.first %}active-control{% endif %} control-slider"></div>
+				{% if resto.images|length > 0 %}
+					{% for image in resto.images %}
+						<img class=" slider-img  {% if loop.first %} active-slider {% endif %} " src="{{ asset('/images/restaurant/' ~ image.path)|imagine_filter('bg_r') }}" alt="image du restaurant - {{resto.name}} ">
 					{% endfor %}
-				{% else %}
-					<img class=" slider-img active-slider"  src="{{ asset('/build/images/site/default_resto.jpg') }}" alt="image du restaurant - {{resto.name}} ">
-					<div class="active-control control-slider"></div>
-			{% endif %}
+					<span class="control-slider-container">
+						{% for i in 0.. size  %}
+							<div class="{% if loop.first %}active-control{% endif %} control-slider"></div>
+						{% endfor %}
+					{% else %}
+						<img class=" slider-img active-slider" src="{{ asset('/build/images/site/default_resto.jpg') }}" alt="image du restaurant - {{resto.name}} ">
+						<div class="active-control control-slider"></div>
+					{% endif %}
 
 				</span>
 			</section>
@@ -168,20 +170,20 @@
 						</div>
 					</div>
 					<div class="container-origine-cuisine">
-					<h3> 
-						{% trans %}
-						Budget minimum
-						{% endtrans %}
-					</h3>
-					<div class="d-flex flex-wrap">
+						<h3>
+							{% trans %}
+							Budget minimum
+							{% endtrans %}
+						</h3>
+						<div class="d-flex flex-wrap">
 							<figure class="px-2">
 
 								<figcaption>
-										25€
+									25€
 								</figcaption>
 							</figure>
+						</div>
 					</div>
-				</div>
 				</div>
 
 			</section>
@@ -194,89 +196,30 @@
 					{% endtrans %}
 				</h2>
 				{% if resto.plats is not empty and resto.plats|length > 0 %}
-				<div class= {% if resto.plats|length > 1 %} "container-plat" {% else %} "full-plat" {% endif %}  >
-				{% for plat in resto.plats %}
-					<div class="plat">
-						<picture style="background-image:url({{asset('/images/plats/' ~ plat.image )}})"></picture>
-						<span>
-						{{plat.name}}
-						</span>
+					<div class={% if resto.plats|length > 1 %} "container-plat" {% else %} "full-plat" {% endif %}>
+						{% for plat in resto.plats %}
+							<div class="plat">
+								<picture style="background-image:url({{asset('/images/plats/' ~ plat.image )}})"></picture>
+								<span>
+									{{plat.name}}
+								</span>
+							</div>
+						{% endfor %}
 					</div>
-				{% endfor %}
-				</div>
 
 				{% else %}
-					<h3 class="resto-no-found-speciality"> {% trans %}L'établissement n'as pas encore ajouté de spécialité {% endtrans %}</h3>
+					<h3 class="resto-no-found-speciality">
+						{% trans %}L'établissement n'as pas encore ajouté de spécialité
+						{% endtrans %}</h3>
 				{% endif %}
 
 
 			</section>
-
-
-			<div class="js-move"></div>
-			<section class="localization-resto">
-				<h2>
-					{% trans %}
-					Ou nous trouver ?
-					{% endtrans %}
-				</h2>
-
-				<span class="position-info">
-					<picture>
-						<img src="{{asset('/build/images/position.svg')}}" alt="icon position">
-					</picture>
-					<h3 class="">
-						<span>
-						{{resto.adress}}
-						</span>
-						<span>
-							{{resto.city.localite}} - {{resto.city.code}} 
-						</span>
-					</h3>
-				</span>
-
-				<a class="container-number-resto" href="tel:{{resto.phone}}">
-					<div class="icon-number-resto">
-						<i class="fa-solid fa-mobile-screen"></i>
-					</div>
-					<div class="number-resto">
-						{{resto.phone}}
-					</div>
-				</a>
-				<div class="localization-resto-map">
-					<div id="map" data-l={{lati}} data-la={{longi}}></div>
-
-				</div>
-			</section>
-			<div class="js-move"></div>
-			<section class="container-hourly">
-				<h2>
-					{% trans %}Horaire{% endtrans %}
-
-				</h2>
-
-				<div class="hourly">
-					<ul>
-					{% for key,time in resto.schedule.timetables %}
-						
-						<li>
-						
-							<span class="day">{{days[key]}}</span>
-							<span class="container-hour">
-								<span>
-								{% if time.open == null and time.close == null %}
-								 Fermé
-								 {% else %}
-								{{time.open|format_datetime('none', 'short', locale='fr')}}-{{time.close|format_datetime('none', 'short', locale='fr')}}
-								{% endif %}
-								</span>
-							</span>
-						</li>
-					{% endfor %}
-					</ul>
-				</div>
-			</section>
-
+			
+			{% include "/restaurant/_resto_geo.html.twig" %}
+			{% include "/restaurant/_resto_hourly.html.twig" %}
+			{% include "/restaurant/_resto_comments.html.twig" %}
+			{% include "/restaurant/_resto_form-comment.html.twig" %}
 		</div>
 	</section>
 

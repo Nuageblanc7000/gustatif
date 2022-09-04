@@ -1,0 +1,42 @@
+{% if app.user == resto.user %}
+	{% else %}
+
+		<div class="container-form-comment">
+			<div class="form-step">
+				<h2>{% trans %}Laisser votre avis{% endtrans %}</h2>
+				{{form_start(form)}}
+
+				<div class="form-groups">
+					{{form_widget(form.rating , {attr:{'class':'js-value-rating'}})}}
+				</div>
+				<div class="form-groups create-form-descr">
+					<div class="container-design-form">
+						<div class="design-form-input">
+							<div class="design-form-icon anim-icon">
+								<div class="design-form-icon"><img src="{{asset('/build/images/descriptionForm.svg')}}" alt="chef icon" width="40px" height="40px"></div>
+							</div>
+							{{form_widget(form.description)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.description)}}
+						</div>
+					</div>
+
+				</div>
+				<div class="button-container-1">
+					<span class="mas-1">
+						{% trans %}
+						Ajouter le commentaire
+						{% endtrans %}
+					</span>
+					<button type="submit" name="Hover">
+						{% trans %}
+						Ajouter le commentaire
+						{% endtrans %}
+					</button>
+				</div>
+			</div>
+			{{form_rest(form)}}
+			{{form_end(form)}}
+		</div>
+{% endif %}
