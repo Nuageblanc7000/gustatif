@@ -20,6 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AccountController extends AbstractController
@@ -36,31 +37,41 @@ class AccountController extends AbstractController
     {
         $user = $this->getUser();
         if(in_array('ROLE_RESTAURATEUR',$user->getRoles())){
+            $restos = $user->getRestaurant();
+            $tabCharts =[];
+            $dates = new \DateTimeImmutable();
+            $date = date("m");
+            foreach ($restos as  $resto) {
+                $comments = count($resto->getComments());
+                $data = [0,0,0,0,0,0,0,0,$comments];
+            
+              $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
+              //ici pour connaitre le nombre de commentaire du restaurant
+              $chart->setData([
+                  'labels' => ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet','Aout','Septembre','Octobre','Novembre'],
+                  'datasets' => [
+                      [
+                        
+                          'backgroundColor' => ['red','blue','green','pink','yellow','orange','grey','black','cyan','#feaa3a'],
+                          'borderColor' => '#feaa3a',
+                          'data' => $data,
+                      ],
+                  ],
+              ]);
+              $chart->setOptions([
+                  'scales' => [
+                      'y' => [
+                          'suggestedMin' => 0,
+                          'suggestedMax' => 40,
+                      ],
+                  ],
+              ]);
 
-            $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
-            //ici pour connaitre le nombre de commentaire du restaurant
-            $chart->setData([
-                'labels' => ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
-                'datasets' => [
-                    [
-                        'label' => 'Nombre de visite sur la page',
-                        'backgroundColor' => '#feaa3a',
-                        'borderColor' => '#feaa3a',
-                        'data' => [0, 10, 5, 2, 20, 30, 45],
-                    ],
-                ],
-            ]);
-            $chart->setOptions([
-                'scales' => [
-                    'y' => [
-                        'suggestedMin' => 0,
-                        'suggestedMax' => 100,
-                    ],
-                ],
-            ]);
+              $tabCharts[] = $chart;
+            }
     
             return $this->render('profil/index.html.twig', [
-                'chart' => $chart,
+                'charts' => $tabCharts,
             ]);
         }else{
             return $this->render('profil/index.html.twig', [

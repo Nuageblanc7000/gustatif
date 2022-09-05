@@ -5,7 +5,10 @@ namespace App\Entity;
 use App\Repository\CommentRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Doctrine\ORM\Mapping\PrePersist;
 
+#[HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 class Comment
 {
@@ -93,10 +96,18 @@ class Comment
         return $this->rating;
     }
 
-    public function setRating(int $rating): self
+    public function setRating(int $rating = 0): self
     {
         $this->rating = $rating;
-
         return $this;
     }
+    #[PrePersist]
+    public function notNullRating(){
+        if($this->rating == null)
+        {
+            $this->setRating(0);
+        }
+    }
+
+
 }

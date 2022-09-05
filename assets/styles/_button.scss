@@ -47,6 +47,7 @@
   background-color: var(--primary);
   border-radius: 5px;
   padding: 1rem 4rem;
+  cursor: pointer;
   border: 1px solid var(--primary);
   color: var(--secondary);
   margin-top: 4rem;
@@ -55,6 +56,10 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  transition: 0.5s transform ease-in-out;
+  &:hover{
+    transform: scale(0.980);
+  }
 }
 .btn-mini {
   @extend %min-btn;

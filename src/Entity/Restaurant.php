@@ -336,7 +336,8 @@ class Restaurant
             $calc += $note;
         }
         $count = count($this->getComments());
-        return $this->ratio = floor($calc / $count);
+        $reponse = $this->ratio = $calc === 0 ? 0 : $this->ratio = floor($calc / $count);
+        return $this->ratio = $reponse;
     }
    
 

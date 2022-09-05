@@ -42,9 +42,9 @@ class RestoController extends AbstractController
     {
         $data = new DataFilter();
         $form = $this->createForm(FilterType::class, $data);
-        $form->handleRequest($req);
-        if ($form->isSubmitted() && $form->isValid()) {
-        }
+        // $form->handleRequest($req);
+        // if ($form->isSubmitted() && $form->isValid()) {
+        // }
         return $this->render('restaurant/restaurants.html.twig', [
             'restos' => $repo->restoPaginator($data),
             'form' => $form->createView()
@@ -113,6 +113,7 @@ class RestoController extends AbstractController
     #[Route('/restaurant/plat/{id}', name: 'create_plat')]
     public function create_plat(Request $req,Restaurant $resto, EntityManagerInterface $em, FileUploader $uploader, RestaurantRepository $repo): Response
     {
+        $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO',$resto); 
         $user = $this->getUser();
         if($resto->getUser() !== $user)
         {
@@ -165,7 +166,7 @@ class RestoController extends AbstractController
     public  function modify_resto(Restaurant $resto, Request $req, EntityManagerInterface $em, FileUploader $upload): Response
     {
         $user = $this->getUser();
-
+        $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO',$resto); 
         if($resto->getUser() !== $user)
         {
           // gestion de la securité avec retour vers page 403
@@ -226,6 +227,7 @@ class RestoController extends AbstractController
     {
    //vérifier si les images appartiennent à l'utilisateur avant tout
    $resto = $image->getRestaurant();   
+   $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO',$resto); 
    $idResto =  $image->getRestaurant()->getId();
         if($resto->getCover() === $image->getPath()){
             $resto->setCover('');
@@ -263,6 +265,8 @@ class RestoController extends AbstractController
     public function updatePlatImage(Request $req, $token, Plat $plat, DeleteImageService $deleteImageService)
     {
    //vérifier si les images appartiennent à l'utilisateur avant tout
+        $resto = $plat->getRestaurant();
+        $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO',$resto); 
         $idResto =  $plat->getRestaurant()->getId();
     
         if ($this->isCsrfTokenValid('delete'.$plat->getId(), $token)) {
@@ -292,7 +296,9 @@ class RestoController extends AbstractController
      */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/horaire/{id}','schedule_gestion')]
-    public function hourly(Request $req , Schedule $schedule , EntityManagerInterface $em ){
+    public function hourly(Request $req , Schedule $schedule , EntityManagerInterface $em, RestaurantRepository $repo ){
+        $resto = $repo->findOneBy(['schedule' => $schedule]);
+        $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO',$resto);
         $form = $this->createForm(ScheduleType::class,$schedule);
 
         $form->handleRequest($req);
@@ -326,6 +332,7 @@ class RestoController extends AbstractController
                     ->setResto($resto);
             $em->persist($comment);
             $em->flush();
+            return $this->redirect($req->headers->get('referer'),Response::HTTP_FOUND);
         }
         $longi = $resto->getCity()->getLongitude();
         $lati = $resto->getCity()->getLatitude();

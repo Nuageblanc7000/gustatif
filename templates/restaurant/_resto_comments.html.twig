@@ -1,18 +1,22 @@
+{% set btnComentsUp = 'Afficher plus de commentaires'%}
+{% set btnComentsDown = 'cacher les commentaires'%}
+
 <div class="js-move"></div>
 <section class="container-comments">
-    <h2>{% trans %}Liste des commentaires de l'établissement{% endtrans %} {{resto.name}}</h2>
+	<h2>{% trans %}Liste des commentaires de l'établissement{% endtrans %}
+		{{resto.name}}</h2>
 	<div class="container-comments-grid">
 		{% if resto.comments|length > 0 %}
 			{% for comment in resto.comments %}
-				<div class="comment-box">
+				<div class="comment-box js-box-comment">
 					<div class="date-comment">
 						<figure class="comment-avatar-resto">
-							<img src="{{asset('/images/avatar/' ~ comment.author.avatar )|imagine_filter('avatar_mini') }}" alt="photo profil de {{app.user.pseudo}}">
+							<img src="{{asset('/images/avatar/' ~ comment.author.avatar )|imagine_filter('avatar_mini') }}" alt="photo profil de {{comment.author.pseudo}}">
 							<figcaption>
 								{{comment.author.pseudo}}
 							</figcaption>
 						</figure>
-						<div class="container-header-star">
+						<div class="container-header-star comment-stars">
 							{% for i in 1..5 %}
 								{% if comment.rating < i %}
 									<i class="fa-regular fa-star"></i>
@@ -21,7 +25,7 @@
 								{% endif %}
 							{% endfor %}
 						</div>
-						<p>
+						<p class="date-comment">
 							{{comment.dateCom|date("d/m/Y")}}
 						</p>
 					</div>
@@ -32,9 +36,15 @@
 				</div>
 			{% endfor %}
 		{% else %}
-            
-        {% endif %}
-        
+			<p class="not-comment-resto">
+				{% trans %}
+					Aucun avis pour le moment
+				{% endtrans %}
+			</p>
+		{% endif %}
+
 	</div>
+
+	<button data-comdown={% trans %}'Cacher les commentaires'{% endtrans %} data-comup={% trans %}'Afficher plus de commentaires'{% endtrans %} class="js-comment-views">Afficher plus de commentaires</button>
 
 </section>

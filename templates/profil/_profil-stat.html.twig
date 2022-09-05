@@ -2,7 +2,11 @@
 	<h2>{% trans %}Statistique du restaurant{% endtrans %}</h2>
 	<section class="resto-main-container-profil">
 	<div class="resto-container-profil">
+		{% for chart in charts %}
+			
 			{{ render_chart(chart, {'class': 'my-chart'}) }}
+		{% endfor %}
+
 		{% else %}
 			<div class="profil-not-resto-container">
 				<h2>{% trans %}Statistique du restaurant{% endtrans %}</h2>
