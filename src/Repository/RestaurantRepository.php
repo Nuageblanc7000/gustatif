@@ -68,16 +68,18 @@ class RestaurantRepository extends ServiceEntityRepository
        return $query->getQuery()->getResult();
     }
 
-//    /**
-//     * @return Restaurant[] Returns an array of Restaurant objects
-//     */
-//    public function findByExampleField($value): array
+//    public function findAllOptiResto(Restaurant $resto): array
 //    {
 //        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
+//             ->select('r','u','ca','ori','co','images')
+//             ->leftJoin('r.category','ca')
+//             ->leftJoin('r.user','u')
+//             ->leftJoin('r.images','images')
+//             ->leftJoin('r.origine','ori')
+//             ->leftJoin('r.comments','co')
+//             ->orderBy('ca.id','ASC')
+//             ->andWhere('r.id = :val')
+//            ->setParameter('val', $resto->getId())
 //            ->getQuery()
 //            ->getResult()
 //        ;

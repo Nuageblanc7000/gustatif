@@ -23,7 +23,7 @@ class Action_nav{
       )})
   }
   static action(e,key,steps,elementsNav){
-    e.preventDefault();
+    e.preventDefault(); 
     console.log(elementsNav)
     elementsNav.forEach(elem =>  {
       console.log(elem)

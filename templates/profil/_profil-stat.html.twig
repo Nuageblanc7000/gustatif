@@ -1,21 +1,20 @@
-	{% if app.user.restaurant|length > 0 %}
+{% if (app.user.restaurant|length) > 0 %}
 	<h2>{% trans %}Statistique du restaurant{% endtrans %}</h2>
 	<section class="resto-main-container-profil">
-	<div class="resto-container-profil">
-		{% for chart in charts %}
-			
-			{{ render_chart(chart, {'class': 'my-chart'}) }}
-		{% endfor %}
-
-		{% else %}
+		<div class="resto-container-profil">
+			{% for chart in charts %}
+				{{ render_chart(chart, { class: 'my-chart' }) }}
+			{% endfor %}
+		</div>
+	</section>
+{% else %}
+<section class="resto-main-container-profil">
+		<div class="resto-container-profil">
 			<div class="profil-not-resto-container">
 				<h2>{% trans %}Statistique du restaurant{% endtrans %}</h2>
-			<span class="profil-not-resto">
-				{% trans %}
-					Vous ne possédé actuellement aucun établissement
-				{% endtrans %}
-			</span>
+				<span class="profil-not-resto">{% trans %}Vous ne possédé actuellement aucun établissement{% endtrans %}</span>
+			</div>
 		</div>
-	</div>
 </section>
-		{% endif %}
+{% endif %}
+

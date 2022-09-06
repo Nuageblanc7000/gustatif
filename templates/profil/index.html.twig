@@ -8,28 +8,28 @@
 {% endblock %}
 
 {% block body %}
-
+	
 	<section class="profil-main-container">
 		{% include "/profil/_profil-nav.html.twig" %}
 		<section class="js-container-profil">
 			<div class="js-profil-step up">
-			{% include "/profil/_profil-info.html.twig" %}
+				{% include "/profil/_profil-info.html.twig" %}
 			</div>
 			{% if is_granted('ROLE_RESTAURATEUR') %}
-			<div class="js-profil-step">
-			{% include "/profil/_resto-info.html.twig" %}
-			</div>
-			<div class="js-profil-step">
-			{% include "/profil/_profil-stat.html.twig" %}
-			</div>
+				<div class="js-profil-step">
+					{% include "/profil/_resto-info.html.twig" %}
+				</div>
+				<div class="js-profil-step">
+					{% include "/profil/_profil-stat.html.twig" %}
+				</div>
 			{% endif %}
-			<div class="js-profil-step">
-			{% include "/profil/_profil-favoris.html.twig" %}
-			</div>
+				<div class="js-profil-step">
+					{% include "/profil/_profil-favoris.html.twig" %}
+				</div>
 		</section>
 	</section>
 {% endblock %}
 {% block javascripts %}
-{{ parent() }}
-{{ encore_entry_script_tags('profil-action') }}
+	{{ parent() }}
+	{{ encore_entry_script_tags('profil-action') }}
 {% endblock %}

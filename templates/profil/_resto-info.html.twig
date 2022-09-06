@@ -1,83 +1,80 @@
-	{% if app.user.restaurant|length > 0 %}
+{% if app.user.restaurant|length > 0 %}
 
-			<h2> {% trans %}Liste de vos restaurants {% endtrans %}</h2>
-			{% for resto in app.user.restaurant %}
-				<section class="resto-main-container-profil">
-                
-                <picture class="profil-cover-resto" 
-				{% if resto.cover is empty %}
-					style="background-image:url({{asset('/build/images/site/default_resto.jpg' )}})"
-					{% else %}
-				style="background-image:url({{asset('/images/restaurant/' ~ resto.cover )}})"
-						
-				{% endif %}
-				
-				>
-					<h3 class="text-center">
-                    <span>
+	<h2>
+		{% trans %}Liste de vos restaurants
+		{% endtrans %}</h2>
+	{% for resto in app.user.restaurant %}
+		<section class="resto-main-container-profil">
+
+			<picture class="profil-cover-resto" {% if resto.cover is empty %} style="background-image:url({{asset('/build/images/site/default_resto.jpg' )}})" {% else %} style="background-image:url({{asset('/images/restaurant/' ~ resto.cover )}})" {% endif %}>
+				<h3 class="text-center">
+					<span>
 						{% trans %}
-                            Restaurant
+						Restaurant
 						{% endtrans %}
 						:
-                    </span>
-						{{resto.name}}
-					</h3>
-                
-                </picture>
-					<div class="resto-container-profil">
-						<div class="box-resto-profil">
-							<a href="{{path('resto_view',{id:resto.id})}}">
-								<img src="/build/images/profil/profil-resto-view.svg" alt="icon de télphone avec un plat">
-								<span>
-									{% trans %}
-									Page du restaurant
-									{% endtrans %}
-								</span>
-							</a>
-						</div>
-						<div class="box-resto-profil">
-							<a href="{{path('resto_modify',{id:resto.id})}}">
-							<img src="/build/images/profil/profil-resto-edit.svg" alt="icon de télphone avec un plat">
-								<span>
-									{% trans %}
-									Modifier les informations
-									{% endtrans %}
-								</span>
+					</span>
+					{{resto.name}}
+				</h3>
 
-							</a>
-						</div>
-						<div class="box-resto-profil">
-							<a href="{{path('create_plat',{id:resto.id})}}">
-								<img src="/build/images/profil/profil-resto-spec.svg" alt="icon de télphone avec un plat">
-								<span>
-									{% trans %}
-									Gestion des spécialités
-									{% endtrans %}
-								</span>
-							</a>
-						</div>
-						<div class="box-resto-profil">
-							<a href="{{path('schedule_gestion',{id:resto.schedule.id})}}">
-								<img src="/build/images/profil/profil-resto-schedule.svg" alt="icon de télphone avec un plat">
-								<span>
-									{% trans %}
-									Gérer l'horaire
-									{% endtrans %}
-								</span>
+			</picture>
+			<div class="resto-container-profil">
+				<div class="box-resto-profil">
+					<a href="{{path('resto_view',{id:resto.id})}}">
+						<img src="/build/images/profil/profil-resto-view.svg" alt="icon de télphone avec un plat">
+						<span>
+							{% trans %}
+							Page du restaurant
+							{% endtrans %}
+						</span>
+					</a>
+				</div>
+				<div class="box-resto-profil">
+					<a href="{{path('resto_modify',{id:resto.id})}}">
+						<img src="/build/images/profil/profil-resto-edit.svg" alt="icon de télphone avec un plat">
+						<span>
+							{% trans %}
+							Modifier les informations
+							{% endtrans %}
+						</span>
 
-							</a>
-						</div>
+					</a>
+				</div>
+				<div class="box-resto-profil">
+					<a href="{{path('create_plat',{id:resto.id})}}">
+						<img src="/build/images/profil/profil-resto-spec.svg" alt="icon de télphone avec un plat">
+						<span>
+							{% trans %}
+							Gestion des spécialités
+							{% endtrans %}
+						</span>
+					</a>
+				</div>
+				<div class="box-resto-profil">
+					<a href="{{path('schedule_gestion',{id:resto.schedule.id})}}">
+						<img src="/build/images/profil/profil-resto-schedule.svg" alt="icon de télphone avec un plat">
+						<span>
+							{% trans %}
+							Gérer l'horaire
+							{% endtrans %}
+						</span>
 
-					</div>
-				</section>
-			{% endfor %}
-		{% else %}
-		<div class="profil-not-resto-container">
-			<h1> {% trans %} Affichage de vos restaurants {% endtrans %}</h1>
-			<span class="profil-not-resto">
-				{% trans %}
-				Vous ne possédé actuellement aucun établissement
-				{% endtrans %}
-			</span>
-		</div>
-		{% endif %}
+					</a>
+				</div>
+
+			</div>
+		</section>
+	{% endfor %}
+{% else %}
+	<div class="profil-not-resto-container">
+		<h1>
+			{% trans %}
+			Affichage de vos restaurants
+			{% endtrans %}</h1>
+		<span class="profil-not-resto">
+			{% trans %}
+			Vous ne possédé actuellement aucun établissement
+			{% endtrans %}
+		</span>
+	</div>
+{% endif %}

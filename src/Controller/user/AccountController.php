@@ -207,9 +207,10 @@ class AccountController extends AbstractController
      * @param TranslatorInterface $translator
      * @return Response
      */
-    #[Route('/profil/user/delete', name: 'profil_delete')]
+    #[Route('/profil/user/delete', name: 'delete_profil')]
     public function delete(UserRepository $userRepository,Request $req, TokenResolveRepository $tokenRepo, DeleteImageService $deleteImageService, AvatarDeleteService $avatarDeleteService ,TranslatorInterface $translator): Response
     {
+ 
         $user = $this->getUser();
         $session = $req->getSession();
         $session->set('bye','bye'); 
@@ -269,9 +270,9 @@ class AccountController extends AbstractController
         $message = $translator->trans('Nous espérons vous revoir vite') .' '. $user->getPseudo();
             
         $userRepository->remove($user, true);
-        
         $this->addFlash('sucess',$message);
-
-        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+        
+        $ref = $req->headers->set('referer','');
+        return $this->redirectToRoute('home');
     }
 }

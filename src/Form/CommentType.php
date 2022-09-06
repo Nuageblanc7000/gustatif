@@ -37,7 +37,6 @@ class CommentType extends AbstractType
                  'constraints' => [
                     new Range(min:0,max:5,notInRangeMessage:$this->translator->trans('la valeur doit être entre 0 et 5'))
                  ],
-                 'empty_data' => true,
             ])
         ;
     }

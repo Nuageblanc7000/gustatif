@@ -8,16 +8,20 @@ use App\Form\PlatType;
 use App\Entity\Comment;
 use App\Form\RestoType;
 use App\Data\DataFilter;
+use App\Entity\Like;
 use App\Entity\Schedule;
 use App\Form\FilterType;
 use App\Form\CommentType;
 use App\Entity\Restaurant;
 use App\Form\ScheduleType;
+use App\Repository\CommentRepository;
+use App\Repository\LikeRepository;
 use App\Service\FileUploader;
 use App\Service\DeleteImageService;
 use Symfony\Component\Form\FormError;
 use App\Repository\RestaurantRepository;
 use Doctrine\ORM\EntityManagerInterface;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,7 +29,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class RestoController extends AbstractController
 {
@@ -42,9 +46,9 @@ class RestoController extends AbstractController
     {
         $data = new DataFilter();
         $form = $this->createForm(FilterType::class, $data);
-        // $form->handleRequest($req);
-        // if ($form->isSubmitted() && $form->isValid()) {
-        // }
+        $form->handleRequest($req);
+        if ($form->isSubmitted() && $form->isValid()) {
+        }
         return $this->render('restaurant/restaurants.html.twig', [
             'restos' => $repo->restoPaginator($data),
             'form' => $form->createView()
@@ -308,21 +312,20 @@ class RestoController extends AbstractController
         }
         return $this->render('/restaurant/schedule_gestion.html.twig',['form'=> $form->createView()]);
     }
-    
-
-
 
     /**
      * Affichage d'un restaurant en particulier + donnée pour la carte
      *
      * @param Restaurant $resto
+     * @param Request $req
+     * @param EntityManagerInterface $em
+     * @param CommentRepository $commentRepository
      * @return Response
      */
     #[Route('/restaurant/{id}', name: 'resto_view')]
-    public function restaurant(Restaurant $resto, Request $req, EntityManagerInterface $em): Response
+    public function restaurant(Restaurant $resto, Request $req, EntityManagerInterface $em, CommentRepository $commentRepository): Response
     {   
         $comment = new Comment();
-        $ratio = $resto->getNote();
         $user= $this->getUser();
         $form = $this->createForm(CommentType::class,$comment);
         $form->handleRequest($req);
@@ -341,6 +344,42 @@ class RestoController extends AbstractController
             'longi' => $longi,
             'lati' => $lati,
             'form' => $form->createView(),
+            'repo' => $commentRepository->findBy(['resto' => $resto],['id' =>  'DESC']),
         ]);
     }
+
+
+    #[Route('/like/{id}',name:'like_resto',methods:['POST'])]
+    public function likeResto(Request $req, Restaurant $resto, EntityManagerInterface $em ,LikeRepository $likeRepository): Response
+    {
+        
+        $user = $this->getUser();
+        
+        if(!$user){
+            $pageLogin = $this->generateUrl('login');
+                return $this->json(['route' => $pageLogin,200]);
+            }
+        if($user !== $resto->getUser()){
+            if(!$resto->isLikeByUser($user))
+            {
+                $like = new Like();
+                $like->setUser($user)
+                ->setRestaurant($resto);
+                $em->persist($like);
+                $em->flush();
+                return $this->json(['reponse'=>'like'],200);
+
+            }else{
+                $like = $likeRepository->findOneBy(['restaurant'=> $resto ,'user'=> $user]);
+                $em->remove($like);
+                $em->flush();
+                return $this->json(['reponse'=>'dislike'],200);
+            }
+        }else{
+            return  throw new AccessDeniedHttpException(message:'Accès refusé',code:403);
+        }
+        return  throw new NotFoundHttpException(code:404);
+    
+}
+    
 }

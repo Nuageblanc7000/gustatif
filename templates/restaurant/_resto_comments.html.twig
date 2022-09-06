@@ -7,11 +7,15 @@
 		{{resto.name}}</h2>
 	<div class="container-comments-grid">
 		{% if resto.comments|length > 0 %}
-			{% for comment in resto.comments %}
+			{% for comment in repo %}
 				<div class="comment-box js-box-comment">
 					<div class="date-comment">
 						<figure class="comment-avatar-resto">
-							<img src="{{asset('/images/avatar/' ~ comment.author.avatar )|imagine_filter('avatar_mini') }}" alt="photo profil de {{comment.author.pseudo}}">
+							{% if comment.author.avatar is empty %}
+								<img src="{{asset('/build/images/avatar/avatar-default.svg')}}" alt="photo profil de {{comment.author.pseudo}}">
+							{% else %}
+								<img src="{{asset('/images/avatar/' ~ comment.author.avatar )|imagine_filter('avatar_mini') }}" alt="photo profil de {{comment.author.pseudo}}">
+							{% endif %}
 							<figcaption>
 								{{comment.author.pseudo}}
 							</figcaption>
@@ -38,13 +42,13 @@
 		{% else %}
 			<p class="not-comment-resto">
 				{% trans %}
-					Aucun avis pour le moment
+				Aucun avis pour le moment
 				{% endtrans %}
 			</p>
 		{% endif %}
 
 	</div>
 
-	<button data-comdown={% trans %}'Cacher les commentaires'{% endtrans %} data-comup={% trans %}'Afficher plus de commentaires'{% endtrans %} class="js-comment-views">Afficher plus de commentaires</button>
+	<button data-comdown={% trans %} 'Cacher les commentaires' {% endtrans %} data-comup={% trans %} 'Afficher plus de commentaires' {% endtrans %} class="js-comment-views">Afficher plus de commentaires</button>
 
 </section>

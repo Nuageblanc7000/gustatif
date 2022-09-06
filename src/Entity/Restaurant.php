@@ -71,10 +71,13 @@ class Restaurant
     #[ORM\OneToOne(inversedBy: 'restaurant', cascade: ['persist', 'remove'])]
     private ?Schedule $schedule = null;
 
-    #[ORM\OneToMany(mappedBy: 'resto', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'resto', targetEntity: Comment::class, orphanRemoval:true)]
     private Collection $comments;
 
     public int $ratio;
+
+    #[ORM\OneToMany(mappedBy: 'restaurant', targetEntity: Like::class, orphanRemoval: true)]
+    private Collection $likes;
 
     public function __construct()
     {
@@ -84,6 +87,7 @@ class Restaurant
         $this->images = new ArrayCollection();
         $this->plats = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
     
     public function getId(): ?int
@@ -336,7 +340,7 @@ class Restaurant
             $calc += $note;
         }
         $count = count($this->getComments());
-        $reponse = $this->ratio = $calc === 0 ? 0 : $this->ratio = floor($calc / $count);
+        $reponse = $this->ratio = $calc === 0 ? 0 : $this->ratio = round($calc / $count);
         return $this->ratio = $reponse;
     }
    
@@ -351,5 +355,64 @@ class Restaurant
         $this->ratio = $ratio;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Like>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Like $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+            $like->setRestaurant($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Like $like): self
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getRestaurant() === $this) {
+                $like->setRestaurant(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * on regarde si le user en cours aime déjà le restaurant
+     *
+     * @param User $user
+     * @return boolean
+     */
+    public function isLikeByUser(User $user) : bool  
+    {
+        foreach ($this->likes as  $like) {
+            if($like->getUser() === $user)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public function isUserCommented(User $user) : bool  
+    {
+        foreach ($this->comments as  $comment) {
+            if($comment->getAuthor() === $user)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

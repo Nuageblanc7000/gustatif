@@ -1,4 +1,3 @@
-
 {% set size =  resto.images|length -1 %}
 {% set days = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'] %}
 
@@ -20,7 +19,7 @@
 				</h1>
 				<div class="container-header-star">
 					{% for i in 1..5 %}
-						{% if resto.ratio < i %}
+						{% if resto.getNote() < i %}
 							<i class="fa-regular fa-star"></i>
 						{% else %}
 							<i class="fa-solid fa-star"></i>
@@ -29,8 +28,8 @@
 				</div>
 			</div>
 
-			<div class="nav-cube-responsive d-flex">
-				<div class="cube-lateral mx-2 resto-cube-r">
+			<div class="nav-cube-responsive">
+				<div class="cube-lateral  resto-cube-r js-cube-move-r">
 
 					<i class="fa-solid fa-circle-info"></i>
 					<span class="sticker">
@@ -40,7 +39,7 @@
 					</span>
 				</div>
 
-				<div class="cube-lateral mx-2 resto-cube-r">
+				<div class="cube-lateral  resto-cube-r js-cube-move-r">
 					<i class="fa-solid fa-utensils"></i>
 					<span class="sticker">
 						{% trans %}
@@ -49,7 +48,7 @@
 					</span>
 				</div>
 
-				<div class="cube-lateral mx-2 resto-cube-r">
+				<div class="cube-lateral  resto-cube-r js-cube-move-r">
 					<i class="fa-solid fa-map-location"></i>
 					<span class="sticker">
 						{% trans %}
@@ -57,7 +56,7 @@
 						{% endtrans %}
 					</span>
 				</div>
-				<div class="cube-lateral mx-2 resto-cube-r">
+				<div class="cube-lateral resto-cube-r js-cube-move-r">
 					<i class="fa-solid fa-clock"></i>
 					<span class="sticker">
 						{% trans %}
@@ -65,12 +64,26 @@
 						{% endtrans %}
 					</span>
 				</div>
+				{% if  app.user != resto.user %}
+				<a href="{{path('like_resto',{'id':resto.id})}}" class="cube-lateral  resto-cube-r js-like-resto">
+					{% if app.user and resto.isLikeByUser(app.user) %}
+						<i class="fa-solid fa-heart"></i>
+					{% else %}
+						<i class="fa-regular fa-heart"></i>
+					{% endif %}
+					<span class="sticker">
+						{% trans %}
+						Ajouter aux favoris
+						{% endtrans %}
+					</span>
+				</a>
+			{% endif %}
 			</div>
 		</div>
 	</div>
 	<section class="container container-page-resto d-flex pt-3">
 		<aside class="container-navi-resto col-2">
-			<div class="cube-lateral mx-2 resto-cube">
+			<div class="cube-lateral mx-2 resto-cube js-cube-move">
 				<i class="fa-solid fa-circle-info"></i>
 				<span class="sticker">
 					{% trans %}
@@ -79,7 +92,7 @@
 				</span>
 			</div>
 
-			<div class="cube-lateral mx-2 resto-cube">
+			<div class="cube-lateral mx-2 resto-cube js-cube-move">
 				<i class="fa-solid fa-utensils"></i>
 				<span class="sticker">
 					{% trans %}
@@ -88,7 +101,7 @@
 				</span>
 			</div>
 
-			<div class="cube-lateral mx-2 resto-cube">
+			<div class="cube-lateral mx-2 resto-cube js-cube-move">
 				<i class="fa-solid fa-map-location"></i>
 				<span class="sticker">
 					{% trans %}
@@ -96,7 +109,7 @@
 					{% endtrans %}
 				</span>
 			</div>
-			<div class="cube-lateral mx-2 resto-cube">
+			<div class="cube-lateral mx-2 resto-cube js-cube-move">
 				<i class="fa-solid fa-clock"></i>
 				<span class="sticker">
 					{% trans %}
@@ -104,6 +117,20 @@
 					{% endtrans %}
 				</span>
 			</div>
+			{% if  app.user != resto.user %}
+				<a href="{{path('like_resto',{'id':resto.id})}}" class="cube-lateral mx-2 resto-cube js-like-resto">
+					{% if app.user and resto.isLikeByUser(app.user) %}
+						<i class="fa-solid fa-heart"></i>
+					{% else %}
+						<i class="fa-regular fa-heart"></i>
+					{% endif %}
+					<span class="sticker">
+						{% trans %}
+						Ajouter aux favoris
+						{% endtrans %}
+					</span>
+				</a>
+			{% endif %}
 
 		</aside>
 		<div class="col-12 col-lg-10 col-xl-10">
@@ -208,14 +235,14 @@
 					</div>
 
 				{% else %}
-					<h3 class="resto-no-found-speciality">
+					<p class="resto-no-found-speciality">
 						{% trans %}L'établissement n'as pas encore ajouté de spécialité
-						{% endtrans %}</h3>
+						{% endtrans %}</p>
 				{% endif %}
 
 
 			</section>
-			
+
 			{% include "/restaurant/_resto_geo.html.twig" %}
 			{% include "/restaurant/_resto_hourly.html.twig" %}
 			{% include "/restaurant/_resto_comments.html.twig" %}
@@ -230,5 +257,6 @@
 	{{ parent() }}
 
 	<script defer src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
-	{{ encore_entry_script_tags('slider') }}
+	{{ encore_entry_script_tags('restaurant') }}
+
 {% endblock %}

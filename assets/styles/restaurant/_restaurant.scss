@@ -48,6 +48,15 @@
         .nav-cube-responsive{
             justify-content: center;
             z-index: 9000;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(20px,1fr));
+            gap: 10px;
+            padding:1rem 1rem;
+            .resto-cube-r{
+                width: 100%;
+                min-width: auto;
+                max-width: 100%;
+            }
         }
     }
 
@@ -163,11 +172,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding:1rem 2rem;
-        min-width: 110px;
+        padding:1rem 1rem;
+        min-width: 200px;
         width: 100%;
         z-index: 250;
-        right: -125px;
+        right: -220px;
         border-radius: 5px;
         color: var(--secondary);
         &::after{
@@ -485,6 +494,8 @@
         justify-content: center;
         align-items: center;
         padding:1rem 0;
+        text-align: center;
+        
     }
 
 }

@@ -12,7 +12,7 @@ const lateralOpen =()=>{
     backLateral.classList.toggle('back-lateral')
 }
 
-
+const param = new URLSearchParams(window.document.location.pathname);
 crossLateral.addEventListener('click',lateralOpen )
 btnFilter.addEventListener('click',lateralOpen )
 backLateral.addEventListener('click',lateralOpen )

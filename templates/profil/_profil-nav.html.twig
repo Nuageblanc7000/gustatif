@@ -56,8 +56,8 @@
 					{% trans %}Statistique{% endtrans %}
 				</span>
 			</li>
-			{% endif %}
-			<li class="js-nav-profil">
+		{% endif %}
+		<li class="js-nav-profil">
 			<a href="#">
 				<svg width="797" height="644" viewbox="0 0 797 644" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M129.65 404.24C132.759 407.347 136.975 409.093 141.37 409.093C145.765 409.093 149.981 407.347 153.09 404.24L220.94 336.39C224.048 333.282 225.795 329.066 225.795 324.67C225.795 320.274 224.048 316.059 220.94 312.95C217.832 309.842 213.616 308.096 209.22 308.096C204.824 308.096 200.608 309.842 197.5 312.95L129.65 380.8C126.543 383.909 124.798 388.125 124.798 392.52C124.798 396.916 126.543 401.131 129.65 404.24Z" fill="#2B1317"/>
@@ -75,7 +75,8 @@
 				</span>
 			</a>
 		</li>
-			{% if is_granted('ROLE_RESTAURATEUR') %}
+		
+		{% if is_granted('ROLE_RESTAURATEUR') %}
 			<li>
 				<a href="{{path('resto_create')}}">
 					<svg width="222" height="222" viewbox="0 0 222 222" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,6 +100,6 @@
 				</a>
 			</li>
 		{% endif %}
-		
+
 	</ul>
 </nav>
