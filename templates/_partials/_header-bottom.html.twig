@@ -1,0 +1,37 @@
+<div class="bottom-nav">
+	<div class="container">
+		<div class="bottom-nav-grid">
+
+			<div class="action-btn-search">
+				<a href="{{path('restos_list')}}" class="action-btn-search-a">
+					<img src="/build/images/fast-black.svg" alt="svg d'un chef de restaurant">
+				</a>
+				{% trans %}
+				<span>
+					Fast-foods
+				</span>
+				{% endtrans %}
+			</div>
+			<div class="action-btn-search">
+				<a href="{{path('restos_list')}}" class="action-btn-search-a">
+					<img src="/build/images/resto-black.svg" alt="">
+				</a>
+				<span>
+					{% trans %}
+					Restaurants
+					{% endtrans %}
+				</span>
+			</div>
+			<div class="action-btn-search">
+				<a href="{{path('restos_list')}}" class="action-btn-search-a">
+					<img src="/build/images/profil/profil-restos-view.svg" alt="">
+				</a>
+				<span>
+					{% trans %}
+					Tous
+					{% endtrans %}
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
