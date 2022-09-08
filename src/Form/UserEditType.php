@@ -26,9 +26,10 @@ class UserEditType extends AbstractType
                 ],
                 'required' => false,
                 'constraints' => [
-                    new Regex(pattern:"/^[a-zA-Z]+\s?.{0,70}[,]{1}\s?[0-9]{1,4}\s?[a-zA-Z]{0,2}[0-9]{0,3}$/",message:'Adresse valide exemple: rue paul,25 / chemin de montignies, 23b',match:true)
+                    new Regex(pattern:"/^[a-zA-Z]+\s?.{0,70}[,]{1}\s?[0-9]{1,4}\s?[a-zA-Z]{0,2}[0-9]{0,3}$/",message:'Adresse valide exemple: rue paul,25 / chemin de montignies, 23b')
                 ]
             ])
+
             ->add('city',EntityType::class,[
                 'class' => City::class,
                 'choice_label' => 'localite',

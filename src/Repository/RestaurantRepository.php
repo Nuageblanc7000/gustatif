@@ -39,7 +39,6 @@ class RestaurantRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
     public function restoPaginator(?DataFilter $data){
        $query = $this->createQueryBuilder('r')
        ->select('r','v','c','o')

@@ -13,14 +13,13 @@ use App\Form\UserPasswordChangeType;
 use App\Service\AvatarDeleteService;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\TokenResolveRepository;
-use Liip\ImagineBundle\Config\Filter\Type\Interlace;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Validator\Constraints\Date;
+
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AccountController extends AbstractController

@@ -14,6 +14,7 @@ use App\Form\FilterType;
 use App\Form\CommentType;
 use App\Entity\Restaurant;
 use App\Form\ScheduleType;
+use App\Repository\CategoryRepository;
 use App\Repository\CommentRepository;
 use App\Repository\LikeRepository;
 use App\Service\FileUploader;
@@ -41,8 +42,8 @@ class RestoController extends AbstractController
      * @param Request $req
      * @return Response
      */
-    #[Route('/restaurants', name: 'restos_list')]
-    public function restaurants(RestaurantRepository $repo, Request $req): Response
+    #[Route('/restaurants/{categories<\d+>?}', name: 'restos_list')]
+    public function restaurants(RestaurantRepository $repo, Request $req ): Response
     {
         $data = new DataFilter();
         $form = $this->createForm(FilterType::class, $data);

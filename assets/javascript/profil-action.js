@@ -23,7 +23,7 @@ class Action_nav{
       )})
   }
   static action(e,key,steps,elementsNav){
-    e.preventDefault(); 
+
     console.log(elementsNav)
     elementsNav.forEach(elem =>  {
       console.log(elem)
@@ -37,5 +37,38 @@ class Action_nav{
   }
 
 }
+
+
+function loadUrlProfil(){
+  const url = window.document.location.href;
+  const hash = window.document.location.hash;
+if(hash){
+
+  nav_profil.forEach(link => {
+    link.classList.remove('color-up')
+    if(link.querySelector('a').href === url )
+    {
+      link.classList.add('color-up')
+    }
+  });
+  step_profil.forEach(step => {
+    step.classList.remove('up')
+    if(step.id === hash)
+    {
+      step.classList.add('up')
+    }
+  })
+}else
+{
+  step_profil.item(0).classList.add('up')
+  nav_profil.item(0).classList.add('color-up')
+}
+}                                             
+window.addEventListener('load',loadUrlProfil)      
+
+
 Action_nav.HtmlElements(nav_profil,step_profil);
+
+
+      
 

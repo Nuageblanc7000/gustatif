@@ -15,7 +15,7 @@
 				<div class="title-page-restaurants">
 					<h1>
 						{% trans %}
-						Notre sélection d'établissements
+							Notre sélection d'établissements
 						{% endtrans %}
 					</h1>
 				</div>
@@ -26,14 +26,15 @@
 				{% else %}
 					<section class="d-flex justify-content-center align-items-center">
 						
-						<picture>
-							<img src="{{asset('/build/images/nofound.svg')}}" alt="no found restaurant">
+						<picture class="img-restaurants-not-found">
+							<img  src="{{asset('/build/images/nofound.svg')}}" alt="no found restaurant">
 						</picture>
 					</section>
 				{% endif %}
 			</div>
 		</div>
 	</section>
+
 						<span class="btn-filter-responsive">
 							<i class="fa-solid fa-filter"></i>
 							<div class="pulse"></div>

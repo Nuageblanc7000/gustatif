@@ -141,7 +141,11 @@
         }
       }
     }
-
+    
+      .stat-resto-profil-grid{
+        grid-template-columns: repeat(1, minmax(150px, 1fr)) !important;
+      }
+    
     .resto-container-profil {
       width: 100%;
       display: grid;

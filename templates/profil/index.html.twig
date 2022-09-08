@@ -12,18 +12,18 @@
 	<section class="profil-main-container">
 		{% include "/profil/_profil-nav.html.twig" %}
 		<section class="js-container-profil">
-			<div class="js-profil-step up">
+			<div class="js-profil-step" id="#profil-info">
 				{% include "/profil/_profil-info.html.twig" %}
 			</div>
 			{% if is_granted('ROLE_RESTAURATEUR') %}
-				<div class="js-profil-step">
+				<div class="js-profil-step" id="#resto-info">
 					{% include "/profil/_resto-info.html.twig" %}
 				</div>
-				<div class="js-profil-step">
+				<div class="js-profil-step" id="#stat-profil">
 					{% include "/profil/_profil-stat.html.twig" %}
 				</div>
 			{% endif %}
-				<div class="js-profil-step">
+				<div class="js-profil-step" id="#favoris-profil">
 					{% include "/profil/_profil-favoris.html.twig" %}
 				</div>
 		</section>

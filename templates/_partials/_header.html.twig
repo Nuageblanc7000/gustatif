@@ -1,102 +1,212 @@
-	
-	<header>
+<header>
 	<div class="header-container">
 		<a class="header-logo" href={{path('home')}}>
 			<img src="{{asset('/build/images/logo-header.svg')}}" alt="">
 		</a>
-		
+		<div class="container-search-header">
+			<form action="{{path('restos_list')}}" method="get" class="header-form-search">
+				<picture>
+					<i class="fa-solid fa-location-dot"></i>
+				</picture>
+				<input type="search" name="s" placeholder="Entrer une ville">
+			</form>
 
-		<form action="" class="header-form-search">
-			<picture>
-				<i class="fa-solid fa-location-dot"></i>
-			</picture>
-			<input type="search" name="" id="" placeholder="Entrer une ville">
-		</form>
+			<div class="btn-header-action-search"></div>
+		</div>
 
 		<div class="header-container-btn">
-		{% if  not app.user %}
-		
-			<a href="{{path('login')}}" class="anim-bar-a">Connection</a>
-			<p class="pibe">|</p>
-			<a href="{{path('user_register')}}" class="anim-bar-a">Inscription</a>
-	
-				
-		{% endif %}
-		
+			<div class="action-btn-search">
+				<a href="{{path('restos_list')}}" class="action-btn-search-a">
+					<img src="/build/images/fast-black.svg" alt="svg d'un chef de restaurant">
+				</a>
+				{% trans %}
+				<span>
+					Fast-foods
+				</span>
+				{% endtrans %}
+			</div>
+			<div class="action-btn-search">
+				<a href="{{path('restos_list')}}" class="action-btn-search-a">
+					<img src="/build/images/resto-black.svg" alt="">
+				</a>
+				<span>
+					{% trans %}
+					Restaurants
+					{% endtrans %}
+				</span>
+			</div>
+			<div class="action-btn-search">
+				<a href="{{path('restos_list')}}" class="action-btn-search-a">
+					<img src="/build/images/profil/profil-restos-view.svg" alt="">
+				</a>
+				<span>
+					{% trans %}
+					Tous
+					{% endtrans %}
+				</span>
+			</div>
+
+			{% if  not app.user %}
+				<div class="action-btn-search">
+					<a href="{{path('login')}}" class="action-btn-search-a action-login-search">
+						<img src="/build/images/header/login.svg" alt="svg page connexion petit cuisto">
+					</a>
+					<span>
+						{% trans %}
+						Connection
+						{% endtrans %}
+					</span>
+				</div>
+				<div class="action-btn-search">
+					<a href="{{path('user_register')}}"  class="action-btn-search-a action-register-search">
+						<img src="/build/images/header/register.svg" alt="cahier d'inscription login">
+					</a>
+					<span>
+						{% trans %}
+							Inscription
+						{% endtrans %}
+					</span>
+				</div>
+			{% endif %}
+
 			{% if app.user %}
-			
-			<button class="header-btn-profil">
-				<picture>
-					<img src="{{asset('/build/images/avatar/avatar.jpg')}}" alt="">
-				</picture>
-				<i class='bx bx-chevron-down'></i>
-			</button>
+				<button class="header-btn-profil">
+					<picture>
+						{% if app.user.avatar is empty %}
+							<img src="{{asset('/build/images/avatar/avatar-default.svg')}}" alt="photo profil de {{app.user.pseudo}}">
+						{% else %}
+							<img src="{{asset('/images/avatar/' ~ app.user.avatar )|imagine_filter('avatar_mini') }}" alt="profil de {{app.user.pseudo}}">
+						{% endif %}
+					</picture>
+					<i class="mx-2 fa-solid fa-chevron-down"></i>
+				</button>
 			{% endif %}
 
 		</div>
 
-			<i class="fa-solid fa-bars header-btn-responsive"></i>
+		<i class="fa-solid fa-bars header-btn-responsive"></i>
 
-			<div class="header-btn-langage">
-				
-			</div>
-		</div>
+		{# partie profil  #}
+		<div class="menu-down-profil">
 
-	</div>
+			<div class="menu-down-info-profil">
+				{% if app.user %}
+					<button class="header-btn-profil">
+						<picture>
+							{% if app.user.avatar is empty %}
+								<img src="{{asset('/build/images/avatar/avatar-default.svg')}}" alt="photo profil de {{app.user.pseudo}}">
+							{% else %}
+								<img src="{{asset('/images/avatar/' ~ app.user.avatar )|imagine_filter('avatar_mini') }}" alt="profil de {{app.user.pseudo}}">
+							{% endif %}
+							<span>
+								{{app.user.pseudo}}
+							</span>
+						</picture>
 
-	</header>
-	
-	{# <header class="header-main">
-		<nav class="container d-flex justify-content-between align-items-center">
-			<div class="header">
-				<a href="{{path('home')}}">
-					<figure class="logo-header">
-						<img src="{{asset('/build/images/logo-header.svg')}}" alt="logo">
-					</figure>
+					</button>
+				{% endif %}
+				<a href="{{path('app_profil')}}">
+					{% trans %}
+					Voir mon profil
+					{% endtrans %}
 				</a>
 			</div>
-			<div class="row nav-main">
-				<ul>
-					<div class="nav-log">
-						<li>
-							<a href="" class="anim-bar-a">Inscription</a>
-						</li>
-						<p>|</p>
-						<li>
-							<a href="" class="anim-bar-a">Connexion</a>
-						</li>
-					</div>
-					<li>
-						<div class="nav-profile">
-							<button>
-								<figure>
-									<img src=" {{asset('/build/images/avatar.jpg')}} " alt="">
-								</figure>
-
-								<i class='bx bx-chevron-down'></i>
-							</button>
-							<div class="menu-down-profil">
-							<div class="p-4">
-								<div class="menu-down-info-profil">
-									<figure>
-										<img src=" {{asset('/build/images/avatar.jpg')}} " alt="">
-										<figcaption>
-											Rémy Wetterene victor hugottttttttttttt
-										</figcaption>
-									</figure>
-									<a href="">Voir mon profil</a>
-								</div>
-								<ul>
-									<li><a href=""><span><i><img src="{{asset('/build/images/fast-black.svg')}}" alt=""></i><span>Fast-Food favoris</span></span></a></li>
-									<li><a href=""><span><i><img src="{{asset('/build/images/resto-black.svg')}}" alt=""></i><span>Restaurant favoris</span></span></a></li>
-									<li class="log-out-profil"><a href=""><span><i class='bx bx-log-out-circle'></i><span>Déconnexion</span></span></a></li>
-								</ul>
-							</div>
-							</div>
-						</div>
-					</li>
-				</div>
+			<ul>
+				<li>
+					<a href="{{path('app_profil')}}#favoris-profil">
+						<span>
+							<i><img src="{{asset('/build/images/profil/profil-favorite.svg')}}" alt=""></i>
+							<span>
+								{% trans %}
+									Voir mes favoris
+								{% endtrans %}
+							</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="{{path('restos_list')}}">
+						<span>
+							<i><img src="{{asset('/build/images/resto-black.svg')}}" alt=""></i>
+							<span>
+								{% trans %}
+								Voir les restaurants
+								{% endtrans %}
+							</span>
+						</span>
+					</a>
+				</li>
+				<li class="log-out-profil">
+					<a href="{{path('app_logout')}}">
+						<span>
+							<i class="fa-solid fa-right-from-bracket"></i>
+							<span>
+								{% trans %}
+								Déconnexion
+								{% endtrans %}
+							</span>
+						</span>
+					</a>
+				</li>
 			</ul>
 
-		</nav>
-	</header> #}
+		</div>
+	</div>
+</header>
+
+
+
+{# <header class="header-main">
+			<nav class="container d-flex justify-content-between align-items-center">
+				<div class="header">
+					<a href="{{path('home')}}">
+						<figure class="logo-header">
+							<img src="{{asset('/build/images/logo-header.svg')}}" alt="logo">
+						</figure>
+					</a>
+				</div>
+				<div class="row nav-main">
+					<ul>
+						<div class="nav-log">
+							<li>
+								<a href="" class="anim-bar-a">Inscription</a>
+							</li>
+							<p>|</p>
+							<li>
+								<a href="" class="anim-bar-a">Connexion</a>
+							</li>
+						</div>
+						<li>
+							<div class="nav-profile">
+								<button>
+									<figure>
+										<img src=" {{asset('/build/images/avatar.jpg')}} " alt="">
+									</figure>
+	
+									<i class='bx bx-chevron-down'></i>
+								</button>
+								<div class="menu-down-profil">
+								<div class="p-4">
+									<div class="menu-down-info-profil">
+										<figure>
+											<img src=" {{asset('/build/images/avatar.jpg')}} " alt="">
+											<figcaption>
+												Rémy Wetterene victor hugottttttttttttt
+											</figcaption>
+										</figure>
+										<a href="">Voir mon profil</a>
+									</div>
+									<ul>
+										<li><a href=""><span><i><img src="{{asset('/build/images/fast-black.svg')}}" alt=""></i><span>Fast-Food favoris</span></span></a></li>
+										<li><a href=""><span><i><img src="{{asset('/build/images/resto-black.svg')}}" alt=""></i><span>Restaurant favoris</span></span></a></li>
+										<li class="log-out-profil"><a href=""><span><i class='bx bx-log-out-circle'></i><span>Déconnexion</span></span></a></li>
+									</ul>
+								</div>
+								</div>
+							</div>
+						</li>
+					</div>
+				</ul>
+	
+			</nav>
+		</header> #}

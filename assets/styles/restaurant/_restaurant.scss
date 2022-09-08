@@ -488,7 +488,6 @@
         }
        
     }
-
     .resto-no-found-speciality{
         display: flex;
         justify-content: center;
@@ -497,7 +496,6 @@
         text-align: center;
         
     }
-
 }
 .container-comments{
     padding:10px;
@@ -532,6 +530,10 @@
                     user-select: none;
                     i{
                     }
+                }
+                figcaption{
+                    font-weight: bold;
+                    text-transform: capitalize;
                 }
 
             }

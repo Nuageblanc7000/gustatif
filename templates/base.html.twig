@@ -29,8 +29,11 @@
         <main id="main">
             {% block body %}{% endblock %}
         </main>
-    </body>
         {% include "/_partials/_footer.html.twig" %}
+        {% include "/_partials/_header-bottom.html.twig" %}
+
+       
+    </body>
         {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
         {% endblock %}
