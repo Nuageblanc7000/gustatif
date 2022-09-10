@@ -42,7 +42,7 @@ class RestoController extends AbstractController
      * @param Request $req
      * @return Response
      */
-    #[Route('/restaurants/{categories<\d+>?}', name: 'restos_list')]
+    #[Route('/restaurants', name: 'restos_list')]
     public function restaurants(RestaurantRepository $repo, Request $req ): Response
     {
         $data = new DataFilter();

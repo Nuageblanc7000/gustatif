@@ -8,31 +8,38 @@
 				<picture>
 					<i class="fa-solid fa-location-dot"></i>
 				</picture>
-				<input type="search" name="s" placeholder="Entrer une ville">
+				<input type="search" name="s" placeholder={% trans %} "Entrer une ville, nom du restaurant" {% endtrans %}>
+				<button class='header-form-search-submit' type="submit">
+					<img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe avec un restaurant">
+				</button>
 			</form>
 
-			<div class="btn-header-action-search"></div>
 		</div>
-
 		<div class="header-container-btn">
 			<div class="action-btn-search">
-				<a href="{{path('restos_list')}}" class="action-btn-search-a">
-					<img src="/build/images/fast-black.svg" alt="svg d'un chef de restaurant">
-				</a>
-				{% trans %}
-				<span>
-					Fast-foods
-				</span>
-				{% endtrans %}
-			</div>
-			<div class="action-btn-search">
-				<a href="{{path('restos_list')}}" class="action-btn-search-a">
-					<img src="/build/images/resto-black.svg" alt="">
-				</a>
+				<form action="{{path('restos_list')}}" method="get" class="header-form-search">
+					<input type="checkbox" name="categories[]" class="resto" value="1" checked>
+					<button type="submit" href="{{path('restos_list')}}" class="action-btn-search-a">
+						<img src="/build/images/fast-black.svg" alt="svg d'un chef de restaurant">
+					</button>
+				</form>
 				<span>
 					{% trans %}
-					Restaurants
+					Fast-foods
 					{% endtrans %}
+				</span>
+			</div>
+			<div class="action-btn-search">
+				<form action="{{path('restos_list')}}" method="get" class="header-form-search">
+					<input type="checkbox" name="categories[]" class="resto" value="2" checked>
+					<button type="submit" href="{{path('restos_list')}}" class="action-btn-search-a">
+						<img src="/build/images/resto-black.svg" alt="">
+					</button>
+				</form>
+				<span>
+				{% trans %}
+					Restaurants
+				{% endtrans %}
 				</span>
 			</div>
 			<div class="action-btn-search">
@@ -41,7 +48,7 @@
 				</a>
 				<span>
 					{% trans %}
-					Tous
+					Tous les établissements
 					{% endtrans %}
 				</span>
 			</div>
@@ -84,11 +91,11 @@
 
 		</div>
 		<div class="container-anim-burger">
-		<svg viewBox="0 0 100 80" width="40" height="40">
-		<rect width="100" height="10"></rect>
-		<rect y="30" width="100" height="10"></rect>
-		<rect y="60" width="100" height="10"></rect>
-		</svg>
+			<svg viewbox="0 0 100 80" width="40" height="40">
+				<rect width="100" height="10"></rect>
+				<rect y="30" width="100" height="10"></rect>
+				<rect y="60" width="100" height="10"></rect>
+			</svg>
 		</div>
 
 		{# partie profil  #}

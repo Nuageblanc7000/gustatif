@@ -8,13 +8,16 @@
 		</div>
 	</section>
 {% else %}
-<section class="resto-main-container-profil">
-		<div class="resto-container-profil">
-			<div class="profil-not-resto-container">
-				<h2>{% trans %}Statistique du restaurant{% endtrans %}</h2>
-				<span class="profil-not-resto">{% trans %}Vous ne possédé actuellement aucun établissement{% endtrans %}</span>
-			</div>
-		</div>
-</section>
+	<div class="profil-not-resto-container">
+		<h1>
+			{% trans %}
+				Statistique du restaurant
+			{% endtrans %}</h1>
+		<span class="profil-not-resto">
+			{% trans %}
+			Vous ne possédé actuellement aucun établissement
+			{% endtrans %}
+		</span>
+	</div>
 {% endif %}
 

@@ -72,6 +72,17 @@ header {
           color: var(--secondary);
         }
       }
+      .header-form-search-submit{
+         min-height: inherit;
+        height: 100%;
+        border: none;
+        background-color: transparent;
+        width: 40px;
+        cursor: pointer;
+        img{
+          user-select: none;
+        }
+      }
     }
   }
   .header-container-btn {
@@ -84,7 +95,17 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    form{
+      input{
+        display: none;
+        
+      }
+      button{
+        cursor: pointer;
+      }
+    }
     .action-btn-search-a {
+      border: none;
       border-radius: 5px;
       background-color: var(--color-grey-ligtht3);
       width: 50px;
@@ -100,6 +121,7 @@ header {
 
         object-fit: cover;
       }
+    
     }
     .action-login-search,
     .action-register-search {
