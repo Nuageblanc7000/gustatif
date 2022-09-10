@@ -54,3 +54,7 @@
     }
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
 }
+
+.bg-primary{
+    background-color: var(--primary) !important;
+}

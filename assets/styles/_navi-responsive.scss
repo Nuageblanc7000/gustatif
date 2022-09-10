@@ -1,0 +1,147 @@
+
+.navigation-responsive {
+  position: fixed;
+  width: 100%;
+  top: 80px;
+  left: -100%;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  background-color: var(--grey);
+  background-image: url("/assets/images/profil/home-bg-profil.svg");
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  @media (max-width:991px) {
+        display: block;
+  }
+  @media (min-width:592px) {
+      z-index: 9600;
+  }
+  z-index: 9910;
+  overflow-y: scroll;
+  scrollbar-width:none;
+    padding-bottom: 120px;
+   display: none;
+
+  .navigation-close{
+    margin-top: 2rem;
+    cursor: pointer;
+
+  }
+  .container-navigation-responsive {
+    
+    @extend .container;
+    .navigation-user-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        color: var(--secondary);
+        picture {
+          border-radius: 50%;
+          img {
+            border-radius: 50%;
+            height: 80px;
+          }
+        }
+      }
+    }
+
+    .navigation-responsive-list {
+      width: 100%;
+      background-color: var(--white);
+      border-radius: 10px;
+      transition: 30s ease-in-out all;
+      user-select: none;
+      transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) all;
+      background-color: var(--grey);
+      z-index: 10;
+
+      ul {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        padding: 0;
+        border-radius: 10px;
+        li {
+          width: 100%;
+          margin: 0 !important;
+          padding: 1rem 0rem;
+          a {
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            min-width: 200px;
+            background-color: white;
+            text-align: center;
+            overflow: hidden;
+            transition: all 0.4s;
+            color: var(--secondary);
+            font-weight: bold;
+            &:hover {
+              background-color: var(--primary);
+              color: white;
+            }
+    
+            span {
+              display: flex;
+              width: 100%;
+              i:not(.log-out-profil) {
+                max-width: 80px;
+                width: 100%;
+                padding: 1rem 0;
+                min-height: 80px;
+                height: 100%;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // background-color: var(--secondary);
+                img {
+                  max-width: 60px;
+                  max-height: 60px;
+                  width: 100%;
+                  object-fit: contain;
+                }
+              }
+    
+              span {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slide-menu {
+    0% {
+      left: 100%;
+      opacity: 0;
+      background-color: red !important;
+    }
+    80%{
+        left:-5%;
+        opacity: 0.5;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+
+    }
+  }
+
+  .navigation-up{
+   animation: slide-menu 1s forwards; 
+  }

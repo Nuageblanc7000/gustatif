@@ -13,8 +13,16 @@ import './bootstrap';
 import 'tom-select/dist/css/tom-select.default.css';
 
 
-
-
+// menu slider-nav
+const menu_slider_nav = document.querySelector('.container-anim-burger')
+const menu_slider_responsive = document.querySelector('.navigation-responsive')
+const menu_slider_close = document.querySelector('.navigation-close')
+menu_slider_nav.addEventListener('click',function(){
+    menu_slider_responsive.classList.toggle('navigation-up')
+})
+menu_slider_close.addEventListener('click',function(){
+    menu_slider_responsive.classList.toggle('navigation-up')
+})
 
 if(document.querySelector('.header-btn-profil') !== null && document.querySelector('.menu-down-profil') !== null ){
 
@@ -39,3 +47,5 @@ if(document.querySelector('.header-btn-profil') !== null && document.querySelect
     }
     profilButton.addEventListener('click',activeMenuProfil)
 }
+
+

@@ -25,7 +25,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class AccountController extends AbstractController
 {
     #[IsGranted('ROLE_USER')]
-    #[Route('/profil', name: 'app_profil')]
+    #[Route('/profil/{div?}', name: 'app_profil')]
     /**
      * Permet d'afficher le profil !RESTAURATEUR!
      * CHART JS POUR LE GRAPHIQUE
@@ -85,7 +85,7 @@ class AccountController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    #[Route('/profil/edit', name: 'profil_edit')]
+    #[Route('/profil/user/edit', name: 'profil_edit',priority:1)]
     public function userEdit(Request $req, EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
@@ -118,7 +118,7 @@ class AccountController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    #[Route('/profil/password', name: 'profil_modify_password')]
+    #[Route('/profil/password', name: 'profil_modify_password',priority:4)]
     function modifyPassword(Request $req, EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
@@ -148,7 +148,7 @@ class AccountController extends AbstractController
      * @param AvatarDeleteService $avatarDeleteService
      * @return Response
      */
-    #[Route('/profil/avatar', name: 'profil_modify_avatar')]
+    #[Route('/profil/avatar', name: 'profil_modify_avatar',priority:4)]
     public function ModifyAvatar(Request $req, EntityManagerInterface $em, FileUploader $fileUploader, AvatarDeleteService $avatarDeleteService): Response
     {
         $user = $this->getUser();
@@ -187,7 +187,7 @@ class AccountController extends AbstractController
      *
      * @return Response
      */
-    #[Route('/profil/user/deleting',name:'profil_deleting')]
+    #[Route('/profil/user/deleting',name:'profil_deleting',priority:4)]
     
     public function beforeDeleting(): Response
     {

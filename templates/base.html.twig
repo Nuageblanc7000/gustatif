@@ -25,12 +25,14 @@
 
     </head>
     <body>
-        {% include "/_partials/_header.html.twig" %}
+        {% include "/_partials/header/_header.html.twig" %}
+         {% include "/_partials/header/_navi-responsive.html.twig" %}
         <main id="main">
+
             {% block body %}{% endblock %}
         </main>
         {% include "/_partials/_footer.html.twig" %}
-        {% include "/_partials/_header-bottom.html.twig" %}
+        {% include "/_partials/header/_header-bottom.html.twig" %}
 
        
     </body>

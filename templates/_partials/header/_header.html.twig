@@ -58,12 +58,12 @@
 					</span>
 				</div>
 				<div class="action-btn-search">
-					<a href="{{path('user_register')}}"  class="action-btn-search-a action-register-search">
+					<a href="{{path('user_register')}}" class="action-btn-search-a action-register-search">
 						<img src="/build/images/header/register.svg" alt="cahier d'inscription login">
 					</a>
 					<span>
 						{% trans %}
-							Inscription
+						Inscription
 						{% endtrans %}
 					</span>
 				</div>
@@ -83,8 +83,13 @@
 			{% endif %}
 
 		</div>
-
-		<i class="fa-solid fa-bars header-btn-responsive"></i>
+		<div class="container-anim-burger">
+		<svg viewBox="0 0 100 80" width="40" height="40">
+		<rect width="100" height="10"></rect>
+		<rect y="30" width="100" height="10"></rect>
+		<rect y="60" width="100" height="10"></rect>
+		</svg>
+		</div>
 
 		{# partie profil  #}
 		<div class="menu-down-profil">
@@ -113,12 +118,12 @@
 			</div>
 			<ul>
 				<li>
-					<a href="{{path('app_profil')}}#favoris-profil">
+					<a href="{{path('app_profil')}}/favoris-profil">
 						<span>
-							<i><img src="{{asset('/build/images/profil/profil-favorite.svg')}}" alt=""></i>
+							<i><img src="{{asset('/build/images/fast-black.svg')}}" alt=""></i>
 							<span>
 								{% trans %}
-									Voir mes favoris
+								Voir mes favoris
 								{% endtrans %}
 							</span>
 						</span>
@@ -153,7 +158,6 @@
 		</div>
 	</div>
 </header>
-
 
 
 {# <header class="header-main">

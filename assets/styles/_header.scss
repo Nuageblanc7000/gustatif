@@ -4,7 +4,7 @@ header {
   position: sticky;
   top: 0;
   min-height: 50px;
-  z-index: 9999;
+  z-index: 9990;
 
   box-shadow: var(--box-shadow-nav);
 }
@@ -329,8 +329,11 @@ header {
   }
 }
 .active-menu-header-profil {
-  animation: down-menu 1s forwards;
-  display: block !important;
+  @media (min-width:992px) {
+    
+    animation: down-menu 1s forwards;
+    display: block !important;
+  }
 }
 
 @keyframes down-menu {
@@ -366,9 +369,9 @@ header {
   z-index: 9900;
   bottom: 0;
   min-height: 40px;
+  padding: 0.5rem 1rem;
   background-color: var(--secondary);
   .container {
-    padding-top: 0.5rem;
     .bottom-nav-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -420,105 +423,19 @@ header {
   
 }
 
-// .header-main{
-//     position: fixed;
-//     min-height: 80px;
-//     top:0;
-//     left:0;
-//     right: 0;
-//     width: 100%;
-//     background-color: var(--primary);
-//     z-index: 100;
-//    box-shadow: var(--box-shadow-nav);
-//     nav{
-//         position: relative;
-//     }
-//     .header{
-//         position: relative;
-//         z-index: 10;
-//         padding:0.8rem;
-//         max-width: 80px;
-//         min-height: 80px;
-//         width: 100%;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         a{
-//           display: block;
-//           width: 100%;
-//         }
-//         img{
-//           max-width: 100%;
-//           object-fit: cover;
-//           max-height: 100%;
-//         }
-//       }
 
-//       .nav-main{
-//         position: relative;
-//         display: flex;
-//         ul{
-//             display: flex;
-//             li:not(.nav-log){
-//                 margin:0 0.5rem;
-//                 a{
-//                     display: flex;
-//                 }
-//             }
-//         }
-//         .nav-log{
-//             position: relative;
-//             display: flex;
-//             li,p{
-//                 display: flex;
-//                 justify-content: center;
-//                 align-items: center;
-//                 margin:0 !important;
-//                 p{
-//                     color:white;
-//                 }
-//                 a{
-//                     color:white;
-//                     padding: 0 0.3rem;
-//                 }
-//             }
-
-//         }
-//       }
-// }
-
-// .nav-profile{
-//     position: relative;
-//     padding: 0 1rem;
-//     button{
-//         display: flex;
-//         cursor: pointer;
-//         justify-content: center;
-//         align-items: center;
-//         background-color:var(--primary);
-//         max-width: 100px;
-//             width: 100%;
-//             border:none;
-//             padding:0;
-//             overflow: hidden;
-//         figure{
-//             max-width: 40px;
-//             width: 100%;
-//             padding:0;
-//             border-radius: 50%;
-//             overflow: hidden;
-//             img{
-//                 max-width: 100%;
-//                 max-height: 100%;
-//                 object-fit: contain;
-//             }
-//         }
-
-//         i{
-//             // margin-top: auto;
-//             font-size: 1.6rem;
-//         }
-//     }
-//     }
-
-//
+//close anim menu
+.container-anim-burger{
+  justify-content: center;
+  display: block;
+  height: 100%;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+ svg {
+  fill:white;
+ }
+ @media (max-width:991px) {
+  display: flex;
+ }
+}

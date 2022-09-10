@@ -20,7 +20,8 @@ class FilterType extends AbstractType
                 [
                     'attr' =>
                     [
-                        'placeholder' => 'entrer une ville'
+                        'placeholder' => 'entrer une ville',
+                        'autocomplete' => 'off',
                     ],
                     'required' => false,
                 ]

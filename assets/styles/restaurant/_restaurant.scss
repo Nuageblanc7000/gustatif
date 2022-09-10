@@ -2,11 +2,11 @@
 .nav-responsive-resto{
     @media (max-width:992px) {
         display: block;
-        position: fixed;
-        top:70px;
+        position: sticky;
+        top:80px;
         width: 100%;
         z-index: 9000;
-    
+        margin:1rem 0;
     }
     .container{
         display: flex;
@@ -65,7 +65,7 @@
 
 .container-page-resto{
     @media (max-width:992px) {
-        margin-top: 130px !important;
+        // margin-top: 130px !important;
     }
 }
 
@@ -79,7 +79,11 @@
     flex-wrap: wrap;
     z-index: 1;
     @media (max-width:992px) {
-        display: none;
+        flex-direction: column;
+        margin: 1rem 0;
+        h1{
+            font-size: 2.4rem !important;
+        }
     }
     h1{
         font-size: 5rem;
@@ -519,26 +523,36 @@
             padding:0.8rem;
             .date-comment{
                 display: flex;
+                justify-content: space-between;
                 padding:0.5rem 0;
                 justify-content: space-between;
                 align-items: center;
                 @media (max-width:592px) {
                     flex-direction: column;
+                    align-items: initial;
                 }
                 .comment-stars,.date-comment{
                     pointer-events: none;
                     user-select: none;
                     i{
+                        font-size: 1.2rem;
                     }
                 }
                 figcaption{
                     font-weight: bold;
                     text-transform: capitalize;
+                    p{
+                        text-align: initial;
+                    }
                 }
-
+                    .data-of-com{
+                        font-size: 1.2rem;
+                        font-weight: 300;
+                    }
             }
             .comment-avatar-resto{
                 display: flex;
+                // justify-content: flex-end;
                 margin:1rem 0;
                 align-items: center;
                 color:var(--secondary);
@@ -551,6 +565,9 @@
                     padding:0 1rem;
                 }
             }
+        }
+        p{
+            // text-align: center
         }
     }
     .js-comment-views{
@@ -565,8 +582,6 @@
     i{
         cursor: pointer;
     }
-    
-
     display: flex;
     flex-direction: row !important;
 }

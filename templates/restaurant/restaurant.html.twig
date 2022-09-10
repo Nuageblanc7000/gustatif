@@ -10,77 +10,8 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="">
 {% endblock %}
 {% block body %}
-	<div class="nav-responsive-resto">
-		<div class="container">
-			<div class="container-header-resto">
-				<h1>
-					{{resto.name}}
+			
 
-				</h1>
-				<div class="container-header-star">
-					{% for i in 1..5 %}
-						{% if resto.getNote() < i %}
-							<i class="fa-regular fa-star"></i>
-						{% else %}
-							<i class="fa-solid fa-star"></i>
-						{% endif %}
-					{% endfor %}
-				</div>
-			</div>
-
-			<div class="nav-cube-responsive">
-				<div class="cube-lateral  resto-cube-r js-cube-move-r">
-
-					<i class="fa-solid fa-circle-info"></i>
-					<span class="sticker">
-						{% trans %}
-						Information
-						{% endtrans %}
-					</span>
-				</div>
-
-				<div class="cube-lateral  resto-cube-r js-cube-move-r">
-					<i class="fa-solid fa-utensils"></i>
-					<span class="sticker">
-						{% trans %}
-						Plats
-						{% endtrans %}
-					</span>
-				</div>
-
-				<div class="cube-lateral  resto-cube-r js-cube-move-r">
-					<i class="fa-solid fa-map-location"></i>
-					<span class="sticker">
-						{% trans %}
-						Localiser
-						{% endtrans %}
-					</span>
-				</div>
-				<div class="cube-lateral resto-cube-r js-cube-move-r">
-					<i class="fa-solid fa-clock"></i>
-					<span class="sticker">
-						{% trans %}
-						Horaire
-						{% endtrans %}
-					</span>
-				</div>
-				{% if  app.user != resto.user %}
-				<a href="{{path('like_resto',{'id':resto.id})}}" class="cube-lateral  resto-cube-r js-like-resto">
-					{% if app.user and resto.isLikeByUser(app.user) %}
-						<i class="fa-solid fa-heart"></i>
-					{% else %}
-						<i class="fa-regular fa-heart"></i>
-					{% endif %}
-					<span class="sticker">
-						{% trans %}
-						Ajouter aux favoris
-						{% endtrans %}
-					</span>
-				</a>
-			{% endif %}
-			</div>
-		</div>
-	</div>
 	<section class="container container-page-resto d-flex pt-3">
 		<aside class="container-navi-resto col-2">
 			<div class="cube-lateral mx-2 resto-cube js-cube-move">
@@ -140,7 +71,7 @@
 				</h1>
 				<div class="container-header-star">
 					{% for i in 1..5 %}
-						{% if resto.ratio < i %}
+						{% if resto.getNote(app.user) < i %}
 							<i class="fa-regular fa-star"></i>
 						{% else %}
 							<i class="fa-solid fa-star"></i>
@@ -148,6 +79,62 @@
 					{% endfor %}
 				</div>
 			</div>
+				<div class="nav-responsive-resto">
+		<div class="container">
+
+			<div class="nav-cube-responsive">
+				<div class="cube-lateral  resto-cube-r js-cube-move-r">
+
+					<i class="fa-solid fa-circle-info"></i>
+					<span class="sticker">
+						{% trans %}
+						Information
+						{% endtrans %}
+					</span>
+				</div>
+
+				<div class="cube-lateral  resto-cube-r js-cube-move-r">
+					<i class="fa-solid fa-utensils"></i>
+					<span class="sticker">
+						{% trans %}
+						Plats
+						{% endtrans %}
+					</span>
+				</div>
+
+				<div class="cube-lateral  resto-cube-r js-cube-move-r">
+					<i class="fa-solid fa-map-location"></i>
+					<span class="sticker">
+						{% trans %}
+						Localiser
+						{% endtrans %}
+					</span>
+				</div>
+				<div class="cube-lateral resto-cube-r js-cube-move-r">
+					<i class="fa-solid fa-clock"></i>
+					<span class="sticker">
+						{% trans %}
+						Horaire
+						{% endtrans %}
+					</span>
+				</div>
+				{% if  app.user != resto.user %}
+				<a href="{{path('like_resto',{'id':resto.id})}}" class="cube-lateral  resto-cube-r js-like-resto">
+					{% if app.user and resto.isLikeByUser(app.user) %}
+						<i class="fa-solid fa-heart"></i>
+					{% else %}
+						<i class="fa-regular fa-heart"></i>
+					{% endif %}
+					<span class="sticker">
+						{% trans %}
+						Ajouter aux favoris
+						{% endtrans %}
+					</span>
+				</a>
+			{% endif %}
+			</div>
+		</div>
+	</div>
 
 
 			<section class="slider-resto">

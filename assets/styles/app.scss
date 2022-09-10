@@ -4,6 +4,7 @@
 @import '_containers.scss';
 @import '_anim.scss';
 @import '_header.scss';
+@import '_navi-responsive.scss';
 @import '_var.scss';
 @import '_font.scss';
 @import '_banner.scss';
@@ -24,6 +25,7 @@
 @import 'profil/home-profil';
 @import 'profil/form_avatar';
 @import 'profil/before-delete';
+
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";

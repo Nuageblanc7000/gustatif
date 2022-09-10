@@ -9,7 +9,7 @@
 		{% if resto.comments|length > 0 %}
 			{% for comment in repo %}
 				<div class="comment-box js-box-comment">
-					<div class="date-comment">
+					<blockquote class="date-comment">
 						<figure class="comment-avatar-resto">
 							{% if comment.author.avatar is empty %}
 								<img src="{{asset('/build/images/avatar/avatar-default.svg')}}" alt="photo profil de {{comment.author.pseudo}}">
@@ -17,7 +17,12 @@
 								<img src="{{asset('/images/avatar/' ~ comment.author.avatar )|imagine_filter('avatar_mini') }}" alt="photo profil de {{comment.author.pseudo}}">
 							{% endif %}
 							<figcaption>
+							<p>
 								{{comment.author.pseudo}}
+							</p>
+								<p class="data-of-com">
+							{{comment.dateCom|date("d/m/Y")}}
+						</p>
 							</figcaption>
 						</figure>
 						<div class="container-header-star comment-stars">
@@ -29,10 +34,7 @@
 								{% endif %}
 							{% endfor %}
 						</div>
-						<p class="date-comment">
-							{{comment.dateCom|date("d/m/Y")}}
-						</p>
-					</div>
+					</blockquote>
 
 					<p>
 						{{comment.description}}
