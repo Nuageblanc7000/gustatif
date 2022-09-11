@@ -1,3 +1,8 @@
+.ts-wrapper.multi .ts-control > div,.ts-wrapper.multi .ts-control [data-value]{
+    background-color: var(--primary);
+}
+
+
 input[type=select]{
     -webkit-user-select: auto!important;
        -moz-user-select: auto!important;

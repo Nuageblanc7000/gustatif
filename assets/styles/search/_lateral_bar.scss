@@ -267,6 +267,7 @@
 
 .form-input-container{
     min-height: inherit;
+    position: relative;
     width: 100%;
     margin:0;
     padding-right: 0;
@@ -301,13 +302,13 @@
     select{
         width:100%;
         font-weight: 700;
-min-height: inherit;
--webkit-user-select: auto !important;
--moz-user-select: auto !important;
--ms-user-select: auto !important;
-user-select: auto !important;
-width: 100%;
-position: absolute;
+        min-height: inherit;
+        -webkit-user-select: auto !important;
+        -moz-user-select: auto !important;
+        -ms-user-select: auto !important;
+        user-select: auto !important;
+        width: 100%;
+        position: absolute;
 top: 0;
 left: 0;
 bottom: 0;
