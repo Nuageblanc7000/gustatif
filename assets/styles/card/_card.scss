@@ -5,6 +5,8 @@
     border-radius: 5px 5px 0 0;
     text-decoration: none;
     background-position: center center;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     
     color: var(--secondary);
@@ -68,6 +70,8 @@
         min-height: 20px;
         color: var(--white);
         z-index: 2;
+        max-width: -webkit-fit-content;
+        max-width: -moz-fit-content;
         max-width: fit-content;
         padding:1rem 1rem;
         display: flex;
@@ -79,7 +83,8 @@
             padding:0.5rem 0;
             max-width:40px;
             max-height: 40px;
-            object-fit: contain;
+            -o-object-fit: contain;
+               object-fit: contain;
         }
     }
 }
@@ -91,6 +96,7 @@
     img{
         max-width: 50px;
         max-height: 50px;
-        object-fit: contain;
+        -o-object-fit: contain;
+           object-fit: contain;
     }
 }

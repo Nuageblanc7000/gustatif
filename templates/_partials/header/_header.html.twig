@@ -8,7 +8,7 @@
 				<picture>
 					<i class="fa-solid fa-location-dot"></i>
 				</picture>
-				<input type="search" name="s" placeholder={% trans %} "Entrer une ville, nom du restaurant" {% endtrans %}>
+				<input type="text" name="s" placeholder={% trans %} "Entrer une ville, nom du restaurant" {% endtrans %}>
 				<button class='header-form-search-submit' type="submit">
 					<img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe avec un restaurant">
 				</button>
@@ -60,7 +60,7 @@
 					</a>
 					<span>
 						{% trans %}
-						Connection
+						Connexion
 						{% endtrans %}
 					</span>
 				</div>
@@ -165,59 +165,3 @@
 		</div>
 	</div>
 </header>
-
-
-{# <header class="header-main">
-			<nav class="container d-flex justify-content-between align-items-center">
-				<div class="header">
-					<a href="{{path('home')}}">
-						<figure class="logo-header">
-							<img src="{{asset('/build/images/logo-header.svg')}}" alt="logo">
-						</figure>
-					</a>
-				</div>
-				<div class="row nav-main">
-					<ul>
-						<div class="nav-log">
-							<li>
-								<a href="" class="anim-bar-a">Inscription</a>
-							</li>
-							<p>|</p>
-							<li>
-								<a href="" class="anim-bar-a">Connexion</a>
-							</li>
-						</div>
-						<li>
-							<div class="nav-profile">
-								<button>
-									<figure>
-										<img src=" {{asset('/build/images/avatar.jpg')}} " alt="">
-									</figure>
-	
-									<i class='bx bx-chevron-down'></i>
-								</button>
-								<div class="menu-down-profil">
-								<div class="p-4">
-									<div class="menu-down-info-profil">
-										<figure>
-											<img src=" {{asset('/build/images/avatar.jpg')}} " alt="">
-											<figcaption>
-												Rémy Wetterene victor hugottttttttttttt
-											</figcaption>
-										</figure>
-										<a href="">Voir mon profil</a>
-									</div>
-									<ul>
-										<li><a href=""><span><i><img src="{{asset('/build/images/fast-black.svg')}}" alt=""></i><span>Fast-Food favoris</span></span></a></li>
-										<li><a href=""><span><i><img src="{{asset('/build/images/resto-black.svg')}}" alt=""></i><span>Restaurant favoris</span></span></a></li>
-										<li class="log-out-profil"><a href=""><span><i class='bx bx-log-out-circle'></i><span>Déconnexion</span></span></a></li>
-									</ul>
-								</div>
-								</div>
-							</div>
-						</li>
-					</div>
-				</ul>
-	
-			</nav>
-		</header> #}

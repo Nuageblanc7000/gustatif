@@ -1,3 +1,14 @@
+input[type=select]{
+    -webkit-user-select: auto!important;
+       -moz-user-select: auto!important;
+        -ms-user-select: auto!important;
+            user-select: auto!important;
+}
+input{
+    font-size: 16px;
+}
+
+
 .bg-common{
     background-image: url('/assets/images/home/ligne.svg');
     background-repeat: no-repeat;
@@ -36,7 +47,7 @@
      @media (min-width: 992px) {
          padding:2rem 3rem;
      } 
-     padding:0.5rem;
+     padding:1.4rem;
     box-shadow: var(--box-shadow);
     label,.required{
         color:var(--white);
@@ -114,7 +125,7 @@
         border-radius: 5px;
         width: 100%;
         padding:0.7rem 0.5rem;
-        background-color: var(--grey) !important;
+        // background-color: var(--grey) !important;
         &:focus{
             outline-color: transparent;
         }

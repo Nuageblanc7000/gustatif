@@ -5,7 +5,8 @@
     border-radius: 10px 10px 0 0;
     box-shadow: var(--box-shadow);
     .slider-img{
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
         height: 100%;
         width: 100%;
         position: absolute;

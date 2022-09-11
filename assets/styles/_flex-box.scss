@@ -29,6 +29,8 @@
   }
 
   .grid-col-2{
+    height: -webkit-min-content;
+    height: -moz-min-content;
     height: min-content;
     // width: 90%;
     @media (min-width:768px){

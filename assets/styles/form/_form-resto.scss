@@ -164,6 +164,26 @@
         &:focus{
            outline: none;
         }
+        &::-webkit-input-placeholder{
+            font-weight: bold;
+            font-family: var(--font-family3);
+            opacity: 0.5;
+        }
+        &::-moz-placeholder{
+            font-weight: bold;
+            font-family: var(--font-family3);
+            opacity: 0.5;
+        }
+        &:-ms-input-placeholder{
+            font-weight: bold;
+            font-family: var(--font-family3);
+            opacity: 0.5;
+        }
+        &::-ms-input-placeholder{
+            font-weight: bold;
+            font-family: var(--font-family3);
+            opacity: 0.5;
+        }
         &::placeholder{
             font-weight: bold;
             font-family: var(--font-family3);
@@ -291,7 +311,8 @@
     img{
         width: inherit;
         height: inherit;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
     }
     
 }

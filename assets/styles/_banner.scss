@@ -19,7 +19,8 @@ $banner-height:calc(70vh);
     img{
         max-width: 600px;
         width: 100%;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
         max-height: 400px;
         margin-bottom: 10px;
     }

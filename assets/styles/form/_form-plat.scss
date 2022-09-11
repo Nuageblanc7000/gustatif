@@ -57,7 +57,8 @@
     }
     .div{
         transition: 1s all;
-        animation:ani2 forwards 1s ease;
+        -webkit-animation:ani2 forwards 1s ease;
+                animation:ani2 forwards 1s ease;
 
         .input-collection-text{
             width: 100% !important;
@@ -67,6 +68,15 @@
             &:focus{
                 outline: none;
             }
+        }
+    }
+    
+    @-webkit-keyframes animation-add{
+        from{
+            background-color: blue;
+        }
+        to{
+            background-color: var(--body);
         }
     }
     

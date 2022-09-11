@@ -12,6 +12,7 @@
   }
   .nav-profil-home {
     min-height: 65px;
+    position: -webkit-sticky;
     position: sticky;
     top: 85px;
     max-width: 700px;
@@ -230,7 +231,8 @@
 
       img{
         min-height: 100%;
-        object-fit: cover;
+        -o-object-fit: cover;
+           object-fit: cover;
       }
     }
   }
