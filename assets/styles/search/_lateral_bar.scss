@@ -300,7 +300,30 @@
 
     select{
         width:100%;
-        // padding: 2rem 0;
+        font-weight: 700;
+min-height: inherit;
+-webkit-user-select: auto !important;
+-moz-user-select: auto !important;
+-ms-user-select: auto !important;
+user-select: auto !important;
+width: 100%;
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+background: white;
+line-height: 22px;
+-moz-appearance: none;
+-webkit-appearance: none;
+appearance: none;
+padding: 0 12px 0 0;
+border: 0;
+background: 0 0;
+color: #001836;
+margin: 0;
+outline: 0;
+width: 100%;
         -webkit-user-select: auto!important;
         -moz-user-select: auto!important;
          -ms-user-select: auto!important;
