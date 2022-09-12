@@ -1,7 +1,10 @@
-.ts-wrapper.multi .ts-control > div,.ts-wrapper.multi .ts-control [data-value]{
-    background-color: var(--primary);
+.ts-wrapper.multi .ts-control > div{
+    background-color: var(--primary) !important;
 }
 
+.ts-wrapper.multi .ts-control [data-value]{
+    background-color: var(--primary) !important;
+}
 
 input[type=select]{
     -webkit-user-select: auto!important;
@@ -133,6 +136,8 @@ input{
         // background-color: var(--grey) !important;
         &:focus{
             outline-color: transparent;
+            outline: none;
+            
         }
     }
 }

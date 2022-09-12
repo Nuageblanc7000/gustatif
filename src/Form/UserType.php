@@ -27,7 +27,7 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email',EmailType::class,[])
+            ->add('email',EmailType::class,[ 'attr'=> ['autocomplete'=> 'off','list'=>"autocompleteOff", 'autofocus' => false]])
 
             ->add('pseudo',TextType::class,[
                 'attr' =>[
@@ -40,11 +40,14 @@ class UserType extends AbstractType
                         'label' => $this->translator->trans('ville'),
                         'placeholder' => 'Ville',
                         'required'=> false,
-                        'autocomplete' => true
+                        'autocomplete' => true,
+                        'attr' => [
+                            'autocomplete' => 'off'
+                        ]
                     ])
                     
             ->add('isResto',CheckboxType::class,[
-                'label' => $this->translator->trans('Etes vous restaurateur?'),
+                'label' => $this->translator->trans('Êtes vous restaurateur?'),
                 'required' => false,
                 'attr' => [
                     'class'=> 'form-boolean'

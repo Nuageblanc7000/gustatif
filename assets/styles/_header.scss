@@ -29,13 +29,17 @@ header {
   .container-search-header {
     max-width: 400px;
     width: 100%;
+    display: block;
     @media (min-width: 592px) {
       max-width: 400px;
       width: 100%;;
     }
+    @media (max-width:592px) {
+      display: none;
+    }
 
     margin: 0 2rem;
-    .header-form-search {
+    .header-form-search{
       display: flex;
       height: 40px;
       margin: 0 auto;
@@ -167,7 +171,7 @@ header {
       pointer-events: none;
       opacity: 0;
       color: var(--secondary);
-      transition: 1s ease-in-out all;
+      transition: 0.3s ease-in-out all;
       border-radius: 5px;
       font-size: 1rem;
       font-weight: bold;
@@ -187,8 +191,8 @@ header {
         opacity: 1;
         top: 70px;
         &::after {
-          -webkit-animation: sticker-after 1s alternate infinite;
-                  animation: sticker-after 1s alternate infinite;
+          -webkit-animation: sticker-after 0.2s alternate infinite;
+                  animation: sticker-after 0.2s alternate infinite;
         }
       }
     }
@@ -267,7 +271,7 @@ header {
           user-select: none;
   transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) all;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(40px);
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.39);
   background-color: var(--grey);
   z-index: 10;
@@ -319,7 +323,6 @@ header {
                  object-fit: contain;
             }
           }
-
           span {
             width: 100%;
             display: flex;
@@ -386,9 +389,9 @@ header {
 .active-menu-header-profil {
   @media (min-width:992px) {
     
-    -webkit-animation: down-menu 1s forwards;
+    -webkit-animation: down-menu 0.4s forwards;
     
-            animation: down-menu 1s forwards;
+            animation: down-menu 0.4s forwards;
     display: block !important;
   }
 }
@@ -534,4 +537,13 @@ header {
  @media (max-width:991px) {
   display: flex;
  }
+}
+
+.header-container-phone{
+  justify-content: center;
+  .search-phone-header{
+    min-height: 50px;
+    height: 100%;
+    display: block;
+  }
 }

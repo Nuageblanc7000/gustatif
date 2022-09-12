@@ -37,6 +37,9 @@ class UserEditType extends AbstractType
                 'autocomplete' => true,
                 'label'=>false,
                 'required' => false,
+                'attr' => [
+                    'autocomplete' => 'off'
+                ]
                 ])
         ;
     }

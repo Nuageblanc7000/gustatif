@@ -42,8 +42,13 @@
 
 }
 .container-btn-action-form{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    @media (min-width:592px) {
+        grid-template-columns: repeat(2,1fr);
+        display: grid !important;
+    }
+    display: flex ;
+    flex-direction: column-reverse ;
+    
     gap: 5px;
     .button-container-2{
         width: 100%;

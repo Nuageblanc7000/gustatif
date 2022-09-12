@@ -1,11 +1,10 @@
 <div class="navigation-responsive">
 	<div class="container-navigation-responsive">
-<div class="navigation-close">
-<img src="/build/images/header/close-nav.svg" alt="croix dans cube un rouges" width="40px" height="40px">
-</div>
-			<div class="navigation-user-info">
-
-		{% if app.user %}
+		<div class="navigation-close">
+			<img src="/build/images/header/close-nav.svg" alt="croix dans cube un rouges" width="40px" height="40px">
+		</div>
+		<div class="navigation-user-info">
+			{% if app.user %}
 				<a href="{{path('app_profil')}}">
 					<picture>
 						{% if app.user.avatar is empty %}
@@ -20,100 +19,109 @@
 						{% endtrans %}
 						{{app.user.pseudo}}</h2>
 				</a>
-				{% else %}
-						<picture>
-	
-							<img src="{{asset('/build/images/logo-header.svg')}}" alt="logo du site to link">
-					
+			{% else %}
+				<picture>
 
-					</picture>
-				</a>
-			{% endif %}
-			</div>
-			<div class="navigation-responsive-list">
-				<ul>
-				{% if app.user %}
-					<li>
-						<a href="{{path('app_profil')}}">
-							<span>
-								<i><img src="{{asset('/build/images/header/login-responsive.svg')}}" alt="svg profil"></i>
-								<span>
-									{% trans %}
-									Aller sur mon profil
-									{% endtrans %}
-								</span>
-							</span>
-						</a>
-					</li>
-					<li>
-						<a href="{{path('app_profil')}}/favoris-profil">
-							<span>
-								<i><img src="{{asset('/build/images/profil/profil-favorite.svg')}}" alt=""></i>
-								<span>
-									{% trans %}
-									Voir mes favoris
-									{% endtrans %}
-								</span>
-							</span>
-						</a>
-					</li>
-					{% if is_granted('ROLE_RESTAURATEUR') %}
-
-
-						<li>
-							<a href="{{path('restos_list')}}">
-								<span>
-									<i><img src="{{asset('/build/images/resto-black.svg')}}" alt=""></i>
-									<span>
-										{% trans %}
-										Voir mes restaurants
-										{% endtrans %}
-									</span>
-								</span>
-							</a>
-						</li>
-					{% endif %}
-					<li class="log-out-profil">
-						<a href="{{path('app_logout')}}">
-							<span>
-								<i class="fa-solid fa-right-from-bracket"></i>
-								<span>
-									{% trans %}
-									Déconnexion
-									{% endtrans %}
-								</span>
-							</span>
-						</a>
-					</li>
-				
-				{% else %}
-					<li>
-							<a class="bg-primary" href="{{path('user_register')}}">
-								<span>
-									<i><img src="{{asset('/build/images/header/register-responsive.svg')}}" alt="papier à remplir pour inscription"></i>
-									<span>
-										{% trans %}
-										Inscription
-										{% endtrans %}
-									</span>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a href="{{path('login')}}">
-								<span>
-									<i><img src="{{asset('/build/images/header/login-responsive.svg')}}" alt="utilisateur icon pour connexion"></i>
-									<span>
-										{% trans %}
-											Connexion
-										{% endtrans %}
-									</span>
-								</span>
-							</a>
-						</li>
-				{% endif %}
-			
-				</ul>
-			</div>
+					<img src="{{asset('/build/images/logo-header.svg')}}" alt="logo du site to link">
+				</picture>
+			</a>
+		{% endif %}
 	</div>
-</div>
+	<div class="container-search-header search-phone-header">
+				<form action="{{path('restos_list')}}" method="get" class="header-form-search">
+					<picture>
+						<i class="fa-solid fa-location-dot"></i>
+					</picture>
+					<input type="text" name="s" placeholder={% trans %} "Entrer une ville, nom du restaurant" {% endtrans %}>
+					<button class='header-form-search-submit' type="submit">
+						<img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe avec un restaurant">
+					</button>
+				</form>
+
+			</div>
+	<div class="navigation-responsive-list">
+		<ul>
+			{% if app.user %}
+				<li>
+					<a href="{{path('app_profil')}}">
+						<span>
+							<i><img src="{{asset('/build/images/header/login-responsive.svg')}}" alt="svg profil"></i>
+							<span>
+								{% trans %}
+								Aller sur mon profil
+								{% endtrans %}
+							</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="{{path('app_profil')}}/favoris-profil">
+						<span>
+							<i><img src="{{asset('/build/images/profil/profil-favorite.svg')}}" alt=""></i>
+							<span>
+								{% trans %}
+								Voir mes favoris
+								{% endtrans %}
+							</span>
+						</span>
+					</a>
+				</li>
+				{% if is_granted('ROLE_RESTAURATEUR') %}
+
+
+					<li>
+						<a href="{{path('restos_list')}}">
+							<span>
+								<i><img src="{{asset('/build/images/resto-black.svg')}}" alt=""></i>
+								<span>
+									{% trans %}
+									Voir mes restaurants
+									{% endtrans %}
+								</span>
+							</span>
+						</a>
+					</li>
+				{% endif %}
+				<li class="log-out-profil">
+					<a href="{{path('app_logout')}}">
+						<span>
+							<i class="fa-solid fa-right-from-bracket"></i>
+							<span>
+								{% trans %}
+								Déconnexion
+								{% endtrans %}
+							</span>
+						</span>
+					</a>
+				</li>
+
+			{% else %}
+				<li>
+					<a class="bg-primary" href="{{path('user_register')}}">
+						<span>
+							<i><img src="{{asset('/build/images/header/register-responsive.svg')}}" alt="papier à remplir pour inscription"></i>
+							<span>
+								{% trans %}
+								Inscription
+								{% endtrans %}
+							</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="{{path('login')}}">
+						<span>
+							<i><img src="{{asset('/build/images/header/login-responsive.svg')}}" alt="utilisateur icon pour connexion"></i>
+							<span>
+								{% trans %}
+								Connexion
+								{% endtrans %}
+							</span>
+						</span>
+					</a>
+				</li>
+			{% endif %}
+
+		</ul>
+	</div>
+</div></div>

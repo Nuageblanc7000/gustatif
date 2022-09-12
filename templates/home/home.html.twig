@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil
+{% block title %}
+	Accueil
 {% endblock %}
 
 {% block body %}
-
-
 	<section class="banner container-fluid home-banner" style="background-image:url({{asset('/build/images/site/banner1.jpg')}})">
 		<div class="container d-flex justify-content-center logo-banner">
 			<figure>
@@ -18,7 +17,9 @@
 	<section class="content-card container-fluid">
 		<div class="container">
 			<h2 class="fs-style">
+				{% trans %}
 				Découvrez les restaurations de la semaines.
+				{% endtrans %}
 			</h2>
 			<div class="grid-container">
 				
@@ -30,16 +31,22 @@
 				<img src="{{ asset('/build/images/moreResto.svg') }}" alt="">
 				<div class="info">
 					<h2>
+						{% trans %}
 						Envie de découvrir plus de restaurants?
+						{% endtrans %}
 					</h2>
 
 					<h3>
+						{% trans %}
 						Alors n'hésitez pas à visiter la liste de nos restaurants.
+						{% endtrans %}
 					</h3>
 
 					<a class="btn-flip-card" href="{{path('restos_list')}}">
 						<h4>
+							{% trans %}
 							Voir tous les établissements 
+							{% endtrans %}
 						</h4>
 						<svg fill="#333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/><path d="M0-.25h24v24H0z" fill="none"/></svg>
 					</a>
@@ -58,18 +65,30 @@
 				</figure>
 				<div class="slide-pub-resto">
 					<h2>
+						{% trans %}
 						 Vous êtes restaurateur ? 
+						{% endtrans %}
 					</h2>
 					<div class="slide-pub-points">
 						<ul>
-							<li>Partagez vos délicieux plat avec la communauté ToLink et faites vous de nouveau client.</li>
-							<li>Créer votre page restaurant et gérez là pour augmenter votre popularité.</li>
+							<li>
+								{% trans %}
+								Partagez vos délicieux plat avec la communauté ToLink et faites vous de nouveau client.
+								{% endtrans %}
+								</li>
+							<li>
+								{% trans %}
+								Créer votre page restaurant et gérez là pour augmenter votre popularité.
+								{% endtrans %}
+								</li>
 						</ul>
 					</div>
 					<div class="container-pub-btn">
-						<a class="btn-transparent-card" href="{{path('home')}}">
+						<a class="btn-transparent-card" href="{{path('user_register')}}">
 							<h4>
+								{% trans %}
 								S'inscrire dès maintenant
+								{% endtrans %}
 							</h4>
 							<svg fill="#333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/><path d="M0-.25h24v24H0z" fill="none"/></svg>
 						</a>
