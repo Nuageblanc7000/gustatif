@@ -22,13 +22,10 @@
 				{% endtrans %}
 			</h2>
 			<div class="grid-container">
-				
-				{% include "/_partials/_flip-card.html.twig" %}
-
+				{{ render_esi(path('test')) }}
 			</div>
-				
 			<div class="info-full">
-				<img src="{{ asset('/build/images/moreResto.svg') }}" alt="">
+				<img src="{{ asset('/build/images/home/moreResto.svg') }}" alt="">
 				<div class="info">
 					<h2>
 						{% trans %}

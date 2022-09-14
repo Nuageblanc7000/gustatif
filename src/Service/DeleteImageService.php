@@ -2,9 +2,6 @@
 namespace App\Service;
 
 use Exception;
-use App\Entity\Plat;
-use App\Entity\Image;
-use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\EntityManagerInterface;
 
 

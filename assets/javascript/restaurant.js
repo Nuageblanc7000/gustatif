@@ -37,12 +37,41 @@ controls.forEach((elem, c) => {
 
 //map
 const coord = document.querySelector("#map");
+// test rapide 
 
+// REVENIR ICI POUR VOIR SI ON FAIT UN TRUC AVEC LA POS
+// navigator.geolocation.getCurrentPosition(elem => console.log(elem));
+
+// function distance(lat1, lon1, lat2, lon2, unit) {
+// 	if ((lat1 == lat2) && (lon1 == lon2)) {
+// 		return 0;
+// 	}
+// 	else {
+// 		var radlat1 = Math.PI * lat1/180;
+// 		var radlat2 = Math.PI * lat2/180;
+// 		var theta = lon1-lon2;
+// 		var radtheta = Math.PI * theta/180;
+// 		var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+// 		if (dist > 1) {
+// 			dist = 1;
+// 		}
+// 		dist = Math.acos(dist);
+// 		dist = dist * 180/Math.PI;
+// 		dist = dist * 60 * 1.1515;
+// 		if (unit=="K") { dist = dist * 1.609344 }
+// 		if (unit=="N") { dist = dist * 0.8684 }
+// 		if (unit=="M") { dist = dist * 1000 }
+// 		return dist;
+// 	}
+// }
+// console.log((50.5043242).toFixed(4),(4.36229729389).toFixed(4));
+// console.log(distance((50.5043242).toFixed(4),(4.36229729389).toFixed(4),50.5118,4.3617,'M'));
 if (coord !== null) {
   const longi = parseFloat(coord.dataset.l).toFixed(3);
   const lati = parseFloat(coord.dataset.la).toFixed(3);
 
   let map = L.map("map").setView([parseFloat(longi), parseFloat(lati)], 20);
+
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 12,

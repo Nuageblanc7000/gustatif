@@ -2,35 +2,34 @@
 
 namespace App\Controller;
 
+use App\Entity\Like;
 use App\Entity\Plat;
 use App\Entity\Image;
 use App\Form\PlatType;
 use App\Entity\Comment;
 use App\Form\RestoType;
 use App\Data\DataFilter;
-use App\Entity\Like;
 use App\Entity\Schedule;
 use App\Form\FilterType;
 use App\Form\CommentType;
 use App\Entity\Restaurant;
 use App\Form\ScheduleType;
-use App\Repository\CategoryRepository;
-use App\Repository\CommentRepository;
+use App\Service\FileUpload;
 use App\Repository\LikeRepository;
-use App\Service\FileUploader;
 use App\Service\DeleteImageService;
+use App\Repository\CommentRepository;
 use Symfony\Component\Form\FormError;
 use App\Repository\RestaurantRepository;
-use Doctrine\ORM\EntityManagerInterface;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class RestoController extends AbstractController
 {
@@ -61,12 +60,13 @@ class RestoController extends AbstractController
      *
      * @param Request $req
      * @param EntityManagerInterface $em
-     * @param FileUploader $upload
+     * @param FileUpload $upload
+     * @param TranslatorInterface $translator
      * @return Response
      */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/create', name: 'resto_create')]
-     function resto_create(Request $req, EntityManagerInterface $em, FileUploader $upload, TranslatorInterface $translator): Response
+     function resto_create(Request $req, EntityManagerInterface $em, FileUpload $upload, TranslatorInterface $translator): Response
      { 
         $user = $this->getUser();
         // $this->denyAccessUnlessGranted('RESTO_VIEW', $user);
@@ -110,13 +110,13 @@ class RestoController extends AbstractController
      * @param Request $req
      * @param Restaurant $resto
      * @param EntityManagerInterface $em
-     * @param FileUploader $uploader
+     * @param FileUpload $uploader
      * @param RestaurantRepository $repo
      * @return Response
      */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/plat/{id}', name: 'create_plat')]
-    public function create_plat(Request $req,Restaurant $resto, EntityManagerInterface $em, FileUploader $uploader, RestaurantRepository $repo): Response
+    public function create_plat(Request $req,Restaurant $resto, EntityManagerInterface $em, FileUpload $uploader, RestaurantRepository $repo): Response
     {
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO',$resto); 
         $user = $this->getUser();
@@ -163,12 +163,12 @@ class RestoController extends AbstractController
      * @param Restaurant $resto
      * @param Request $req
      * @param EntityManagerInterface $em
-     * @param FileUploader $upload
+     * @param FileUpload $upload
      * @return Response
      */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/modify/{id}', name: 'resto_modify')]
-    public  function modify_resto(Restaurant $resto, Request $req, EntityManagerInterface $em, FileUploader $upload): Response
+    public  function modify_resto(Restaurant $resto, Request $req, EntityManagerInterface $em, FileUpload $upload): Response
     {
         $user = $this->getUser();
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO',$resto); 
@@ -297,11 +297,12 @@ class RestoController extends AbstractController
      *
      * @param Request $req
      * @param DayRepository $repo
-     * @return void
+     * @return Response
      */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/horaire/{id}','schedule_gestion')]
-    public function hourly(Request $req , Schedule $schedule , EntityManagerInterface $em, RestaurantRepository $repo ){
+    public function hourly(Request $req , Schedule $schedule , EntityManagerInterface $em, RestaurantRepository $repo ) : Response
+    {
         $resto = $repo->findOneBy(['schedule' => $schedule]);
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO',$resto);
         $form = $this->createForm(ScheduleType::class,$schedule);
@@ -314,6 +315,22 @@ class RestoController extends AbstractController
         return $this->render('/restaurant/schedule_gestion.html.twig',['form'=> $form->createView()]);
     }
 
+
+
+    /**
+     * permet la suppression d'un restaurant
+     *
+     * @param Request $req
+     * @param EntityManagerInterface $em
+     * @return Response
+     */
+    #[IsGranted('ROLE_RESTAURATEUR')]    
+    #[Route('/restaurant/delete/{id}')]
+    public function deleteResto(Request $req, EntityManagerInterface $em ): Response
+    {
+        //doit seulement être fait!
+        return $this->render('$0.html.twig', []);
+    }
     /**
      * Affichage d'un restaurant en particulier + donnée pour la carte
      *

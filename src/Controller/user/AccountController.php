@@ -4,7 +4,7 @@ namespace App\Controller\user;
 
 use App\Entity\FalseImg;
 use App\Form\UserEditType;
-use App\Service\FileUploader;
+use App\Service\FileUpload;
 use App\Form\UserModifyAvatarType;
 use App\Repository\UserRepository;
 use App\Service\DeleteImageService;
@@ -13,14 +13,14 @@ use App\Form\UserPasswordChangeType;
 use App\Service\AvatarDeleteService;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\TokenResolveRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
 use Symfony\Contracts\Translation\TranslatorInterface;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AccountController extends AbstractController
 {
@@ -32,43 +32,43 @@ class AccountController extends AbstractController
      * @param ChartBuilderInterface $chartBuilder
      * @return Response
      */
-    public function ProfilResto(ChartBuilderInterface $chartBuilder): Response
+    public function ProfilResto(ChartBuilderInterface $chartBuilder, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
         if(in_array('ROLE_RESTAURATEUR',$user->getRoles())){
             $restos = $user->getRestaurant();
             $tabCharts =[];
             $dates = new \DateTimeImmutable();
-            $date = date("m");
+            $data = [];
             foreach ($restos as  $resto) {
-                $comments = count($resto->getComments());
-                $data = [0,0,0,0,0,0,0,0,$comments];
+                $data=[$comments = count($resto->getComments()),count($resto->getLikes())];
+                
             
-              $chart = $chartBuilder->createChart(Chart::TYPE_LINE);
+              $chart = $chartBuilder->createChart(Chart::TYPE_BAR);
               //ici pour connaitre le nombre de commentaire du restaurant
               $chart->setData([
-                  'labels' => ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet','Aout','Septembre','Octobre','Novembre'],
-                  'datasets' => [
-                      [
-                        
-                          'backgroundColor' => ['red','blue','green','pink','yellow','orange','grey','black','cyan','#feaa3a'],
-                          'borderColor' => '#feaa3a',
-                          'data' => $data,
-                      ],
-                  ],
-              ]);
-              $chart->setOptions([
-                  'scales' => [
-                      'y' => [
-                          'suggestedMin' => 0,
-                          'suggestedMax' => 40,
-                      ],
-                  ],
-              ]);
-
-              $tabCharts[] = $chart;
-            }
-    
+                'labels' => ['Nombres de commentaires', 'nombres de personnes qui suivent le restaurant'],
+                'datasets' => [
+                    [
+                        'label' => $resto->getName(),
+                        'backgroundColor' => ["#FFB714", "#1c2826" ],
+                        'borderColor' => '',
+                        'data' => $data,
+                    ],
+                ],
+            ]);
+            $chart->setOptions([
+                'y' => [
+                    'suggestedMin' => 0,
+                    'suggestedMax' => '',
+                ],
+            ]);
+         
+            $tabCharts[] = $chart;
+            
+        
+    }
+           
             return $this->render('profil/index.html.twig', [
                 'charts' => $tabCharts,
             ]);
@@ -144,12 +144,12 @@ class AccountController extends AbstractController
      *
      * @param Request $req
      * @param EntityManagerInterface $em
-     * @param FileUploader $fileUploader
+     * @param FileUpload $fileUploader
      * @param AvatarDeleteService $avatarDeleteService
      * @return Response
      */
     #[Route('/profil/avatar', name: 'profil_modify_avatar',priority:4)]
-    public function ModifyAvatar(Request $req, EntityManagerInterface $em, FileUploader $fileUploader, AvatarDeleteService $avatarDeleteService): Response
+    public function ModifyAvatar(Request $req, EntityManagerInterface $em, FileUpload $fileUploader, AvatarDeleteService $avatarDeleteService): Response
     {
         $user = $this->getUser();
         $falseImage = new FalseImg();
