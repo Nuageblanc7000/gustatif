@@ -1,16 +1,21 @@
+{% if restos|length > 0 %}
+	<h2 class="fs-style">
+				{% trans %}
+				Découvrez les restaurations de la semaines.
+				{% endtrans %}
+			</h2>
+<div class="grid-container">
 {% set path = '/images/restaurant/' %}
  {% for resto in restos %}
 	<div class="container-flip-card">
 		<div class="card-flip">
 			<div class="card-restaurant card-flip-front side card-random">
 				{% for cat in resto.category %}
-
 					{% if cat.name == 'restaurant' %}
 						<img src="{{ asset('/build/images/resto.svg') }}" alt="">
 					{% else %}
 						<img src="{{ asset('/build/images/fast.svg') }}" alt="">
 					{% endif %}
-
 				{% endfor %}
 				<img class="touch-flip-card" src="{{ asset('/build/images/home/touch.svg') }}" alt="doigt qui click">
 
@@ -56,3 +61,14 @@
 		</div>
 	</div>
 {% endfor %}
+</div>
+{% else %}
+<div class="first-resto-home-page">
+	<h2 class="fs-style"> 
+		{% trans %}
+			Soyez le premier restaurant sur notre page d'accueil!
+		{% endtrans %}
+	</h2>
+	<a href="{{path('user_register')}}" class="btn">{% trans %}Inscrivez vous ici{% endtrans %} </a>
+</div>
+{% endif %}

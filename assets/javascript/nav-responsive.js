@@ -13,8 +13,6 @@ const activeMenuProfil = () =>
     {
         chevron.classList.toggle('fa-chevron-down')
 
-    }
-
-    
+    }    
 }
 profilButton.addEventListener('click',activeMenuProfil)

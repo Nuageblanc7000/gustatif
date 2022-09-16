@@ -28,6 +28,18 @@
         {% include "/_partials/header/_header.html.twig" %}
          {% include "/_partials/header/_navi-responsive.html.twig" %}
         <main id="main">
+        <div class="flash-message-container-base">
+                {% block adFlash %}
+				{% for key,flashes in app.flashes %}
+					{% for message in flashes %}
+                    <flash-message attr={{key}} time='5000'>
+				        <img src="{{asset('/build/images/resto.svg')}}" alt="chef cuisto">
+			            <h2>{{message}}</h2>
+		            </flash-message>	
+					{% endfor %}
+				{% endfor %}
+			{% endblock %}
+        </div>
 
             {% block body %}{% endblock %}
         </main>

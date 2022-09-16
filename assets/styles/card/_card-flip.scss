@@ -169,8 +169,12 @@
         font-size:4rem;
     }
     p{
+        text-align: center;
         padding:0.5rem 0;
-        font-size: 2rem;
+        @media (min-width:592px) {
+            font-size: 2rem;      
+        }
+        font-size: 1.6rem;
     }
 }
 

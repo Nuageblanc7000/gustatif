@@ -5,22 +5,27 @@ namespace App\Controller\user;
 use App\Entity\FalseImg;
 use App\Form\UserEditType;
 use App\Service\FileUpload;
+use App\Service\ImageDelService;
 use App\Form\UserModifyAvatarType;
 use App\Repository\UserRepository;
 use App\Service\DeleteImageService;
 use Symfony\UX\Chartjs\Model\Chart;
 use App\Form\UserPasswordChangeType;
-use App\Service\AvatarDeleteService;
+use App\Repository\CityRepository;
+use App\Service\DeleteImagesService;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\TokenResolveRepository;
+use App\Service\DeleteImagesEntityService;
+use App\Service\DeleteRestoService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class AccountController extends AbstractController
 {
@@ -32,7 +37,7 @@ class AccountController extends AbstractController
      * @param ChartBuilderInterface $chartBuilder
      * @return Response
      */
-    public function ProfilResto(ChartBuilderInterface $chartBuilder, TranslatorInterface $translator): Response
+    public function ProfilResto(ChartBuilderInterface $chartBuilder, TranslatorInterface $translator, SerializerInterface $serializerInterface): Response
     {
         $user = $this->getUser();
         if(in_array('ROLE_RESTAURATEUR',$user->getRoles())){
@@ -86,7 +91,7 @@ class AccountController extends AbstractController
      * @return Response
      */
     #[Route('/profil/user/edit', name: 'profil_edit',priority:1)]
-    public function userEdit(Request $req, EntityManagerInterface $em): Response
+    public function userEdit(Request $req, EntityManagerInterface $em, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
         $this->denyAccessUnlessGranted("USER_EDIT", $user);
@@ -101,7 +106,8 @@ class AccountController extends AbstractController
             //action dans la bd de mise  à jour
             $em->persist($user);
             $em->flush();
-
+            $message = $translator->trans('Mise à jour du profil réussie');
+            $this->addFlash('success',$message);
             return $this->redirectToRoute('app_profil', [], Response::HTTP_FOUND);
         }
 
@@ -119,7 +125,7 @@ class AccountController extends AbstractController
      * @return Response
      */
     #[Route('/profil/password', name: 'profil_modify_password',priority:4)]
-    function modifyPassword(Request $req, EntityManagerInterface $em): Response
+    function modifyPassword(Request $req, EntityManagerInterface $em, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
         $form = $this->createForm(UserPasswordChangeType::class, $user);
@@ -128,6 +134,8 @@ class AccountController extends AbstractController
             //action dans la bd de mise  à jour
             $em->persist($user);
             $em->flush();
+            $message = $translator->trans('Mot de passe mis à jour');
+            $this->addFlash('success',$message);
             return $this->redirectToRoute('app_profil', [], Response::HTTP_FOUND);
         }
 
@@ -145,11 +153,11 @@ class AccountController extends AbstractController
      * @param Request $req
      * @param EntityManagerInterface $em
      * @param FileUpload $fileUploader
-     * @param AvatarDeleteService $avatarDeleteService
+     * @param DeleteImageService $DeleteImageService
      * @return Response
      */
     #[Route('/profil/avatar', name: 'profil_modify_avatar',priority:4)]
-    public function ModifyAvatar(Request $req, EntityManagerInterface $em, FileUpload $fileUploader, AvatarDeleteService $avatarDeleteService): Response
+    public function ModifyAvatar(Request $req, EntityManagerInterface $em, FileUpload $fileUploader, ImageDelService $ImageDelService, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
         $falseImage = new FalseImg();
@@ -162,18 +170,19 @@ class AccountController extends AbstractController
                 /**service de traitement des images + service de delete des images */
                 $fileUploader->setTargetDirectory($this->getParameter('avatar_user'));
                 $tmtf = $fileUploader->upload($file);
-                $avatarDeleteService->setTargetDirectory(
+                $ImageDelService->setTargetDirectory(
                     [
                         $this->getParameter('avatar_user') . '/' . $user->getAvatar(),
                         $this->getParameter('avatar_user_mini') . '/' . $user->getAvatar(),
                         $this->getParameter('avatar_user_bg') . '/' . $user->getAvatar(),
                     ]
                 );
-                $avatarDeleteService->delete();
+                $ImageDelService->delete();
                 $user->setAvatar($tmtf);
                 $em->persist($user);
                 $em->flush();
-
+                $message = $translator->trans('Photo profil modifiée');
+                $this->addFlash('success',$message);
                 return $this->redirectToRoute('app_profil', [], Response::HTTP_FOUND);
             }
         }
@@ -196,78 +205,47 @@ class AccountController extends AbstractController
     }
 
 
-    /**
-     * permet de supprimer un user
-     *
-     * @param UserRepository $userRepository
-     * @param TokenResolveRepository $tokenRepo
-     * @param DeleteImageService $deleteImageService
-     * @param AvatarDeleteService $avatarDeleteService
-     * @param TranslatorInterface $translator
-     * @return Response
-     */
+   /**
+    * permet de supprimer son profil et toutes les liaisons si on est restaurateur
+    *
+    * @param UserRepository $userRepository
+    * @param Request $req
+    * @param TokenResolveRepository $tokenRepo
+    * @param ImageDelService $ImageDelService
+    * @param DeleteRestoService $deleteRestoService
+    * @param TranslatorInterface $translator
+    * @return Response
+    */
     #[Route('/profil/user/delete', name: 'delete_profil')]
-    public function delete(UserRepository $userRepository,Request $req, TokenResolveRepository $tokenRepo, DeleteImageService $deleteImageService, AvatarDeleteService $avatarDeleteService ,TranslatorInterface $translator): Response
+    public function delete(UserRepository $userRepository,Request $req, TokenResolveRepository $tokenRepo, ImageDelService $ImageDelService,DeleteRestoService $deleteRestoService ,TranslatorInterface $translator): Response
     {
- 
         $user = $this->getUser();
         $session = $req->getSession();
         $session->set('bye','bye'); 
-
         $token = $tokenRepo->findOneBy(['userCurrent' => $user->getId()]);
         if (in_array('ROLE_RESTAURATEUR', $user->getRoles())) {
             //on vérifie d'abord qu'il y a bien un resto sinon ça sert à rien de boucler dans le vide
             $restos = $user->getRestaurant();
-            if ($restos) {
+            if (count($restos) > 0) {
                 foreach ($restos as  $resto) {
-                    $images = $resto->getImages();
-                    //on vérifie si le resto à des photos si oui il faut penser à supprimer leurs images
-                    if ($images) {
-                        foreach ($images as $image) {
-                            $deleteImageService->setTargetDirectory([
-
-                                $this->getParameter('resto_images') . '/' . $image->getPath(),
-                                $this->getParameter('resto_mini_images') . '/' . $image->getPath(),
-                                $this->getParameter('resto_bg_images') . '/' . $image->getPath()
-                            ]);
-                            $deleteImageService->delete($image);
-                        }
-                    }
-
-                    $plats = $resto->getPlats();
-
-                    //on vérifie si il y a des spécialités si oui il faut penser à supprimer leurs images
-                    if ($plats) {
-                        foreach ($plats as $plat) {
-                            $deleteImageService->setTargetDirectory(
-                                [
-                                    $this->getParameter('resto_plats') . '/' . $plat->getImage(),
-                                    $this->getParameter('resto_mini_plats') . '/' . $plat->getImage(),
-                                    $this->getParameter('resto_bg_plats') . '/' . $plat->getImage()
-                                ]
-                            );
-                            $deleteImageService->delete($plat);
-                        }
-                    }
+                 $deleteRestoService->destroy($resto);
                 }
             }
         }
-
         if ($token) {
             $tokenRepo->remove($token, true);
         }
         $this->container->get('security.token_storage')->setToken(null);
         if(!empty($user->getAvatar())){
-
-            $avatarDeleteService->setTargetDirectory([
+            $ImageDelService->setTargetDirectory([
                 $this->getParameter('avatar_user') . '/' . $user->getAvatar(),
                 $this->getParameter('avatar_user_mini') . '/' . $user->getAvatar(),
                 $this->getParameter('avatar_user_bg') . '/' . $user->getAvatar(),
             ]);
-            $avatarDeleteService->delete();
+            $ImageDelService->delete();
         }
         $message = $translator->trans('Nous espérons vous revoir vite') .' '. $user->getPseudo();
-            
+           
         $userRepository->remove($user, true);
         $this->addFlash('sucess',$message);
         

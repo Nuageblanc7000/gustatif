@@ -19,7 +19,7 @@ parameters:
 services:
     App\Service\FileUploader:
     App\Service\DeleteImageService:
-    App\Service\AvatarDeleteService:
+    App\Service\DeleteImagesEntityService:
     App\Service\MailService: ~
     # default configuration for services in *this* file
     _defaults:

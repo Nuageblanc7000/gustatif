@@ -1,0 +1,72 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	{% trans %}
+	Suppression du restaurant
+	{% endtrans %}
+	{{resto.name}}
+{% endblock  %}
+
+{% block body %}
+	<div class="bg-style-create">
+		<div class="container-resto-form">
+			<div class="title">
+				<h1>
+					{% trans %}
+						Supprimer Mon établissement 
+					{% endtrans %}
+				</h1>
+			</div>
+			<div class="form-step before-delete-main">
+				<div class="container-before-delete">
+				
+					<picture class="before-delete"{% if resto.cover is empty %} style="background-image:url({{asset('/build/images/site/default_resto.jpg' )}})" {% else %} style="background-image:url({{asset('/images/restaurant/' ~ resto.cover )}})" {% endif %}>
+						<h2>
+							{% trans %} Êtes vous sur de vouloir supprimer l'établissement 
+							{% endtrans %}
+                            {{resto.name}}?
+                            </h2>
+					</picture>
+				<ul>
+				<li> {% trans %} Les données du restaurants seront supprimées {% endtrans %}</li>
+				<li> {% trans %} Les statistiques seront perdues {% endtrans %}</li>
+				<li> {% trans %} Vous perdrez toutes les personnes qui suivent l'établissement {% endtrans %}</li>
+				</ul>
+				</div>
+				
+
+				<div class="container-btn-action-form">
+					<div class="button-container-2">
+						<span class="mas">
+							{% trans %}
+							Annuler
+							{% endtrans %}
+						</span>
+						<a href="{{path('app_profil',{'div':'resto-info'})}}" name="Hover">
+							{% trans %}
+							Annuler
+							{% endtrans %}
+						</a>
+					</div>
+
+					<div class="button-container-1">
+						<span class="mas-1">
+							{% trans %}
+								Supprimer
+							{% endtrans %}
+						</span>
+						<a href="{{path('resto_delete',{'id':resto.id})}}">
+							{% trans %}
+								Supprimer
+							{% endtrans %}
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}

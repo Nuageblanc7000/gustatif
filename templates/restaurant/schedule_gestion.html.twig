@@ -26,62 +26,72 @@
 
 				<span class="close-pannel">
 					<img src="/build/images/close.svg" alt="panneau fermé"></span>
-				<span>{% trans %}Laissé les champs vides si l'établissement est fermé.
-					{% endtrans %}</span>
+				<span>
+					{% trans %}
+					Laisser les champs vides si l'établissement est fermé.
+					{% endtrans %}
+				</span>
 
 			</span>
 		</div>
 		<div class="form-step">
-			<div class="form-group-times title-group-time">
-				<span>
-					{% trans %}
-					Jour
-					{% endtrans %}</span>
-				<span>{% trans %}
-					Ouverture
-					{% endtrans %}
-				</span>
-				<span>{% trans %}Fermeture
-					{% endtrans %}</span>
-			</div>
-
-			{% for key,time in form.timetables %}
-
-				<div class="form-group-times {% for error in errors %} {% if error == key %} bg-error-time  {% endif %}{% endfor %}">
-					{{days[key]}}
-					<div class="d-flex flex-column">
-						{{form_widget(time.open)}}
-					</div>
-					<div class="d-flex flex-column">
-						{{form_widget(time.close)}}
-					</div>
+			<div class="form-schedule-container-time">
+				<div class="form-group-times title-group-time">
+					<span>
+						{% trans %}
+						Jour
+						{% endtrans %}</span>
+					<span>{% trans %}
+						Ouverture
+						{% endtrans %}
+					</span>
+					<span>{% trans %}Fermeture
+						{% endtrans %}</span>
 				</div>
-				<div class="form-groups-errors">
-					{% if  form_errors(time.open) %}
-						<div class="form-message-errors">
-							{{form_errors(time.open)}}
-						</div>
-						<div class="form-message-errors">
-							{{form_errors(time.close)}}
-						</div>
-					{% endif %}
-				</div>
-			{% endfor %}
-			<div class="form-message-errors">
-				{{form_errors(form)}}
-			</div>
 
+				{% for key,time in form.timetables %}
+
+					<div class="form-group-times {% for error in errors %} {% if error == key %} bg-error-time  {% endif %}{% endfor %}">
+						<span class="schedule-days-input-container">
+							{{days[key]}}
+						</span>
+						<div class="schedule-time-input-container">
+							{{form_widget(time.open)}} 
+							<span class="clock-svg">
+							</span>
+						</div>
+						<div class="schedule-time-input-container">
+							{{form_widget(time.close)}}
+							<span class="clock-svg">
+							</span>
+						</div>
+					</div>
+					<div class="form-groups-errors">
+						{% if  form_errors(time.open) %}
+							<div class="form-message-errors">
+								{{form_errors(time.open)}}
+							</div>
+							<div class="form-message-errors">
+								{{form_errors(time.close)}}
+							</div>
+						{% endif %}
+					</div>
+				{% endfor %}
+				<div class="form-message-errors">
+					{{form_errors(form)}}
+				</div>
+			</div>
 
 			<div class="container-btn-action-form">
 				<div class="button-container-2">
 					<span class="mas">
 						{% trans %}
-						Annuler
+						Retour vers le profil
 						{% endtrans %}
 					</span>
 					<a href="{{path('app_profil')}}" name="Hover">
 						{% trans %}
-						Annuler
+						Retour vers le profil
 						{% endtrans %}
 					</a>
 				</div>
@@ -102,6 +112,7 @@
 		</div>
 		{{form_rest(form)}}
 		{{form_end(form)}}
+
 	</div>
 </div>{% endblock %}{% block javascripts %}
 {{ parent() }}

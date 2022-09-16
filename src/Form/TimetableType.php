@@ -20,10 +20,12 @@ class TimetableType extends AbstractType
             'required' => false,
             'attr' => ['placeholder'=>'fermé'],
             'placeholder' => 'fermé',
+            
         ])
         ->add('close',TimeType::class,[
             'widget' => 'single_text',
             'required' => false,
+            'placeholder' => 'fermé',
             ])
 
     ;

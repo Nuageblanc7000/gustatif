@@ -1,7 +1,6 @@
 const slider_container = document.querySelector(".slider-resto");
 const images = slider_container.querySelectorAll(".slider-img");
 const controls = slider_container.querySelectorAll(".control-slider");
-
 let n = 0;
 let autoplay;
 let k;
@@ -250,4 +249,3 @@ if (document.querySelectorAll(".js-like-resto") !== null) {
   js_like.forEach(targetBtnLike => targetBtnLike.addEventListener("click", like))
   
 }
-

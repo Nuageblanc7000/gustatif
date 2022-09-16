@@ -24,13 +24,14 @@ class UserPasswordChangeType extends AbstractType
                 'mapped' => false,
                 'attr'=> ['always_empty' =>false],
                 'invalid_message' => $this->translator->trans('les mots de passes ne sont pas identitque'),
-                'options' => ['attr' => ['class' => 'password-confirm']],
+                'options' => ['attr' => ['class' => 'password-confirm','always_empty' =>false]],
                 'required' => true,
-                "first_options" =>[ "label" => $this->translator->trans("Nouveau mot de passe") , 'attr'=>["placeholder" => '#487Robs2'] , 'always_empty' =>false  ],
-                'second_options' => ['label' => $this->translator->trans('Confirmer le mot de passe') , 'attr'=>["placeholder" => '#487Robs2'] , 'always_empty' =>false ],
+                "first_options" =>[ "label" => $this->translator->trans("Nouveau mot de passe") , 'attr'=>["placeholder" => '#487Robs2'] , 'always_empty' =>false , ],
+                'second_options' => ['label' => $this->translator->trans('Confirmer le mot de passe') , 'attr'=>["placeholder" => '#487Robs2'] , 'always_empty' =>false,  ],
                 'constraints' => [
                     new NotNull(message: $this->translator->trans('veuillez compléter les champs'))
                 ]
+                
             ]
             )
         ;

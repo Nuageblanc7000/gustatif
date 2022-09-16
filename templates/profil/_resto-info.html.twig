@@ -6,7 +6,10 @@
 	{% for resto in app.user.restaurant %}
 		<section class="resto-main-container-profil">
 
-			<picture class="profil-cover-resto" {% if resto.cover is empty %} style="background-image:url({{asset('/build/images/site/default_resto.jpg' )}})" {% else %} style="background-image:url({{asset('/images/restaurant/' ~ resto.cover )}})" {% endif %}>
+			<picture class="profil-cover-resto" {% if resto.cover is empty %} style="background-image:url({{asset('/build/images/site/default_resto.jpg' )}})" {% else %} 	style="background-image:url({{asset('/images/restaurant/' ~ resto.cover )|imagine_filter('bg_r')}})" {% endif %}>
+				<a href="{{path('resto_warning_delete',{'id':resto.id})}}" class="resto-delete-profil-info" title={% trans %} "supprimer le restaurant" {% endtrans %}>
+					<i class="fa-solid fa-trash-can"></i>
+				</a>
 				<h3 class="text-center">
 					<span>
 						{% trans %}

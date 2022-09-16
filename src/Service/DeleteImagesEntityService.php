@@ -5,7 +5,7 @@ use Exception;
 use Doctrine\ORM\EntityManagerInterface;
 
 
-class DeleteImageService
+class DeleteImagesEntityService
 {
 
     private $em;
@@ -17,6 +17,7 @@ class DeleteImageService
     public function delete(object $image)
     { 
         try {
+
             foreach ($this->getTargetDirectory() as $target) {
                  if (file_exists($target)) {
                      unlink($target);

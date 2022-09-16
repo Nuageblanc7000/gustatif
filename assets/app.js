@@ -7,7 +7,7 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
-
+import Notyf_flash from './javascript/notyf';   
 // start the Stimulus application
 import './bootstrap';
 import 'tom-select/dist/css/tom-select.default.css';
@@ -49,3 +49,8 @@ if(document.querySelector('.header-btn-profil') !== null && document.querySelect
 }
 
 
+if(document.querySelector('flash-message') !== null)
+{
+  customElements.define('flash-message',Notyf_flash);
+
+}

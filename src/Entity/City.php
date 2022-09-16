@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\CityRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CityRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CityRepository::class)]
 class City
@@ -14,22 +15,22 @@ class City
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-
+    #[Groups('city-read')]
     #[ORM\Column(type: 'integer')]
     private $code;
-
+    #[Groups('city-read')]
     #[ORM\Column(type: 'string', length: 255)]
     private $localite;
-
+    #[Groups('city-read')]
     #[ORM\Column(type: 'string', length: 255)]
     private $longitude;
-
+    #[Groups('city-read')]
     #[ORM\Column(type: 'string', length: 255)]
     private $latitude;
-
+    #[Groups('city-read')]
     #[ORM\Column(type: 'string', length: 255)]
     private $Coordonnees;
-
+    #[Groups('city-read')]
     #[ORM\Column(type: 'string', length: 255)]
     private $geom;
 

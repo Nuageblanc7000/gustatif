@@ -6,6 +6,9 @@
 		<section class="resto-main-container-profil">
 
 			<picture class="profil-cover-resto" {% if like.restaurant.cover is empty %} style="background-image:url({{asset('/build/images/site/default_resto.jpg' )}})" {% else %} style="background-image:url({{asset('/images/restaurant/' ~ like.restaurant.cover )}})" {% endif %}>
+			<a href=" #" class="resto-delete-profil-info" title={% trans %} "Enlever des favoris" {% endtrans %}>
+					<i class="fa-solid fa-trash-can"></i>
+				</a>
 				<h3 class="text-center">
 					<span>
 						{% trans %}

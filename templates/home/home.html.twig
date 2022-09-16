@@ -16,14 +16,9 @@
 
 	<section class="content-card container-fluid">
 		<div class="container">
-			<h2 class="fs-style">
-				{% trans %}
-				Découvrez les restaurations de la semaines.
-				{% endtrans %}
-			</h2>
-			<div class="grid-container">
-				{{ render_esi(path('test')) }}
-			</div>
+			
+				{{ render_esi(path('resto-week')) }}
+			
 			<div class="info-full">
 				<img src="{{ asset('/build/images/home/moreResto.svg') }}" alt="">
 				<div class="info">

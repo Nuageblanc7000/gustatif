@@ -58,7 +58,6 @@ class UserController extends AbstractController
         if($tokens)
         {
             $user= $tokens->getUserCurrent()->setIsAcountVerified(true);
-            // dd($user);
             $em->persist($user);
             $em->remove($tokens);
             $em->flush();

@@ -74,10 +74,24 @@
         width: -moz-fit-content;
         width: fit-content;
         h2{
-            font-size: 3rem;
+            font-size: 2rem;
             padding:1rem 0;
         }
+        @media (min-width:592px) {
+         h2{
+
+             font-size: 3rem;
+            }
+        h3{
+            font-size: 2rem;
+        }
+            
+        }
+        h3{
+            font-size: 1.6rem;
+        }
         h2,h3{
+
             color:var(--white);
             text-align: center;
         }

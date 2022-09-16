@@ -15,23 +15,38 @@
 
 			<div class="form-step">
 				{{form_start(form)}}
-				<h2>{% trans %}Votre pseudo{% endtrans %}</h2>
-				<div class="form-groups">
-					{{form_widget(form.pseudo)}}
-				</div>
-				<div class="form-errors">
-					{{form_errors(form.pseudo)}}
-				</div>
-				<h2>{% trans %}Votre Email{% endtrans %}</h2>
-				<div class="form-groups">
-					{{form_widget(form.email)}}
-				</div>
-				<div class="form-errors">
-					{{form_errors(form.email)}}
-				</div>
-				<h2>{% trans %}Situation géographique{% endtrans %}</h2>
 				<div class="form-groups create-form-coord">
 					<div class="container-design-form">
+						<h2>{% trans %}Votre Email{% endtrans %}</h2>
+						<div class="design-form-input">
+							<div class="design-form-icon anim-icon">
+								<img src="{{asset('/build/images/profil/mail.svg')}}" alt="chef icon" width="40px" height="40px">
+							</div>
+							{{form_widget(form.pseudo)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.email)}}
+						</div>
+					</div>
+
+					<div class="container-design-form">
+						<h2>{% trans %}Votre pseudo{% endtrans %}</h2>
+						<div class="design-form-input">
+							<div class="design-form-icon ">
+								<img src="{{asset('/build/images/profil/pseudo.svg')}}" alt="badge avec tête" width="40px" height="40px">
+							</div>
+							{{form_widget(form.email)}}
+						</div>
+						<div class="form-create-error">
+							{{form_errors(form.city)}}
+						</div>
+					</div>
+
+
+				</div>
+				<div class="form-groups create-form-coord">
+					<div class="container-design-form">
+						<h2>{% trans %}Adresse{% endtrans %}</h2>
 						<div class="design-form-input">
 							<div class="design-form-icon anim-icon">
 								<img src="{{asset('/build/images/path.svg')}}" alt="chef icon" width="40px" height="40px">
@@ -44,6 +59,7 @@
 					</div>
 
 					<div class="container-design-form">
+						<h2>{% trans %}Ville{% endtrans %}</h2>
 						<div class="design-form-input">
 							<div class="design-form-icon ">
 								<img src="{{asset('/build/images/citysky.svg')}}" alt="chef icon" width="40px" height="40px">
@@ -57,21 +73,37 @@
 
 
 				</div>
-				<div class="button-container-2">
-					<span class="mas">
-						{% trans %}
+				<div class="container-btn-action-form">
+
+					<div class="button-container-2">
+						<span class="mas">
+							{% trans %}
+							Retour vers le profil
+							{% endtrans %}
+						</span>
+						<a href="{{path('app_profil')}}" name="Hover">
+							{% trans %}
+							Retour vers le profil
+							{% endtrans %}
+						</a>
+					</div>
+					<div class="button-container-1">
+						<span class="mas-1">
+							{% trans %}
 							Mettre à jour
-						{% endtrans %}
-					</span>
-					<button type="submit" name="Hover">
-						{% trans %}
-						Mettre à jour
-						{% endtrans %}
-					</button>
-                </div>
-					{{form_rest(form)}}
-					{{form_end(form)}}
+							{% endtrans %}
+						</span>
+						<button type="submit" name="Hover">
+							{% trans %}
+							Mettre à jour
+							{% endtrans %}
+						</button>
+					</div>
+
 				</div>
+				{{form_rest(form)}}
+				{{form_end(form)}}
 			</div>
-		</diV>
-	{% endblock %}
+		</div>
+	</diV>
+{% endblock %}

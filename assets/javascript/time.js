@@ -1,4 +1,4 @@
-//horloge
+10//horloge
 const  container_timer = document.querySelector('.js-timer')
 const  minute = container_timer.querySelector('.js-m')
 const  hour = container_timer.querySelector('.js-h')
@@ -27,7 +27,8 @@ function timer(){
     }
 
     if(min == 60){
-        hours +1
+        hours = hours +1
+        min = 0
     }
     if(min < 10){
         minute.innerHTML = '0' +min
@@ -38,7 +39,7 @@ function timer(){
         hours = 0
     }
     if(hours < 10){
-        hour.innerHTML = '0' +hours
+        hour.innerHTML = '0' + hours
     }else{
         
         hour.innerHTML =  hours

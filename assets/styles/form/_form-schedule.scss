@@ -62,29 +62,67 @@
             }
             span{
                 font-size: 1.3rem;
+                text-align: center;
+                color:var(--error2);
             }
         }
 }
 
 .container-form-schedule{
     margin-bottom: 2rem;
+    max-width: 600px;
+    width: 100%;
     .form-step{
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         .form-group-times{
 
             display: grid;
-            grid-template-columns: repeat(3,minmax(80px,300px));
+            grid-template-columns: repeat(3,minmax(80px,90px));
             gap: 10px;
             padding:0 0.3rem;
             justify-content: space-between;
             margin:2rem 0;
+            .schedule-days-input-container{
+                // margin: 0 auto;
+           
             
+            }
+            .schedule-time-input-container{
+                margin: 0 auto;
+                display: flex;
+            }
+            .clock-svg{
+                content:url('/assets/images/time.svg');
+ 
+                    width: 20px;
+                    height: 20px;
+                   
+                    -o-object-fit: contain;
+                       object-fit: contain;
+                       -webkit-user-select: none;
+                          -moz-user-select: none;
+                           -ms-user-select: none;
+                               user-select: none;
+                       pointer-events: none;
+            }
             input{
+                position: relative;
                 border:none;
                 text-align:end;
-                background-color: transparent;
+                width: -webkit-fit-content;
+                width: -moz-fit-content;
+                width: fit-content;
+          
+                color: var(--secondary);
             }
+            [type="time"]::-webkit-inner-spin-button {
+                display: none;
+              }
+                [type="time"]::-webkit-calendar-picker-indicator {
+                    display: none;
+                  }
+            
         }
         .title-group-time{
             span{

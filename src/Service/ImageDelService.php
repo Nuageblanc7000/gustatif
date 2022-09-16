@@ -7,12 +7,10 @@ use Exception;
 /**
  * permet la suppression d'un avatar d'un user
  */
-class AvatarDeleteService
+class ImageDelService
 {
-
     public function delete() :void
     {
-       
         try {
             foreach ($this->getTargetDirectory() as $target) {
                  if (file_exists($target)) {

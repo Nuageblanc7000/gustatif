@@ -24,7 +24,7 @@
 				<div class="container-preview-plat">
 					{% for plat in plats %}
 						<div>
-							<picture class="preview-image preview-plat" style="background-image:url('{{asset("/images/plats/" ~ plat.image)}}');">
+							<picture class="preview-image preview-plat" style="background-image:url('{{asset("/images/plats/" ~ plat.image)|imagine_filter('miniature')}}');">
 								<a type="button" class="delete-btn-file" href={{path('resto_plat_delete',{id : plat.id , token: csrf_token('delete' ~ plat.id )} )}} title={% trans %} "Supprimer l'image" {% endtrans %}>
 									<i class="fa-solid fa-trash-can"></i>
 								</a>

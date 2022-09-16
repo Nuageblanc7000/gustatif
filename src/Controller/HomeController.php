@@ -3,17 +3,12 @@
 namespace App\Controller;
 
 use App\Repository\RestaurantRepository;
-use DateTime;
-use DateTimeImmutable;
-use DateTimeInterface;
-use DateTimeZone;
-use FFI;
+
 use Psr\Cache\CacheItemInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Validator\Constraints\Date;
-use Symfony\Component\VarDumper\Cloner\Data;
+
 use Symfony\Contracts\Cache\CacheInterface;
 
 class HomeController extends AbstractController
@@ -25,35 +20,37 @@ class HomeController extends AbstractController
         return $this->render('home/home.html.twig', [
             'controller_name' => 'HomeController',
         ]);
-
     }    
-    #[Route('/test',name:'test')]
+    #[Route('/resto-week',name:'resto-week')]
     function test(RestaurantRepository $restaurantRepository,CacheInterface $cacheInterface): Response
         {
-            
             $randomRestoIds = [];
-            $cache = $cacheInterface->get('restoRand',function(CacheItemInterface $item) use($restaurantRepository ,$randomRestoIds, $cacheInterface){ 
+            $limit =   $restaurantRepository->findAll();
+            if(count($limit) > 3){
+            $cache = $cacheInterface->get('restoRand',function(CacheItemInterface $item) use($randomRestoIds ,$limit){ 
                 $item->expiresAfter(30);
-                $limit =   $restaurantRepository->findAll();
-                while (count($randomRestoIds) < 3) {
-                    $rand = array_rand($limit);
-                    if(!array_key_exists($rand,$randomRestoIds)){
-                        $randomRestoIds[ $rand ] = $limit[$rand]->getId();
+                    while (count($randomRestoIds) < 3) {
+                        $rand = array_rand($limit);
+                        if(!array_key_exists($rand,$randomRestoIds)){
+                            $randomRestoIds[ $rand ] = $limit[$rand]->getId();
+                        }
                     }
+                    return $randomRestoIds;
+                });
+                $randomResto = $cache;
+                $hydratation =  $restaurantRepository->findBy(['id'=> $randomResto]);
+            }else{     
+                $cacheInterface->delete('restoRand'); 
+
+                if(count($limit) > 0){
+                    $hydratation = $limit;
+                }else{
+                    $hydratation = $randomRestoIds;
                 }
-                return $randomRestoIds;
-                
-            });
-            // $cacheInterface->delete('restoRand'); 
-
-             
-
-            
-            $randomResto = $cache;
-
-            
-    
-            $response = $this->render('/_partials/_flip-card.html.twig',['restos' => $restaurantRepository->findBy(['id'=> $randomResto])]);
+            }
+            //permet de supprimer le cache en cours 
+            $response = $this->render('/_partials/_flip-card.html.twig',['restos'=>$hydratation]);
+        
          
         return $response;
     }
