@@ -490,3 +490,33 @@
     }
   }
   
+  %btn-cube{
+    padding:5px;
+    // line-height: 50px;
+    border:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 40px;
+    // margin:10px;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    color:var(--secondary);
+    
+    &:hover i{
+        color:var(--white);
+    }
+    i{
+        color:black;
+    }
+    &:hover{
+    }
+}
+
+
+  .btn-cube-black{
+    @extend %btn-cube;
+    box-shadow: var(--box-shadow);
+}

@@ -46,6 +46,12 @@ Encore
         // le chemin ou je veux mettres mes images
         to: 'javascript/[path][name].[ext]'
     } )
+    .copyFiles({
+        from: './assets/icon',
+        pattern: /\.(svg)$/,
+        // le chemin ou je veux mettres mes images
+        to: 'icon/[path][name].[ext]'
+    } )
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

@@ -15,7 +15,11 @@ parameters:
     avatar_user: '%kernel.project_dir%/public/images/avatar'
     avatar_user_mini: '%kernel.project_dir%/public/media/cache/avatar_mini/images/avatar'
     avatar_user_bg: '%kernel.project_dir%/public/media/cache/avatar_bg/images/avatar'
-    # restos_images: '%kernel.project_dir%/public/images/restaurant/'
+#pour mes fixtures----------------
+    json_path_fixtures: '%kernel.project_dir%/src/DataFixtures/city-json.json'
+    namejson_path_fixtures: '%kernel.project_dir%/src/DataFixtures/resto-name.json'
+    faker_images: '%kernel.project_dir%/src/DataFixtures/fakerImage'
+    faker_resto: '%kernel.project_dir%/src/DataFixtures/fakerResto'
 services:
     App\Service\FileUploader:
     App\Service\DeleteImageService:

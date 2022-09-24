@@ -2,30 +2,32 @@
 
 namespace App\Controller\user;
 
+use App\Entity\Like;
 use App\Entity\FalseImg;
 use App\Form\UserEditType;
 use App\Service\FileUpload;
 use App\Service\ImageDelService;
 use App\Form\UserModifyAvatarType;
+use App\Repository\CityRepository;
 use App\Repository\UserRepository;
 use App\Service\DeleteImageService;
+use App\Service\DeleteRestoService;
 use Symfony\UX\Chartjs\Model\Chart;
 use App\Form\UserPasswordChangeType;
-use App\Repository\CityRepository;
 use App\Service\DeleteImagesService;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\TokenResolveRepository;
 use App\Service\DeleteImagesEntityService;
-use App\Service\DeleteRestoService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class AccountController extends AbstractController
 {
@@ -40,7 +42,7 @@ class AccountController extends AbstractController
     public function ProfilResto(ChartBuilderInterface $chartBuilder, TranslatorInterface $translator, SerializerInterface $serializerInterface): Response
     {
         $user = $this->getUser();
-        if(in_array('ROLE_RESTAURATEUR',$user->getRoles())){
+        if(in_array('ROLE_RESTAURATEUR',$user->getRoles()) || in_array('ROLE_ADMIN',$user->getRoles())){
             $restos = $user->getRestaurant();
             $tabCharts =[];
             $dates = new \DateTimeImmutable();
@@ -71,7 +73,6 @@ class AccountController extends AbstractController
          
             $tabCharts[] = $chart;
             
-        
     }
            
             return $this->render('profil/index.html.twig', [
@@ -251,5 +252,29 @@ class AccountController extends AbstractController
         
         $ref = $req->headers->set('referer','');
         return $this->redirectToRoute('home');
+    }
+    
+    /**
+     * permet d'enlever un like du compte courant
+     *
+     * @param Like $like
+     * @param EntityManagerInterface $em
+     * @param TranslatorInterface $translator
+     * @return Response
+     * @return TranslatorInterface $translator
+     */
+    #[IsGranted('ROLE_USER')]
+    #[Route('/profil/user/dislike/{id}', name: 'dislike_resto')]
+    public function dislikeResto(Like $like,EntityManagerInterface $em,TranslatorInterface $translator): Response
+    {
+        $user = $this->getUser();
+        if($like->getUser() !== $user){
+            return  throw new AccessDeniedHttpException(message: 'Accès refusé', code: 403);
+        }
+        $message = $translator->trans('Restaurant enlevé des favoris') .' '. $like->getRestaurant()->getName();
+        $this->addFlash('success',$message);
+        $em->remove($like);
+        $em->flush();
+        return $this->redirectToRoute('app_profil', ['div'=>'favoris-profil']);
     }
 }

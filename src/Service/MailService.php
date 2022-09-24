@@ -21,8 +21,7 @@ class MailService
      * @param User $user
      * @return void
      */
-    public function subscribeMail(User $user) 
-    
+    public function subscribeMail(User $user)
     {
         $subject = $this->translator->trans('Bienvenu sur l\'application!');
         $token = substr(str_replace(['-','/','_','+'],'',base64_encode( random_bytes(35))),0,30);

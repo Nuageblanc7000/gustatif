@@ -1,66 +1,49 @@
-
 <div class="back"></div>
 
 <div class="lateral col-lg-4 ">
-    <div class="cross"><i class="fa-solid fa-xmark"></i></div>
-		{{form_start(form,{'attr':{'class':'sticky-lateral'}})}}
-		<div class="btn-lateral-container form-search">
-					<div class="cube-lateral">
-						<i class="fa-solid fa-location-dot"></i>
-					</div>
-					<div class="btn-lateral-container form-search">
-						{{form_widget(form.s)}}
-					</div>
-				</div>
-						{% include "/_partials/_errors.html.twig" with {'errors' : form.s } %}
-
-					{% for item in form.categories %}
-				<div class="btn-lateral-container checkbox-lateral">
-					<div class="cube-lateral">
-						<i class="fa-solid fa-utensils"></i>
-					</div>
-					<div class="form-input-container">
-						{{form_widget(item, {'attr':{'class':'resto'}} )}}
-						{{form_label(item)}}
-					</div>
-				</div>
-				{% include "/_partials/_errors.html.twig" with {'errors' : item } %}
-					{% endfor %}
-
-				<div class="btn-lateral-container p-0">
-					<div class="cube-lateral">
-						<i class="fa-solid fa-kitchen-set"></i>
-					</div>
-					<div class="form-input-container select-lateral">
-							{{form_widget(form.t)}}
-					</div>
-				</div>
-				{% include "/_partials/_errors.html.twig" with {'errors' : form.t } %}
-				<div class="btn-lateral-container form-search form-lateral-submit">
-					<div class="cube-search-submit">
-						<i class="fa-solid fa-filter"></i>
-					</div>
-					<button type="submit" class="btn-submit">Filtrer</button>
-				</div>
-		{{form_rest(form)}}
-		{{form_end(form)}}
-																{# <form class="sticky-lateral"> #}
-																	
-																	
-
-
-																	
-																	
-
-													{# 
-																	<div class="btn-lateral-container form-search money-search">
-																		<div class="cube-lateral money">
-																			<i class="fa-solid fa-euro-sign"></i>
-																		</div>
-																		<div class="range">
-																			<span class="js-range">Budget 3000 €</span>
-																			<input type="range" name="" id="">
-																		</div>
-																	</div> #}
-																{# </form> #}
+	<div class="cross">
+		<i class="fa-solid fa-xmark"></i>
+	</div>
+	{{form_start(form,{'attr':{'class':'sticky-lateral'}})}}
+	<div class="btn-lateral-container form-search">
+		<div class="cube-lateral">
+			<i class="fa-solid fa-location-dot"></i>
 		</div>
+		<div class="btn-lateral-container form-search">
+			{{form_widget(form.s)}}
+		</div>
+	</div>
+	{% include "/_partials/_errors.html.twig" with {'errors' : form.s } %}
+
+	{% for item in form.categories %}
+		<div class="btn-lateral-container checkbox-lateral">
+			<div class="cube-lateral">
+				<i class="fa-solid fa-utensils"></i>
+			</div>
+			<div class="form-input-container">
+				{{form_widget(item, {'attr':{'class':'resto'}}
+				)}}
+				{{form_label(item)}}
+			</div>
+		</div>
+		{% include "/_partials/_errors.html.twig" with {'errors' : item } %}
+	{% endfor %}
+
+	<div class="btn-lateral-container p-0">
+		<div class="cube-lateral">
+			<i class="fa-solid fa-kitchen-set"></i>
+		</div>
+		<div class="form-input-container select-lateral">
+			{{form_widget(form.t)}}
+		</div>
+	</div>
+	{% include "/_partials/_errors.html.twig" with {'errors' : form.t } %}
+	<div class="btn-lateral-container form-search form-lateral-submit">
+		<div class="cube-search-submit">
+			<i class="fa-solid fa-filter"></i>
+		</div>
+		<button type="submit" class="btn-submit">Filtrer</button>
+	</div>
+	{{form_rest(form)}}
+	{{form_end(form)}}
+</div>

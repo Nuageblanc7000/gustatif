@@ -9,7 +9,7 @@
 					<ul>
 						{% for key,time in resto.schedule.timetables %}
 
-							<li>
+							<li {% if time.open == null and time.close == null %} class="closed-resto" {% endif %}>
 
 								<span class="day">{{days[key]}}</span>
 								<span class="container-hour">
@@ -17,11 +17,12 @@
 										{% if time.open == null and time.close == null %}
 											Fermé
 										{% else %}
-											{{time.open|format_datetime('none', 'short', locale='fr')}}-{{time.close|format_datetime('none', 'short', locale='fr')}}
+											{{time.open|format_datetime('none', 'short', locale='fr')}} - {{time.close|format_datetime('none', 'short', locale='fr')}}
 										{% endif %}
 									</span>
 								</span>
 							</li>
+
 						{% endfor %}
 					</ul>
 				</div>

@@ -57,7 +57,11 @@ class FilterType extends AbstractType
             'csrf_protection' => false
         ]);
     }
-
+    /**
+     * permet de changer le préfix dans l'url pour ne pas avoir des tableaux
+     *
+     * @return string
+     */
     public function getBlockPrefix()
     {
         return '';

@@ -41,10 +41,11 @@ class RestaurantRepository extends ServiceEntityRepository
     }
     public function restoPaginator(?DataFilter $data){
        $query = $this->createQueryBuilder('r')
-       ->select('r','v','c','o')
+       ->select('r','v','c','o','com')
        ->leftJoin('r.city','v')
        ->leftjoin('r.category','c')
        ->leftJoin('r.origine','o')
+       ->leftJoin('r.comments','com')
        ;
 
        if(!empty($data->s)){
@@ -65,6 +66,18 @@ class RestaurantRepository extends ServiceEntityRepository
        }
 
        return $query->getQuery()->getResult();
+    }
+
+    public function findAllRestoOpti(){
+        $query = $this->createQueryBuilder('r')
+        ->select('r','v','c','o','com')
+        ->leftJoin('r.city','v')
+        ->leftJoin('r.category','c')
+        ->leftJoin('r.origine','o')
+        ->leftJoin('r.comments','com')
+        ;
+        return $query->getQuery()->getResult();
+        ;
     }
 
 //    public function findAllOptiResto(Restaurant $resto): array

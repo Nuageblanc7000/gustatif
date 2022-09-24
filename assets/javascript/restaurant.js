@@ -192,7 +192,7 @@ function moreComments(counterComment = 0) {
         btnViewComment.innerHTML =
           btnViewComment.dataset.comup +
           " " +
-          (comments.length - counterComment);
+          `(${(comments.length - counterComment)})`;
       }
       if (key < counterComment) {
         comment.style.display = "block";

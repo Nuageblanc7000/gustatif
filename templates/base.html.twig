@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta property="og:site_name" content="To Linki">
 		<meta property="og:url" content="#">
-		<meta property="og:image" content="#">
+		<meta property="og:image" content="{{asset('/build/banner-logo.svg')}}">
 		<meta property="og:title" content="Bien manger c'est avant tout savoir ou manger">
 		<meta property="og:description" content="To link.">
         
@@ -15,7 +15,7 @@
 			    ToLink
 			{% endblock %}
 		</title>
-			<link rel="icon" href="{{asset('icon/favicon.ico')}}">
+			<link rel="icon" href="{{asset('/build/icon/icon.svg')}}">
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700&family=Lobster&family=Lobster+Two:wght@400;700&family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     </head>
     <body>
-        {% include "/_partials/header/_header.html.twig" %}
+        {{ render_esi(path('header_form'))}}
          {% include "/_partials/header/_navi-responsive.html.twig" %}
         <main id="main">
         <div class="flash-message-container-base">

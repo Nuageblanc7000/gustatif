@@ -3,7 +3,6 @@ namespace App\Service;
 
 use Exception;
 
-
 /**
  * permet la suppression d'un avatar d'un user
  */

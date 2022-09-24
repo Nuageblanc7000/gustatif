@@ -1,8 +1,10 @@
 
 .footer{
     background-color:var(--secondary);
-    
-    padding:15px 20px;
+    background-image: url('/assets/images/lineFull.png');
+    background-position: center center;
+    background-size: cover;
+    padding:10px 5px;
     .logo-footer{
         img{
             max-width:8rem;
@@ -19,8 +21,8 @@
             }
             li{
                 display: flex;
-                padding:1rem 1rem;
-                flex: 1 1 auto;
+                padding:1rem 0.5rem;
+                // flex: 1 1 auto;
                 justify-content: center;
              
 

@@ -18,7 +18,7 @@
 		<div class="header-container-btn">
 			<div class="action-btn-search">
 				<form action="{{path('restos_list')}}" method="get" class="header-form-search">
-					<input type="checkbox" name="categories[]" class="resto" value="1" checked>
+					<input type="checkbox" name="categories[]" class="resto" value="{{fast.id}}" checked>
 					<button type="submit" href="{{path('restos_list')}}" class="action-btn-search-a">
 						<img src="/build/images/fast-black.svg" alt="svg d'un chef de restaurant">
 					</button>
@@ -31,7 +31,7 @@
 			</div>
 			<div class="action-btn-search">
 				<form action="{{path('restos_list')}}" method="get" class="header-form-search">
-					<input type="checkbox" name="categories[]" class="resto" value="2" checked>
+					<input type="checkbox" name="categories[]" class="resto" value="{{restoId.id}}" checked>
 					<button type="submit" href="{{path('restos_list')}}" class="action-btn-search-a">
 						<img src="/build/images/resto-black.svg" alt="">
 					</button>
@@ -127,7 +127,7 @@
 				<li>
 					<a href="{{path('app_profil')}}/favoris-profil">
 						<span>
-							<i><img src="{{asset('/build/images/fast-black.svg')}}" alt=""></i>
+							<i><img src="{{asset('/build/images/profil/profil-favorite.svg')}}" alt=""></i>
 							<span>
 								{% trans %}
 								Voir mes favoris
@@ -136,18 +136,20 @@
 						</span>
 					</a>
 				</li>
-				<li>
-					<a href="{{path('restos_list')}}">
-						<span>
-							<i><img src="{{asset('/build/images/resto-black.svg')}}" alt=""></i>
+				{% if is_granted('ROLE_RESTAURATEUR') or is_granted('ROLE_ADMIN') %}
+					<li>
+						<a href="{{path('app_profil',{'div':'resto-info'})}}">
 							<span>
-								{% trans %}
-								Voir les restaurants
-								{% endtrans %}
+								<i><img src="{{asset('/build/images/profil/profil-restos-view.svg')}}" alt="table avec deux chaises"></i>
+								<span>
+									{% trans %}
+									Voir mes restaurants
+									{% endtrans %}
+								</span>
 							</span>
-						</span>
-					</a>
-				</li>
+						</a>
+					</li>
+				{% endif %}
 				<li class="log-out-profil">
 					<a href="{{path('app_logout')}}">
 						<span>

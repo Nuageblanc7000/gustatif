@@ -18,12 +18,12 @@ class FileUpload
 
     public function upload(UploadedFile $file)
     {
+        //je n'utilise pas le original mais je le garde si jamais je change d'avis. comme le sluger
         $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         // $safeFilename = $this->slugger->slug($originalFilename);
         $fileName = uniqid().'.'.$file->guessExtension();
-
         try {
-            $file->move($this->getTargetDirectory(), $fileName);
+           $move= $file->move($this->getTargetDirectory(), $fileName);
         } catch (FileException $e) {
         }
 

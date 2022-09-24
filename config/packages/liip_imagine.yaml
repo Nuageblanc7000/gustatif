@@ -13,10 +13,16 @@ liip_imagine:
                     size: [900 , 900]
                     mode: outbound   
         bg_r:
-            quality: 75
+            quality: 90
             filters:
                 thumbnail:
                     size: [1000, 900]
+                    mode:   outbound
+        site_bg:
+            quality: 90
+            filters:
+                thumbnail:
+                    size: [1400, 900]
                     mode:   outbound
                     
         avatar_mini:

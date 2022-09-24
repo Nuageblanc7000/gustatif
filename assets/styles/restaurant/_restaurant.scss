@@ -241,6 +241,10 @@
         max-width: -webkit-fit-content;
         max-width: -moz-fit-content;
         max-width: fit-content;
+        @media (min-width:992px) {
+            flex-direction: row;
+        }
+        flex-direction: column;
         picture{
         margin:0 1rem;
         width: 40px;
@@ -253,6 +257,7 @@
         h3{
             font-family: var(--title-font3);
             font-weight: bold;
+            text-align: center;
         }
 
     }
@@ -329,6 +334,9 @@
         }
     }
     ul{
+        .closed-resto{
+            background-color: var(--close);
+        }
         li{
             padding:1rem 0;
             display: flex;
@@ -345,7 +353,7 @@
                 box-shadow: none !important;
             }
             .day,.container-hour{
-                padding:0 1rem;
+                padding:0 0.5rem;
             }
         }
         .closed{

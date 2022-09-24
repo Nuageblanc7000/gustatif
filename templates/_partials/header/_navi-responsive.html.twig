@@ -66,13 +66,13 @@
 						</span>
 					</a>
 				</li>
-				{% if is_granted('ROLE_RESTAURATEUR') %}
+				{% if is_granted('ROLE_RESTAURATEUR') or is_granted('ROLE_ADMIN') %}
 
 
 					<li>
-						<a href="{{path('restos_list')}}">
+						<a href="{{path('app_profil',{'div':'resto-info'})}}">
 							<span>
-								<i><img src="{{asset('/build/images/resto-black.svg')}}" alt=""></i>
+								<i><img src="{{asset('/build/images/profil/profil-restos-view.svg')}}" alt="table avec deux chaises"></i>
 								<span>
 									{% trans %}
 									Voir mes restaurants
