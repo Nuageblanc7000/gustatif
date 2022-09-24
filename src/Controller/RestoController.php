@@ -15,6 +15,7 @@ use App\Repository\CommentRepository;
 use App\Repository\RestaurantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -65,9 +66,7 @@ class RestoController extends AbstractController
     {
         $comment = new Comment();
         $user = $this->getUser();
-        $authorize=true;
-      
-    
+
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -98,7 +97,40 @@ class RestoController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
+    #[Route('/restaurant/comment/modification/{id}',name:'modif_comment')]
 
+    public function modifComment(EntityManagerInterface $em, Request $req,Comment $comment): Response
+    {
+        $user = $this->getUser();
+        $userComment = $comment->getAuthor();
+        if($user !== $userComment){
+            return  throw new AccessDeniedHttpException(message: 'Accès refusé', code: 403);
+        }
+
+        $form = $this->createForm(CommentType::class,$comment);
+        $form->handleRequest($req);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($comment);
+            $em->flush();
+            return  $this->redirectToRoute('resto_view',['id' => $comment->getResto()->getId()]);
+        }
+        return $this->render('/restaurant/_resto_comment_edit.html.twig', [
+            'form' => $form->createView()
+        ])
+        ;
+    }
+
+
+    /**
+     * permet de liker un restaurant seulement si on est pas le propriétaire en ajax
+     *
+     * @param Request $req
+     * @param Restaurant $resto
+     * @param EntityManagerInterface $em
+     * @param LikeRepository $likeRepository
+     * @return Response
+     */
     #[Route('/like/{id}', name: 'like_resto', methods: ['POST'])]
     public function likeResto(Request $req, Restaurant $resto, EntityManagerInterface $em, LikeRepository $likeRepository): Response
     {

@@ -12,13 +12,14 @@ class UserVoter extends Voter
     public const DELETE = 'USER_DELETE';
     public CONST VIEW_RESTAURATEUR = 'RESTO_VIEW';
     public CONST VIEW_USER = 'USER_VIEW';
+    public CONST EDIT_COMMENT = 'EDIT_COMMENT';
 
     protected function supports(string $attribute, $subject): bool
     {
         // replace with your own logic
         // https://symfony.com/doc/current/security/voters.html
 
-        return in_array($attribute, [self::EDIT, self::DELETE , self::VIEW_USER  , self::VIEW_RESTAURATEUR ])
+        return in_array($attribute, [self::EDIT, self::DELETE , self::VIEW_USER  , self::VIEW_RESTAURATEUR,self::EDIT_COMMENT ])
             && $subject instanceof \App\Entity\User;
     }
 
@@ -37,6 +38,7 @@ class UserVoter extends Voter
                     return false;
                 }
                 break;
+            
                 case self::VIEW_RESTAURATEUR:
                     if (in_array('ROLE_RESTAURATEUR',$token->getUser()->getRoles())) {
                         return true;

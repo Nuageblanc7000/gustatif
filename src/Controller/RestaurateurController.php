@@ -119,9 +119,9 @@ class RestaurateurController extends AbstractController
                     $resto->addPlat($plat);
                 }
                 $em->flush();
-                $message = $translator->trans('Nouvelle spécialitée ajoutée '.$plat->getName().'');
+                $message = $translator->trans('Spécialités mis à jours');
                 $this->addFlash('success', $message);
-                return $this->redirect($req->headers->get('referer'));
+                return $this->redirectToRoute('app_profil',['div'=>'resto-info']);
             }
         }
         return $this->renderForm('/restaurant/create_plat.html.twig', ['form' => $form, 'plats' => $plats]);

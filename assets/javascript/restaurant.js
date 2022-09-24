@@ -1,10 +1,11 @@
+import RatingForm from "./component_rating";
 const slider_container = document.querySelector(".slider-resto");
 const images = slider_container.querySelectorAll(".slider-img");
 const controls = slider_container.querySelectorAll(".control-slider");
 let n = 0;
 let autoplay;
 let k;
-time = 3000;
+let time = 3000;
 const prev = () => {
   slider((n += 1));
 };
@@ -126,53 +127,54 @@ function scrollResponsive(e) {
 
 // On va chercher toutes les étoiles
 
-if (
-  document.querySelectorAll(".container-star-js") !== null &&
-  document.querySelectorAll(".js-stars") !== null &&
-  document.querySelector(".js-value-rating") !== null
-) {
-  const container_stars = document.querySelector(".container-star-js");
-  const stars = container_stars.querySelectorAll(".js-stars");
-  const notation = document.querySelector(".js-value-rating");
+// if (
+//   document.querySelectorAll(".container-star-js") !== null &&
+//   document.querySelectorAll(".js-stars") !== null &&
+//   document.querySelector(".js-value-rating") !== null
+// ) {
+//   const container_stars = document.querySelector(".container-star-js");
+//   const stars = container_stars.querySelectorAll(".js-stars");
+//   const notation = document.querySelector(".js-value-rating");
 
-  stars.forEach((star) => {
-    star.addEventListener("mouseover", function () {
-      resetStar();
-      star.classList.remove("fa-regular");
-      star.classList.add("fa-solid");
-      let previous = this.previousElementSibling;
+//   stars.forEach((star) => {
+//     star.addEventListener("mouseover", function () {
+//       resetStar();
+//       star.classList.remove("fa-regular");
+//       star.classList.add("fa-solid");
+//       let previous = this.previousElementSibling;
 
-      while (previous) {
-        previous.classList.remove("fa-regular");
-        previous.classList.add("fa-solid");
-        previous = previous.previousElementSibling;
-      }
-    });
-    star.addEventListener("mouseout", function () {
-      resetStar(notation.value);
-    });
-    star.addEventListener("click", function () {
-      if (notation.value == 1) {
-        notation.value = 0;
-      } else {
-        notation.value = this.dataset.val;
-      }
-      resetStar(notation.value);
-    });
-  });
+//       while (previous) {
+//         previous.classList.remove("fa-regular");
+//         previous.classList.add("fa-solid");
+//         previous = previous.previousElementSibling;
+//       }
+//     });
+    
+//     star.addEventListener("mouseout", function () {
+//       resetStar(notation.value);
+//     });
+//     star.addEventListener("click", function () {
+//       if (notation.value == 1) {
+//         notation.value = 0;
+//       } else {
+//         notation.value = this.dataset.val;
+//       }
+//       resetStar(notation.value);
+//     });
+//   });
 
-  function resetStar(rating = 0) {
-    stars.forEach((star) => {
-      if (star.dataset.val <= notation.value) {
-        star.classList.remove("fa-regular");
-        star.classList.add("fa-solid");
-      } else {
-        star.classList.remove("fa-solid");
-        star.classList.add("fa-regular");
-      }
-    });
-  }
-}
+//   function resetStar(rating = 0) {
+//     stars.forEach((star) => {
+//       if (star.dataset.val <= notation.value) {
+//         star.classList.remove("fa-regular");
+//         star.classList.add("fa-solid");
+//       } else {
+//         star.classList.remove("fa-solid");
+//         star.classList.add("fa-regular");
+//       }
+//     });
+//   }
+// }
 // pour la partie cachée
 const comments = document.querySelectorAll(".js-box-comment");
 
@@ -249,3 +251,5 @@ if (document.querySelectorAll(".js-like-resto") !== null) {
   js_like.forEach(targetBtnLike => targetBtnLike.addEventListener("click", like))
   
 }
+
+customElements.define('rating-tag',RatingForm)

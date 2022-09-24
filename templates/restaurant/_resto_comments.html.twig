@@ -9,6 +9,11 @@
 		{% if resto.comments|length > 0 %}
 			{% for comment in repo %}
 				<div class="comment-box js-box-comment">
+				{% if app.user and app.user == comment.author %}
+				<a href="{{path('modif_comment',{'id':comment.id})}}" class="comment-edit-current-user">
+					<img src="{{asset('/build/images/edit-comment.svg')}}" alt="marqueur d'édition" width:'40px' height="40px">
+				</a>
+				{% endif %}
 					<blockquote class="date-comment">
 						<figure class="comment-avatar-resto">
 							{% if comment.author.avatar is empty %}

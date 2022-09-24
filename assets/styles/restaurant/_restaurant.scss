@@ -523,10 +523,31 @@
         
     }
 }
+.comment-edit-container{
+    min-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container-form-comment{
+        width: 100%;
+    }
+}
 .container-comments{
     padding:10px;
-
+    position: relative;
     background-color: var(--white) !important;
+    
+    .comment-edit-current-user{
+        position: relative;
+        display: flex;
+        margin-left: auto;
+        width: fit-content;
+        img{
+            width:25px;
+            height: 25px;
+            object-fit: contain;
+        }
+    }
     .container-comments-grid{
 
         display: grid;

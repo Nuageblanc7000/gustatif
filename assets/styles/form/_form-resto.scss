@@ -212,12 +212,20 @@
     .design-form-icon{
         background-color: var(--white);
         transition: all 1s ease-in;
-        width: 80px;
+        @media (min-width:592px) {
+            width: 80px;
+        }
+        width: 40px;
+        padding:0 0.2rem;
         height: inherit;
         border-radius: 10px  0 0 10px;
         display: flex;
         justify-content: center;
         align-items: center;
+        img{
+            object-fit: contain;
+            max-height: 100%;
+        }
     }
 }
 
