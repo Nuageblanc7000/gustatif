@@ -21,9 +21,6 @@ header {
     height: auto;
     width: auto;
     img {
-      max-width: 60px;
-      height: 60px;
-      width: 60px;
     }
   }
   .container-search-header {
@@ -347,7 +344,7 @@ header {
   }
 }
 
-.menu-down-info-profil {
+.menu-down-info-profil{
   min-height: 100px;
   height: 100%;
   display: flex;
@@ -363,6 +360,8 @@ header {
     justify-content: center;
     align-items: center;
     padding: 0.5rem 0;
+    width: 100% !important;
+    flex-direction: column;
     img {
       -o-object-fit: contain;
          object-fit: contain;
@@ -373,6 +372,7 @@ header {
     }
     span {
       padding: 0.3rem 0.5rem;
+      text-align: center;
     }
   }
   a {

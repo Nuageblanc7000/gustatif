@@ -15,7 +15,7 @@
             <table width="100%">
                 <tr>
                 <td style="text-align: center;">
-                    <h1>Bienvenu sur Frinki {{ pseudo }}</h1>
+                    <h1>Bienvenu sur Tolink {{ pseudo }}</h1>
                 </td>
                 </tr>
             
@@ -24,16 +24,15 @@
     </tr>
 <!-- image frinki -->
 
-    <tr>
-    <div class="image-frinki" style="background-image:url({{absolute_url(asset('/build/images/shoesBack.jpg'))}}); background-size:cover; background-repeat:none; background-position:center center">
-    
+    <tr class="img">
+    <img src="{{absolute_url(asset('/build/images/site/email_logo.jpg'))}}" alt="logo de tolink sur fond gris">
     </div>  
     </tr>
 <!-- contenu -->
 <tr>
 <td style="text-align:center; padding-bottom:40px;">
 <table class="contenu" width="100%" style="text-align:center;">
-    <p>Veuillez confirmer votre email avant de pouvoir commencer à poster</p>
+    <p>Veuillez confirmer votre email avant de pouvoir utiliser nos services</p>
     <a href="{{url('active-account', {'token' : token } )}}"> Activer mon compte </a>
 </table>
 </td>

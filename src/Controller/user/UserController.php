@@ -19,10 +19,18 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserController extends AbstractController
 {
-
-
+    /**
+     * permet de s'inscrire avec envoi d'email
+     *
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @param MailService $mail
+     * @param UserPasswordHasherInterface $hasher
+     * @param TranslatorInterface $translator
+     * @return Response
+     */
     #[Route('/register', name: 'user_register', methods: ['GET', 'POST'])]
-    public function new(Request $request,EntityManagerInterface $em,MailService $mail, UserPasswordHasherInterface $hasher): Response
+    public function new(Request $request,EntityManagerInterface $em,MailService $mail, UserPasswordHasherInterface $hasher,TranslatorInterface $translator): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -33,6 +41,8 @@ class UserController extends AbstractController
             $em->persist($user);
             $em->flush();
             $mail->subscribeMail($user);
+            $message = $translator->trans('Valider votre email pour vous connecter');
+            $this->addFlash('success',$message);
             return $this->redirectToRoute('login', [], Response::HTTP_SEE_OTHER);
         }
 

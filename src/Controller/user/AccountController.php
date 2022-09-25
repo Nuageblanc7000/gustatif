@@ -47,6 +47,7 @@ class AccountController extends AbstractController
             $tabCharts =[];
             $dates = new \DateTimeImmutable();
             $data = [];
+            $label = [$translator->trans('Commentaires'),$translator->trans('Followers')];
             foreach ($restos as  $resto) {
                 $data=[$comments = count($resto->getComments()),count($resto->getLikes())];
                 
@@ -54,7 +55,7 @@ class AccountController extends AbstractController
               $chart = $chartBuilder->createChart(Chart::TYPE_BAR);
               //ici pour connaitre le nombre de commentaire du restaurant
               $chart->setData([
-                'labels' => ['Nombres de commentaires', 'nombres de personnes qui suivent le restaurant'],
+                'labels' => $label,
                 'datasets' => [
                     [
                         'label' => $resto->getName(),

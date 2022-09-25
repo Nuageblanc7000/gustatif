@@ -6,7 +6,7 @@
 }
 .back-lateral {
   display: none;
-  @media (min-width:592px) and (max-width:992px) {
+  @media (min-width:568px) and (max-width:992px) {
     display: block;
   }
   width: 100%;
@@ -135,16 +135,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 
   i {
     font-size: 2.3rem;
   }
 }
 .form-lateral-submit{
-  @media (max-width: 592px) {
-    background-color: var(--secondary);
+  background-color: var(--secondary);
+  box-shadow: var(--box-shadow-nav);
+  &:hover {
+    color: var(--white);
+    transform: scale(0.98);
   }
-
 }
 .form-search{
 
@@ -160,14 +163,13 @@
     min-height: inherit;
     transition: 0.5s all cubic-bezier(0.455, 0.03, 0.515, 0.955);
     width: 100%;
+    color: var(--white);
+    background-color: var(--secondary);
     @media (max-width: 592px) {
       color: var(--white);
       background-color: var(--secondary);
     }
-    &:hover {
-      color: var(--white);
-      background-color: var(--secondary);
-    }
+   
   }
 }
 .money-search {
@@ -269,6 +271,7 @@
     min-height: inherit;
     align-items: center;
     font-weight: 700;
+    white-space: nowrap;
     justify-content: space-between;
     cursor: pointer;
     &::after {

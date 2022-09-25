@@ -25,7 +25,8 @@ class HomeController extends AbstractController
      */
     #[Route('/', name: 'home')]
     public function index(RestaurantRepository $restaurantRepository,CacheInterface $cacheInterface): Response
-    {$randomRestoIds = [];
+    {
+        $randomRestoIds = [];
         $limit =   $restaurantRepository->findAllRestoOpti();
         if(count($limit) > 3){
         $cache = $cacheInterface->get('restoRand',function(CacheItemInterface $item) use($randomRestoIds ,$limit){ 

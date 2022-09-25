@@ -96,11 +96,19 @@ class RestoController extends AbstractController
             'repo' => $commentRepository->findBy(['resto' => $resto], ['id' =>  'DESC']),
         ]);
     }
-
+    
+    /**
+     * permet de modifier le commentaire si on est le propriétaire de ce commentaire
+     *
+     * @param EntityManagerInterface $em
+     * @param Request $req
+     * @param Comment $comment
+     * @param TranslatorInterface $translator
+     * @return Response
+     */
     #[IsGranted('ROLE_USER')]
     #[Route('/restaurant/comment/modification/{id}',name:'modif_comment')]
-
-    public function modifComment(EntityManagerInterface $em, Request $req,Comment $comment): Response
+    public function modifComment(EntityManagerInterface $em, Request $req,Comment $comment,TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
         $userComment = $comment->getAuthor();
@@ -113,6 +121,8 @@ class RestoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($comment);
             $em->flush();
+            $message = $translator->trans('Commentaire mis à jour');
+            $this->addFlash('success',$message);
             return  $this->redirectToRoute('resto_view',['id' => $comment->getResto()->getId()]);
         }
         return $this->render('/restaurant/_resto_comment_edit.html.twig', [

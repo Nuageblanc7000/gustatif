@@ -22,7 +22,8 @@ export default class Notyf_flash extends HTMLElement {
       }
     });
     this.time;
-    this.time= this.time == undefined ? 5000 : parseInt(this.getAttribute("time"))
+    this.time =
+      this.time == undefined ? 5000 : parseInt(this.getAttribute("time"));
     this.target = this.getBoundingClientRect();
     this.width = this.target.width;
     this.onePourcent = 100 / this.time;
@@ -44,12 +45,10 @@ export default class Notyf_flash extends HTMLElement {
         iterations: Infinity,
       }
     );
-    this.stopMessage.addEventListener("click",(event)=>
-   {
-    event.stopPropagation()
-    this.remove()
-   } 
-  );
+    this.stopMessage.addEventListener("click", (event) => {
+      event.stopPropagation();
+      this.remove();
+    });
     this.timeout = setTimeout(() => {
       this.remove();
     }, this.time);
@@ -61,5 +60,3 @@ export default class Notyf_flash extends HTMLElement {
     clearTimeout(this.timeout);
   }
 }
-
-
