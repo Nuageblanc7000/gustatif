@@ -1,16 +1,11 @@
 <?php
 
 namespace App\Controller;
-
-use App\Repository\CategoryRepository;
 use App\Repository\RestaurantRepository;
 use Psr\Cache\CacheItemInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\Cache\CacheInterface;
 
 class HomeController extends AbstractController
@@ -55,12 +50,4 @@ class HomeController extends AbstractController
     return $response;
     }
     
-    
-   #[Route('/header',name:'header_form')]
-   public function header_form(CategoryRepository $categoryRepository): Response
-   {
-       $fast = $categoryRepository->findOneBy(['name' => 'fast-food']);
-       $restoId = $categoryRepository->findOneBy(['name' => 'restaurant']);
-       return $this->render('/_partials/header/_header.html.twig', ['fast' => $fast,'restoId'=>$restoId]);
-   }
 }

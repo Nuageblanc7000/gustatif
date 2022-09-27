@@ -3,11 +3,17 @@
                 <nav>
                     <ul class='d-flex align-items-center justify-content-sb'>
                         <li  class='select-none logo-footer'>
-                        <a href="{{path('home')}}"><img src={{asset('/build/images/banner-logo.svg')}} alt="" /></a>
+                        <a href="{{path('home')}}"><img src={{asset('/build/images/banner-logo.svg')}} alt="bannière avec le logo tolink" /></a>
                         © 2022 ToLink R.W.
                         </li>
-                        <li class='anim-bar-a-primary'><a href=""> Politique de confidentialité</a></li>
-                        <li class='anim-bar-a-primary'><a href="">Termes et Conditions</a></li>
+                        <li class='anim-bar-a-primary'><a href="{{path('app_policy')}}">{% trans %} Politique de confidentialité
+                        {% endtrans %}
+                        </a></li>
+                        <li class='anim-bar-a-primary'><a href="{{path('app_terms')}}">
+                        {% trans %}
+                            Termes et Conditions
+                        {% endtrans %}
+                        </a></li>
                     </ul>
                 </nav>
             </div>

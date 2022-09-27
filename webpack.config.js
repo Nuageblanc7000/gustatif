@@ -31,6 +31,7 @@ Encore
     .addEntry('create-file','./assets/javascript/createFile.js')
     .addEntry('create-plat','./assets/javascript/createPlat.js')
     .addEntry('profil-action','./assets/javascript/profil-action.js')
+
     .addEntry('avatar-js','./assets/javascript/avatar.js')
     .addEntry('fontAwesome','./assets/fontAwesome.js')
 
@@ -43,7 +44,7 @@ Encore
     } )
     .copyFiles({
         from: './assets/javascript',
-        pattern: /\.(js|jsx)$/,
+        pattern: /\.(js|jsx|svg)$/,
         // le chemin ou je veux mettres mes images
         to: 'javascript/[path][name].[ext]'
     } )

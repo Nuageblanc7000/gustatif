@@ -1,66 +1,74 @@
-$banner-height:calc(70vh);
-%banner{
+$banner-height: calc(70vh);
+%banner {
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  position: relative;
+  display: flex;
+}
+.banner,
+.banner-privacy {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  // box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.109);
+  @extend %banner;
+
+  @include background-html();
+  img {
+    max-width: 600px;
     width: 100%;
-    height: auto;
-    z-index: 2;
-    position: relative;
-    display: flex;
+    -o-object-fit: cover;
+    object-fit: cover;
+    max-height: 400px;
+    margin-bottom: 10px;
+  }
 }
-.banner{
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    min-height: $banner-height;
-    flex-direction: column;
-    // box-shadow: 0 0 5px 10px rgba(0, 0, 0, 0.109);
-    @extend %banner;
+.banner {
+  min-height: $banner-height;
+}
+.banner-privacy {
+  min-height: calc(40vh);
+  h1 {
+    color: var(--white);
+  }
+}
+.logo-banner {
+}
+
+.home-banner {
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  @media (min-width:1140px) {
+    background-attachment: fixed !important;
     
-    @include  background-html();
-    img{
-        max-width: 600px;
-        width: 100%;
-        -o-object-fit: cover;
-           object-fit: cover;
-        max-height: 400px;
-        margin-bottom: 10px;
-    }
-
+  }
+  background-attachment: scroll;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    margin-top: 10px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-position: bottom -1px right -1px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("/assets/images/home/bas.svg");
+    background-repeat: no-repeat;
+  }
 }
-.logo-banner{}
-
-
-.home-banner{
-    background-position:  center center !important;
-     background-size:cover !important;
-     background-attachment: fixed !important;
-      background-repeat:no-repeat !important;
-      position: relative;
-      &::before
-      {
-          content: "";
-          position: absolute;
-          margin-top:10px;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background-position: bottom -1px right -1px;
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-image: url('/assets/images/home/bas.svg');
-          background-repeat: no-repeat;
-      }
-}
-
 
 // .search{
 //     position: relative;
 //     display: flex;
 //     justify-content: center;
-    
+
 //     margin-top:0 auto;
-    
-    
 
 //     .search-container{
 //         background-color: var(--primary);
@@ -93,7 +101,7 @@ $banner-height:calc(70vh);
 //                 outline: none;
 //             }
 //         }
-        
+
 //         .select-type{
 //             display: flex;
 //             width: 100%;
@@ -108,7 +116,7 @@ $banner-height:calc(70vh);
 //                     justify-content: center;
 //                     align-items: center;
 //                     padding:0 1rem 0 0rem;
-                    
+
 //                     label{
 //                         color:white;
 //                         font-weight: bold;
@@ -135,8 +143,7 @@ $banner-height:calc(70vh);
 //             max-width: 100%;
 //             height: 100%;
 //         }
-        
+
 //     }
 
-    
 // }

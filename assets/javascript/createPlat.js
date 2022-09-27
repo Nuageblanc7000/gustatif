@@ -16,7 +16,6 @@ function addImages(e=null) {
     const platImages = document.querySelector("#plat_images");
     //recup le prototype des entrées data-prototype
     const prototype = platImages.dataset.prototype.replace(/__name__/g, index);
-    console.log(prototype)
     //injecter le code dans la div
     platImages.insertAdjacentHTML("beforeend", prototype);
     widgetCounter.value = index + 1;

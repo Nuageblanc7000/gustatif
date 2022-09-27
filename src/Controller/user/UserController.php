@@ -5,14 +5,12 @@ namespace App\Controller\user;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Service\MailService;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\TokenResolveRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -32,6 +30,10 @@ class UserController extends AbstractController
     #[Route('/register', name: 'user_register', methods: ['GET', 'POST'])]
     public function new(Request $request,EntityManagerInterface $em,MailService $mail, UserPasswordHasherInterface $hasher,TranslatorInterface $translator): Response
     {
+        if($this->getUser())
+        {
+            return $this->redirectToRoute('app_profil',[],Response::HTTP_FOUND);
+        }
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
@@ -54,7 +56,7 @@ class UserController extends AbstractController
 
     #[Route('/active-account/{token}', name: 'active-account')]
     /**
-     * Undocumented function
+     * route permettant d'activer le user qui a vérifier son email
      *
      * @param TokenResolveRepository $tokenRepo
      * @param [type] $token

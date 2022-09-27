@@ -3,8 +3,9 @@ twig:
     paths:
         '%kernel.project_dir%/email/css' : email_css
         '%kernel.project_dir%/email/templates' : email_templates
-    # globals:
-    #     locales: '%app.locales%'
+    globals:
+        # locales: '%app.locales%'
+        observer: '@App\Service\ObserverCategory'
 when@test:
     twig:
         strict_variables: true

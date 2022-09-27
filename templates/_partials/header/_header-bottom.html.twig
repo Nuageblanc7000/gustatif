@@ -3,7 +3,7 @@
 		<div class="bottom-nav-grid">
 			<div class="action-btn-search">
 				<form action="{{path('restos_list')}}" method="get" class="header-form-search">
-					<input type="checkbox" name="categories[]" class="resto" value="1" checked>
+					<input type="checkbox" name="categories[]" class="resto" value="{{observer.getObserver()['fastId'].id}}" checked>
 					<button type="submit" href="{{path('restos_list')}}" class="action-btn-search-a">
 						<img src="/build/images/fast-black.svg" alt="svg d'un chef de restaurant">
 					</button>
@@ -16,9 +16,9 @@
 			</div>
 			<div class="action-btn-search">
 				<form action="{{path('restos_list')}}" method="get" class="header-form-search">
-					<input type="checkbox" name="categories[]" class="resto" value="2" checked>
+					<input type="checkbox" name="categories[]" class="resto" value="{{observer.getObserver()['restoId'].id}}" checked>
 					<button type="submit" href="{{path('restos_list')}}" class="action-btn-search-a">
-						<img src="/build/images/resto-black.svg" alt="">
+						<img src="/build/images/resto-black.svg" alt="personnage restaurateur icon">
 					</button>
 				</form>
 				<span>
@@ -29,7 +29,7 @@
 			</div>
 			<div class="action-btn-search">
 				<a href="{{path('restos_list')}}" class="action-btn-search-a">
-					<img src="/build/images/profil/profil-restos-view.svg" alt="">
+					<img src="/build/images/profil/profil-restos-view.svg" alt="table de restaurant icon">
 				</a>
 				<span>
 					{% trans %}

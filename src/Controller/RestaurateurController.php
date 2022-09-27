@@ -91,10 +91,6 @@ class RestaurateurController extends AbstractController
     {
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO', $resto);
         $user = $this->getUser();
-        if ($resto->getUser() !== $user) {
-            // gestion de la securité avec retour vers page 403
-            return  throw new AccessDeniedHttpException(message: 'Accès refusé', code: 403);
-        }
         $limit = 4;
         $plats = $resto->getPlats();
         $countPlat = count($plats);
@@ -220,7 +216,16 @@ class RestaurateurController extends AbstractController
                 ]
             );
             $DeleteImagesEntityService->delete($image);
+            if(count($resto->getImages()) > 0)
+            {
+                $resto->getImages()[0]->getPath();
+                $resto->setCover($resto->getImages()[0]->getPath());
+                $em->persist($resto);
+                $em->flush();
+            }
+            
             $message = $translator->trans('Image supprimée');
+            
             $this->addFlash('success', $message);
             return $this->redirectToRoute('resto_modify', ['id' => $idResto], Response::HTTP_FOUND);
         } else {

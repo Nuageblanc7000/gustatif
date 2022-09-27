@@ -24,6 +24,9 @@ services:
     App\Service\FileUploader:
     App\Service\DeleteImageService:
     App\Service\DeleteImagesEntityService:
+    # App\Service\ObserverCategory:
+    #     calls:
+    #         - 'getObserver': ['@categoryRepository']
     App\Service\MailService: ~
     # default configuration for services in *this* file
     _defaults:

@@ -84,7 +84,6 @@ function display(e = null, parent) {
 
 function input(collection) {
     collection.forEach((element) => {
-        console.log(element);
     });
 }
 

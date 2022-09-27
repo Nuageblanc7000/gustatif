@@ -41,7 +41,10 @@
 }
 
 .btn {
-  font-size: 2rem;
+  @media (min-width:592px) {
+    font-size: 2rem;
+  }
+  font-size: 1.6rem;
   font-family: var(--title-font);
   border: none;
   background-color: var(--primary);
