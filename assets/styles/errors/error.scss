@@ -1,0 +1,23 @@
+.container-error-request-custom{
+    @extend .container;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: inherit;
+    h1{
+        text-align: center;
+    }
+    picture{
+        max-width: 800px;
+        height: 400px;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+           max-height: 100%;
+        }
+    }
+    
+}

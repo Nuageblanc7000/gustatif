@@ -1,7 +1,7 @@
 {% if restos|length > 0 %}
 	<h2 class="fs-style">
 				{% trans %}
-				Découvrez les restaurations de la semaines.
+				Découvrez les restaurations de la semaine.
 				{% endtrans %}
 			</h2>
 <div class="grid-container">
@@ -12,9 +12,9 @@
 			<div class="card-restaurant card-flip-front side card-random">
 				{% for cat in resto.category %}
 					{% if cat.name == 'restaurant' %}
-						<img src="{{ asset('/build/images/resto.svg') }}" alt="">
+						<img src="{{ asset('/build/images/resto.svg') }}" alt="icon d'une tête de chef de restaurant">
 					{% else %}
-						<img src="{{ asset('/build/images/fast.svg') }}" alt="">
+						<img src="{{ asset('/build/images/fast.svg') }}" alt="icon d'un burger illuminé ">
 					{% endif %}
 				{% endfor %}
 				<img class="touch-flip-card" src="{{ asset('/build/images/home/touch.svg') }}" alt="doigt qui click">

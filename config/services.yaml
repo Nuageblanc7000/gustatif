@@ -8,8 +8,8 @@ parameters:
     resto_mini_images: '%kernel.project_dir%/public/media/cache/miniature/images/restaurant'
     resto_bg_images: '%kernel.project_dir%/public/media/cache/bg_r/images/restaurant'
     
-    resto_bg_plats: '%kernel.project_dir%/public/media/cache/bg_r/images/restaurant'
     resto_plats: '%kernel.project_dir%/public/images/plats'
+    resto_bg_plats: '%kernel.project_dir%/public/media/cache/bg_r/images/restaurant'
     resto_mini_plats: '%kernel.project_dir%/public/media/cache/miniature/images/plats'
 
     avatar_user: '%kernel.project_dir%/public/images/avatar'
@@ -18,8 +18,9 @@ parameters:
 #pour mes fixtures----------------
     json_path_fixtures: '%kernel.project_dir%/src/DataFixtures/city-json.json'
     namejson_path_fixtures: '%kernel.project_dir%/src/DataFixtures/resto-name.json'
-    faker_images: '%kernel.project_dir%/src/DataFixtures/fakerImage'
+    faker_plats: '%kernel.project_dir%/src/DataFixtures/fakerPlats'
     faker_resto: '%kernel.project_dir%/src/DataFixtures/fakerResto'
+    faker_avatars: '%kernel.project_dir%/src/DataFixtures/avatarsFixtures'
 services:
     App\Service\FileUploader:
     App\Service\DeleteImageService:

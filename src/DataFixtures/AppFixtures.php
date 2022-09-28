@@ -9,6 +9,7 @@ use App\Entity\Image;
 use App\Entity\Comment;
 use App\Entity\Origine;
 use App\Entity\Category;
+use App\Entity\Plat;
 use App\Entity\Restaurant;
 
 use Faker\Factory as fake;
@@ -34,6 +35,8 @@ class AppFixtures extends Fixture
         //on scan le dossier pour créer les images aléatoires.
         $scanImages = scandir($this->parameterBag->get('faker_resto'));
         $arrayImages = array_splice($scanImages, 2, count($scanImages));
+        $scanPlats = scandir($this->parameterBag->get('faker_plats'));
+        $arrayPlats = array_splice($scanPlats, 2, count($scanPlats));
         $names = [
             "En-cas burrito",
             "Chez les Mariachis",
@@ -138,7 +141,7 @@ class AppFixtures extends Fixture
             $manager->persist($category);
             $categories[] = $category;
         }
-
+        //création du user admin
         $admin = new User();
         $admin->setEmail('wetterene.remy@gmail.com')
             ->setPseudo('rw-admin')
@@ -146,8 +149,21 @@ class AppFixtures extends Fixture
         $admin->setPassword($this->hasher->hashPassword($admin, 'admin7382'))
             ->setRoles(['ROLE_ADMIN']);
         $manager->persist($admin);
+
+        //création du user pour les gens qui delete
+        $anonymous = new User();
+        $anonymous->setEmail('anonyme.remy@gmail.com')
+            ->setPseudo('user-delete')
+            ->setIsAcountVerified(1);
+        $anonymous->setPassword($this->hasher->hashPassword($anonymous, 'admin7382'))
+            ->setRoles(['ROLE_ADMIN']);
+        $manager->persist($anonymous);
+        
         //création des users 
+
         $users = [];
+        $scanAvatarFixtures = scandir($this->parameterBag->get('faker_avatars'));
+        $arrayAvatarsFixtures = array_splice($scanAvatarFixtures,2,count($scanAvatarFixtures));
         $counter = 1;
         for ($u = 0; $u <= 40; $u++) {
             $user = new User();
@@ -157,9 +173,15 @@ class AppFixtures extends Fixture
                 ->setPassword($this->hasher->hashPassword($user, 'test'))
                 ->setPseudo($faker->userName)
                 ->setRoles($u % 2 ? ['ROLE_RESTAURATEUR'] : [])
-                ->setIsResto($u % 2 ? 1 : 0);
+                ->setIsResto($u % 2 ? 1 : 0);$randomAvatar = $faker->randomElement($arrayAvatarsFixtures);
+            $fileAvatar = new UploadedFile($this->parameterBag->get('faker_avatars'). '/' . $randomAvatar ,'avatar');
+            $fileAvatarName = uniqid('avatar',true).'.'.$fileAvatar->guessExtension();
+            copy($this->parameterBag->get('faker_avatars') . '/' . $randomAvatar, $this->parameterBag->get('avatar_user') . '/' . $fileAvatarName);
+            $user->setAvatar($fileAvatarName);
+            
             $manager->persist($user);
             $users[] = $user;
+
             if ($user->isIsResto()) {
 
                 $restaurant = new Restaurant();
@@ -186,14 +208,25 @@ class AppFixtures extends Fixture
                         $restaurant->setCover($image->getPath());
                     }
                 }
-           
+                for ($plat = 0; $plat < rand(0, 4); $plat++) {
+                    $platResto = new Plat();
+                    $randomPlat = $faker->randomElement($arrayPlats);
+                    $file = new UploadedFile($this->parameterBag->get('faker_plats') . '/' . $randomPlat, 'plat');
+                    $extension = $file->guessExtension();
+                    $filePlatName = uniqid("plat",true) . '.' . $extension;
+                    copy($this->parameterBag->get('faker_plats') . '/' . $randomPlat, $this->parameterBag->get('resto_plats') . '/' . $filePlatName);
+                    $platResto->setImage($filePlatName);
+                    $platResto->setName($faker->text(rand(10,25)));
+                    $manager->persist($platResto);
+                    $restaurant->addPlat($platResto);
+                }
                 $manager->persist($restaurant);
 
                 $schedule = $restaurant->getSchedule();
                 foreach ($schedule->getTimetables() as $key => $timeline) {
                     if ($key !== rand(1, count($schedule->getTimetables()))) {
                         $dateOpen = new DateTime('' . rand(6, 14) . ':0');
-                        $dateClose = new DateTime('' . rand(0,23) . ':0');
+                        $dateClose = new DateTime('' . rand(14,23) . ':0');
                         $timeline->setOpen($dateOpen)
                             ->setClose($dateClose);
                         $manager->persist($timeline);

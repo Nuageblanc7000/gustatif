@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {% trans %}
+        Page 404
+    {% endtrans %}
+{% endblock %}
+
+{% block body %}
+<section class="container-error-request-custom">
+
+<img src="{{asset('/build/images/errors/error.svg')}}" alt= {% trans %}"erreur sur fond rouge avec un panneau attention"{% endtrans %}>
+<h1>
+    {% trans %}Une erreur est survenue{% endtrans %}
+</h1>
+
+<a class="btn" href="{{path('home')}}"> {% trans %}Retour vers l'accueil{% endtrans %}</a>
+</section>
+{% endblock %}
