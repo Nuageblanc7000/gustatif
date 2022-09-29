@@ -4,6 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+#pour la gestion de la langue
+    app.locales: [fr, en, nl]
+
     resto_images: '%kernel.project_dir%/public/images/restaurant'
     resto_mini_images: '%kernel.project_dir%/public/media/cache/miniature/images/restaurant'
     resto_bg_images: '%kernel.project_dir%/public/media/cache/bg_r/images/restaurant'

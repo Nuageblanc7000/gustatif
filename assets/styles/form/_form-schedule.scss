@@ -66,38 +66,64 @@
                 color:var(--error2);
             }
         }
-}
-
-.container-form-schedule{
-    margin-bottom: 2rem;
-    max-width: 600px;
-    width: 100%;
-    .form-step{
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
+    }
+    
+    .container-form-schedule{
+        margin-bottom: 2rem;
+        max-width: 600px;
+        width: 100%;
+        .form-step{
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            .title-open-close{
+                margin:0.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2rem;
+                color: var(--secondary);
+                font-family: var(--title-font);
+                
+            }
+            .schedule-days-input-container{
+                color: var(--secondary);
+                font-family: var(--title-font2);
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: url('/assets/images/pencil-grey.svg');
+                background-repeat:space;
+                background-size: cover;
+                background-position: center center;
+                min-height: inherit;
+                color: var(--white);
+            }
         .form-group-times{
-
             display: grid;
-            grid-template-columns: repeat(3,minmax(80px,90px));
+            grid-template-columns: repeat(2,minmax(80px,1fr));
             gap: 10px;
             padding:0 0.3rem;
             justify-content: space-between;
-            margin:2rem 0;
-            .schedule-days-input-container{
-                // margin: 0 auto;
-           
-            
+            margin:1rem 0;
+          
+            .spacer-time{
+                padding:0 0.3rem;
             }
             .schedule-time-input-container{
                 margin: 0 auto;
                 display: flex;
+                flex-direction: column;
+
             }
             .clock-svg{
                 content:url('/assets/images/time.svg');
- 
-                    width: 20px;
-                    height: 20px;
-                   
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 15px;
+                    height: 100%;
+                    padding: 0 0.2rem;
                     -o-object-fit: contain;
                        object-fit: contain;
                        -webkit-user-select: none;
@@ -113,8 +139,8 @@
                 width: -webkit-fit-content;
                 width: -moz-fit-content;
                 width: fit-content;
-          
                 color: var(--secondary);
+                background: none;
             }
             [type="time"]::-webkit-inner-spin-button {
                 display: none;
@@ -124,14 +150,16 @@
                   }
             
         }
-        .title-group-time{
-            span{
-                font-weight: bold;
-                text-align: center;
-                font-size: 1.8rem;
-                font-family: var(--title-font);
-            }
-        }
+     
+        // .title-group-time{
+        //     grid-template-columns: repeat(3,1fr);
+        //     span{
+        //         font-weight: bold;
+        //         text-align: center;
+        //         font-size: 1.8rem;
+        //         font-family: var(--title-font);
+        //     }
+        // }
         // button[type="submit"]{
         //     @extend .btn;
         // }
@@ -142,5 +170,9 @@
 
 .bg-error-time{
     background-color: var(--error2) !important;
-    color: white!important;
+    input{
+        color: white!important;
+        span{
+        }
+    }
 }

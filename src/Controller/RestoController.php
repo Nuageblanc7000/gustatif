@@ -66,7 +66,7 @@ class RestoController extends AbstractController
     {
         $comment = new Comment();
         $user = $this->getUser();
-
+        $days = [$translator->trans('lundi'),$translator->trans('mardi'),$translator->trans('mercredi'),$translator->trans('jeudi'),$translator->trans('vendredi'),$translator->trans('samedi'),$translator->trans('dimanche')];
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -92,6 +92,7 @@ class RestoController extends AbstractController
             'resto' => $resto,
             'longi' => $longi,
             'lati' => $lati,
+            'days'=>$days,
             'form' => $form->createView(),
             'repo' => $commentRepository->findBy(['resto' => $resto], ['id' =>  'DESC']),
         ]);

@@ -26,6 +26,12 @@ class Timetable
     #[ORM\ManyToOne(inversedBy: 'timetables')]
     private ?Schedule $schedule = null;
 
+    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $openpm = null;
+
+    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $closepm = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +81,30 @@ class Timetable
     public function setSchedule(?Schedule $schedule): self
     {
         $this->schedule = $schedule;
+
+        return $this;
+    }
+
+    public function getOpenpm(): ?\DateTimeInterface
+    {
+        return $this->openpm;
+    }
+
+    public function setOpenpm(?\DateTimeInterface $openpm): self
+    {
+        $this->openpm = $openpm;
+
+        return $this;
+    }
+
+    public function getClosepm(): ?\DateTimeInterface
+    {
+        return $this->closepm;
+    }
+
+    public function setClosepm(?\DateTimeInterface $closepm): self
+    {
+        $this->closepm = $closepm;
 
         return $this;
     }

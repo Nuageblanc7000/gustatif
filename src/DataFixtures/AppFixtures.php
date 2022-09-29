@@ -225,10 +225,17 @@ class AppFixtures extends Fixture
                 $schedule = $restaurant->getSchedule();
                 foreach ($schedule->getTimetables() as $key => $timeline) {
                     if ($key !== rand(1, count($schedule->getTimetables()))) {
-                        $dateOpen = new DateTime('' . rand(6, 14) . ':0');
-                        $dateClose = new DateTime('' . rand(14,23) . ':0');
+                        $dateOpen = new DateTime('' . rand(
+                            1, 6) . ':0');
+                        $dateClose = new DateTime('' . rand(9,14) . ':0');
+                        $dateOpenpm = new DateTime('' . rand(
+                            15,19) . ':0');
+                        $dateClosepm = new DateTime('' . rand(20,23) . ':0');
                         $timeline->setOpen($dateOpen)
-                            ->setClose($dateClose);
+                            ->setClose($dateClose)
+                            ->setOpenpm($dateOpenpm)
+                            ->setClosepm($dateClosepm)
+                            ;
                         $manager->persist($timeline);
                     }
                 }

@@ -1,3 +1,4 @@
+{% set locale = app.request.locale %}
 <div class="js-move"></div>
 <section class="container-hourly">
 				<h2>
@@ -10,14 +11,26 @@
 						{% for key,time in resto.schedule.timetables %}
 
 							<li {% if time.open == null and time.close == null %} class="closed-resto" {% endif %}>
-
 								<span class="day">{{days[key]}}</span>
 								<span class="container-hour">
 									<span>
-										{% if time.open == null and time.close == null %}
-											Fermé
+										{% if time.open == null and time.close == null and time.openpm == null and time.closepm == null %}
+											{% trans %}
+											Fermé toute la journée
+											{% endtrans %}
 										{% else %}
-											{{time.open|format_datetime('none', 'short', locale='fr')}} - {{time.close|format_datetime('none', 'short', locale='fr')}}
+										{% if time.open == null and time.close == null %}
+											Fermé au matin
+											{% else %}
+											{{time.open|format_datetime('none', 'short', locale=locale)}} - {{time.close|format_datetime('none', 'short', locale=locale)}}
+											{% endif %}
+
+											
+										{% if time.openpm == null and time.closepm == null %}
+											{% else %}
+											|
+												{{time.openpm|format_datetime('none', 'short', locale=locale)}} - {{time.closepm|format_datetime('none', 'short', locale=locale)}}
+											{% endif %}
 										{% endif %}
 									</span>
 								</span>

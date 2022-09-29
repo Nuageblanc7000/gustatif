@@ -32,8 +32,8 @@
 <tr>
 <td style="text-align:center; padding-bottom:40px;">
 <table class="contenu" width="100%" style="text-align:center;">
-    <p>Veuillez confirmer votre email avant de pouvoir utiliser nos services</p>
-    <a href="{{url('active-account', {'token' : token } )}}"> Activer mon compte </a>
+    <p> {% trans %}Veuillez confirmer votre email avant de pouvoir utiliser nos services{% endtrans %}</p>
+    <a href="{{url('active-account', {'token' : token } )}}">  {% trans %}Activer mon compte{% endtrans %} </a>
 </table>
 </td>
 </tr>

@@ -48,3 +48,16 @@ if (
 if (document.querySelector("flash-message") !== null) {
   customElements.define("flash-message", Notyf_flash);
 }
+
+//active langage dropdown
+
+
+const langButton = document.querySelector('.dropdown-country');
+const langDown = document.querySelector('.first-country');
+console.log(langButton);
+
+const activeLangdown = () =>  
+{
+  langDown.classList.toggle('active-lang-down')
+}
+langButton.addEventListener('click',activeLangdown)

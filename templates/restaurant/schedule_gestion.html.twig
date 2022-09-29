@@ -18,7 +18,6 @@
 			</div>
 		</div>
 		<div class="container-form-schedule">
-			{% set days = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'] %}
 			{{form_start(form)}}
 			<div class="legend-form-schedule">
 				<h2>{% trans %}Bon à savoir
@@ -31,40 +30,44 @@
 					Laisser les champs vides si l'établissement est fermé.
 					{% endtrans %}
 				</span>
-
 			</span>
 		</div>
 		<div class="form-step">
 			<div class="form-schedule-container-time">
-				<div class="form-group-times title-group-time">
-					<span>
-						{% trans %}
-						Jour
-						{% endtrans %}</span>
-					<span>{% trans %}
-						Ouverture
-						{% endtrans %}
-					</span>
-					<span>{% trans %}Fermeture
-						{% endtrans %}</span>
-				</div>
 
+							<div class='title-open-close'>
+							{% trans %}
+							Heure d'ouverture
+							{% endtrans %}
+							</div>
 				{% for key,time in form.timetables %}
 
-					<div class="form-group-times {% for error in errors %} {% if error == key %} bg-error-time  {% endif %}{% endfor %}">
 						<span class="schedule-days-input-container">
 							{{days[key]}}
 						</span>
+					<div class="form-group-times {% for error in errors %} {% if error == key %} bg-error-time  {% endif %}{% endfor %}">
 						<div class="schedule-time-input-container">
-							{{form_widget(time.open)}} 
-							<span class="clock-svg">
-							</span>
+				
+							<div class="d-flex">
+								{{form_widget(time.open)}}
+								<span class="clock-svg"></span>
+								
+								<span class="spacer-time">|</span>
+								{{form_widget(time.close)}}
+								<span class="clock-svg"></span>
+							</div>
 						</div>
 						<div class="schedule-time-input-container">
-							{{form_widget(time.close)}}
-							<span class="clock-svg">
-							</span>
+							<div class="d-flex">
+								{{form_widget(time.openpm)}}
+								<span class="clock-svg"></span>
+								
+								<span class="spacer-time">|</span>
+								{{form_widget(time.closepm)}}
+								<span class="clock-svg"></span>
+							</div>
 						</div>
+
 					</div>
 					<div class="form-groups-errors">
 						{% if  form_errors(time.open) %}

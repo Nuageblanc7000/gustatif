@@ -28,6 +28,17 @@ class TimetableType extends AbstractType
             'placeholder' => 'fermé',
             ])
 
+        ->add('openpm',TimeType::class,[
+                'widget' => 'single_text',
+                'required' => false,
+                'placeholder' => 'fermé',
+                ])
+                ->add('closepm',TimeType::class,[
+                    'widget' => 'single_text',
+                    'required' => false,
+                    'placeholder' => 'fermé',
+                    ])
+
     ;
 }
 

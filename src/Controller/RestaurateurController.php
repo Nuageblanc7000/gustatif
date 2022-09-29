@@ -283,7 +283,7 @@ class RestaurateurController extends AbstractController
         $resto = $repo->findOneBy(['schedule' => $schedule]);
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO', $resto);
         $form = $this->createForm(ScheduleType::class, $schedule);
-
+        $days = [$translator->trans('lundi'),$translator->trans('mardi'),$translator->trans('mercredi'),$translator->trans('jeudi'),$translator->trans('vendredi'),$translator->trans('samedi'),$translator->trans('dimanche')];
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($schedule);
@@ -292,7 +292,7 @@ class RestaurateurController extends AbstractController
             $this->addFlash('success', $message);
              return $this->redirectToRoute('app_profil',['div'=>'resto-info']);
         }
-        return $this->render('/restaurant/schedule_gestion.html.twig', ['form' => $form->createView()]);
+        return $this->render('/restaurant/schedule_gestion.html.twig', ['form' => $form->createView(),'days' => $days]);
     }
 
 

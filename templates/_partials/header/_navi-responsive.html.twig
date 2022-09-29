@@ -28,17 +28,17 @@
 		{% endif %}
 	</div>
 	<div class="container-search-header search-phone-header">
-				<form action="{{path('restos_list')}}" method="get" class="header-form-search">
-					<picture>
-						<i class="fa-solid fa-location-dot"></i>
-					</picture>
-					<input type="text" name="s" placeholder={% trans %} "Entrer une ville, nom du restaurant" {% endtrans %}>
-					<button class='header-form-search-submit' type="submit">
-						<img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe avec un restaurant">
-					</button>
-				</form>
+		<form action="{{path('restos_list')}}" method="get" class="header-form-search">
+			<picture>
+				<i class="fa-solid fa-location-dot"></i>
+			</picture>
+			<input type="text" name="s" placeholder={% trans %} "Entrer une ville, nom du restaurant" {% endtrans %}>
+			<button class='header-form-search-submit' type="submit">
+				<img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe avec un restaurant">
+			</button>
+		</form>
 
-			</div>
+	</div>
 	<div class="navigation-responsive-list">
 		<ul>
 			{% if app.user %}
@@ -123,5 +123,19 @@
 			{% endif %}
 
 		</ul>
+		<div class="langage-navi-responsive">
+			<div class="choice-langage-navi-responsive">
+				{% for locale in locales %}
+					{% if app.request.locale != locale  %}
+						<a class="" href="{{path('locale' , {'locale' : locale })}}">
+							<img src="{{asset('/build/images/pays/'~locale~'.svg')}}" alt={% trans %} "cercle avec drapeau en fond" {% endtrans %}>
+							<span>
+								{{locale}}
+							</span>
+						</a>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
 	</div>
 </div></div>

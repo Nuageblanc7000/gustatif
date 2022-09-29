@@ -89,6 +89,25 @@
 					<i class="mx-2 fa-solid fa-chevron-down"></i>
 				</button>
 			{% endif %}
+				<!-- dropdown -->
+	<div class="dropdown-country">
+		<div class="visible">
+			<img src="{{asset('/build/images/pays/'~ app.request.locale ~'.svg')}}" alt={% trans %} "cercle avec drapeau en fond" {% endtrans %}>
+		</div>
+		<div class="first-country">
+			{% for locale in locales %}
+				{% if app.request.locale != locale  %}
+					<a class="" href="{{path('locale' , {'locale' : locale })}}">
+						<img src="{{asset('/build/images/pays/'~locale~'.svg')}}" alt={% trans %} "cercle avec drapeau en fond" {% endtrans %}>
+						<span>
+							{{locale}}
+						</span>
+					</a>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	<!-- dropdown -->
 		</div>
 		<div class="container-anim-burger">
 			<button class="menu"  aria-label="Main Menu">
@@ -102,7 +121,6 @@
 
 		{# partie profil  #}
 		<div class="menu-down-profil">
-
 			<div class="menu-down-info-profil">
 				{% if app.user %}
 					<button class="header-btn-profil">
@@ -165,7 +183,6 @@
 					</a>
 				</li>
 			</ul>
-
 		</div>
 	</div>
 </header>

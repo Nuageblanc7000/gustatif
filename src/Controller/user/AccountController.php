@@ -202,7 +202,6 @@ class AccountController extends AbstractController
     
     public function beforeDeleting(): Response
     {
-
         return $this->render('/profil/_profil-delete.html.twig', []);
     }
 
@@ -219,12 +218,19 @@ class AccountController extends AbstractController
     * @return Response
     */
     #[Route('/profil/user/delete', name: 'delete_profil')]
-    public function delete(UserRepository $userRepository,Request $req, TokenResolveRepository $tokenRepo, ImageDelService $ImageDelService,DeleteRestoService $deleteRestoService ,TranslatorInterface $translator): Response
+    public function delete(UserRepository $userRepository,Request $req, TokenResolveRepository $tokenRepo, ImageDelService $ImageDelService,DeleteRestoService $deleteRestoService ,TranslatorInterface $translator,EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
         $session = $req->getSession();
         $session->set('bye','bye'); 
         $token = $tokenRepo->findOneBy(['userCurrent' => $user->getId()]);
+          //user anonyme pour les commentaires
+          $anonymousUser = $userRepository->findOneBy(['pseudo'=>'user-delete']);
+          $comments = $user->getComments();
+          foreach ($comments as $com) {
+              $com->setAuthor($anonymousUser);
+              $em->persist($com);
+          }
         if (in_array('ROLE_RESTAURATEUR', $user->getRoles())) {
             //on vérifie d'abord qu'il y a bien un resto sinon ça sert à rien de boucler dans le vide
             $restos = $user->getRestaurant();
@@ -247,8 +253,8 @@ class AccountController extends AbstractController
             $ImageDelService->delete();
         }
         $message = $translator->trans('Nous espérons vous revoir vite') .' '. $user->getPseudo();
-           
-        $userRepository->remove($user, true);
+        $em->remove($user);
+        $em->flush();
         $this->addFlash('sucess',$message);
         
         $ref = $req->headers->set('referer','');

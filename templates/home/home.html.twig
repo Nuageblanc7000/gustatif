@@ -5,21 +5,22 @@
 {% endblock %}
 
 {% block body %}
-	
-	<section class="banner container-fluid home-banner" style="background-image:url({{asset('/build/images/site/banner1.jpg')}})">
+
+	<section class="banner container-fluid home-banner" style="background-image:url({{asset('/build/images/site/banner1.jpg')|imagine_filter('bg_r') }})">
 		<div class="container d-flex justify-content-center logo-banner">
 			<figure>
 				<img src=" {{asset('/build/images/banner-logo.svg')}} " alt="logo to link">
 			</figure>
 		</div>
-		
+
 	</section>
+
 
 	<section class="content-card container-fluid">
 		<div class="container">
-			
-				{% include "/_partials/_flip-card.html.twig" %}
-			
+
+			{% include "/_partials/_flip-card.html.twig" %}
+
 			<div class="info-full">
 				<img src="{{ asset('/build/images/home/moreResto.svg') }}" alt="">
 				<div class="info">
@@ -38,10 +39,10 @@
 					<a class="btn-flip-card" href="{{path('restos_list')}}">
 						<h4>
 							{% trans %}
-							Voir tous les établissements 
+							Voir tous les établissements
 							{% endtrans %}
 						</h4>
-						<svg fill="#333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/><path d="M0-.25h24v24H0z" fill="none"/></svg>
+						<svg fill="#333" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/><path d="M0-.25h24v24H0z" fill="none"/></svg>
 					</a>
 
 				</div>
@@ -59,7 +60,7 @@
 				<div class="slide-pub-resto">
 					<h2>
 						{% trans %}
-						 Vous êtes restaurateur ? 
+						Vous êtes restaurateur ?
 						{% endtrans %}
 					</h2>
 					<div class="slide-pub-points">
@@ -68,12 +69,12 @@
 								{% trans %}
 								Partagez vos délicieux plat avec la communauté ToLink et faites vous de nouveau client.
 								{% endtrans %}
-								</li>
+							</li>
 							<li>
 								{% trans %}
 								Créer votre page restaurant et gérez là pour augmenter votre popularité.
 								{% endtrans %}
-								</li>
+							</li>
 						</ul>
 					</div>
 					<div class="container-pub-btn">
@@ -83,16 +84,15 @@
 								S'inscrire dès maintenant
 								{% endtrans %}
 							</h4>
-							<svg fill="#333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/><path d="M0-.25h24v24H0z" fill="none"/></svg>
+							<svg fill="#333" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"/><path d="M0-.25h24v24H0z" fill="none"/></svg>
 						</a>
-					
+
 					</div>
-				</div>	
+				</div>
 			</div>
 		</div>
 	</section>
 {% endblock %}
-
 {% block javascripts %}
 	{{ parent() }}
 	{{ encore_entry_script_tags('flip-card') }}
