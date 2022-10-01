@@ -42,46 +42,44 @@ class AccountController extends AbstractController
     public function ProfilResto(ChartBuilderInterface $chartBuilder, TranslatorInterface $translator, SerializerInterface $serializerInterface): Response
     {
         $user = $this->getUser();
-        if(in_array('ROLE_RESTAURATEUR',$user->getRoles()) || in_array('ROLE_ADMIN',$user->getRoles())){
+        if (in_array('ROLE_RESTAURATEUR', $user->getRoles()) || in_array('ROLE_ADMIN', $user->getRoles())) {
             $restos = $user->getRestaurant();
-            $tabCharts =[];
+            $tabCharts = [];
             $dates = new \DateTimeImmutable();
             $data = [];
-            $label = [$translator->trans('Commentaires'),$translator->trans('Followers')];
+            $label = [$translator->trans('Commentaires'), $translator->trans('Followers')];
             foreach ($restos as  $resto) {
-                $data=[$comments = count($resto->getComments()),count($resto->getLikes())];
-                
-            
-              $chart = $chartBuilder->createChart(Chart::TYPE_BAR);
-              //ici pour connaitre le nombre de commentaire du restaurant
-              $chart->setData([
-                'labels' => $label,
-                'datasets' => [
-                    [
-                        'label' => $resto->getName(),
-                        'backgroundColor' => ["#FFB714", "#1c2826" ],
-                        'borderColor' => '',
-                        'data' => $data,
+                $data = [$comments = count($resto->getComments()), count($resto->getLikes())];
+
+
+                $chart = $chartBuilder->createChart(Chart::TYPE_BAR);
+                //ici pour connaitre le nombre de commentaire du restaurant
+                $chart->setData([
+                    'labels' => $label,
+                    'datasets' => [
+                        [
+                            'label' => $resto->getName(),
+                            'backgroundColor' => ["#FFB714", "#1c2826"],
+                            'borderColor' => '',
+                            'data' => $data,
+                        ],
                     ],
-                ],
-            ]);
-            $chart->setOptions([
-                'y' => [
-                    'suggestedMin' => 0,
-                    'suggestedMax' => '',
-                ],
-            ]);
-         
-            $tabCharts[] = $chart;
-            
-    }
-           
+                ]);
+                $chart->setOptions([
+                    'y' => [
+                        'suggestedMin' => 0,
+                        'suggestedMax' => '',
+                    ],
+                ]);
+
+                $tabCharts[] = $chart;
+            }
+
             return $this->render('profil/index.html.twig', [
                 'charts' => $tabCharts,
             ]);
-        }else{
-            return $this->render('profil/index.html.twig', [
-            ]);
+        } else {
+            return $this->render('profil/index.html.twig', []);
         }
     }
 
@@ -92,7 +90,7 @@ class AccountController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    #[Route('/profil/user/edit', name: 'profil_edit',priority:1)]
+    #[Route('/profil/user/edit', name: 'profil_edit', priority: 1)]
     public function userEdit(Request $req, EntityManagerInterface $em, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
@@ -109,7 +107,7 @@ class AccountController extends AbstractController
             $em->persist($user);
             $em->flush();
             $message = $translator->trans('Mise à jour du profil réussie');
-            $this->addFlash('success',$message);
+            $this->addFlash('success', $message);
             return $this->redirectToRoute('app_profil', [], Response::HTTP_FOUND);
         }
 
@@ -126,7 +124,7 @@ class AccountController extends AbstractController
      * @param EntityManagerInterface $em
      * @return Response
      */
-    #[Route('/profil/password', name: 'profil_modify_password',priority:4)]
+    #[Route('/profil/password', name: 'profil_modify_password', priority: 4)]
     function modifyPassword(Request $req, EntityManagerInterface $em, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
@@ -137,7 +135,7 @@ class AccountController extends AbstractController
             $em->persist($user);
             $em->flush();
             $message = $translator->trans('Mot de passe mis à jour');
-            $this->addFlash('success',$message);
+            $this->addFlash('success', $message);
             return $this->redirectToRoute('app_profil', [], Response::HTTP_FOUND);
         }
 
@@ -158,7 +156,7 @@ class AccountController extends AbstractController
      * @param DeleteImageService $DeleteImageService
      * @return Response
      */
-    #[Route('/profil/avatar', name: 'profil_modify_avatar',priority:4)]
+    #[Route('/profil/avatar', name: 'profil_modify_avatar', priority: 4)]
     public function ModifyAvatar(Request $req, EntityManagerInterface $em, FileUpload $fileUploader, ImageDelService $ImageDelService, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
@@ -184,7 +182,7 @@ class AccountController extends AbstractController
                 $em->persist($user);
                 $em->flush();
                 $message = $translator->trans('Photo profil modifiée');
-                $this->addFlash('success',$message);
+                $this->addFlash('success', $message);
                 return $this->redirectToRoute('app_profil', [], Response::HTTP_FOUND);
             }
         }
@@ -198,53 +196,55 @@ class AccountController extends AbstractController
      *
      * @return Response
      */
-    #[Route('/profil/user/deleting',name:'profil_deleting',priority:4)]
-    
+    #[Route('/profil/user/deleting', name: 'profil_deleting', priority: 4)]
+
     public function beforeDeleting(): Response
     {
         return $this->render('/profil/_profil-delete.html.twig', []);
     }
 
 
-   /**
-    * permet de supprimer son profil et toutes les liaisons si on est restaurateur
-    *
-    * @param UserRepository $userRepository
-    * @param Request $req
-    * @param TokenResolveRepository $tokenRepo
-    * @param ImageDelService $ImageDelService
-    * @param DeleteRestoService $deleteRestoService
-    * @param TranslatorInterface $translator
-    * @return Response
-    */
+    /**
+     * permet de supprimer son profil et toutes les liaisons si on est restaurateur
+     *
+     * @param UserRepository $userRepository
+     * @param Request $req
+     * @param TokenResolveRepository $tokenRepo
+     * @param ImageDelService $ImageDelService
+     * @param DeleteRestoService $deleteRestoService
+     * @param TranslatorInterface $translator
+     * @return Response
+     */
     #[Route('/profil/user/delete', name: 'delete_profil')]
-    public function delete(UserRepository $userRepository,Request $req, TokenResolveRepository $tokenRepo, ImageDelService $ImageDelService,DeleteRestoService $deleteRestoService ,TranslatorInterface $translator,EntityManagerInterface $em): Response
+    public function delete(UserRepository $userRepository, Request $req, TokenResolveRepository $tokenRepo, ImageDelService $ImageDelService, DeleteRestoService $deleteRestoService, TranslatorInterface $translator, EntityManagerInterface $em): Response
     {
         $user = $this->getUser();
         $session = $req->getSession();
-        $session->set('bye','bye'); 
+        $session->set('bye', 'bye');
         $token = $tokenRepo->findOneBy(['userCurrent' => $user->getId()]);
-          //user anonyme pour les commentaires
-          $anonymousUser = $userRepository->findOneBy(['pseudo'=>'user-delete']);
-          $comments = $user->getComments();
-          foreach ($comments as $com) {
-              $com->setAuthor($anonymousUser);
-              $em->persist($com);
-          }
+
+        //user anonyme pour les commentaires
+        $anonymousUser = $userRepository->findOneBy(['pseudo' => 'user-delete']);
+        $comments = $user->getComments();
+        foreach ($comments as $com) {
+            $com->setAuthor($anonymousUser);
+            $em->persist($com);
+        }
         if (in_array('ROLE_RESTAURATEUR', $user->getRoles())) {
             //on vérifie d'abord qu'il y a bien un resto sinon ça sert à rien de boucler dans le vide
             $restos = $user->getRestaurant();
             if (count($restos) > 0) {
                 foreach ($restos as  $resto) {
-                 $deleteRestoService->destroy($resto);
+                    $deleteRestoService->destroy($resto);
                 }
             }
         }
+
         if ($token) {
             $tokenRepo->remove($token, true);
         }
         $this->container->get('security.token_storage')->setToken(null);
-        if(!empty($user->getAvatar())){
+        if (!empty($user->getAvatar())) {
             $ImageDelService->setTargetDirectory([
                 $this->getParameter('avatar_user') . '/' . $user->getAvatar(),
                 $this->getParameter('avatar_user_mini') . '/' . $user->getAvatar(),
@@ -252,15 +252,14 @@ class AccountController extends AbstractController
             ]);
             $ImageDelService->delete();
         }
-        $message = $translator->trans('Nous espérons vous revoir vite') .' '. $user->getPseudo();
+        $message = $translator->trans('Nous espérons vous revoir vite') . ' ' . $user->getPseudo();
         $em->remove($user);
         $em->flush();
-        $this->addFlash('sucess',$message);
-        
-        $ref = $req->headers->set('referer','');
+        $this->addFlash('sucess', $message);
+
         return $this->redirectToRoute('home');
     }
-    
+
     /**
      * permet d'enlever un like du compte courant
      *
@@ -272,16 +271,16 @@ class AccountController extends AbstractController
      */
     #[IsGranted('ROLE_USER')]
     #[Route('/profil/user/dislike/{id}', name: 'dislike_resto')]
-    public function dislikeResto(Like $like,EntityManagerInterface $em,TranslatorInterface $translator): Response
+    public function dislikeResto(Like $like, EntityManagerInterface $em, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
-        if($like->getUser() !== $user){
+        if ($like->getUser() !== $user) {
             return  throw new AccessDeniedHttpException(message: 'Accès refusé', code: 403);
         }
-        $message = $translator->trans('Restaurant enlevé des favoris') .' '. $like->getRestaurant()->getName();
-        $this->addFlash('success',$message);
+        $message = $translator->trans('Restaurant enlevé des favoris') . ' ' . $like->getRestaurant()->getName();
+        $this->addFlash('success', $message);
         $em->remove($like);
         $em->flush();
-        return $this->redirectToRoute('app_profil', ['div'=>'favoris-profil']);
+        return $this->redirectToRoute('app_profil', ['div' => 'favoris-profil']);
     }
 }

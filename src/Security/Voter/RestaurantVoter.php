@@ -31,7 +31,7 @@ class RestaurantVoter extends Voter
         // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
             case self::VIEW:
-                if($subject->getUser() == $user and in_array('ROLE_RESTAURATEUR',$user->getRoles()) || in_array('ROLE_ADMIN',$user->getRoles()))
+                if(($subject->getUser() == $user and in_array('ROLE_RESTAURATEUR',$user->getRoles())) || in_array('ROLE_ADMIN',$user->getRoles()))
                 {
                     return true;
                 }else{

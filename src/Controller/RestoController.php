@@ -41,7 +41,7 @@ class RestoController extends AbstractController
         $data = new DataFilter();
         $form = $this->createForm(FilterType::class, $data);
         $form->handleRequest($req);
-        $paginator = $paginatorInterface->paginate($repo->restoPaginator($data), $req->query->getInt('page', 1));
+        $paginator = $paginatorInterface->paginate($repo->restoPaginator($data), $req->query->getInt('page', 1),10);
         if ($form->isSubmitted() && $form->isValid()) {
         }
         return $this->render('restaurant/restaurants.html.twig', [

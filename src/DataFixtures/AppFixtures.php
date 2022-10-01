@@ -187,16 +187,16 @@ class AppFixtures extends Fixture
                 $restaurant = new Restaurant();
                 $restaurant->addCategory($faker->randomElement($categories))
                     ->addOrigine($faker->randomElement($entityOrigines))
-                    ->setAdress($faker->address())
+                    ->setAdress($faker->unique()->streetName())
                     ->setCity($faker->randomElement($arrayCities))
                     ->setDescription($faker->text(250))
                     ->setPhone($faker->phoneNumber())
                     ->setUser($user);
                 $restaurant->setName($names[$u]);
 
-                for ($img = 0; $img < rand(1, 4); $img++) {
+                for ($img = 0; $img < rand(1, 1); $img++) {
                     $image = new Image();
-                    $randomImage = $faker->randomElement($arrayImages);
+                    $randomImage = $faker->unique()->randomElement($arrayImages);
                     $file = new UploadedFile($this->parameterBag->get('faker_resto') . '/' . $randomImage, 'image');
                     $extension = $file->guessExtension();
                     $filename = uniqid() . '.' . $extension;
@@ -208,9 +208,9 @@ class AppFixtures extends Fixture
                         $restaurant->setCover($image->getPath());
                     }
                 }
-                for ($plat = 0; $plat < rand(0, 4); $plat++) {
+                for ($plat = 0; $plat < rand(1, 2); $plat++) {
                     $platResto = new Plat();
-                    $randomPlat = $faker->randomElement($arrayPlats);
+                    $randomPlat = $faker->unique()->randomElement($arrayPlats);
                     $file = new UploadedFile($this->parameterBag->get('faker_plats') . '/' . $randomPlat, 'plat');
                     $extension = $file->guessExtension();
                     $filePlatName = uniqid("plat",true) . '.' . $extension;

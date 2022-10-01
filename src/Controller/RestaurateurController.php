@@ -139,10 +139,10 @@ class RestaurateurController extends AbstractController
     {
         $user = $this->getUser();
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO', $resto);
-        if ($resto->getUser() !== $user) {
-            // gestion de la securité avec retour vers page 403
-            return  throw new AccessDeniedHttpException(message: 'Accès refusé', code: 403);
-        }
+        // if (!$this->isGranted('ROLE_ADMIN',$user) || ($resto->getUser() !== $user)) {
+        //     // gestion de la securité avec retour vers page 403
+        //     return  throw new AccessDeniedHttpException(message: 'Accès refusé', code: 403);
+        // }
         $form = $this->createForm(RestoType::class, $resto);
         $limit = 4;
         $form->handleRequest($req);
@@ -168,7 +168,12 @@ class RestaurateurController extends AbstractController
                     $em->flush();
                     $message = 'Restaurant '.$resto->getName().' à bien été modifié';
                     $this->addFlash('succes', $message);
-                    return $this->redirectToRoute('app_profil',['div'=>'resto-info']);
+                   
+                    if($this->isGranted('ROLE_ADMIN') and $resto->getUser() !== $user){
+                        return $this->redirectToRoute('app_admin_restos');                  
+                    }else{
+                        return $this->redirectToRoute('app_profil',['div'=>'resto-info']);
+                    }
                 } else {
                     $form->get('images')->addError(new FormError(
                         
@@ -298,12 +303,19 @@ class RestaurateurController extends AbstractController
 
 
 
+    /**
+     * message avant suppression
+     *
+     * @param Restaurant $resto
+     * @return Response
+     */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/warning/delete/{id}', name: 'resto_warning_delete')]
     public function restoWarningDelete(Restaurant $resto): Response
     {
         return $this->render('/restaurant/restaurant_delete.html.twig', ['resto' => $resto]);
     }
+
     /**
      * permet la suppression d'un restaurant
      *
@@ -313,10 +325,19 @@ class RestaurateurController extends AbstractController
      */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/delete/{id}', name: 'resto_delete')]
-    public function deleteResto(Request $req, Restaurant $resto, DeleteRestoService $deleteRestoService): Response
+    public function deleteResto(Request $req, Restaurant $resto, DeleteRestoService $deleteRestoService , TranslatorInterface $translator): Response
     {
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO', $resto);
+        $message = "restaurant ".$resto->getName()." supprimé";
+        $this->addFlash(
+           'success',
+           $message
+        );
         $deleteRestoService->destroy($resto);
+        
+      if ($this->isGranted('ROLE_ADMIN') and $resto->getUser() !== $this->getUser()) {
+        return $this->redirectToRoute('app_admin_restos');
+      }
         return $this->redirectToRoute('app_profil', ['div' => 'resto-info']);
     }
 }

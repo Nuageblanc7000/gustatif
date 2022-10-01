@@ -43,7 +43,7 @@ security:
     role_hierarchy:
         ROLE_RESTAURATEUR: ROLE_USER
         ROLE_SIMPLE_USER: ROLE_USER
-        ROLE_ADMIN: [ROLE_RESTAURATEUR,ROLE_SIMPLE_USER]
+        ROLE_ADMIN: ['ROLE_RESTAURATEUR']
         
 when@test:
     security:

@@ -1,0 +1,75 @@
+{% extends '/admin/adminBase.html.twig' %}
+{% block title %}
+	{% trans %}Gestion Restaurants{% endtrans %}
+{% endblock %}
+{% block body %}
+	<div class="container container-main-admin">
+		<section class="dashboard-container">
+			{% include "/admin/dash_board/_nav-admin.html.twig" %}
+
+
+							<h1>{% trans %}Gestion Restaurants{% endtrans %}</h1>
+			<div class="container-search-admin">
+				{{form_start(form)}}
+				{{form_row(form.search,{'attr':{'placeholder':'Recherche par nom /ville / tel'}} )}}
+				<button type="submit"><img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe"></button>
+				{{form_end(form)}}
+				</div>
+				<table>
+					<thead>
+						<tr>
+							<th scope="col">{% trans %} Propriétaire {% endtrans %}</th>
+							<th scope="col">{% trans %} Etablissement {% endtrans %}</th>
+							<th scope="col">{% trans %} Téléphone {% endtrans %}</th>
+							<th scope="col">{% trans %} Ville{% endtrans %} </th>
+							<th scope="col">{% trans %} Adresse {% endtrans %}</th>
+							<th scope="col">{% trans %} action {% endtrans %}</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for resto in restos %}
+						
+					
+						<tr>
+							<td data-label={% trans %} "Proriétaire"{% endtrans %}>
+								{{resto.user.pseudo}}
+							</td>
+							<td data-label={% trans %}  "Etablissement"{% endtrans %}>{{resto.name}}</td>
+							<td data-label={% trans %} "Téléphone"{% endtrans %}>{{resto.phone}}</td>
+							<td data-label={% trans %} "Ville"{% endtrans %}>
+								{% if resto.city.localite is defined %}
+									{{resto.city.localite}}
+									{% else %}
+										---
+								{% endif %}
+							</td>
+							<td data-label={% trans %} "Adresse"{% endtrans %}>
+								{% if resto.adress != '' %}
+									{{resto.adress}}
+									{% else %}
+										---
+								{% endif %}
+							</td>
+
+							<td  class="action-admin-btn-container">
+							<div class="action-container-admin">
+								<a href="{{path('resto_modify',{'id':resto.id})}}" class="action-btn-admin-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+								<a href="" data-path={{ url('resto_delete',{'id':resto.id})}}
+								data-pseudo='{{resto.name}}' class="action-btn-admin-delete"><i class="fa-solid fa-user-minus"></i></a>
+							</div>
+							</td>
+						</tr>
+						{% endfor %}
+						
+					</tbody>
+				</table>
+				<div class="navigation">
+				{{ knp_pagination_render(restos) }}
+			</div>
+			</section>
+		</div>
+	{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+{{ encore_entry_script_tags('modal-admin') }}
+{% endblock %}

@@ -51,6 +51,7 @@ export default class Rating extends HTMLElement {
     star.classList.add("fa-solid");
     let previous = e.target.previousElementSibling;
 
+
     while (previous) {
       previous.classList.remove("fa-regular");
       previous.classList.add("fa-solid");

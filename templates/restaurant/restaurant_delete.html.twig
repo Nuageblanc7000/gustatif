@@ -22,7 +22,7 @@
 				
 					<picture class="before-delete"{% if resto.cover is empty %} style="background-image:url({{asset('/build/images/site/default_resto.jpg' )}})" {% else %} style="background-image:url({{asset('/images/restaurant/' ~ resto.cover )}})" {% endif %}>
 						<h2>
-							{% trans %} Êtes vous sur de vouloir supprimer l'établissement 
+							{% trans %} Êtes-vous sûr de vouloir supprimer l'établissement 
 							{% endtrans %}
                             {{resto.name}}?
                             </h2>

@@ -30,11 +30,14 @@ img{
     max-width: 100%;
 }
 
-#main{
+#main, #main-admin{
     background: var(--body-color);
     min-height: calc(100vh - 200px);
     flex-grow: 1;
     position: relative;
+}
+#main-admin{
+    
 }
 .content{
     position: relative;

@@ -2,7 +2,6 @@
 
 namespace App\Event;
 
-use App\Entity\Conference;
 use App\Entity\Restaurant;
 use App\Entity\Schedule;
 use App\Entity\Timetable;

@@ -80,9 +80,12 @@
 						{% endif %}
 					</div>
 				{% endfor %}
+				{% if errors is not empty %}
+					
 				<div class="form-message-errors">
 					{{form_errors(form)}}
 				</div>
+				{% endif %}
 			</div>
 
 			<div class="container-btn-action-form">

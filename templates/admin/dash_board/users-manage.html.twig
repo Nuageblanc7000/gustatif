@@ -1,0 +1,70 @@
+{% extends '/admin/adminBase.html.twig' %}
+{% block title %}
+	{% trans %}Gestion utilisateurs{% endtrans %}
+{% endblock %}
+{% block body %}
+	<div class="container container-main-admin">
+		<section class="dashboard-container">
+			{% include "/admin/dash_board/_nav-admin.html.twig" %}
+
+							<h1>{% trans %}Gestion utilisateurs{% endtrans %}</h1>
+			<div class="container-search-admin">
+				{{form_start(form)}}
+				{{form_row(form.search,{'attr':{'placeholder':'pseudo/ville/adresse'}})}}
+				<button type="submit"><img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe"></button>
+				{{form_end(form)}}
+				</div>
+				<table>
+					<thead>
+						<tr>
+							<th scope="col">{% trans %} Pseudo {% endtrans %}</th>
+							<th scope="col">{% trans %} Email {% endtrans %}</th>
+							<th scope="col">{% trans %} Ville{% endtrans %} </th>
+							<th scope="col">{% trans %} Adresse {% endtrans %}</th>
+							<th scope="col">{% trans %} action {% endtrans %}</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for user in users %}
+						
+					
+						<tr>
+							<td data-label={% trans %}"Pseudo"> {% endtrans %}{{user.pseudo}}</td>
+							<td data-label={% trans %}"Email"{% endtrans %}>{{user.email}}</td>
+							<td data-label={% trans %}"Ville"{% endtrans %}>
+								{% if user.city.localite is defined %}
+									{{user.city.localite}}
+									{% else %}
+										---
+								{% endif %}
+							</td>
+							<td data-label={% trans %}"Adresse"{% endtrans %}>
+								{% if user.adress != '' %}
+									{{user.adress}}
+									{% else %}
+										---
+								{% endif %}
+							</td>
+							<td  class="action-admin-btn-container">
+							<div class="action-container-admin">
+								<a href="{{path('user_manage',{'id':user.id})}}" class="action-btn-admin-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+								
+								<a href="" data-path={{url('delete_manage',{'id':user.id})}} data-pseudo={{user.pseudo}} class="action-btn-admin-delete"><i class="fa-solid fa-user-minus"></i></a>
+							</div>
+							</td>
+						</tr>
+						{% endfor %}
+						
+					</tbody>
+				</table>
+				<div class="navigation">
+				{{ knp_pagination_render(users) }}
+			</div>
+			</section>
+		</div>
+		
+	{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+{{ encore_entry_script_tags('modal-admin') }}
+{% endblock %}

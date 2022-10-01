@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+      		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta property="og:site_name" content="To Linki">
+		<meta property="og:url" content="#">
+		<meta property="og:image" content="{{asset('/build/banner-logo.svg')}}">
+		<meta property="og:title" content="Bien manger c'est avant tout savoir ou manger">
+		<meta property="og:description" content="To link.">
+        
+		<title>
+			{% block title %}
+			    ToLink
+			{% endblock %}
+		</title>
+			<link rel="icon" href="{{asset('/build/icon/icon.svg')}}">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700&family=Lobster&family=Lobster+Two:wght@400;700&family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+    </head>
+    <body>
+         {% include "/_partials/header/_header.html.twig" %}
+         {% include "/_partials/header/_navi-responsive.html.twig" %}
+        <main id="main">
+        <div class="flash-message-container-base">
+                {% block adFlash %}
+				{% for key,flashes in app.flashes %}
+					{% for message in flashes %}
+                    <flash-message attr={{key}} time='5000'>
+				        <img src="{{asset('/build/images/resto.svg')}}" alt="chef cuisto">
+			            <h2>{{message}}</h2>
+		            </flash-message>	
+					{% endfor %}
+				{% endfor %}
+			{% endblock %}
+        </div>
+
+            {% block body %}{% endblock %}
+        </main>
+        {% include "/_partials/_footer.html.twig" %}
+        {% include "/_partials/header/_header-bottom.html.twig" %}
+    </body>
+        {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+</html>

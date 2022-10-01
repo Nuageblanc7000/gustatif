@@ -1,0 +1,39 @@
+{% extends '/admin/adminBase.html.twig' %}
+
+{% block title %}Hello DashBoardController!
+{% endblock %}
+
+{% block body %}
+	
+
+	<div class="container container-main-admin">
+		<section class="dashboard-container">
+
+			<h1>{% trans %}Pannel administratif{% endtrans %}</h1>
+			{% include "/admin/dash_board/_nav-admin.html.twig" %}
+			<div class="grid-box-stat">
+    <div class="box-user-stat">
+       <h3>{% trans %}Nombre  d'utilisateurs{% endtrans %}</h3>
+            <span>{{usersCount}}</span>
+    </div>
+    <div class="box-user-stat">
+       <h3>{% trans %}Nombre de restaurants{% endtrans %}</h3>
+            <span>{{restosCount}}</span>
+    </div>
+    </div>
+			<div class="content-stats">
+			
+				<div class="box-chart">
+					<h3>
+						{% trans %}
+						Utilisateurs activés:
+						{% endtrans %}</h3>
+					<div class="chart-box">
+						{{render_chart(chart)}}
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}

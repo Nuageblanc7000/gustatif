@@ -3,11 +3,13 @@
 namespace App\Repository;
 
 use App\Entity\User;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+
+use App\Data\DataAdminFilter;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
 /**
  * @extends ServiceEntityRepository<User>
@@ -56,20 +58,58 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->add($user, true);
     }
 
-//    /**
-//     * @return User[] Returns an array of User objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+
+
+
+    /**
+     * permet de filtrer un user
+     *
+     * @param DataAdminFilter $data
+     * @return void
+     */
+    public function findFilterUserAdmin(DataAdminFilter $data)
+    {
+        $query = $this->createQueryBuilder('u')
+        ->select('u','c','t','co')
+             ->leftJoin('u.city','c')
+             ->leftJoin('u.tokenResolve','t')
+             ->leftJoin('u.comments','co')          
+             ;
+            
+             if (!empty($data->getSearch())) {
+                $query->andWhere('u.pseudo LIKE :search')
+              ->orWhere('c.localite LIKE :search')
+              ->orWhere('u.adress LIKE :search')
+              ->setParameter('search' , "%{$data->getSearch()}%");
+             }
+            $query->orderBy('u.pseudo','ASC')
+                  ->getQuery()->getResult()
+        ;
+        return $query;
+    }
+
+   /**
+    * @return mixed 
+    */
+   public function findCountVerified()
+   {
+       return $this->createQueryBuilder('u')
+            ->select('count(u) as verif')
+           ->andWhere('u.isAcountVerified = true') 
+           ->getQuery()->getSingleScalarResult()
+       ;
+   }
+   /**
+    * @return mixed 
+    */
+   public function findCountNotVerified()
+   {
+       return $this->createQueryBuilder('u')
+            ->select('count(u) as verif')
+           ->andWhere('u.isAcountVerified = false') 
+           ->getQuery()->getSingleScalarResult()
+       ;
+   }
 
 //    public function findOneBySomeField($value): ?User
 //    {

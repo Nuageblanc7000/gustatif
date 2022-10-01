@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\DataAdminFilter;
 use App\Data\DataFilter;
 use App\Entity\Restaurant;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -78,6 +79,50 @@ class RestaurantRepository extends ServiceEntityRepository
         ;
         return $query->getQuery()->getResult();
         ;
+    }
+
+    /**
+     * stat resto count
+     *
+     * @return mixed
+     */
+    public function findCountRetos(){
+        return  $query = $this->createQueryBuilder('r')
+        ->select('count(r) as countResto')
+        ->getQuery()->getSingleScalarResult();
+        ;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param DataAdminFilter $data
+     * @return void
+     */
+    public function findFilterRestoAdmin(DataAdminFilter $data)
+    {
+        $query = $this->createQueryBuilder('r')
+        ->select('r','c','u','co','l','sc','to')
+             ->leftJoin('r.city','c')
+             ->leftJoin('r.comments','co')          
+             ->leftJoin('r.user','u')
+             ->leftJoin('r.schedule','sc')         
+             ->leftJoin('r.likes','l')    
+             ->leftJoin('u.tokenResolve','to')    
+             ->where('u.isResto = true') 
+             ;
+            
+             if (!empty($data->getSearch())) {
+                $query->andWhere('r.name LIKE :search')
+              ->orWhere('c.localite LIKE :search')
+              ->orWhere('r.phone LIKE :search')
+              ->orWhere('r.adress LIKE :search')
+              ->setParameter('search' , "%{$data->getSearch()}%");
+             }
+             $query->orderBy('r.name','ASC')
+                   ->getQuery()->getResult()
+        ;
+        return $query;
     }
 
 //    public function findAllOptiResto(Restaurant $resto): array

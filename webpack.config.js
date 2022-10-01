@@ -31,6 +31,7 @@ Encore
     .addEntry('create-file','./assets/javascript/createFile.js')
     .addEntry('create-plat','./assets/javascript/createPlat.js')
     .addEntry('profil-action','./assets/javascript/profil-action.js')
+    .addEntry('modal-admin','./assets/javascript/modal.js')
 
     .addEntry('avatar-js','./assets/javascript/avatar.js')
     .addEntry('fontAwesome','./assets/fontAwesome.js')

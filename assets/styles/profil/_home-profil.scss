@@ -10,78 +10,7 @@
     text-align: center;
     margin:1rem 0;
   }
-  .nav-profil-home {
-    min-height: 65px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 85px;
-    max-width: 700px;
-    z-index: 20;
-    margin: 4rem auto;
-    box-shadow: var(--box-shadow-nav);
-    background-color: var(--color-grey-ligtht2);
-    border-radius: 5px;
-    padding: 20px;
-    
-    ul {
-      width: 100%;
-      min-height: inherit;
-      display: grid;
-      gap: 5px;
-      grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
 
-      li {
-        min-height: 100%;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: 0.3s ease-in background-color;
-        svg {
-          width: 100% !important;
-          height: 40px !important;
-        }
-        a {
-          width: 100%;
-          min-height: 100%;
-          display: inherit;
-          padding: 5px;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          color: var(--secondary);
-
-        }
-      }
-      li:hover {
-        background-color: var(--secondary);
-        svg path {
-          fill: var(--white) ;
-        }
-        color: var(--primary) ;
-        a {
-          color: var(--primary);
-        }
-      }
-
-      
-      .sticker {
-        text-align: center;
-        display: none;
-          font-size: 1.3rem;
-
-      }
-      @media (min-width: 576px) {
-        .sticker {
-          display: block;
-        }
-      }
-    }
-  }
-
-  
 .js-profil-step{
   display: none;
 }
@@ -276,5 +205,76 @@
   color: var(--primary) !important;
   a {
     color: var(--primary) !important;
+  }
+}
+
+.nav-profil-home {
+  min-height: 65px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 85px;
+  max-width: 700px;
+  z-index: 20;
+  margin: 4rem auto;
+  box-shadow: var(--box-shadow-nav);
+  background-color: var(--color-grey-ligtht2);
+  border-radius: 5px;
+  padding: 20px;
+  
+  ul {
+    width: 100%;
+    min-height: inherit;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+
+    li {
+      min-height: 100%;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.3s ease-in background-color;
+      svg {
+        width: 100% !important;
+        height: 40px !important;
+      }
+      a {
+        width: 100%;
+        min-height: 100%;
+        display: inherit;
+        padding: 5px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--secondary);
+
+      }
+    }
+    li:hover {
+      background-color: var(--secondary);
+      svg path {
+        fill: var(--white) ;
+      }
+      color: var(--primary) ;
+      a {
+        color: var(--primary);
+      }
+    }
+
+    
+    .sticker {
+      text-align: center;
+      display: none;
+        font-size: 1.3rem;
+
+    }
+    @media (min-width: 576px) {
+      .sticker {
+        display: block;
+      }
+    }
   }
 }

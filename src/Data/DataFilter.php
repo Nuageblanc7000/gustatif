@@ -3,8 +3,6 @@ namespace App\Data;
 
 use App\Entity\Category;
 use App\Entity\Origine;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 class DataFilter
 {
