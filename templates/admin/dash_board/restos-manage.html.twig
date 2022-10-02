@@ -11,8 +11,10 @@
 							<h1>{% trans %}Gestion Restaurants{% endtrans %}</h1>
 			<div class="container-search-admin">
 				{{form_start(form)}}
+				<div class="btn-search-filter-admin">
 				{{form_row(form.search,{'attr':{'placeholder':'Recherche par nom /ville / tel'}} )}}
 				<button type="submit"><img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe"></button>
+				</div>
 				{{form_end(form)}}
 				</div>
 				<table>

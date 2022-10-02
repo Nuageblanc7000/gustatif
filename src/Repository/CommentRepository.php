@@ -4,8 +4,9 @@ namespace App\Repository;
 
 use App\Entity\Comment;
 use App\Entity\Restaurant;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use App\Data\DataAdminFilter;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Comment>
@@ -56,6 +57,32 @@ class CommentRepository extends ServiceEntityRepository
            ->getResult()
        ;
    }
+
+
+   public function findFilterCommentsAdmin(DataAdminFilter $data)
+   {
+       $query = $this->createQueryBuilder('c')
+            ->select('c','u','r','t')
+            ->leftJoin('c.author','u')
+            ->leftJoin('c.resto','r')
+            ->leftJoin('u.tokenResolve','t')          
+            ;
+           
+            if (!empty($data->getSearch())) {
+               $query->andWhere('c.description LIKE :search')
+             ->orWhere('u.pseudo LIKE :search') 
+             ->setParameter('search' , "%{$data->getSearch()}%");
+            }
+            if (!empty($data->getResto())) {
+                $query->andWhere('r.id IN (:resto)')
+              ->setParameter('resto' ,$data->getResto());
+             }
+           $query->orderBy('c.dateCom','ASC')
+                 ->getQuery()->getResult()
+       ;
+       return $query;
+   }
+
 
 //    public function findOneBySomeField($value): ?Comment
 //    {

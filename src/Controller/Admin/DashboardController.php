@@ -4,12 +4,14 @@ namespace App\Controller\Admin;
 
 use App\Service\StatService;
 use App\Data\DataAdminFilter;
+use App\Entity\Restaurant;
 use App\Form\AdminFilterUserType;
 use App\Repository\CommentRepository;
 use App\Repository\RestaurantRepository;
 use App\Repository\UserRepository;
 use Symfony\UX\Chartjs\Model\Chart;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -108,13 +110,22 @@ class DashBoardController extends AbstractController
     }
 
     #[Route('/admin/comments/manage', name: 'app_admin_comments')]
-    public function commentsManage(CommentRepository $commentRepository,Request $req, PaginatorInterface $paginatorInterface): Response
+    public function commentsManage(CommentRepository $commentRepository,Request $req, PaginatorInterface $paginatorInterface, TranslatorInterface $translator): Response
     {
         $data = new DataAdminFilter();
         $form = $this->createForm(AdminFilterUserType::class, $data);
+        $form->add('resto',EntityType::class,[
+            'class' => Restaurant::class,
+            'choice_label' => 'name',
+            'autocomplete' => true,
+            'label' =>false,
+            'required' => false,
+            'attr' => ['placeholder'=> $translator->trans('Sélectionner un restaurant')]
+        ]);
         $form->handleRequest($req);
+        $paginator = $paginatorInterface->paginate($commentRepository->findFilterCommentsAdmin($data), $req->query->getInt('page', 1),10);
         return $this->render('/admin/dash_board/comments-manage.html.twig', [
-            'comments' => $commentRepository->findAll(),
+            'comments' => $paginator,
             'form' => $form->createView()
         ]);
     }

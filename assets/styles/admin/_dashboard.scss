@@ -101,7 +101,7 @@
     letter-spacing: .1em;
     text-transform: uppercase;
   }
-  
+
   @media screen and (max-width: 992px) {
     table {
       border: 0;
@@ -152,6 +152,12 @@
       border-bottom: 0;
     }
   }
+  .action-admin-comment-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   .action-admin-btn-container{
     display: flex;
     justify-content: space-evenly;
@@ -190,14 +196,19 @@
   max-width: 400px;
   width: 100%;
   margin:1rem auto;
-  height: 40px;
   display: flex;
   box-shadow: var(--box-shadow);
   
   form{
     display: flex;
+    flex-direction: column;
     width: inherit;
     height: inherit;
+    .btn-search-filter-admin{
+      display: inherit;
+      width: inherit;
+      height: inherit;
+    }
     .input-text-search{
       height: inherit;
       width: inherit;
@@ -226,4 +237,56 @@
   }
 }
 
+.comment-admin-main{
+ 
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid var(--color-grey-ligtht);
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+      word-break: break-word;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      padding-right: 0.2rem;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  
+}
 

@@ -10,55 +10,56 @@
 							<h1>{% trans %}Gestion utilisateurs{% endtrans %}</h1>
 			<div class="container-search-admin">
 				{{form_start(form)}}
-				{{form_row(form.search,{'attr':{'placeholder':'pseudo/ville/adresse'}})}}
+				<div class="btn-search-filter-admin">
+				{{form_row(form.search,{'attr':{'placeholder':'auteur/commentaire'}})}}
 				<button type="submit"><img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe"></button>
+				</div>
+				{{form_row(form.resto)}}
 				{{form_end(form)}}
 				</div>
-				<table>
+
+				<div class="comment-admin-main">
+			
+				<table class="comment-admin-main">
 					<thead>
 						<tr>
-							<th scope="col">{% trans %} Pseudo {% endtrans %}</th>
-							<th scope="col">{% trans %} Email {% endtrans %}</th>
-							<th scope="col">{% trans %} Ville{% endtrans %} </th>
-							<th scope="col">{% trans %} Adresse {% endtrans %}</th>
+							<th scope="col">{% trans %} Editeur {% endtrans %}</th>
+							<th scope="col">{% trans %} Restaurant lié {% endtrans %} </th>
+							<th scope="col">{% trans %} Date du commentaire {% endtrans %}</th>
+							<th scope="col">{% trans %} Commentaire {% endtrans %}</th>
 							<th scope="col">{% trans %} action {% endtrans %}</th>
 						</tr>
 					</thead>
 					<tbody>
 					{% for comment in comments %}
-						
-                    {{ dump(comment) }}
-						{# <tr>
-							<td data-label={% trans %}"Pseudo"> {% endtrans %}{{comment.date}}</td>
-							<td data-label={% trans %}"Email"{% endtrans %}>{{comment.email}}</td>
-							<td data-label={% trans %}"Ville"{% endtrans %}>
-								{% if comment.city.localite is defined %}
-									{{comment.city.localite}}
-									{% else %}
-										---
-								{% endif %}
+						<tr>
+							<td data-label={% trans %}"Editeur"{% endtrans %}>
+								{{comment.author.pseudo}}
 							</td>
-							<td data-label={% trans %}"Adresse"{% endtrans %}>
-								{% if comment.adress != '' %}
-									{{comment.adress}}
-									{% else %}
-										---
-								{% endif %}
+							<td data-label={% trans %}" Restaurant lié"{% endtrans %}>
+								{{comment.resto.name}}
+							</td>
+									<td data-label={% trans %}"Date du commentaire"{% endtrans %}>
+								{{comment.dateCom|date("m/d/Y")}}
+							</td>
+									<td class="action-admin-comment-container" data-label={% trans %}"Commentaire"{% endtrans %}>
+								{{comment.description}}
 							</td>
 							<td  class="action-admin-btn-container">
 							<div class="action-container-admin">
-								<a href="{{path('comment_manage',{'id':comment.id})}}" class="action-btn-admin-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+								<a href="{{path('edit_manage_comment',{'id':comment.id})}}" class="action-btn-admin-edit"><i class="fa-regular fa-pen-to-square"></i></a>
 								
-								<a href="" data-path={{url('delete_manage',{'id':comment.id})}} data-pseudo={{comment.pseudo}} class="action-btn-admin-delete"><i class="fa-solid fa-comment-minus"></i></a>
+								{# <a href="" data-path={{url('delete_manage',{'id':comment.id})}} data-pseudo={{comment.pseudo}} class="action-btn-admin-delete"><i class="fa-solid fa-comment-minus"></i></a> #}
 							</div>
 							</td>
-						</tr> #}
+						</tr>
 						{% endfor %}
 						
 					</tbody>
 				</table>
+					</div>
 				<div class="navigation">
-				{# {{ knp_pagination_render(Comments) }} #}
+				{{ knp_pagination_render(comments) }}
 			</div>
 			</section>
 		</div>
