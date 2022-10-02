@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+{% apply inline_css( source('@email_css/emails.css') ) %}
+<center class="wrapper">
+<table class="main">
+    <!-- logo -->
+    <tr>
+        <td>
+            <table width="100%">
+                <tr>
+                <td style="text-align: center;">
+                    <h1>Cher {{ user.pseudo }}</h1>
+                </td>
+                </tr>
+            
+            </table>
+        </td>
+    </tr>
+<!-- image frinki -->
+    <tr class="img">
+    <img src="{{absolute_url(asset('/build/images/site/email_logo.jpg'))}}" alt="logo de tolink sur fond gris">
+    </div>  
+    </tr>
+<!-- contenu -->
+<tr>
+<td style="text-align:center; padding-bottom:40px;">
+<table class="contenu" width="100%" style="text-align:center;">
+    <p> {% trans %}Votre commentaire n'étant pas conforme nous avons modifié celui-ci. Vous pouvez à tous moment modifier celui-ci en cliquant sur le lien 'voir mon commentaire'{% endtrans %}</p>
+    <a href="{{url('modif_comment', {'id' : context } )}}">  {% trans %}Voir mon commentaire{% endtrans %} </a>
+</table>
+</td>
+</tr>
+</table>
+</center>
+{% endapply %} 
+</body>
+</html>

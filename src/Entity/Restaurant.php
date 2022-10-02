@@ -25,16 +25,17 @@ class Restaurant
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[Assert\Length(max:750,maxMessage:'Votre description dépasse le nombre de caractères autorisé')]
+    #[Assert\Length(min:30,minMessage:'Veuillez indiquer une courte description minimum 30 caractères',max:750,maxMessage:'Votre description dépasse le nombre de caractères autorisé')]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Regex(pattern:"/^[a-zA-Z]+\s?.{0,70}[,]{1}\s?[0-9]{1,4}\s?[a-zA-Z]{0,2}[0-9]{0,3}$/",message:'Adresse valide exemple: rue paul,25 / chemin de de la prairie, 23b')]
     #[Assert\NotBlank(message:'Veuillez indiqer une valeur')]
     private ?string $adress = null;
 
-
-    #[Assert\Regex(pattern:'/^\s?(\d{4})\s?(\d{2})\s?(\d{2})\s?(\d{2})\s?$/i',message:'veuillez insérer un numéro valide')]
+    #[Assert\Length(max:16,maxMessage:'Longueur du numéro invalide')]
+    #[Assert\Regex(pattern:'/^((\+|00)(32|33)\s?|0)4(60|[789]\d)(\s?\d{2})/',message:'veuillez insérer un numéro valide')]
     #[Assert\NotBlank(message:'Veuillez indiqer une valeur')]
     #[ORM\Column(length: 255)]
     private ?string $phone = null;

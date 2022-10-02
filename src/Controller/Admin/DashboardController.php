@@ -20,7 +20,7 @@ use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class DashBoardController extends AbstractController
+class DashboardController extends AbstractController
 {
     /**
      * permet d'afficher les stats du sites

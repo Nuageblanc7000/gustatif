@@ -39,7 +39,7 @@ class RestaurateurController extends AbstractController
     function resto_create(Request $req, EntityManagerInterface $em, FileUpload $upload, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
-        // $this->denyAccessUnlessGranted('RESTO_VIEW', $user);
+        $this->denyAccessUnlessGranted('RESTO_VIEW', $user);
         $resto = new Restaurant();
         $form = $this->createForm(RestoType::class, $resto);
         $form->handleRequest($req);
@@ -67,7 +67,7 @@ class RestaurateurController extends AbstractController
                     $em->flush();
                     $message = $translator->trans('Félicitation votre restaurant vient être ajouté!');
                     $this->addFlash('success', $message);
-                    return  $this->redirectToRoute('app_profil',['div'=>'resto-info']);
+                    return  $this->redirectToRoute('app_profil', ['div' => 'resto-info']);
                 }
             }
         }
@@ -87,7 +87,7 @@ class RestaurateurController extends AbstractController
      */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/plat/{id}', name: 'create_plat')]
-    public function create_plat(Request $req, Restaurant $resto, EntityManagerInterface $em, FileUpload $uploader , TranslatorInterface $translator): Response
+    public function create_plat(Request $req, Restaurant $resto, EntityManagerInterface $em, FileUpload $uploader, TranslatorInterface $translator): Response
     {
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO', $resto);
         $user = $this->getUser();
@@ -117,7 +117,7 @@ class RestaurateurController extends AbstractController
                 $em->flush();
                 $message = $translator->trans('Spécialités mis à jours');
                 $this->addFlash('success', $message);
-                return $this->redirectToRoute('app_profil',['div'=>'resto-info']);
+                return $this->redirectToRoute('app_profil', ['div' => 'resto-info']);
             }
         }
         return $this->renderForm('/restaurant/create_plat.html.twig', ['form' => $form, 'plats' => $plats]);
@@ -135,14 +135,11 @@ class RestaurateurController extends AbstractController
      */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/modify/{id}', name: 'resto_modify')]
-    public  function modify_resto(Restaurant $resto, Request $req, EntityManagerInterface $em, FileUpload $upload,TranslatorInterface $translator): Response
+    public  function modify_resto(Restaurant $resto, Request $req, EntityManagerInterface $em, FileUpload $upload, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO', $resto);
-        // if (!$this->isGranted('ROLE_ADMIN',$user) || ($resto->getUser() !== $user)) {
-        //     // gestion de la securité avec retour vers page 403
-        //     return  throw new AccessDeniedHttpException(message: 'Accès refusé', code: 403);
-        // }
+
         $form = $this->createForm(RestoType::class, $resto);
         $limit = 4;
         $form->handleRequest($req);
@@ -166,18 +163,19 @@ class RestaurateurController extends AbstractController
                     }
                     $em->persist($resto);
                     $em->flush();
-                    $message = 'Restaurant '.$resto->getName().' à bien été modifié';
+                    $message = 'Restaurant ' . $resto->getName() . ' à bien été modifié';
                     $this->addFlash('succes', $message);
-                   
-                    if($this->isGranted('ROLE_ADMIN') and $resto->getUser() !== $user){
-                        return $this->redirectToRoute('app_admin_restos');                  
-                    }else{
-                        return $this->redirectToRoute('app_profil',['div'=>'resto-info']);
+
+                    if ($this->isGranted('ROLE_ADMIN') and $resto->getUser() !== $user) {
+                        return $this->redirectToRoute('app_admin_restos');
+                    } else {
+                        return $this->redirectToRoute('app_profil', ['div' => 'resto-info']);
                     }
                 } else {
                     $form->get('images')->addError(new FormError(
-                        
-                        $translator->trans('Les comptes non-abonnés ne peuvent avoir que ') . $limit . 'images'));
+
+                        $translator->trans('Les comptes non-abonnés ne peuvent avoir que ') . $limit . 'images'
+                    ));
                 }
             } else {
                 $form->get('images')->addError(new FormError('Minimum une image'));
@@ -221,20 +219,19 @@ class RestaurateurController extends AbstractController
                 ]
             );
             $DeleteImagesEntityService->delete($image);
-            if(count($resto->getImages()) > 0)
-            {
+            if (count($resto->getImages()) > 0) {
                 $resto->getImages()[0]->getPath();
                 $resto->setCover($resto->getImages()[0]->getPath());
                 $em->persist($resto);
                 $em->flush();
             }
-            
+
             $message = $translator->trans('Image supprimée');
-            
+
             $this->addFlash('success', $message);
             return $this->redirectToRoute('resto_modify', ['id' => $idResto], Response::HTTP_FOUND);
         } else {
-            throw $this->createNotFoundException( $translator->trans('aucun résultat'));
+            throw $this->createNotFoundException($translator->trans('aucun résultat'));
         }
     }
 
@@ -265,7 +262,7 @@ class RestaurateurController extends AbstractController
                 ]
             );
             $deleteImageService->delete($plat);
-            $message = $translator->trans('Plat supprimé '.$plat->getName().'');
+            $message = $translator->trans('Plat supprimé ' . $plat->getName() . '');
             $this->addFlash('success', $message);
             return $this->redirectToRoute('create_plat', ['id' => $idResto], Response::HTTP_FOUND);
         } else {
@@ -288,16 +285,16 @@ class RestaurateurController extends AbstractController
         $resto = $repo->findOneBy(['schedule' => $schedule]);
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO', $resto);
         $form = $this->createForm(ScheduleType::class, $schedule);
-        $days = [$translator->trans('lundi'),$translator->trans('mardi'),$translator->trans('mercredi'),$translator->trans('jeudi'),$translator->trans('vendredi'),$translator->trans('samedi'),$translator->trans('dimanche')];
+        $days = [$translator->trans('lundi'), $translator->trans('mardi'), $translator->trans('mercredi'), $translator->trans('jeudi'), $translator->trans('vendredi'), $translator->trans('samedi'), $translator->trans('dimanche')];
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($schedule);
             $em->flush();
-            $message = $translator->trans('Horaire du restaurant '.$resto->getName(). ' mis à jour');
+            $message = $translator->trans('Horaire du restaurant ' . $resto->getName() . ' mis à jour');
             $this->addFlash('success', $message);
-             return $this->redirectToRoute('app_profil',['div'=>'resto-info']);
+            return $this->redirectToRoute('app_profil', ['div' => 'resto-info']);
         }
-        return $this->render('/restaurant/schedule_gestion.html.twig', ['form' => $form->createView(),'days' => $days]);
+        return $this->render('/restaurant/schedule_gestion.html.twig', ['form' => $form->createView(), 'days' => $days]);
     }
 
 
@@ -325,19 +322,19 @@ class RestaurateurController extends AbstractController
      */
     #[IsGranted('ROLE_RESTAURATEUR')]
     #[Route('/restaurant/delete/{id}', name: 'resto_delete')]
-    public function deleteResto(Request $req, Restaurant $resto, DeleteRestoService $deleteRestoService , TranslatorInterface $translator): Response
+    public function deleteResto(Request $req, Restaurant $resto, DeleteRestoService $deleteRestoService, TranslatorInterface $translator): Response
     {
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO', $resto);
-        $message = "restaurant ".$resto->getName()." supprimé";
+        $message = "restaurant " . $resto->getName() . " supprimé";
         $this->addFlash(
-           'success',
-           $message
+            'success',
+            $message
         );
         $deleteRestoService->destroy($resto);
-        
-      if ($this->isGranted('ROLE_ADMIN') and $resto->getUser() !== $this->getUser()) {
-        return $this->redirectToRoute('app_admin_restos');
-      }
+
+        if ($this->isGranted('ROLE_ADMIN') and $resto->getUser() !== $this->getUser()) {
+            return $this->redirectToRoute('app_admin_restos');
+        }
         return $this->redirectToRoute('app_profil', ['div' => 'resto-info']);
     }
 }

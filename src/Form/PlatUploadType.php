@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Length;
 
 class PlatUploadType extends AbstractType
 {
@@ -37,6 +38,7 @@ class PlatUploadType extends AbstractType
                 'attr'=>  [],
                 'constraints' => [
                     new NotNull(message:$this->translator->trans('Inscrire le nom de la spécialité')),
+                    new Length(min:5,minMessage:$this->translator->trans('Description trop courte min 5 caractères'),max:100,maxMessage:$this->translator->trans('Description trop longue max 100 caractères')),
             ],    
             'label' =>  $this->translator->trans('Nom du plat'),
                 'label_attr'=>['class'=>'label-input-text']

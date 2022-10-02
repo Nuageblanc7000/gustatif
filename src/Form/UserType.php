@@ -27,22 +27,22 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email',EmailType::class,[ 'attr'=> ['autocomplete'=> 'off','list'=>"autocompleteOff", 'autofocus' => false]])
+            ->add('email',EmailType::class,[ 'attr'=> ['autocomplete' => 'disabled','list'=>"autocompleteOff", 'autofocus' => false , 'placeholder' => $this->translator->trans('Votre email')]])
 
             ->add('pseudo',TextType::class,[
                 'attr' =>[
-                    'placeholder' => 'pseudo'
+                    'placeholder' => $this->translator->trans('pseudo')
                     ]
                     ])
                     ->add('city',EntityType::class,[
                         'class' => City::class,
                         'choice_label' => 'localite',
                         'label' => $this->translator->trans('ville'),
-                        'placeholder' => 'Ville',
+                        'placeholder' => $this->translator->trans('Ville'),
                         'required'=> false,
                         'autocomplete' => true,
                         'attr' => [
-                            'autocomplete' => 'off'
+                            'autocomplete' => 'disabled'
                         ]
                     ])
                     
@@ -60,8 +60,8 @@ class UserType extends AbstractType
                 'invalid_message' => $this->translator->trans('les mots de passes ne sont pas identitque'),
                 'options' => ['attr' => ['class' => 'password-confirm']],
                 'required' => true,
-                "first_options" =>[ "label" => $this->translator->trans("Mot de passe") , 'attr'=>["placeholder" => '#487Robs2'] , 'always_empty' =>true  ],
-                'second_options' => ['label' => $this->translator->trans('Confirmer le mot de passe') , 'attr'=>["placeholder" => '#487Robs2'] , 'always_empty' =>true ],
+                "first_options" =>[ "label" => $this->translator->trans("Mot de passe") , 'attr'=>["placeholder" => '#487Robs2','autocomplete' => 'disabled']],
+                'second_options' => ['label' => $this->translator->trans('Confirmer le mot de passe') , 'attr'=>["placeholder" => '#487Robs2']],
             ]
             )
         ;

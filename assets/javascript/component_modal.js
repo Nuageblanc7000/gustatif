@@ -22,7 +22,8 @@ export default class Modal extends HTMLElement{
     
         this.setAttribute("style",
         `
-        position:fixed;
+            position:fixed;
+            z-index:9880;
             max-width:400px;
             width:100%;
             top:50%;

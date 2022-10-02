@@ -212,7 +212,7 @@
 					<div class={% if resto.plats|length > 1 %} "container-plat" {% else %} "full-plat" {% endif %}>
 						{% for plat in resto.plats %}
 							<div class="plat">
-								<picture style="background-image:url({{asset('/images/plats/' ~ plat.image )}})"></picture>
+								<picture style="background-image:url({{asset('/images/plats/' ~ plat.image )|imagine_filter('bg_r')}})"></picture>
 								<span>
 									{{plat.name}}
 								</span>

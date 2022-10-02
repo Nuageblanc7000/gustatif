@@ -107,6 +107,7 @@
     .preview-plat-title{
         background-color: var(--grey);
         min-height: 50px;
+        word-break: break-word;
         color:var(--secondary);
         width: 100%;
         display: flex;
