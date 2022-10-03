@@ -66,7 +66,8 @@ class NotOnlyFieldEmptyValidator extends ConstraintValidator
                 ->setParameters($this->ERRORS)
                 ->addViolation();
             }else{
-                $this->context->buildViolation($constraint->message)
+                $this->TIME = $this->translatorInterface->trans('Un des champs n\'est pas complètés');
+                $this->context->buildViolation($this->TIME)
                 ->setParameters($this->ERRORS)
                 ->addViolation();
             }

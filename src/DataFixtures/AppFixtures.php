@@ -194,9 +194,9 @@ class AppFixtures extends Fixture
                     ->setUser($user);
                 $restaurant->setName($names[$u]);
 
-                for ($img = 0; $img < rand(1, 1); $img++) {
+                for ($img = 0; $img < rand(2,4); $img++) {
                     $image = new Image();
-                    $randomImage = $faker->unique()->randomElement($arrayImages);
+                    $randomImage = $faker->randomElement($arrayImages);
                     $file = new UploadedFile($this->parameterBag->get('faker_resto') . '/' . $randomImage, 'image');
                     $extension = $file->guessExtension();
                     $filename = uniqid() . '.' . $extension;
@@ -208,9 +208,9 @@ class AppFixtures extends Fixture
                         $restaurant->setCover($image->getPath());
                     }
                 }
-                for ($plat = 0; $plat < rand(1, 2); $plat++) {
+                for ($plat = 0; $plat < rand(1, 4); $plat++) {
                     $platResto = new Plat();
-                    $randomPlat = $faker->unique()->randomElement($arrayPlats);
+                    $randomPlat = $faker->randomElement($arrayPlats);
                     $file = new UploadedFile($this->parameterBag->get('faker_plats') . '/' . $randomPlat, 'plat');
                     $extension = $file->guessExtension();
                     $filePlatName = uniqid("plat",true) . '.' . $extension;

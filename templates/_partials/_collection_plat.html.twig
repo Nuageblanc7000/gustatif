@@ -3,9 +3,10 @@
 	{# définition du champ plat_image, la variable form correspond au champ plat_image#}
 	{{form_widget(form)}}
 	<input type="hidden" id="widgets-counter" value="0"> <div class="form-group">	
-	<div class="button-container-2">
-			<span class="mas">Ajouter une spécialité</span>
-			<button type="button" id="add-image" name="Hover">Ajouter une spécialité</button>
+	<div class="btn">
+			{% trans %}
+				Ajouter une spécialité
+			{% endtrans %}
 		</div>
 {% endblock %}
 <div class="container-collectionss">

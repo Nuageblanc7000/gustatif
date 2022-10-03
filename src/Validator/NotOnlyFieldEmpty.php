@@ -15,5 +15,5 @@ class NotOnlyFieldEmpty extends Constraint
      * Any public properties become valid options for the annotation.
      * Then, use these in your validator class.
      */
-    public $message = 'Un des champs n\'est pas complètés';
+    public $message ='';
 }

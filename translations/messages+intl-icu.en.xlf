@@ -859,11 +859,11 @@ Tolink, leaves the possibility of expressing themselves about the establishment,
       </trans-unit>
       <trans-unit id="yPtT15Y" resname="Changer mon mot de passe">
         <source>Changer mon mot de passe</source>
-        <target>change my password</target>
+        <target>Change my password</target>
       </trans-unit>
       <trans-unit id="CnDhXMp" resname="Modifier ma photo">
         <source>Modifier ma photo</source>
-        <target>modifierMaPhoto</target>
+        <target>Modify my avatar</target>
       </trans-unit>
       <trans-unit id="4mfTQ4I" resname="Profil">
         <source>Profil</source>
@@ -1027,7 +1027,7 @@ Tolink, leaves the possibility of expressing themselves about the establishment,
       </trans-unit>
       <trans-unit id="DK9iQCW" resname="Créer l'horaire de votre établissement">
         <source>Créer l'horaire de votre établissement</source>
-        <target>createTheScheduleForYourEstablishment</target>
+        <target>create The Schedule For Your Establishment</target>
       </trans-unit>
       <trans-unit id="S_MhFjG" resname="Bon à savoir">
         <source>Bon à savoir</source>
@@ -1302,6 +1302,14 @@ which correspond to your establishment</target>
       <trans-unit id="N.NuA9m" resname="Adresse valide exemple: rue paul,25 / chemin de montignies, 23b">
         <source>Adresse valide exemple: rue paul,25 / chemin de montignies, 23b</source>
         <target>Valid address Example: rue Paul, 25 / chemin de Montignies, 23b</target>
+      </trans-unit>
+      <trans-unit id="QQwKLC4" resname="Un des champs n'est pas complètés">
+        <source>Un des champs n'est pas complètés</source>
+        <target>One of the fields is not completed</target>
+      </trans-unit>
+      <trans-unit id="m0nttUW" resname="Ajouter une spécialité">
+        <source>Ajouter une spécialité</source>
+        <target>Add a specialty</target>
       </trans-unit>
     </body>
   </file>

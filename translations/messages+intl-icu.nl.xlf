@@ -1018,7 +1018,7 @@ die overeenkomen met uw vestiging</target>
       </trans-unit>
       <trans-unit id="eyr_fva" resname="Ajouter aux favoris">
         <source>Ajouter aux favoris</source>
-        <target>Toevoegen aan favorieten</target>
+        <target>Bladwijzer</target>
       </trans-unit>
       <trans-unit id="4qiA28b" resname="Qui sommes nous?">
         <source>Qui sommes nous?</source>
@@ -1307,6 +1307,14 @@ die overeenkomen met uw vestiging</target>
       <trans-unit id="N.NuA9m" resname="Adresse valide exemple: rue paul,25 / chemin de montignies, 23b">
         <source>Adresse valide exemple: rue paul,25 / chemin de montignies, 23b</source>
         <target>Adresse geldig voorbeeld: rue paul,25 / chemin de montignies, 23b</target>
+      </trans-unit>
+      <trans-unit id="QQwKLC4" resname="Un des champs n'est pas complètés">
+        <source>Un des champs n'est pas complètés</source>
+        <target>Een van de velden is niet ingevuld</target>
+      </trans-unit>
+      <trans-unit id="m0nttUW" resname="Ajouter une spécialité">
+        <source>Ajouter une spécialité</source>
+        <target>Een specialiteit toevoegen</target>
       </trans-unit>
     </body>
   </file>
