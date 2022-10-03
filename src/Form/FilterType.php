@@ -10,10 +10,15 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class FilterType extends AbstractType
 {
+    public function __construct(public TranslatorInterface $translator)
+    {
+        
+    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -21,7 +26,7 @@ class FilterType extends AbstractType
                 [
                     'attr' =>
                     [
-                        'placeholder' => 'entrer une ville',
+                        'placeholder' => $this->translator->trans('entrer une ville'),
                         'autocomplete' => 'off',
                     ],
                     'required' => false,
@@ -43,7 +48,7 @@ class FilterType extends AbstractType
                         'choice_label' => 'name',
                         'expanded' => false,
                         'required' => false,
-                        'placeholder' => 'Choix de la cuisne'
+                        'placeholder' => $this->translator->trans('Choix de la cuisne')
                     ]
             )
         ;

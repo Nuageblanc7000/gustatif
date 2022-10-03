@@ -4,6 +4,8 @@ namespace App\Data;
 use App\Entity\Category;
 use App\Entity\Origine;
 use Symfony\Component\Validator\Constraints as Assert;
+
+//permet de créer le filtre de recherches des restaurants
 class DataFilter
 {
 

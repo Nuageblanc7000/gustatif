@@ -47,7 +47,7 @@ class RestaurateurController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $countInput = count($form->get('images')->getData());
             if ($countInput <= 0) {
-                $form->get('images')->addError(new FormError('Veuillez Ajouter au minimum une image'));
+                $form->get('images')->addError(new FormError($translator->trans('Veuillez Ajouter au minimum une image')));
             } else {
                 $files = $form->get('images')->getData();
                 if (!empty($files)) {
@@ -178,7 +178,7 @@ class RestaurateurController extends AbstractController
                     ));
                 }
             } else {
-                $form->get('images')->addError(new FormError('Minimum une image'));
+                $form->get('images')->addError(new FormError($this->translator->trans('Minimum une image')));
             }
         }
         return $this->renderForm('/restaurant/create_resto.html.twig', [
@@ -290,7 +290,7 @@ class RestaurateurController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($schedule);
             $em->flush();
-            $message = $translator->trans('Horaire du restaurant ' . $resto->getName() . ' mis à jour');
+            $message = $translator->trans('Horaire du restaurant ') . ' ' . $resto->getName() . ' ' . $translator->trans(' mis à jour');
             $this->addFlash('success', $message);
             return $this->redirectToRoute('app_profil', ['div' => 'resto-info']);
         }

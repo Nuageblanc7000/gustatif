@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Like;
-
 use App\Entity\Comment;
-
 use App\Data\DataFilter;
 use App\Form\FilterType;
 use App\Form\CommentType;
@@ -41,7 +39,7 @@ class RestoController extends AbstractController
         $data = new DataFilter();
         $form = $this->createForm(FilterType::class, $data);
         $form->handleRequest($req);
-        $paginator = $paginatorInterface->paginate($repo->restoPaginator($data), $req->query->getInt('page', 1),10);
+        $paginator = $paginatorInterface->paginate($repo->restoPaginator($data), $req->query->getInt('page', 1), 10);
         if ($form->isSubmitted() && $form->isValid()) {
         }
         return $this->render('restaurant/restaurants.html.twig', [
@@ -66,25 +64,23 @@ class RestoController extends AbstractController
     {
         $comment = new Comment();
         $user = $this->getUser();
-        $days = [$translator->trans('lundi'),$translator->trans('mardi'),$translator->trans('mercredi'),$translator->trans('jeudi'),$translator->trans('vendredi'),$translator->trans('samedi'),$translator->trans('dimanche')];
+        $days = [$translator->trans('lundi'), $translator->trans('mardi'), $translator->trans('mercredi'), $translator->trans('jeudi'), $translator->trans('vendredi'), $translator->trans('samedi'), $translator->trans('dimanche')];
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
             foreach ($commentRepository->findBy(['resto' => $resto]) as  $userCurrentComment) {
-                if($userCurrentComment->getAuthor() === $user)
-                {
-                    return $this->redirectToRoute('resto_view',['id'=>$resto->getId()]);
+                if ($userCurrentComment->getAuthor() === $user) {
+                    return $this->redirectToRoute('resto_view', ['id' => $resto->getId()]);
                 }
             }
-
 
             $comment->setAuthor($user)
                 ->setResto($resto);
             $em->persist($comment);
             $em->flush();
-            $message = $translator->trans('L\'établissement ' . $resto->getName() . ' vous remercie pour votre avis');
+            $message = $translator->trans('L\'établissement ') . ' ' . $resto->getName() . ' ' . $translator->trans('vous remercie pour votre avis');
             $this->addFlash('success', $message);
-            return $this->redirectToRoute('resto_view',['id'=>$resto->getId()]);
+            return $this->redirectToRoute('resto_view', ['id' => $resto->getId()]);
         }
         $longi = $resto->getCity()->getLongitude();
         $lati = $resto->getCity()->getLatitude();
@@ -92,12 +88,12 @@ class RestoController extends AbstractController
             'resto' => $resto,
             'longi' => $longi,
             'lati' => $lati,
-            'days'=>$days,
+            'days' => $days,
             'form' => $form->createView(),
             'repo' => $commentRepository->findBy(['resto' => $resto], ['id' =>  'DESC']),
         ]);
     }
-    
+
     /**
      * permet de modifier le commentaire si on est le propriétaire de ce commentaire
      *
@@ -108,28 +104,27 @@ class RestoController extends AbstractController
      * @return Response
      */
     #[IsGranted('ROLE_USER')]
-    #[Route('/restaurant/comment/modification/{id}',name:'modif_comment')]
-    public function modifComment(EntityManagerInterface $em, Request $req,Comment $comment,TranslatorInterface $translator): Response
+    #[Route('/restaurant/comment/modification/{id}', name: 'modif_comment')]
+    public function modifComment(EntityManagerInterface $em, Request $req, Comment $comment, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
         $userComment = $comment->getAuthor();
-        if($user !== $userComment){
+        if ($user !== $userComment) {
             return  throw new AccessDeniedHttpException(message: 'Accès refusé', code: 403);
         }
 
-        $form = $this->createForm(CommentType::class,$comment);
+        $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($req);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($comment);
             $em->flush();
             $message = $translator->trans('Commentaire mis à jour');
-            $this->addFlash('success',$message);
-            return  $this->redirectToRoute('resto_view',['id' => $comment->getResto()->getId()]);
+            $this->addFlash('success', $message);
+            return  $this->redirectToRoute('resto_view', ['id' => $comment->getResto()->getId()]);
         }
         return $this->render('/restaurant/_resto_comment_edit.html.twig', [
             'form' => $form->createView()
-        ])
-        ;
+        ]);
     }
 
 
@@ -143,7 +138,7 @@ class RestoController extends AbstractController
      * @return Response
      */
     #[Route('/like/{id}', name: 'like_resto', methods: ['POST'])]
-    public function likeResto(Request $req, Restaurant $resto, EntityManagerInterface $em, LikeRepository $likeRepository): Response
+    public function likeResto(Restaurant $resto, EntityManagerInterface $em, LikeRepository $likeRepository): Response
     {
         $user = $this->getUser();
 

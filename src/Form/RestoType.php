@@ -17,6 +17,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RestoType extends AbstractType
 {
@@ -30,7 +32,7 @@ class RestoType extends AbstractType
             ->add('name',TextType::class,
             [
                 'label'=>false,
-                'attr' => ['class'=>'full-form-input', 'placeholder' => 'Mon nom de resto ici'],
+                'attr' => ['class'=>'full-form-input', 'placeholder' => $this->translator->trans('Mon nom de resto ici')],
                 'row_attr' => 
                 ['class' => 'full-form-input'],
                 ],
@@ -48,20 +50,24 @@ class RestoType extends AbstractType
                 'label'=>false,
                 'attr' =>[
                     'placeholder' => 'Rue charle,23'
-                ]
+                ],
+                'constraints' => [new Regex(pattern:"/^[a-zA-Z]+\s?.{0,70}[,]{1}\s?[0-9]{1,4}\s?[a-zA-Z]{0,2}[0-9]{0,3}$/",message:$this->translator->trans('Insérrer une adresse valide (chemin de la montagne,24/chemin de la montagne,24b)'))]
             ])
 
             ->add('phone',TextType::class,[
                 'label'=>false,
                 'attr' =>[
                     'placeholder' => '+3200000000'
+                ],
+                'constraints' =>[
+                    new Regex( pattern:'/^((\+|00)(32|33)\s?|0)4(60|[789]\d)(\s?\d{2})/',message:$this->translator->trans('veuillez insérer un numéro valide, exemple +32477000000 ou 0477000000'))
                 ]
             ])
             
             ->add('city',EntityType::class,[
                 'class' => City::class,
                 'choice_label' => 'localite',
-                'placeholder' => 'choisisez votre ville',
+                'placeholder' => $this->translator->trans('choisisez votre ville'),
                 'autocomplete' => true,
                 'label'=>false,
                 ])
@@ -74,7 +80,7 @@ class RestoType extends AbstractType
                     'autocomplete' => true,
                     'label'=>false,
                     'attr' =>[
-                        'placeholder' => 'Catégorie du restaurant'
+                        'placeholder' => $this->translator->trans('Catégorie du restaurant')
                     ],
                     'constraints' => [new Count(min:1 , minMessage: $this->translator->trans('Vous devez sélectioner une catégorie'),max:2, maxMessage: $this->translator->trans('Vous pouvez sélectionner deux catégories maximum'))]
                     ])
@@ -88,10 +94,9 @@ class RestoType extends AbstractType
                         'label'=>false,
                         'attr' =>
                         [      
-                            'placeholder' => 'Origine de la cuisine'
+                            'placeholder' => $this->translator->trans('Origine de la cuisine')
                         ],
                         'constraints' => [new Count(min:1 , minMessage: $this->translator->trans('Vous devez sélectioner un type de cuisine'),max:2, maxMessage: $this->translator->trans('Vous pouvez sélectionner deux types de cuisine maximum'))], 
-
                     ])
                     ->add('images',CollectionType::class,[
                         'entry_type' => ImageUploadType::class,
@@ -103,7 +108,7 @@ class RestoType extends AbstractType
                      'attr' => [
                         'class' => 'container-grid-all'  ,'always_empty' =>false 
                      ],
-                     'constraints' => [new Count(max:4,maxMessage:'vous avez dépassé le nombre d`\image autorisées')], 
+                     'constraints' => [new Count(max:4,maxMessage:$this->translator->trans('vous avez dépassé le nombre d`\image autorisées'))], 
                     ])
                     ;
                 }

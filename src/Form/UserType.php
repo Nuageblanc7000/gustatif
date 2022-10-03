@@ -27,9 +27,14 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email',EmailType::class,[ 'attr'=> ['autocomplete' => 'disabled','list'=>"autocompleteOff", 'autofocus' => false , 'placeholder' => $this->translator->trans('Votre email')]])
+            ->add('email',EmailType::class,
+            [      'required' =>false,
+                'attr'=> ['autocomplete' => 'disabled','list'=>"autocompleteOff", 'autofocus' => false , 'placeholder' => $this->translator->trans('Votre email')]]
+            
+            )
 
             ->add('pseudo',TextType::class,[
+                'required' =>false,
                 'attr' =>[
                     'placeholder' => $this->translator->trans('pseudo')
                     ]
@@ -54,7 +59,10 @@ class UserType extends AbstractType
                 ]
             ])
             ->add('password',RepeatedType::class,
+            
+            
             [
+                'required' =>false,
                 'type' => PasswordType::class,
                 'attr'=> ['always_empty' =>true],
                 'invalid_message' => $this->translator->trans('les mots de passes ne sont pas identitque'),

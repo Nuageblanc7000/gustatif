@@ -20,7 +20,9 @@
 											{% endtrans %}
 										{% else %}
 										{% if time.open == null and time.close == null %}
+										{% trans %}
 											Fermé au matin
+										{% endtrans %}
 											{% else %}
 											{{time.open|format_datetime('none', 'short', locale=locale)}} - {{time.close|format_datetime('none', 'short', locale=locale)}}
 											{% endif %}

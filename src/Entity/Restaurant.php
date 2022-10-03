@@ -10,9 +10,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 #[ORM\Entity(repositoryClass: RestaurantRepository::class)]
-#[UniqueEntity('name',message:'Ce nom est déjà utilisé')]
+#[UniqueEntity(fields:'name')]
 class Restaurant
 {
     #[ORM\Id]
@@ -20,23 +21,22 @@ class Restaurant
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\Length(max:40,maxMessage:'Le nom utilisé est trop long')]
-    #[Assert\NotBlank(message:'Veuillez indiqer une valeur')]
+    #[Assert\Length(max:40)]
+    #[Assert\NotBlank()]
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[Assert\Length(min:30,minMessage:'Veuillez indiquer une courte description minimum 30 caractères',max:750,maxMessage:'Votre description dépasse le nombre de caractères autorisé')]
+    #[Assert\Length(min:30,max:750)]
+    #[Assert\NotBlank()]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\Regex(pattern:"/^[a-zA-Z]+\s?.{0,70}[,]{1}\s?[0-9]{1,4}\s?[a-zA-Z]{0,2}[0-9]{0,3}$/",message:'Adresse valide exemple: rue paul,25 / chemin de de la prairie, 23b')]
-    #[Assert\NotBlank(message:'Veuillez indiqer une valeur')]
+    #[Assert\NotBlank()]
     private ?string $adress = null;
 
-    #[Assert\Length(max:16,maxMessage:'Longueur du numéro invalide')]
-    #[Assert\Regex(pattern:'/^((\+|00)(32|33)\s?|0)4(60|[789]\d)(\s?\d{2})/',message:'veuillez insérer un numéro valide')]
-    #[Assert\NotBlank(message:'Veuillez indiqer une valeur')]
+    #[Assert\Length(max:16)]
+    #[Assert\NotBlank()]
     #[ORM\Column(length: 255)]
     private ?string $phone = null;
 
@@ -45,13 +45,13 @@ class Restaurant
     private ?City $city = null;
 
     #[Assert\Valid]
-    #[Assert\All(new NotBlank(message:'Veuillez indiqer une valeur'))]
+    #[Assert\All(new NotBlank())]
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'restaurants')]
     private Collection $category;
     
     
     #[Assert\Valid]
-    #[Assert\All(new NotBlank(message:'Veuillez indiqer une valeur'))]
+    #[Assert\All(new NotNull())]
     #[ORM\ManyToMany(targetEntity: Origine::class, inversedBy: 'restaurants')]
     private Collection $origine;
 
@@ -101,7 +101,7 @@ class Restaurant
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -113,7 +113,7 @@ class Restaurant
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -125,7 +125,7 @@ class Restaurant
         return $this->adress;
     }
 
-    public function setAdress(string $adress): self
+    public function setAdress(?string $adress): self
     {
         $this->adress = $adress;
 
@@ -137,7 +137,7 @@ class Restaurant
         return $this->phone;
     }
 
-    public function setPhone(string $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
 

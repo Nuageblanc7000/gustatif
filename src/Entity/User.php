@@ -13,17 +13,19 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields:'pseudo',message:'Ce pseudo existe déjà')]
-#[UniqueEntity(fields:'email',message:'L\'adresse entrée existe déjà')]
 #[ORM\Table(name: '`user`')]
+#[UniqueEntity(fields:'pseudo')]
+#[UniqueEntity(fields:'email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-
+    
     #[Assert\Length(max:200)]
+    #[Assert\Email()]
+    #[Assert\NotNull()]
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
 
@@ -31,17 +33,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $roles = [];
     
     #[Assert\Length(min:5,max:100)]
+    #[Assert\NotNull()]
     #[ORM\Column(type: 'string')]
     private $password;
 
     #[Assert\Length(min:5,max:35)]
+    #[Assert\NotNull()]
     #[ORM\Column(type: 'string', length: 255)]
     private $pseudo;
 
     #[ORM\Column(type: 'boolean')]
     private $isAcountVerified = 0;
 
-    #[ORM\OneToOne(mappedBy: 'userCurrent', targetEntity: TokenResolve::class, cascade: ['persist'])]
+    #[ORM\OneToOne(mappedBy: 'userCurrent', targetEntity: TokenResolve::class, cascade: ['persist'],orphanRemoval:true)]
     private $tokenResolve;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
@@ -85,7 +89,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -150,7 +154,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->pseudo;
     }
 
-    public function setPseudo(string $pseudo): self
+    public function setPseudo(?string $pseudo): self
     {
         $this->pseudo = $pseudo;
 

@@ -453,6 +453,8 @@ header {
   padding: 0.5rem 1rem;
   background-color: var(--secondary);
   .container {
+    padding-right: 0!important;
+     padding-left: 0!important;
     .bottom-nav-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -483,7 +485,7 @@ header {
           width: 100%;
           // border: 2px solid var(--color-grey-ligtht3);
           box-shadow: var(--box-shadow-nav);
-          height: 50px;
+          height: 30px;
           padding: 0.5rem;
           display: flex;
           justify-content: center;

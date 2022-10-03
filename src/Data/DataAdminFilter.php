@@ -4,6 +4,7 @@ namespace App\Data;
 use App\Entity\Restaurant;
 use Symfony\Component\Validator\Constraints as Assert;
 
+//fausse entité pour créer mes filtres de recherche
 class DataAdminFilter
 {
     private $search;

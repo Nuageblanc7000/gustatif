@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="KM_Xgjm" resname="Votre commentaire n'étant pas conforme nous avons modifié celui-ci. Vous pouvez à tous moment modifier celui-ci en cliquant sur le lien 'voir mon commentaire'">
+        <source>Votre commentaire n'étant pas conforme nous avons modifié celui-ci. Vous pouvez à tous moment modifier celui-ci en cliquant sur le lien 'voir mon commentaire'</source>
+        <target>Your comment not being compliant, we have modified it. You can modify it at any time by clicking on the link 'see my comment'</target>
+      </trans-unit>
+      <trans-unit id="4aHvNQk" resname="Voir mon commentaire">
+        <source>Voir mon commentaire</source>
+        <target>See my comment</target>
+      </trans-unit>
+      <trans-unit id="K9SDnQZ" resname="Veuillez confirmer votre email avant de pouvoir utiliser nos services">
+        <source>Veuillez confirmer votre email avant de pouvoir utiliser nos services</source>
+        <target>Please confirm your email before you can use our services</target>
+      </trans-unit>
+      <trans-unit id="ZGG7K4M" resname="Activer mon compte">
+        <source>Activer mon compte</source>
+        <target>Activate my account</target>
+      </trans-unit>
+      <trans-unit id="0JOBGfW" resname="Bienvenu sur l'application!">
+        <source>Bienvenu sur l'application!</source>
+        <target>Welcome to the app!</target>
+      </trans-unit>
+      <trans-unit id="DjLYFU5" resname="Veuillez indiquer votre avis">
+        <source>Veuillez indiquer votre avis</source>
+        <target>Please indicate your opinion</target>
+      </trans-unit>
+      <trans-unit id="JZtRyZK" resname="Le commentaire doit faire minimum 4 caractères">
+        <source>Le commentaire doit faire minimum 4 caractères</source>
+        <target>The comment must be at least 4 characters</target>
+      </trans-unit>
+      <trans-unit id="Pf2xoso" resname="Le commentaire doit faire maximum 500 caractères">
+        <source>Le commentaire doit faire maximum 500 caractères</source>
+        <target>The comment must be a maximum of 500 characters</target>
+      </trans-unit>
+      <trans-unit id="UQl2YyT" resname="la valeur doit être entre 0 et 5">
+        <source>la valeur doit être entre 0 et 5</source>
+        <target>the value must be between 0 and 5</target>
+      </trans-unit>
+      <trans-unit id="_vT2DG6" resname="entrer une ville">
+        <source>entrer une ville</source>
+        <target>enter a city</target>
+      </trans-unit>
+      <trans-unit id="1n6eeDA" resname="Choix de la cuisne">
+        <source>Choix de la cuisne</source>
+        <target>Choice of cuisine</target>
+      </trans-unit>
+      <trans-unit id="AMzUJJN" resname="veuillez mettre un fichier image (png,jpg,jpeg)">
+        <source>veuillez mettre un fichier image (png,jpg,jpeg)</source>
+        <target>please put an image file (png,jpg,jpeg)</target>
+      </trans-unit>
+      <trans-unit id="7s06Qz3" resname="veuillez insérer une image">
+        <source>veuillez insérer une image</source>
+        <target>please insert an image</target>
+      </trans-unit>
+      <trans-unit id="if_iFGQ" resname="Inscrire le nom de la spécialité">
+        <source>Inscrire le nom de la spécialité</source>
+        <target>Enter the name of the specialty</target>
+      </trans-unit>
+      <trans-unit id="Klcyxjc" resname="Description trop courte min 5 caractères">
+        <source>Description trop courte min 5 caractères</source>
+        <target>Description too short min 5 characters</target>
+      </trans-unit>
+      <trans-unit id="9emSCPG" resname="Description trop longue max 100 caractères">
+        <source>Description trop longue max 100 caractères</source>
+        <target>Description too long max 100 characters</target>
+      </trans-unit>
+      <trans-unit id="oL3J05Y" resname="Nom du plat">
+        <source>Nom du plat</source>
+        <target>dish name</target>
+      </trans-unit>
+      <trans-unit id="rmRbuzw" resname="Aujourd’hui, notre chef vous propose une cuisine traditionnelle raffinée, élaborée avec des produits frais, de saison dans un décor feutré, en plein cœur du 15ème arrondissement de Paris. Une grande terrasse vous accueille en été et en hiver tout au long de la journée. Un must : nos plateaux de fruits de mer ! L\'Armandie a le plaisir de vous proposer une large sélection de fruits de mer frais, servis sur place ou à emporter.&#13;&#10;&#13;&#10;                    ">
+        <source>Aujourd’hui, notre chef vous propose une cuisine traditionnelle raffinée, élaborée avec des produits frais, de saison dans un décor feutré, en plein cœur du 15ème arrondissement de Paris. Une grande terrasse vous accueille en été et en hiver tout au long de la journée. Un must : nos plateaux de fruits de mer ! L\'Armandie a le plaisir de vous proposer une large sélection de fruits de mer frais, servis sur place ou à emporter.&#13;
+&#13;
+                    </source>
+        <target>Today, our chef offers you refined traditional cuisine, prepared with fresh, seasonal products in a cozy setting, in the heart of the 15th arrondissement of Paris. A large terrace welcomes you in summer and winter throughout the day. A must: our seafood platters! Armandie is pleased to offer you a wide selection of fresh seafood, served on site or to take away.&#13;
+&#13;
+                    </target>
+      </trans-unit>
+      <trans-unit id="XqhAHc8" resname="Vous devez sélectioner une catégorie">
+        <source>Vous devez sélectioner une catégorie</source>
+        <target>You must select a category</target>
+      </trans-unit>
+      <trans-unit id="2TyDqJp" resname="Vous pouvez sélectionner deux catégories maximum">
+        <source>Vous pouvez sélectionner deux catégories maximum</source>
+        <target>You can select up to two categories</target>
+      </trans-unit>
+      <trans-unit id="JLb1pl1" resname="Vous devez sélectioner un type de cuisine">
+        <source>Vous devez sélectioner un type de cuisine</source>
+        <target>You must select a type of cuisine</target>
+      </trans-unit>
+      <trans-unit id="tfP9LsK" resname="Vous pouvez sélectionner deux types de cuisine maximum">
+        <source>Vous pouvez sélectionner deux types de cuisine maximum</source>
+        <target>You can select up to two types of cuisine</target>
+      </trans-unit>
+      <trans-unit id="EeFUsvc" resname="Choisir une autre photo">
+        <source>Choisir une autre photo</source>
+        <target>Choose another photo</target>
+      </trans-unit>
+      <trans-unit id="2eDxw4f" resname="les mots de passes ne sont pas identitque">
+        <source>les mots de passes ne sont pas identitque</source>
+        <target>passwords are not identical</target>
+      </trans-unit>
+      <trans-unit id="o9ZcpWl" resname="Nouveau mot de passe">
+        <source>Nouveau mot de passe</source>
+        <target>New Password</target>
+      </trans-unit>
+      <trans-unit id="SQlNO6e" resname="Confirmer le mot de passe">
+        <source>Confirmer le mot de passe</source>
+        <target>Confirm password</target>
+      </trans-unit>
+      <trans-unit id="N3MiLYh" resname="veuillez compléter les champs">
+        <source>veuillez compléter les champs</source>
+        <target>please complete the fields</target>
+      </trans-unit>
+      <trans-unit id="oPt21Gu" resname="Votre email">
+        <source>Votre email</source>
+        <target>Your email</target>
+      </trans-unit>
+      <trans-unit id="4LcUv5A" resname="pseudo">
+        <source>pseudo</source>
+        <target>pseudo</target>
+      </trans-unit>
+      <trans-unit id="6luTV6l" resname="ville">
+        <source>ville</source>
+        <target>city</target>
+      </trans-unit>
+      <trans-unit id="Dr0lo0H" resname="Ville">
+        <source>Ville</source>
+        <target>city</target>
+      </trans-unit>
+      <trans-unit id="y0Fa_fq" resname="Êtes vous restaurateur?">
+        <source>Êtes vous restaurateur?</source>
+        <target>Are you a restaurant owner?</target>
+      </trans-unit>
+      <trans-unit id=".5yLjAZ" resname="Mot de passe">
+        <source>Mot de passe</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="18tnKJ4" resname="L'heure de début doit être inférieur à l`'heure de fin">
+        <source>L'heure de début doit être inférieur à l`'heure de fin</source>
+        <target>Start time must be less than end time</target>
+      </trans-unit>
+      <trans-unit id="wGV4bdV" resname="L'heure de fermeture ne peut pas être inférieur à l'heure d`'ouverture">
+        <source>L'heure de fermeture ne peut pas être inférieur à l'heure d`'ouverture</source>
+        <target>Closing time cannot be less than opening time</target>
+      </trans-unit>
+      <trans-unit id="GOudJot" resname="commentaire modifié id: ">
+        <source>commentaire modifié id: </source>
+        <target>modified comment id: </target>
+      </trans-unit>
+      <trans-unit id="EicOD7g" resname="commentaire supprimé id: ">
+        <source>commentaire supprimé id: </source>
+        <target>comment deleted id: </target>
+      </trans-unit>
+      <trans-unit id="_2bRhLX" resname="Compte nom vérifié">
+        <source>Compte nom vérifié</source>
+        <target>Account name verified</target>
+      </trans-unit>
+      <trans-unit id="hxuRAbB" resname="compte vérifié">
+        <source>compte vérifié</source>
+        <target>verified account</target>
+      </trans-unit>
+      <trans-unit id="vLTbCRw" resname="Sélectionner un restaurant">
+        <source>Sélectionner un restaurant</source>
+        <target>Select a restaurant</target>
+      </trans-unit>
+      <trans-unit id=".XPyy9F" resname="mis à jour">
+        <source>mis à jour</source>
+        <target>update</target>
+      </trans-unit>
+      <trans-unit id="ch5bKau" resname="Utilisateur">
+        <source>Utilisateur</source>
+        <target>User</target>
+      </trans-unit>
+      <trans-unit id="JLqGqS3" resname="supprimé">
+        <source>supprimé</source>
+        <target>deleted</target>
+      </trans-unit>
+      <trans-unit id="xtliG09" resname="Félicitation votre restaurant vient être ajouté!">
+        <source>Félicitation votre restaurant vient être ajouté!</source>
+        <target> Congratulations your restaurant has just been added!</target>
+      </trans-unit>
+      <trans-unit id="0cKLQA3" resname="Spécialités mis à jours">
+        <source>Spécialités mis à jours</source>
+        <target>Updated specialties</target>
+      </trans-unit>
+      <trans-unit id="OZI1CL5" resname="Les comptes non-abonnés ne peuvent avoir que ">
+        <source>Les comptes non-abonnés ne peuvent avoir que </source>
+        <target>Non-subscriber accounts can only have </target>
+      </trans-unit>
+      <trans-unit id="6a6ejp8" resname="Image supprimée">
+        <source>Image supprimée</source>
+        <target>Deleted image</target>
+      </trans-unit>
+      <trans-unit id="WamgEda" resname="aucun résultat">
+        <source>aucun résultat</source>
+        <target>No result</target>
+      </trans-unit>
+      <trans-unit id="PgdreT2" resname="Plat supprimé ">
+        <source>Plat supprimé </source>
+        <target>Dish removed </target>
+      </trans-unit>
+      <trans-unit id="slXA4Qn" resname="lundi">
+        <source>lundi</source>
+        <target>Monday</target>
+      </trans-unit>
+      <trans-unit id="QVWccun" resname="mardi">
+        <source>mardi</source>
+        <target>tuesday</target>
+      </trans-unit>
+      <trans-unit id="7pZtREc" resname="mercredi">
+        <source>mercredi</source>
+        <target>Wednesday</target>
+      </trans-unit>
+      <trans-unit id="G4VbsGQ" resname="jeudi">
+        <source>jeudi</source>
+        <target>Thursday</target>
+      </trans-unit>
+      <trans-unit id="LMR0gif" resname="vendredi">
+        <source>vendredi</source>
+        <target>Friday</target>
+      </trans-unit>
+      <trans-unit id="bk_EFPH" resname="samedi">
+        <source>samedi</source>
+        <target>Saturday</target>
+      </trans-unit>
+      <trans-unit id="GahFm2e" resname="dimanche">
+        <source>dimanche</source>
+        <target>Sunday</target>
+      </trans-unit>
+      <trans-unit id="_KI7GGX" resname="Horaire du restaurant ">
+        <source>Horaire du restaurant </source>
+        <target>Restaurant hours </target>
+      </trans-unit>
+      <trans-unit id="9TM0_lP" resname="L'établissement ">
+        <source>L'établissement </source>
+        <target>The establishment </target>
+      </trans-unit>
+      <trans-unit id="ZDRDhkF" resname="Commentaire mis à jour">
+        <source>Commentaire mis à jour</source>
+        <target>Updated comment</target>
+      </trans-unit>
+      <trans-unit id="9516ize" resname="Commentaires">
+        <source>Commentaires</source>
+        <target>Comments</target>
+      </trans-unit>
+      <trans-unit id="oUWrNCp" resname="Followers">
+        <source>Followers</source>
+        <target>Followers</target>
+      </trans-unit>
+      <trans-unit id="oFOLZ8q" resname="Mise à jour du profil réussie">
+        <source>Mise à jour du profil réussie</source>
+        <target>Successful profile update</target>
+      </trans-unit>
+      <trans-unit id="uBV0_Bq" resname="Mot de passe mis à jour">
+        <source>Mot de passe mis à jour</source>
+        <target>Password updated</target>
+      </trans-unit>
+      <trans-unit id="NoB_nKL" resname="Photo profil modifiée">
+        <source>Photo profil modifiée</source>
+        <target>Edited profile picture</target>
+      </trans-unit>
+      <trans-unit id="z88.QbI" resname="Nous espérons vous revoir vite">
+        <source>Nous espérons vous revoir vite</source>
+        <target>We hope to see you again soon</target>
+      </trans-unit>
+      <trans-unit id="kuAyA5j" resname="Restaurant enlevé des favoris">
+        <source>Restaurant enlevé des favoris</source>
+        <target>Restaurant removed from favorites</target>
+      </trans-unit>
+      <trans-unit id="tt.uA4a" resname="Valider votre email pour vous connecter">
+        <source>Valider votre email pour vous connecter</source>
+        <target>Validate your email to log in</target>
+      </trans-unit>
+      <trans-unit id="c77vqNP" resname="Votre compte est maintenant activé bienvenu !">
+        <source>Votre compte est maintenant activé bienvenu !</source>
+        <target>Your account is now activated welcome !</target>
+      </trans-unit>
+      <trans-unit id="zfukYDA" resname="Modifier le commentaire">
+        <source>Modifier le commentaire</source>
+        <target>Modify the comment</target>
+      </trans-unit>
+      <trans-unit id="aWitOqX" resname="Modifier votre avis">
+        <source>Modifier votre avis</source>
+        <target>modifyYourOpinion</target>
+      </trans-unit>
+      <trans-unit id="njdhuBv" resname="Compte de">
+        <source>Compte de</source>
+        <target>countOf</target>
+      </trans-unit>
+      <trans-unit id="VXYEgV7" resname="Photo actuel">
+        <source>Photo actuel</source>
+        <target>currentPhoto</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>email</target>
+      </trans-unit>
+      <trans-unit id="BH9Ys5T" resname="Pseudo">
+        <source>Pseudo</source>
+        <target>pseudo</target>
+      </trans-unit>
+      <trans-unit id="eeXPIN4" resname="Adresse">
+        <source>Adresse</source>
+        <target>Address</target>
+      </trans-unit>
+      <trans-unit id="do0LzPJ" resname="Retour vers l'admin">
+        <source>Retour vers l'admin</source>
+        <target>Back to the admin</target>
+      </trans-unit>
+      <trans-unit id="9HXoz2v" resname="Mettre à jour">
+        <source>Mettre à jour</source>
+        <target>Update</target>
+      </trans-unit>
+      <trans-unit id="whbFGMv" resname="Gestion utilisateurs">
+        <source>Gestion utilisateurs</source>
+        <target>User management</target>
+      </trans-unit>
+      <trans-unit id="sqQ5.kO" resname="Editeur">
+        <source>Editeur</source>
+        <target>Editor</target>
+      </trans-unit>
+      <trans-unit id="LMaGJPW" resname="Restaurant lié">
+        <source>Restaurant lié</source>
+        <target>Linked restaurant</target>
+      </trans-unit>
+      <trans-unit id="CtevjwB" resname="Date du commentaire">
+        <source>Date du commentaire</source>
+        <target>Date of commentary</target>
+      </trans-unit>
+      <trans-unit id="SNPoFla" resname="Commentaire">
+        <source>Commentaire</source>
+        <target>Comment</target>
+      </trans-unit>
+      <trans-unit id="vZOMaI9" resname="action">
+        <source>action</source>
+        <target>action</target>
+      </trans-unit>
+      <trans-unit id="LE_46xC" resname="&quot;Editeur&quot;">
+        <source>"Editeur"</source>
+        <target>"Editor"</target>
+      </trans-unit>
+      <trans-unit id="yZiTvl4" resname="&quot; Restaurant lié&quot;">
+        <source>" Restaurant lié"</source>
+        <target>"Linked restaurant"</target>
+      </trans-unit>
+      <trans-unit id="SBvASMm" resname="&quot;Date du commentaire&quot;">
+        <source>"Date du commentaire"</source>
+        <target>"Date of commentary"</target>
+      </trans-unit>
+      <trans-unit id="j3zWi4W" resname="&quot;Commentaire&quot;">
+        <source>"Commentaire"</source>
+        <target>"Comment"</target>
+      </trans-unit>
+      <trans-unit id="kMJ0U3N" resname="Pannel administratif">
+        <source>Pannel administratif</source>
+        <target>Administrative panel</target>
+      </trans-unit>
+      <trans-unit id="xTIDx8Q" resname="Nombre  d'utilisateurs">
+        <source>Nombre  d'utilisateurs</source>
+        <target>Number of users</target>
+      </trans-unit>
+      <trans-unit id="UKdiJYt" resname="Nombre de restaurants">
+        <source>Nombre de restaurants</source>
+        <target>Restaurant name</target>
+      </trans-unit>
+      <trans-unit id="5nVXqle" resname="Utilisateurs activés:">
+        <source>Utilisateurs activés:</source>
+        <target>Activated users:</target>
+      </trans-unit>
+      <trans-unit id="PECib_d" resname="Gestion Restaurants">
+        <source>Gestion Restaurants</source>
+        <target>Restaurant management</target>
+      </trans-unit>
+      <trans-unit id="tAaIHgc" resname="Propriétaire">
+        <source>Propriétaire</source>
+        <target>Owner</target>
+      </trans-unit>
+      <trans-unit id="7Su4UMO" resname="Etablissement">
+        <source>Etablissement</source>
+        <target>Establishment</target>
+      </trans-unit>
+      <trans-unit id="zExCS1c" resname="Téléphone">
+        <source>Téléphone</source>
+        <target>Telephone</target>
+      </trans-unit>
+      <trans-unit id="jDl2gwa" resname="&quot;Proriétaire&quot;">
+        <source>"Proriétaire"</source>
+        <target>"Owner"</target>
+      </trans-unit>
+      <trans-unit id="b2d9mVY" resname="&quot;Etablissement&quot;">
+        <source>"Etablissement"</source>
+        <target>"Establishment"</target>
+      </trans-unit>
+      <trans-unit id="verWApp" resname="&quot;Téléphone&quot;">
+        <source>"Téléphone"</source>
+        <target>"Telephone"</target>
+      </trans-unit>
+      <trans-unit id="zpiNl2_" resname="&quot;Ville&quot;">
+        <source>"Ville"</source>
+        <target>"ville"</target>
+      </trans-unit>
+      <trans-unit id="q4i..pa" resname="&quot;Adresse&quot;">
+        <source>"Adresse"</source>
+        <target>"Address"</target>
+      </trans-unit>
+      <trans-unit id="jaoFowG" resname="&quot;Pseudo&quot;&gt;">
+        <source>"Pseudo"&gt;</source>
+        <target><![CDATA["Pseudo">]]></target>
+      </trans-unit>
+      <trans-unit id="C1fpZ.9" resname="&quot;Email&quot;">
+        <source>"Email"</source>
+        <target>"email"</target>
+      </trans-unit>
+      <trans-unit id="lrSYVow" resname="DashBoard">
+        <source>DashBoard</source>
+        <target>dashboard</target>
+      </trans-unit>
+      <trans-unit id="I9OTi17" resname="Utilisateurs">
+        <source>Utilisateurs</source>
+        <target>Users</target>
+      </trans-unit>
+      <trans-unit id="Jz0cfRw" resname="Gestion des commentaires">
+        <source>Gestion des commentaires</source>
+        <target>Comment management</target>
+      </trans-unit>
+      <trans-unit id="1psZRk7" resname="Page 404">
+        <source>Page 404</source>
+        <target>page404</target>
+      </trans-unit>
+      <trans-unit id="X3DL3t5" resname="&quot;erreur sur fond rouge avec un panneau attention&quot;">
+        <source>"erreur sur fond rouge avec un panneau attention"</source>
+        <target>"Error on a red background with a panel Attention"</target>
+      </trans-unit>
+      <trans-unit id="8ptvO1t" resname="Une erreur est survenue">
+        <source>Une erreur est survenue</source>
+        <target>An error has occurred</target>
+      </trans-unit>
+      <trans-unit id="TZ8XkO2" resname="Retour vers l'accueil">
+        <source>Retour vers l'accueil</source>
+        <target>Back to the reception</target>
+      </trans-unit>
+      <trans-unit id="C.7IzZJ" resname="Page 403">
+        <source>Page 403</source>
+        <target>page403</target>
+      </trans-unit>
+      <trans-unit id="Z9GBbLR" resname="&quot;403 sur fond rouge avec un panneau attention&quot;">
+        <source>"403 sur fond rouge avec un panneau attention"</source>
+        <target>"403 on a red background with a panel Attention"</target>
+      </trans-unit>
+      <trans-unit id="ItDQS2p" resname="Accès non autorisé!">
+        <source>Accès non autorisé!</source>
+        <target>Unauthorized access!</target>
+      </trans-unit>
+      <trans-unit id="ltn8J64" resname="&quot;404 sur fond rouge avec un panneau attention&quot;">
+        <source>"404 sur fond rouge avec un panneau attention"</source>
+        <target>"404 on a red background with a panel Attention"</target>
+      </trans-unit>
+      <trans-unit id="GSXmxrp" resname="Oups! La page n'existe plus ou pas!">
+        <source>Oups! La page n'existe plus ou pas!</source>
+        <target>Whoops!The page no longer exists or not!</target>
+      </trans-unit>
+      <trans-unit id="zFj.8qU" resname="Envie de découvrir plus de restaurants?">
+        <source>Envie de découvrir plus de restaurants?</source>
+        <target>Do you want to discover more restaurants?</target>
+      </trans-unit>
+      <trans-unit id="ev3q8GI" resname="Alors n'hésitez pas à visiter la liste de nos restaurants.">
+        <source>Alors n'hésitez pas à visiter la liste de nos restaurants.</source>
+        <target>So do not hesitate to visit the list of our restaurants.</target>
+      </trans-unit>
+      <trans-unit id="QEvoCqm" resname="Voir tous les établissements">
+        <source>Voir tous les établissements</source>
+        <target>See all establishments</target>
+      </trans-unit>
+      <trans-unit id="zyuEDe7" resname="Vous êtes restaurateur ?">
+        <source>Vous êtes restaurateur ?</source>
+        <target>Are you a restaurateur?</target>
+      </trans-unit>
+      <trans-unit id="ANHvWs." resname="Partagez vos délicieux plats avec la communauté ToLink et faites vous de nouveaux clients.">
+        <source>Partagez vos délicieux plats avec la communauté ToLink et faites vous de nouveaux clients.</source>
+        <target>Share your delicious dishes with the Tolink community and make new customers.</target>
+      </trans-unit>
+      <trans-unit id="GPIu3bK" resname="Créer votre page restaurant afin de le partager avec la communauté ToLink.">
+        <source>Créer votre page restaurant afin de le partager avec la communauté ToLink.</source>
+        <target>Create your restaurant page to share it with the Tolink community.</target>
+      </trans-unit>
+      <trans-unit id="HXjVmUY" resname="S'inscrire dès maintenant">
+        <source>S'inscrire dès maintenant</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="_HO33Mj" resname="Politique de confidentialité">
+        <source>Politique de confidentialité</source>
+        <target>Privacy Policy</target>
+      </trans-unit>
+      <trans-unit id="kNsEWs9" resname="Ce site web est fictif il est là pour démontrer mes capacités de développeur web.">
+        <source>Ce site web est fictif il est là pour démontrer mes capacités de développeur web.</source>
+        <target>This website is fictitious it is there to demonstrate my web developer capacities.</target>
+      </trans-unit>
+      <trans-unit id="_2S28c0" resname="ToLink établit la présente Politique de confidentialité dont l'objet est d'informer en toute transparence les Utilisateurs du site internet hébergé à l'adresse suivante:">
+        <source>ToLink établit la présente Politique de confidentialité dont l'objet est d'informer en toute transparence les Utilisateurs du site internet hébergé à l'adresse suivante:</source>
+        <target>ToLink establishes this Privacy Policy, the purpose of which is to inform users of the website hosted at the following address:</target>
+      </trans-unit>
+      <trans-unit id="LdGldtI" resname="(ci-après le &quot;Site&quot;), de la manière dont les données personnelles sont récoltées et traitées par ToLink. Le terme &quot;Utilisateur&quot; fait référence à tout utilisateur, soit toute personne physique ou morale, qui visite ou interagit d'une quelconque manière avec le Site. A ce titre, ToLink détermine tous les moyens et finalités techniques, juridiques et organisationnelles du traitement des données personnelles des Utilisateurs. ToLink s'engage à cet effet à prendre toutes les mesures nécessaires pour garantir un traitement des données personnelles conforme à la loi du 30 juillet 2018, relative à la protection des personnes physiques à l'égard des traitements des données à caractère personnel (ci-après, &quot;la Loi&quot;) et au Règlement européen du 26 avril 2016 relatif à la protection des données des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données (ci-après le &quot;Règlement&quot;).&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;ToLink est libre de choisir toute personne physique ou morale qui traite les données personnelles des utilisateurs à sa demande et pour son compte (ci-après le &quot;Sous-traitant&quot;). Le cas échéant, ToLink s'engage à sélectionner un Sous-traitant offrant des garanties suffisantes quant aux mesures de sécurité techniques et organisationnelles du traitement des données personnelles, au regard de la Loi et du Règlement.">
+        <source>(ci-après le "Site"), de la manière dont les données personnelles sont récoltées et traitées par ToLink. Le terme "Utilisateur" fait référence à tout utilisateur, soit toute personne physique ou morale, qui visite ou interagit d'une quelconque manière avec le Site. A ce titre, ToLink détermine tous les moyens et finalités techniques, juridiques et organisationnelles du traitement des données personnelles des Utilisateurs. ToLink s'engage à cet effet à prendre toutes les mesures nécessaires pour garantir un traitement des données personnelles conforme à la loi du 30 juillet 2018, relative à la protection des personnes physiques à l'égard des traitements des données à caractère personnel (ci-après, "la Loi") et au Règlement européen du 26 avril 2016 relatif à la protection des données des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données (ci-après le "Règlement").
+													
+													ToLink est libre de choisir toute personne physique ou morale qui traite les données personnelles des utilisateurs à sa demande et pour son compte (ci-après le "Sous-traitant"). Le cas échéant, ToLink s'engage à sélectionner un Sous-traitant offrant des garanties suffisantes quant aux mesures de sécurité techniques et organisationnelles du traitement des données personnelles, au regard de la Loi et du Règlement.</source>
+        <target> (hereinafter the "Site"), how personal data is harvested and processed by Tolink. The term "user" refers to any user, either any natural or legal person, who visits or interacts in any way with the site. As such, Tolink determines all the technical, legal and organizational means and purposes of the processing of personal data from users. Tolink undertakes to take on all the necessary measures to guarantee processing of personal data in accordance with the law of July 30, 2018, relating to the protection of natural persons with regard to processing of personal data (hereinafter After, "Law") and the European regulation of April 26, 2016 relating to the protection of natural persons with regard to the processing of personal data and the free movement of this data (hereinafter the "Regulation ").
+
+Tolink is free to choose any natural or legal person who processes the personal data of users on their request and on his behalf (hereinafter the "subcontractor"). If necessary, Tolink undertakes to select a subcontractor offering sufficient guarantees regarding the technical and organizational security measures for the processing of personal data, with regard to the law and the regulation.</target>
+      </trans-unit>
+      <trans-unit id="1M4Dieh" resname="2. Traitement des données personnelles">
+        <source>2. Traitement des données personnelles</source>
+        <target>2. Processing of personal data</target>
+      </trans-unit>
+      <trans-unit id="YzARfKF" resname="3. Finalité du traitement des données personnelles">
+        <source>3. Finalité du traitement des données personnelles</source>
+        <target>3. Purpose of processing personal data</target>
+      </trans-unit>
+      <trans-unit id="Zd04eoK" resname="Conformément à l'article 13 du Règlement, les finalités du traitement des données personnelles sont communiquées à l'Utilisateur et sont les suivantes: Assurer l'exécution des services proposés et convenus sur le site. Assurer le contrôle de l'exécution des services proposés. Réaliser des statistiques afin d'améliorer la qualité d'utilisation pour les utilisateurs du site.">
+        <source>Conformément à l'article 13 du Règlement, les finalités du traitement des données personnelles sont communiquées à l'Utilisateur et sont les suivantes: Assurer l'exécution des services proposés et convenus sur le site. Assurer le contrôle de l'exécution des services proposés. Réaliser des statistiques afin d'améliorer la qualité d'utilisation pour les utilisateurs du site.</source>
+        <target>In accordance with article 13 of the regulation, the purposes of processing personal data are communicated to the User and are as follows: Ensure the execution of the services offered and agreed on the Site.Ensure control of the execution of the services offered.Carry out statistics to improve the quality of use for site users.</target>
+      </trans-unit>
+      <trans-unit id="TGxw3n9" resname="4. Données personnelles susceptibles d'être traitées">
+        <source>4. Données personnelles susceptibles d'être traitées</source>
+        <target>4.Personal data likely to be procesétablised</target>
+      </trans-unit>
+      <trans-unit id="bugJCXl" resname="L'Utilisateur consent, lors de la visite et lors de l'utilisation du Site, que ToLink recueille et traite, selon les modalités et principes décrits dans la présente Politique de confidentialité, les données à caractère personnel suivantes: obligatoire: adresse email, pseudo, mot de passe. Non obligatoire:Adresse postale.&#10;                Ces informations servirons au bon fonctionnement du site et permettrons d'améliorer la qualité de navigation des utilisateurs de ToLink">
+        <source>L'Utilisateur consent, lors de la visite et lors de l'utilisation du Site, que ToLink recueille et traite, selon les modalités et principes décrits dans la présente Politique de confidentialité, les données à caractère personnel suivantes: obligatoire: adresse email, pseudo, mot de passe. Non obligatoire:Adresse postale.
+                Ces informations servirons au bon fonctionnement du site et permettrons d'améliorer la qualité de navigation des utilisateurs de ToLink</source>
+        <target>The user agrees, during the visit and during the use of the Site, that Tolink collects and deals, according to the terms and principles described in this Privacy Policy, the following personal data: compulsory: email address, pseudo, password.Not compulsory: postal address.
+                This information will be used for the proper functioning of the site and will improve the navigation quality of Tolink users</target>
+      </trans-unit>
+      <trans-unit id="LRvMdL0" resname="5. Consentement">
+        <source>5. Consentement</source>
+        <target>5. Consent</target>
+      </trans-unit>
+      <trans-unit id="Z5ly5to" resname="En accédant au Site et en l'utilisant, l'Utilisateur déclare avoir pris connaissance et marqué son accord de façon libre, spécifique, éclairée et univoque au traitement des données à caractère personnel la concernant. Cet accord porte sur le contenu de la présente Politique de confidentialité. Le consentement est donné par l'acte positif par lequel l'Utilisateur a coché la case proposant la Politique de confidentialité en lien hypertexte. Ce consentement est une condition indispensable pour effectuer certaines opérations sur le Site ou pour permettre à l'Utilisateur d'entrer en relation contractuelle avec ToLink. Tout contrat liant ToLink et un Utilisateur portant sur les services et biens proposés sur le Site est subordonné à l'acceptation de la Politique de confidentialité par l'Utilisateur. L'Utilisateur consent à ce que le Responsable du Traitement traite et recueille, conformément aux modalités et principes compris dans la présente Politique de confidentialité, ses données à caractère personnel qu'il communique sur le Site ou à l'occasion des services proposés par ToLink, pour les finalités indiquées plus haut. L'Utilisateur a le droit de retirer son consentement à tout moment. Le retrait du consentement ne compromet pas la licéité du traitement fondé sur le consentement préalablement donné.">
+        <source>En accédant au Site et en l'utilisant, l'Utilisateur déclare avoir pris connaissance et marqué son accord de façon libre, spécifique, éclairée et univoque au traitement des données à caractère personnel la concernant. Cet accord porte sur le contenu de la présente Politique de confidentialité. Le consentement est donné par l'acte positif par lequel l'Utilisateur a coché la case proposant la Politique de confidentialité en lien hypertexte. Ce consentement est une condition indispensable pour effectuer certaines opérations sur le Site ou pour permettre à l'Utilisateur d'entrer en relation contractuelle avec ToLink. Tout contrat liant ToLink et un Utilisateur portant sur les services et biens proposés sur le Site est subordonné à l'acceptation de la Politique de confidentialité par l'Utilisateur. L'Utilisateur consent à ce que le Responsable du Traitement traite et recueille, conformément aux modalités et principes compris dans la présente Politique de confidentialité, ses données à caractère personnel qu'il communique sur le Site ou à l'occasion des services proposés par ToLink, pour les finalités indiquées plus haut. L'Utilisateur a le droit de retirer son consentement à tout moment. Le retrait du consentement ne compromet pas la licéité du traitement fondé sur le consentement préalablement donné.</source>
+        <target>By accessing the site and using it, the user declares that he has read and marked his agreement free, specific, enlightened and unequivocal to the processing of personal data concerning her. This agreement relates to the content of this privacy policy. Consent is given by the positive act by which the user has checked the box offering the hypertext privacy policy. This consent is an essential condition for carrying out certain operations on the site or to allow the user to enter into contractual relation with Tolink. Any contract binding Tolink and a user on the services and goods offered on the Site is subject to acceptance of the privacy policy by the user. The User consents to the fact that the controller treats and collects, in accordance with the terms and principles included in this Privacy Policy, his personal data which he communicates on the site or during the services offered by Tolink , for the purposes indicated above. The user has the right to withdraw his consent at any time. The withdrawal of consent does not compromise the lawfulness of treatment based on previously given consent.</target>
+      </trans-unit>
+      <trans-unit id="1AF3a5G" resname="6. Durée de conservation des données personnelles des Utilisateurs">
+        <source>6. Durée de conservation des données personnelles des Utilisateurs</source>
+        <target>6. Conservation duration of personal user data</target>
+      </trans-unit>
+      <trans-unit id="XboHBn6" resname="Conformément à l'article 13 §2 du Règlement et de la Loi, le Responsable du Traitement ne conserve les données à caractère personnel que pendant le temps raisonnablement nécessaire pour permettre l'accomplissement des finalités pour lesquelles elles sont traitées. Cette durée est dans tous les cas inférieure à: à la suppression de l'utilisateur">
+        <source>Conformément à l'article 13 §2 du Règlement et de la Loi, le Responsable du Traitement ne conserve les données à caractère personnel que pendant le temps raisonnablement nécessaire pour permettre l'accomplissement des finalités pour lesquelles elles sont traitées. Cette durée est dans tous les cas inférieure à: à la suppression de l'utilisateur</source>
+        <target>In accordance with article 13 §2 of the regulation and the law, the controller only retains personal data during the time reasonably necessary to allow the completion of the purposes for which they are processed.This duration is in all cases below: the deletion of the user</target>
+      </trans-unit>
+      <trans-unit id="PXI49hg" resname="7. Destinataires des données et divulgation à des tiers">
+        <source>7. Destinataires des données et divulgation à des tiers</source>
+        <target>7. Data recipients and disclosure to third parties</target>
+      </trans-unit>
+      <trans-unit id="5xDD_rb" resname="Les données personnelles peuvent être transmises aux préposés, collaborateurs, sous-traitants ou fournisseurs de ToLink qui offrent des garanties de sécurité des données adéquates, et qui collaborent avec le ToLink dans le cadre de la commercialisation de produits ou de la fourniture de services. Ils agissent sous l'autorité directe de ToLink, et sont notamment responsables de recueillir, de traiter ou de sous-traiter ces données. Dans tous les cas, les destinataires des données et ceux à qui ces données ont été divulguées respectent le contenu de la présente Politique de confidentialité. ToLink assure qu'ils traiteront ces données aux seules finalités prévues, de façon discrète et sécurisée. Dans l'hypothèse où les données seraient divulguées à des tiers à des fins de marketing direct ou de prospection, l'Utilisateur en sera préalablement informé pour qu'il exprime son consentement à l'utilisation de ces données personnels.">
+        <source>Les données personnelles peuvent être transmises aux préposés, collaborateurs, sous-traitants ou fournisseurs de ToLink qui offrent des garanties de sécurité des données adéquates, et qui collaborent avec le ToLink dans le cadre de la commercialisation de produits ou de la fourniture de services. Ils agissent sous l'autorité directe de ToLink, et sont notamment responsables de recueillir, de traiter ou de sous-traiter ces données. Dans tous les cas, les destinataires des données et ceux à qui ces données ont été divulguées respectent le contenu de la présente Politique de confidentialité. ToLink assure qu'ils traiteront ces données aux seules finalités prévues, de façon discrète et sécurisée. Dans l'hypothèse où les données seraient divulguées à des tiers à des fins de marketing direct ou de prospection, l'Utilisateur en sera préalablement informé pour qu'il exprime son consentement à l'utilisation de ces données personnels.</source>
+        <target>Personal data can be transmitted to the attendants, employees, subcontractors or Tolink suppliers who offer adequate data security guarantees, and which collaborate with Tolink as part of product marketing or providing services.They act under the direct authority of Tolink, and are responsible for collecting, processing or subcontracting this data.In all cases, the recipients of the data and those to whom these data have been disclosed respect the content of this Privacy Policy.Tolink ensures that they will process this data to the only purposes planned, in a discreet and secure manner.In the event that the data is disclosed to third parties for direct marketing or prospecting purposes, the user will be informed before that he expresses his consent to the use of these personal data.</target>
+      </trans-unit>
+      <trans-unit id=".55EnLo" resname="8. Droits des Utilisateurs">
+        <source>8. Droits des Utilisateurs</source>
+        <target>8. User rights</target>
+      </trans-unit>
+      <trans-unit id="lIUWszt" resname="A tout moment, l'Utilisateur peut exercer ses droits en envoyant un message par courrier électronique à l'adresse suivante: anonyme.remy@gmail.com, ou une lettre par voie postale adressée, en joignant une copie de sa carte d'identité à l'adresse suivante: Chemin de Mont">
+        <source>A tout moment, l'Utilisateur peut exercer ses droits en envoyant un message par courrier électronique à l'adresse suivante: anonyme.remy@gmail.com, ou une lettre par voie postale adressée, en joignant une copie de sa carte d'identité à l'adresse suivante: Chemin de Mont</source>
+        <target>At any time, the user can exercise his rights by sending a message by email to the following address: anonymous.remy@gmail.com, or a letter by post addressed, joining a copy of his cardAt the following address: chemin de Mont</target>
+      </trans-unit>
+      <trans-unit id="8RYX75Y" resname="a. Droit d'accès">
+        <source>a. Droit d'accès</source>
+        <target>a. Permission to access</target>
+      </trans-unit>
+      <trans-unit id="QgiSA.Y" resname="Conformément à l'article 15 du Règlement, ToLink garantit le droit d'accès à l'Utilisateur à ses données personnelles. L'Utilisateur a le droit d'obtenir l'accès auxdites données à caractère personnel ainsi que les informations suivantes:&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;les finalités du traitement;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;les catégories de données à caractère personnel concernées;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;les destinataires ou catégories de destinataires auxquels les données à caractère personnel ont été ou seront communiquées, en particulier les destinataires qui sont établis dans des pays tiers ou les organisations internationales;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;lorsque cela est possible, la durée de conservation des données à caractère personnel envisagée ou, lorsque ce n'est pas possible, les critères utilisés pour déterminer cette durée;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;l'existence d'une prise de décision automatisée, y compris un profilage, visée à l'article 22, paragraphes 1 et 4 du Règlement, et, au moins en pareils cas, des informations utiles concernant la logique sous-jacente, ainsi que l'importance et les conséquences prévues de ce traitement pour la personne concernée&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;Le Responsable du Traitement peut exiger le paiement de frais raisonnables basés sur les coûts administratifs pour toute copie supplémentaire demandée par l'Utilisateur. Lorsque l'Utilisateur introduit cette demande par voie électronique (par le biais de l'adresse électronique par exemple), les informations sont fournies sous une forme électronique d'usage courant, à moins que l'Utilisateur ne demande qu'il en soit autrement. La copie de ses données sera communiquée à l'Utilisateur au plus tard dans le mois après la réception de la demande.">
+        <source>Conformément à l'article 15 du Règlement, ToLink garantit le droit d'accès à l'Utilisateur à ses données personnelles. L'Utilisateur a le droit d'obtenir l'accès auxdites données à caractère personnel ainsi que les informations suivantes:
+							
+							les finalités du traitement;
+							les catégories de données à caractère personnel concernées;
+							les destinataires ou catégories de destinataires auxquels les données à caractère personnel ont été ou seront communiquées, en particulier les destinataires qui sont établis dans des pays tiers ou les organisations internationales;
+							lorsque cela est possible, la durée de conservation des données à caractère personnel envisagée ou, lorsque ce n'est pas possible, les critères utilisés pour déterminer cette durée;
+							l'existence d'une prise de décision automatisée, y compris un profilage, visée à l'article 22, paragraphes 1 et 4 du Règlement, et, au moins en pareils cas, des informations utiles concernant la logique sous-jacente, ainsi que l'importance et les conséquences prévues de ce traitement pour la personne concernée
+							Le Responsable du Traitement peut exiger le paiement de frais raisonnables basés sur les coûts administratifs pour toute copie supplémentaire demandée par l'Utilisateur. Lorsque l'Utilisateur introduit cette demande par voie électronique (par le biais de l'adresse électronique par exemple), les informations sont fournies sous une forme électronique d'usage courant, à moins que l'Utilisateur ne demande qu'il en soit autrement. La copie de ses données sera communiquée à l'Utilisateur au plus tard dans le mois après la réception de la demande.</source>
+        <target>In accordance with article 15 of the regulation, Tolink guarantees the right of access to the user to his personal data. The user has the right to obtain access to said personal data as well as the following information:
+
+Treatment purposes;
+the categories of personal data concerned;
+The recipients or categories of recipients to which personal data have been or will be communicated, in particular the recipients which are established in third countries or international organizations;
+When possible, the shelf life of personal data envisaged or, when it is not possible, the criteria used to determine this duration;
+The existence of automated decision-making, including profiling, referred to in article 22, paragraphs 1 and 4 of the regulation, and, at least in such cases, useful information concerning the underlying logic, as well as the importance and the expected consequences of this treatment for the person concerned
+The controller may require the payment of reasonable costs based on administrative costs for any additional copy requested by the User. When the user submits this request by electronic means (through the email address for example), the information is provided in an electronic form of common use, unless the user requests that it be otherwise . The copy of his data will be communicated to the user at the latest in the month after receipt of the request.</target>
+      </trans-unit>
+      <trans-unit id="rPb2Ojp" resname="b.Droit de rectification">
+        <source>b.Droit de rectification</source>
+        <target>b.Right of rectification</target>
+      </trans-unit>
+      <trans-unit id="9Cl4c3h" resname="ToLink garantit le droit de rectification et d'effacement des données personnelles à l'utilisateur. Conformément à l'article 16 du Règlement, les données incorrectes, inexactes ou non-pertinentes peuvent être corrigées ou effacées à tout moment. L'Utilisateur procède d'abord lui-même aux modifications nécessaires depuis son compte utilisateur/autre, sauf si celles-ci ne peuvent être effectuées de manière autonome, dans quel cas la demande peut en être faite auprès de ToLink. Conformément à l'article 19 du Règlement, le Responsable du traitement notifie à chaque destinataire auquel les données à caractère personnel ont été communiquées toute rectification des données à caractère personnel, à moins qu'une telle communication se révèle impossible ou exige des efforts disproportionnés. Le responsable du traitement fournit à la personne concernée des informations sur ces destinataires si celle-ci en fait la demande.">
+        <source>ToLink garantit le droit de rectification et d'effacement des données personnelles à l'utilisateur. Conformément à l'article 16 du Règlement, les données incorrectes, inexactes ou non-pertinentes peuvent être corrigées ou effacées à tout moment. L'Utilisateur procède d'abord lui-même aux modifications nécessaires depuis son compte utilisateur/autre, sauf si celles-ci ne peuvent être effectuées de manière autonome, dans quel cas la demande peut en être faite auprès de ToLink. Conformément à l'article 19 du Règlement, le Responsable du traitement notifie à chaque destinataire auquel les données à caractère personnel ont été communiquées toute rectification des données à caractère personnel, à moins qu'une telle communication se révèle impossible ou exige des efforts disproportionnés. Le responsable du traitement fournit à la personne concernée des informations sur ces destinataires si celle-ci en fait la demande.</source>
+        <target>Tolink guarantees the right to rectify and erase personal data to the user.In accordance with article 16 of the regulation, incorrect, inaccurate or non-allotted data may be corrected or deleted at any time.The user first proceeds to the necessary changes from his user/other account, unless they cannot be made independently, in which case the request can be made to Tolink.In accordance with article 19 of the regulation, the controller notifies to each recipient to which personal data has been communicated any rectification of personal data, unless such communication turns out to be impossible or requires disproportionate efforts.The controller provides the person concerned with information on these recipients if the latter requests it.</target>
+      </trans-unit>
+      <trans-unit id="voSviH4" resname="c.Droit à l'effacement">
+        <source>c.Droit à l'effacement</source>
+        <target>c.</target>
+      </trans-unit>
+      <trans-unit id="VnSWw0O" resname="L'Utilisateur a le droit d'obtenir l'effacement de ses données personnelles dans les meilleurs délais dans les hypothèses énumérées à l'article 17 du Règlement.&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;Lorsque le Responsable de Traitement a rendu publiques les données à caractère personnel et qu'il est tenu de les effacer en vertu du paragraphe précédent, le Responsable du traitement, compte tenu des technologies disponibles et des coûts de mise en œuvre, prend des mesures raisonnables, y compris d'ordre technique, pour informer les autres responsables du traitement qui traitent ces données à caractère personnel que la personne concernée a demandé l'effacement par ces responsables du traitement de tout lien vers ces données à caractère personnel, ou de toute copie ou reproduction de celles-ci. Les deux paragraphes précédents ne s'appliquent pas dans la mesure où ce traitement est nécessaire:&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;à l'exercice du droit à la liberté d'expression et d'information;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;pour respecter une obligation légale qui requiert le traitement prévue par le droit de l'Union ou par le droit de l'État membre auquel le responsable du traitement est soumis, ou pour exécuter une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;à la constatation, à l'exercice ou à la défense de droits en justice.&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;Conformément à l'article 19 du Règlement, le Responsable du traitement notifie à chaque destinataire auquel les données à caractère personnel ont été communiquées tout effacement de données à caractère personnel ou toute limitation du traitement effectué, à moins qu'une telle communication se révèle impossible ou exige des efforts disproportionnés. Le responsable du traitement fournit à la personne concernée des informations sur ces destinataires si celle-ci en fait la demande.">
+        <source>L'Utilisateur a le droit d'obtenir l'effacement de ses données personnelles dans les meilleurs délais dans les hypothèses énumérées à l'article 17 du Règlement.
+							
+							Lorsque le Responsable de Traitement a rendu publiques les données à caractère personnel et qu'il est tenu de les effacer en vertu du paragraphe précédent, le Responsable du traitement, compte tenu des technologies disponibles et des coûts de mise en œuvre, prend des mesures raisonnables, y compris d'ordre technique, pour informer les autres responsables du traitement qui traitent ces données à caractère personnel que la personne concernée a demandé l'effacement par ces responsables du traitement de tout lien vers ces données à caractère personnel, ou de toute copie ou reproduction de celles-ci. Les deux paragraphes précédents ne s'appliquent pas dans la mesure où ce traitement est nécessaire:
+							
+							à l'exercice du droit à la liberté d'expression et d'information;
+							pour respecter une obligation légale qui requiert le traitement prévue par le droit de l'Union ou par le droit de l'État membre auquel le responsable du traitement est soumis, ou pour exécuter une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement;
+							à la constatation, à l'exercice ou à la défense de droits en justice.
+							Conformément à l'article 19 du Règlement, le Responsable du traitement notifie à chaque destinataire auquel les données à caractère personnel ont été communiquées tout effacement de données à caractère personnel ou toute limitation du traitement effectué, à moins qu'une telle communication se révèle impossible ou exige des efforts disproportionnés. Le responsable du traitement fournit à la personne concernée des informations sur ces destinataires si celle-ci en fait la demande.</source>
+        <target>The user has the right to obtain the erasure of his personal data as soon as possible in the hypotheses listed in article 17 of the regulation.
+
+When the controller has made public data public and is required to erase it under the previous paragraph, the controller, taking into account the available technologies and implementation costs, takes reasonable measures , including technical order, to inform the other managers of the processing who process this personal data that the person concerned requested the erasure by these managers of the processing of any link to this personal data, or any copy or reproduction of these. The two previous paragraphs do not apply to the extent that this treatment is necessary:
+
+the exercise of the right to freedom of expression and information;
+To comply with a legal obligation which requires the treatment provided for by the law of the Union or by the law of the Member State to which the controller is subject, or to execute a mission of public interest or falling under the exercise of the public authority invested by the controller;
+to the observation, exercise or defense of legal rights.
+In accordance with article 19 of the regulation, the controller notifies to each recipient to which the personal data has been communicated to any erasure of personal data or any limitation of the processing carried out, unless such a communication turns out to be impossible or requires disproportionate efforts. The controller provides the person concerned with information on these recipients if the latter requests it.</target>
+      </trans-unit>
+      <trans-unit id="ZQhN3l9" resname="d.Droit de limitation du traitement">
+        <source>d.Droit de limitation du traitement</source>
+        <target>d.Treatment right to limit</target>
+      </trans-unit>
+      <trans-unit id="9iVG0we" resname="L'Utilisateur a le droit d'obtenir la limitation du traitement de ses données personnelles dans les hypothèses énumérées à l'article 19 du Règlement. Conformément à l'article 19 du Règlement, le Responsable du traitement notifie à chaque destinataire auquel les données à caractère personnel ont été communiquées toute limitation du traitement effectué, à moins qu'une telle communication se révèle impossible ou exige des efforts disproportionnés. Le responsable du traitement fournit à la personne concernée des informations sur ces destinataires si celle-ci en fait la demande.">
+        <source>L'Utilisateur a le droit d'obtenir la limitation du traitement de ses données personnelles dans les hypothèses énumérées à l'article 19 du Règlement. Conformément à l'article 19 du Règlement, le Responsable du traitement notifie à chaque destinataire auquel les données à caractère personnel ont été communiquées toute limitation du traitement effectué, à moins qu'une telle communication se révèle impossible ou exige des efforts disproportionnés. Le responsable du traitement fournit à la personne concernée des informations sur ces destinataires si celle-ci en fait la demande.</source>
+        <target>The user has the right to obtain the limitation of the processing of his personal data in the hypotheses listed in article 19 of the regulation.In accordance with article 19 of the regulation, the controller notifies to each recipient to which the personal data has been communicated any limitation of the processing carried out, unless such a communication turns out to be impossible or requires disproportionate efforts.The controller provides the person concerned with information on these recipients if the latter requests it.</target>
+      </trans-unit>
+      <trans-unit id="32HjHmV" resname="e. Droit de portabilité des données">
+        <source>e. Droit de portabilité des données</source>
+        <target>e. Data portability law</target>
+      </trans-unit>
+      <trans-unit id="wB5ZZIS" resname="Conformément à l'article 20 du Règlement, les Utilisateurs ont le droit de recevoir de ToLink les données à caractère personnel les concernant dans un format structuré, couramment utilisé et lisible par machine. Les Utilisateurs ont le droit de transmettre ces données à un autre responsable du traitement sans que ToLink y fasse obstacle dans les cas prévus par le Règlement. Lorsque l'Utilisateur exerce son droit à la portabilité des données en application du paragraphe précédent, elle a le droit d'obtenir que les données à caractère personnel soient transmises directement d'un responsable du traitement à un autre, lorsque cela est techniquement possible. L'exercice du droit de portabilité des données s'entend sans préjudice du droit à l'effacement. Ce droit ne s'applique pas au traitement nécessaire à l'exécution d'une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement. Le droit de portabilité des données ne porte pas atteinte aux droits et libertés de tiers.">
+        <source>Conformément à l'article 20 du Règlement, les Utilisateurs ont le droit de recevoir de ToLink les données à caractère personnel les concernant dans un format structuré, couramment utilisé et lisible par machine. Les Utilisateurs ont le droit de transmettre ces données à un autre responsable du traitement sans que ToLink y fasse obstacle dans les cas prévus par le Règlement. Lorsque l'Utilisateur exerce son droit à la portabilité des données en application du paragraphe précédent, elle a le droit d'obtenir que les données à caractère personnel soient transmises directement d'un responsable du traitement à un autre, lorsque cela est techniquement possible. L'exercice du droit de portabilité des données s'entend sans préjudice du droit à l'effacement. Ce droit ne s'applique pas au traitement nécessaire à l'exécution d'une mission d'intérêt public ou relevant de l'exercice de l'autorité publique dont est investi le responsable du traitement. Le droit de portabilité des données ne porte pas atteinte aux droits et libertés de tiers.</source>
+        <target>In accordance with article 20 of the regulation, users have the right to receive personal data from Tolink concerning them in a structured, commonly used and readable format. Users have the right to transmit this data to another controller without Tolink to an obstacle in the cases provided for by the regulations. When the user exercises his right to data portability in application of the previous paragraph, she has the right to obtain that personal data be transmitted directly from one controller to another, when this is technically possible. The exercise of the right of data of data is without prejudice to the right to erasure. This right does not apply to the treatment necessary for the execution of a mission of public interest or falling under the exercise of the public authority of which the controller is invested. The right of data portability does not affect the rights and freedoms of third parties.</target>
+      </trans-unit>
+      <trans-unit id="ddHB9CJ" resname="f.Droit d'opposition et prise de décision individuelle automatisée">
+        <source>f.Droit d'opposition et prise de décision individuelle automatisée</source>
+        <target>f.Automated individual opposition and decision -making</target>
+      </trans-unit>
+      <trans-unit id=".ildIDc" resname="L'Utilisateur dispose à tout moment du droit de s'opposer au traitement de ses données personnelles en raison de sa situation particulière, y compris l'automatisation des données effectuée par ToLink. Conformément à l'article 21 du Règlement, ToLink ne traitera plus les données à caractère personnel, à moins qu'il existe des motifs légitimes et impérieux pour le traitement qui prévalent sur les intérêts et les droits et libertés de l'Utilisateur, ou pour la constatation, l'exercice ou la défense de droits en justice. Lorsque les données à caractère personnel sont traitées à des fins de prospection, l'Utilisateur a le droit de s'opposer à tout moment au traitement des données à caractère personnel la concernant à de telles fins de prospection, y compris au profilage dans la mesure où il est lié à une telle prospection. Lorsque la personne concernée s'oppose au traitement à des fins de prospection, les données à caractère personnel ne sont plus traitées à ces fins.">
+        <source>L'Utilisateur dispose à tout moment du droit de s'opposer au traitement de ses données personnelles en raison de sa situation particulière, y compris l'automatisation des données effectuée par ToLink. Conformément à l'article 21 du Règlement, ToLink ne traitera plus les données à caractère personnel, à moins qu'il existe des motifs légitimes et impérieux pour le traitement qui prévalent sur les intérêts et les droits et libertés de l'Utilisateur, ou pour la constatation, l'exercice ou la défense de droits en justice. Lorsque les données à caractère personnel sont traitées à des fins de prospection, l'Utilisateur a le droit de s'opposer à tout moment au traitement des données à caractère personnel la concernant à de telles fins de prospection, y compris au profilage dans la mesure où il est lié à une telle prospection. Lorsque la personne concernée s'oppose au traitement à des fins de prospection, les données à caractère personnel ne sont plus traitées à ces fins.</source>
+        <target>The user has the right at any time to oppose the processing of his personal data because of his particular situation, including the automation of the data carried out by Tolink. In accordance with article 21 of the regulation, Tolink will no longer process personal data, unless there are legitimate and imperious reasons for the treatment that prevail over the interests and rights and freedoms of the user, or for the observation, exercise or defense of legal rights. When personal data is processed for prospecting purposes, the user has the right to oppose the processing of personal data concerning them at such prospecting purposes, including profiling to the extent where it is linked to such a prospecting. When the person concerned opposes processing for prospecting purposes, personal data is no longer processed for these purposes.</target>
+      </trans-unit>
+      <trans-unit id="fUhkHEk" resname="g.Droit de plainte">
+        <source>g.Droit de plainte</source>
+        <target>g.Complaint</target>
+      </trans-unit>
+      <trans-unit id="dR9FPoJ" resname="L'Utilisateur dispose du droit d'introduire une plainte concernant le traitement de ses données personnelles par ToLink auprès de l'Autorité de Protection des Données, compétente pour le territoire belge. De plus amples informations peuvent être trouvées sur le site internet: https://www.autoriteprotectiondonnees.be. L'introduction d'une plainte se fait aux adresses suivantes: Autorité de Protection des DonnéesRue de la Presse 35, 1000 BruxellesTél. + 32 2 274 48 00Fax. + 32 2 274 48 35E-mail: contact@apd-gba.be L'Utilisateur peut également introduire une plainte auprès du tribunal de première instance de son domicile.">
+        <source>L'Utilisateur dispose du droit d'introduire une plainte concernant le traitement de ses données personnelles par ToLink auprès de l'Autorité de Protection des Données, compétente pour le territoire belge. De plus amples informations peuvent être trouvées sur le site internet: https://www.autoriteprotectiondonnees.be. L'introduction d'une plainte se fait aux adresses suivantes: Autorité de Protection des DonnéesRue de la Presse 35, 1000 BruxellesTél. + 32 2 274 48 00Fax. + 32 2 274 48 35E-mail: contact@apd-gba.be L'Utilisateur peut également introduire une plainte auprès du tribunal de première instance de son domicile.</source>
+        <target>The user has the right to introduce a complaint concerning the processing of his personal data by Tolink to the data protection authority, competent for Belgian territory.Further information can be found on the website: https://www.autoriteprotectiondonnees.be.The introduction of a complaint is made to the following addresses: data protection authority of the press 35, 1000 Brusselstel.+ 32 2 274 48 00Fax.+ 32 2 274 48 35E-Mail: contact@apd-gba.be The user can also introduce a complaint with the court of first instance of his home.</target>
+      </trans-unit>
+      <trans-unit id="xYvLxb9" resname="9. Limitation de responsabilité du Responsable de traitement">
+        <source>9. Limitation de responsabilité du Responsable de traitement</source>
+        <target>9. Limitation of responsibility of the controller</target>
+      </trans-unit>
+      <trans-unit id="rxakXsj" resname="Le site Internet peut contenir des liens vers d'autres sites internet détenus par des tiers non liés à ToLink. Le contenu de ces sites et le respect de ceux-ci au regard de la Loi et du Règlement ne relèvent pas de la responsabilité de ToLink. Le titulaire de l'autorité parentale doit donner son consentement exprès pour que le mineur de moins de 16 ans puisse divulguer des informations ou données personnelles sur le site Internet. ToLink conseille vivement aux personnes exerçant l'autorité parentale sur des mineurs de promouvoir une utilisation responsable et sécurisée d'Internet. Le Responsable de traitement ne peut être tenu responsable pour avoir collecté et traité des informations et données personnelles de mineurs de moins de 16 ans dont le consentement n'est pas effectivement couvert par celui de leurs parents légaux ou pour des données incorrectes -notamment concernant l'âge- introduites par des mineurs. En aucun cas, des données personnelles ne seront traitées par le Responsable de traitement si l'Utilisateur précise qu'il est âgé de moins de 16 ans. ToLink n'est pas responsable de la perte, de la corruption ou du vol de données personnelles causés notamment par la présence de virus ou suite à des attaques informatiques. La présente Politique de confidentialité est exclusivement régie par le droit belge. Tout litige sera porté devant les tribunaux de l'arrondissement judiciaire du siège social de ToLink.">
+        <source>Le site Internet peut contenir des liens vers d'autres sites internet détenus par des tiers non liés à ToLink. Le contenu de ces sites et le respect de ceux-ci au regard de la Loi et du Règlement ne relèvent pas de la responsabilité de ToLink. Le titulaire de l'autorité parentale doit donner son consentement exprès pour que le mineur de moins de 16 ans puisse divulguer des informations ou données personnelles sur le site Internet. ToLink conseille vivement aux personnes exerçant l'autorité parentale sur des mineurs de promouvoir une utilisation responsable et sécurisée d'Internet. Le Responsable de traitement ne peut être tenu responsable pour avoir collecté et traité des informations et données personnelles de mineurs de moins de 16 ans dont le consentement n'est pas effectivement couvert par celui de leurs parents légaux ou pour des données incorrectes -notamment concernant l'âge- introduites par des mineurs. En aucun cas, des données personnelles ne seront traitées par le Responsable de traitement si l'Utilisateur précise qu'il est âgé de moins de 16 ans. ToLink n'est pas responsable de la perte, de la corruption ou du vol de données personnelles causés notamment par la présence de virus ou suite à des attaques informatiques. La présente Politique de confidentialité est exclusivement régie par le droit belge. Tout litige sera porté devant les tribunaux de l'arrondissement judiciaire du siège social de ToLink.</source>
+        <target>The website may contain links to other websites held by third parties not linked to Tolink. The content of these sites and compliance with them with regard to the law and the regulations are not the responsibility of Tolink. The holder of parental authority must give his express consent so that the minor under the age of 16 can disclose personal information or data on the website. Tolink strongly advises people exercising parental authority on minors to promote responsible and secure use of the Internet. The controller cannot be held responsible for having collected and processed personal information and data for minors under the age of 16 whose consent is not actually covered by that of their legal parents or for incorrect data -NOFFly concerning the 'Age- introduced by minors. In no case will personal data be processed by the controller if the user specifies that he is under the age of 16. Tolink is not responsible for the loss, corruption or theft of personal data caused in particular by the presence of viruses or following computer attacks. This privacy policy is exclusively governed by Belgian law. Any dispute will be brought before the courts of the judicial district of the head office of Tolink.</target>
+      </trans-unit>
+      <trans-unit id="Ywe1nt1" resname="13. Contact">
+        <source>13. Contact</source>
+        <target>13. Contact</target>
+      </trans-unit>
+      <trans-unit id="jWJEXZo" resname="Pour toute question ou réclamation relative à la présente Politique de confidentialité, l'Utilisateur peut contacter le Responsable du traitement via l'adresse suivante: ToLink@gmail.com">
+        <source>Pour toute question ou réclamation relative à la présente Politique de confidentialité, l'Utilisateur peut contacter le Responsable du traitement via l'adresse suivante: ToLink@gmail.com</source>
+        <target>For any questions or complaints relating to this Privacy Policy, the User can contact the controller via the following address: tolink@gmail.com</target>
+      </trans-unit>
+      <trans-unit id="VEYCqMi" resname="Termes et conditions">
+        <source>Termes et conditions</source>
+        <target>Terms and conditions</target>
+      </trans-unit>
+      <trans-unit id="7R6Wgc9" resname="Réglement de ToLink">
+        <source>Réglement de ToLink</source>
+        <target>Tolink regulations</target>
+      </trans-unit>
+      <trans-unit id="U1gOREU" resname="Pour pouvoir poursuivre sur le site ToLink vous devez respecter les différents points cités dans ce réglement.">
+        <source>Pour pouvoir poursuivre sur le site ToLink vous devez respecter les différents points cités dans ce réglement.</source>
+        <target>To be able to continue on the Tolink site you must respect the various points mentioned in this regulations.</target>
+      </trans-unit>
+      <trans-unit id="McN5hKz" resname="Définitions">
+        <source>Définitions</source>
+        <target>Definitions</target>
+      </trans-unit>
+      <trans-unit id="88hGB7a" resname="désigne le document définissant à caractère personnella manière dont ToLink collecte, utilise, traite, stocke et transfère les données.">
+        <source>désigne le document définissant à caractère personnella manière dont ToLink collecte, utilise, traite, stocke et transfère les données.</source>
+        <target>Refers to the personal defining document of the way Tolink collects, uses, processes, stores and transfers the data.</target>
+      </trans-unit>
+      <trans-unit id="3RDdyRT" resname="utilisateur">
+        <source>utilisateur</source>
+        <target>user</target>
+      </trans-unit>
+      <trans-unit id="EHYrZa3" resname="Désigne une personne utilisant le site ToLink">
+        <source>Désigne une personne utilisant le site ToLink</source>
+        <target>Designates a person using the TP link site</target>
+      </trans-unit>
+      <trans-unit id="F64H41t" resname="Restaurateur">
+        <source>Restaurateur</source>
+        <target>Restaurateur</target>
+      </trans-unit>
+      <trans-unit id="T8QmOld" resname="Désigne une personne utilisant le site ToLink et pouvant créer un établissement sur celui-ci.">
+        <source>Désigne une personne utilisant le site ToLink et pouvant créer un établissement sur celui-ci.</source>
+        <target>Designates a person using the Tolink site and being able to create an establishment on it.</target>
+      </trans-unit>
+      <trans-unit id="tgU1C8A" resname="Introduction">
+        <source>Introduction</source>
+        <target>introduction</target>
+      </trans-unit>
+      <trans-unit id="hYVsUA2" resname="2.1. Bienvenue sur le site. Veuillez lire attentivement les présentes Conditions Générales. Elles définissent les conditions générales en vertu desquelles vous pouvez utiliser le Site. Si vous acceptez les présentes Conditions Générales, vous pourrez utiliser notre Site en tant qu’Utilisateur et aurez la possibilité d’agir en tant qu'utilisateur normal ou restaurateur sur le Site. Si vous n’acceptez pas les présentes Conditions Générales, vous n’êtes pas autorisé(e) à utiliser le Site. ToLink offre ces services à titre gratuit mais peut à tout moment offrir de nouveaux services payant qui seront indiqués précisément sur le site ToLink, ainsi que sur les conditions générales et Termes du site. &#10;&#10;2.2 Tous les restaurants mis sur le site  sont à la responsabilités du créateur de celui-ci. Si vous n'êtes pas le responsable du restaurant veuillez ne pas inscrire ce restaurant car ToLink ne pourra pas être tenu pour compte si quelqu'un usurpe l'identité d'un établisssement. L'établissemnt ou le compte utilisateur ne répond pas aux Termes et conditions générales du site, ToLink se réserve le droit de supprimer le compte/établissement ou de désactiver votre compte temporairement.&#10;&#10;2.3 Les établissemnt se doivent de comporter une photographie exacte de ce quoi il est sensé ressembler dans la réalité. Si celui-ci n'est pas en accord avec le site ToLink, nous nous réservons le droit de supprimer l'établissemnt. Toutes images à caractères non appropriés pourra être sanctionnées par un bannissement ou une suppression du compte utilisateur ainsi que des poursuites judicières selon les préjudices causées à la société ToLink.&#10;&#10;2.4 Toutes images postées sur le site ce vera devenir la propriété intellectuelle de ToLink.">
+        <source>2.1. Bienvenue sur le site. Veuillez lire attentivement les présentes Conditions Générales. Elles définissent les conditions générales en vertu desquelles vous pouvez utiliser le Site. Si vous acceptez les présentes Conditions Générales, vous pourrez utiliser notre Site en tant qu’Utilisateur et aurez la possibilité d’agir en tant qu'utilisateur normal ou restaurateur sur le Site. Si vous n’acceptez pas les présentes Conditions Générales, vous n’êtes pas autorisé(e) à utiliser le Site. ToLink offre ces services à titre gratuit mais peut à tout moment offrir de nouveaux services payant qui seront indiqués précisément sur le site ToLink, ainsi que sur les conditions générales et Termes du site. 
+
+2.2 Tous les restaurants mis sur le site  sont à la responsabilités du créateur de celui-ci. Si vous n'êtes pas le responsable du restaurant veuillez ne pas inscrire ce restaurant car ToLink ne pourra pas être tenu pour compte si quelqu'un usurpe l'identité d'un établisssement. L'établissemnt ou le compte utilisateur ne répond pas aux Termes et conditions générales du site, ToLink se réserve le droit de supprimer le compte/établissement ou de désactiver votre compte temporairement.
+
+2.3 Les établissemnt se doivent de comporter une photographie exacte de ce quoi il est sensé ressembler dans la réalité. Si celui-ci n'est pas en accord avec le site ToLink, nous nous réservons le droit de supprimer l'établissemnt. Toutes images à caractères non appropriés pourra être sanctionnées par un bannissement ou une suppression du compte utilisateur ainsi que des poursuites judicières selon les préjudices causées à la société ToLink.
+
+2.4 Toutes images postées sur le site ce vera devenir la propriété intellectuelle de ToLink.</source>
+        <target>2.1. Welcome to the site. Please read these general conditions carefully. They define the general conditions under which you can use the site. If you accept these general conditions, you can use our site as a user and have the possibility of acting as a normal or restaurateur user on the site. If you do not accept these general conditions, you are not authorized to use the site. Tolink offers these services free of charge but can at any time offer new paying services which will be indicated precisely on the Tolink site, as well as on the general conditions and terms of the site.
+
+2.2 All the restaurants put on the site are the responsibilities of the creator of the latter. If you are not responsible for the restaurant please do not register this restaurant because Tolink cannot be held on behalf of if someone usurpes the identity of an establishment. The Establishment or the User Account does not meet the General terms and conditions of the site, Tolink reserves the right to delete the account/establishment or to deactivate your account temporarily.
+
+2.3 Establishments must include an exact photograph of what it is supposed to look like in reality. If it is not in accordance with the Tolink site, we reserve the right to delete the Establishment. All images with an appropriate character may be sanctioned by a ban or deletion of the user account as well as legal proceedings according to the damages caused to Tolink.
+
+2.4 All images posted on the site this see becoming the intellectual property of Tolink.</target>
+      </trans-unit>
+      <trans-unit id="t8rvGuj" resname="Réglement ToLink pour les restaurateurs">
+        <source>Réglement ToLink pour les restaurateurs</source>
+        <target>Tolink regulations for restaurateurs</target>
+      </trans-unit>
+      <trans-unit id="hec8Io9" resname="&lt;h4&gt;&#10;&#9;&#9;3.1 Utilisation du site pour les restaurateurs &#10;&#9;&lt;/h4&gt;&#10;&#9;&#9;L'utilisateur pourra utiliser le site ToLink pour y placer son établissement ou tout simplement pour y consulter les divers établissements mis à disposition par la communauté ToLink. Toute création d'une annonce pour mettre son établissement en valeur se devra de refléter la réalité et vous devez être dans l'obligation d'être le propriétaire de cet établissement ou une personne autorisée par celui-ci. Si toutefois ce n'est pas le cas ToLink peux à tout moment supprimer l'établissement ou temporairement le mettre en attente le temps de prendre contact avec l'établissement et de vérifier l'authenticité de celui-ci.">
+        <source>&lt;h4&gt;
+		3.1 Utilisation du site pour les restaurateurs 
+	&lt;/h4&gt;
+		L'utilisateur pourra utiliser le site ToLink pour y placer son établissement ou tout simplement pour y consulter les divers établissements mis à disposition par la communauté ToLink. Toute création d'une annonce pour mettre son établissement en valeur se devra de refléter la réalité et vous devez être dans l'obligation d'être le propriétaire de cet établissement ou une personne autorisée par celui-ci. Si toutefois ce n'est pas le cas ToLink peux à tout moment supprimer l'établissement ou temporairement le mettre en attente le temps de prendre contact avec l'établissement et de vérifier l'authenticité de celui-ci.</source>
+        <target><![CDATA[<h4>
+		3.1 Utilisation du site pour les restaurateurs 
+	</h4>
+		L'utilisateur pourra utiliser le site ToLink pour y placer son établissement ou tout simplement pour y consulter les divers établissements mis à disposition par la communauté ToLink. Toute création d'une annonce pour mettre son établissement en valeur se devra de refléter la réalité et vous devez être dans l'obligation d'être le propriétaire de cet établissement ou une personne autorisée par celui-ci. Si toutefois ce n'est pas le cas ToLink peux à tout moment supprimer l'établissement ou temporairement le mettre en attente le temps de prendre contact avec l'établissement et de vérifier l'authenticité de celui-ci.]]></target>
+      </trans-unit>
+      <trans-unit id="Za4PMby" resname="3.2 Les commentaires&#10;&#9;Nous ne pouvons en aucun cas garantir les commentaires et les notes qu'un utilisateur pourrait emettre. Cependant une vérification de ceux-ci seront effectuée afin de garantir que ceux-ci ne soient pas contre la politique de Tolink en émettant des liens ou tous autres sujets qui n'auraient pas rapport avec l'établissement lié à ces commentaires.">
+        <source>3.2 Les commentaires
+	Nous ne pouvons en aucun cas garantir les commentaires et les notes qu'un utilisateur pourrait emettre. Cependant une vérification de ceux-ci seront effectuée afin de garantir que ceux-ci ne soient pas contre la politique de Tolink en émettant des liens ou tous autres sujets qui n'auraient pas rapport avec l'établissement lié à ces commentaires.</source>
+        <target>3.2 Comments
+We cannot in any case guarantee the comments and the notes that a user could make.However, a verification of these will be carried out to ensure that these are not against Tolink's policy by issuing links or any other subjects that would not have to do with the establishment linked to these comments.</target>
+      </trans-unit>
+      <trans-unit id="0fm23Ez" resname="Réglement ToLink pour les utilisateurs">
+        <source>Réglement ToLink pour les utilisateurs</source>
+        <target>Tolink regulations for users</target>
+      </trans-unit>
+      <trans-unit id="oajc5eB" resname="Données personnelles">
+        <source>Données personnelles</source>
+        <target>Personal data</target>
+      </trans-unit>
+      <trans-unit id="UPjL.6e" resname="A tout moment l'utilisateur peut modifier ces données personnelles sur son espace personnel. Toutefois, nous pouvons vous demander de modifier votre pseudonyme si celui-ci présente des caractères à titre non appropriés.&#10;&#9;&#9;Vous pouvez aussi à tout moment supprimer votre compte et vos données personnelles seront immédiatement supprimées. Pour plus d'informations sur la gestion de vos données personnelles vous pouvez vous rendre dans">
+        <source>A tout moment l'utilisateur peut modifier ces données personnelles sur son espace personnel. Toutefois, nous pouvons vous demander de modifier votre pseudonyme si celui-ci présente des caractères à titre non appropriés.
+		Vous pouvez aussi à tout moment supprimer votre compte et vos données personnelles seront immédiatement supprimées. Pour plus d'informations sur la gestion de vos données personnelles vous pouvez vous rendre dans</source>
+        <target>At any time the user can modify this personal data on his personal space.However, we may ask you to modify your pseudonym if it presents characters on an appropriate basis.
+You can also delete your account and personal data at any time will be immediately deleted.For more information on managing your personal data you can go to</target>
+      </trans-unit>
+      <trans-unit id="ZjMiWri" resname="la politique de confidentialité">
+        <source>la politique de confidentialité</source>
+        <target>Privacy policy</target>
+      </trans-unit>
+      <trans-unit id="NHfj5NG" resname="ToLink permet à tous les utilisateurs de pouvoir donner son appréciation sur un établissement. Cependant toutes utilisations non appropriés du système de commentaire à des fins malveillantes pourra être sanctionnées par un bannissement ou si des préjudices sont caussés à la société Tolink des poursuites judicières pourraient être appliquer.&#10;&#10;&#9;&#9;Tolink, laisse la possiblité de s'exprimer à propos de l'établissement, toutefois nous vous demandons de bien vouloir rester correcte. Si à tout moment vous ne respectez pas ces conditions Tolink peux  modifier votre commentaire ou le supprimer ci-celui ci n'est pas conforme au réglement Tolink.">
+        <source>ToLink permet à tous les utilisateurs de pouvoir donner son appréciation sur un établissement. Cependant toutes utilisations non appropriés du système de commentaire à des fins malveillantes pourra être sanctionnées par un bannissement ou si des préjudices sont caussés à la société Tolink des poursuites judicières pourraient être appliquer.
+
+		Tolink, laisse la possiblité de s'exprimer à propos de l'établissement, toutefois nous vous demandons de bien vouloir rester correcte. Si à tout moment vous ne respectez pas ces conditions Tolink peux  modifier votre commentaire ou le supprimer ci-celui ci n'est pas conforme au réglement Tolink.</source>
+        <target>Tolink allows all users to be able to give an assessment on an establishment.However, all non -appropriate uses of the commentary system for malicious purposes may be sanctioned by banishment or if damages are caussed to Tolink corpian company could be applied.
+
+Tolink, leaves the possibility of expressing themselves about the establishment, however we ask you to remain correct.If at any time you do not respect these Tolink conditions can modify your comment or delete it CI-Celui CI does not comply with the Tolink regulations.</target>
+      </trans-unit>
+      <trans-unit id="nEax7R3" resname="page profil de">
+        <source>page profil de</source>
+        <target>profile page of</target>
+      </trans-unit>
+      <trans-unit id="jXzoQrj" resname="Supprimer mon compte">
+        <source>Supprimer mon compte</source>
+        <target>Delete my account</target>
+      </trans-unit>
+      <trans-unit id="QCRlzps" resname="Êtes-vous sûr de ne plus vouloir profiter de nos délicieux services?">
+        <source>Êtes-vous sûr de ne plus vouloir profiter de nos délicieux services?</source>
+        <target>Are you sure you no longer want to take advantage of our delicious services?</target>
+      </trans-unit>
+      <trans-unit id="FfxCujo" resname="Vous ne pourrez plus accéder à votre profil">
+        <source>Vous ne pourrez plus accéder à votre profil</source>
+        <target>You will no longer be able to access your profile</target>
+      </trans-unit>
+      <trans-unit id="50imzz3" resname="Vos données personnelles seront effacées">
+        <source>Vos données personnelles seront effacées</source>
+        <target>Your personal data will be deleted</target>
+      </trans-unit>
+      <trans-unit id="R5Tmrh1" resname="Il ne sera plus possible de récupérer ce compte">
+        <source>Il ne sera plus possible de récupérer ce compte</source>
+        <target>It will no longer be possible to recover this account</target>
+      </trans-unit>
+      <trans-unit id="KJMCg38" resname="Votre pseudo pourra de nouveau être utilisé">
+        <source>Votre pseudo pourra de nouveau être utilisé</source>
+        <target>Your nickname can be used again</target>
+      </trans-unit>
+      <trans-unit id="ftWC4al" resname="Vos restaurants  seront immédiatement supprimés">
+        <source>Vos restaurants  seront immédiatement supprimés</source>
+        <target>Your restaurants will be immediately deleted</target>
+      </trans-unit>
+      <trans-unit id="Rq05Fva" resname="Annuler">
+        <source>Annuler</source>
+        <target>to cancel</target>
+      </trans-unit>
+      <trans-unit id="Xl0CFs4" resname="Supprimer">
+        <source>Supprimer</source>
+        <target>To delete</target>
+      </trans-unit>
+      <trans-unit id="BzpdvT9" resname="Liste de vos restaurants favoris">
+        <source>Liste de vos restaurants favoris</source>
+        <target>List of your favorite restaurants</target>
+      </trans-unit>
+      <trans-unit id="jCUJ1H." resname="&quot;Enlever des favoris&quot;">
+        <source>"Enlever des favoris"</source>
+        <target>"Make favorites"</target>
+      </trans-unit>
+      <trans-unit id="EhLqniC" resname="Restaurant">
+        <source>Restaurant</source>
+        <target>restaurant</target>
+      </trans-unit>
+      <trans-unit id="QS2jGp_" resname="Page du restaurant">
+        <source>Page du restaurant</source>
+        <target>Restaurant page</target>
+      </trans-unit>
+      <trans-unit id="lFU4xmH" resname="Aucun restaurants en favoris">
+        <source>Aucun restaurants en favoris</source>
+        <target>No favorite restaurants</target>
+      </trans-unit>
+      <trans-unit id="GhQO9Qp" resname="profil de">
+        <source>profil de</source>
+        <target>profile of</target>
+      </trans-unit>
+      <trans-unit id="8eV.kPE" resname="Rue :">
+        <source>Rue :</source>
+        <target>rue :</target>
+      </trans-unit>
+      <trans-unit id="yz_R1U7" resname="---">
+        <source>---</source>
+        <target>---</target>
+      </trans-unit>
+      <trans-unit id="6mG9l97" resname="Ville :">
+        <source>Ville :</source>
+        <target>ville :</target>
+      </trans-unit>
+      <trans-unit id="HQ.Q5kh" resname="Code postal :">
+        <source>Code postal :</source>
+        <target>codePostal :</target>
+      </trans-unit>
+      <trans-unit id="JLff1s." resname="Email :">
+        <source>Email :</source>
+        <target>email :</target>
+      </trans-unit>
+      <trans-unit id="DzVWenS" resname="Modifier mon profil">
+        <source>Modifier mon profil</source>
+        <target>Modify my profile</target>
+      </trans-unit>
+      <trans-unit id="yPtT15Y" resname="Changer mon mot de passe">
+        <source>Changer mon mot de passe</source>
+        <target>change my password</target>
+      </trans-unit>
+      <trans-unit id="CnDhXMp" resname="Modifier ma photo">
+        <source>Modifier ma photo</source>
+        <target>modifierMaPhoto</target>
+      </trans-unit>
+      <trans-unit id="4mfTQ4I" resname="Profil">
+        <source>Profil</source>
+        <target>Profile</target>
+      </trans-unit>
+      <trans-unit id="pvyBLmy" resname="Statistique">
+        <source>Statistique</source>
+        <target>Statistical</target>
+      </trans-unit>
+      <trans-unit id="qTiDCly" resname="Favoris">
+        <source>Favoris</source>
+        <target>Favorite</target>
+      </trans-unit>
+      <trans-unit id="KsDcILK" resname="Créer mon restaurant">
+        <source>Créer mon restaurant</source>
+        <target>Create my restaurant</target>
+      </trans-unit>
+      <trans-unit id="j6ipaEX" resname="Statistique du restaurant">
+        <source>Statistique du restaurant</source>
+        <target>Restaurant statistics</target>
+      </trans-unit>
+      <trans-unit id="TBtH6wZ" resname="Vous ne possédé actuellement aucun établissement">
+        <source>Vous ne possédé actuellement aucun établissement</source>
+        <target>You currently have no establishment</target>
+      </trans-unit>
+      <trans-unit id="jVGga_A" resname="Liste de vos restaurants">
+        <source>Liste de vos restaurants</source>
+        <target>List of your restaurants</target>
+      </trans-unit>
+      <trans-unit id="hbTCs.l" resname="&quot;supprimer le restaurant&quot;">
+        <source>"supprimer le restaurant"</source>
+        <target>"delete the restaurant"</target>
+      </trans-unit>
+      <trans-unit id="KYmXtTC" resname="Modifier les informations">
+        <source>Modifier les informations</source>
+        <target>Modify information</target>
+      </trans-unit>
+      <trans-unit id="4Nmb3cd" resname="Gestion des spécialités">
+        <source>Gestion des spécialités</source>
+        <target>Specialties management</target>
+      </trans-unit>
+      <trans-unit id="aOKGJPe" resname="Gérer l'horaire">
+        <source>Gérer l'horaire</source>
+        <target>Manage the schedule</target>
+      </trans-unit>
+      <trans-unit id="H73KiKI" resname="Affichage de vos restaurants">
+        <source>Affichage de vos restaurants</source>
+        <target>Display of your restaurants</target>
+      </trans-unit>
+      <trans-unit id="dq6LE_H" resname="Création des spécialités">
+        <source>Création des spécialités</source>
+        <target>Creation of specialties</target>
+      </trans-unit>
+      <trans-unit id="ssMZFqV" resname="Ajouter jusque 4 de vos spécialités">
+        <source>Ajouter jusque 4 de vos spécialités</source>
+        <target>Add up to 4 of your specialties</target>
+      </trans-unit>
+      <trans-unit id="5hJh5oR" resname="&quot;Supprimer l'image&quot;">
+        <source>"Supprimer l'image"</source>
+        <target>"Delete the image"</target>
+      </trans-unit>
+      <trans-unit id="QAzfTEE" resname="Sauvegarder">
+        <source>Sauvegarder</source>
+        <target>To safeguard</target>
+      </trans-unit>
+      <trans-unit id="0kHWFOb" resname="Modifier le restaurant">
+        <source>Modifier le restaurant</source>
+        <target>Modify the restaurant</target>
+      </trans-unit>
+      <trans-unit id="RXX_xzf" resname="Création restaurant">
+        <source>Création restaurant</source>
+        <target>Restaurant creation</target>
+      </trans-unit>
+      <trans-unit id="dWvakvS" resname="Création du restaurant">
+        <source>Création du restaurant</source>
+        <target>Creation of the restaurant</target>
+      </trans-unit>
+      <trans-unit id="qZj7Wdn" resname="Ajouter jusque 4 images de votre établissement">
+        <source>Ajouter jusque 4 images de votre établissement</source>
+        <target>Add up to 4 images of your establishment</target>
+      </trans-unit>
+      <trans-unit id="lr2SIlW" resname="Finaliser la modification">
+        <source>Finaliser la modification</source>
+        <target>Finalize the modification</target>
+      </trans-unit>
+      <trans-unit id="X8z2Dt5" resname="Finaliser l'ajout du restaurant">
+        <source>Finaliser l'ajout du restaurant</source>
+        <target>Finalize the addition of the restaurant</target>
+      </trans-unit>
+      <trans-unit id="QSvguc1" resname="Informations">
+        <source>Informations</source>
+        <target>informations</target>
+      </trans-unit>
+      <trans-unit id="KAVr1tj" resname="Plats">
+        <source>Plats</source>
+        <target>Place</target>
+      </trans-unit>
+      <trans-unit id=".Xl1UsR" resname="Localiser">
+        <source>Localiser</source>
+        <target>Locate</target>
+      </trans-unit>
+      <trans-unit id="Xwwptw1" resname="Horaire">
+        <source>Horaire</source>
+        <target>Hourly</target>
+      </trans-unit>
+      <trans-unit id="eyr_fva" resname="Ajouter aux favoris">
+        <source>Ajouter aux favoris</source>
+        <target>Add to favorites</target>
+      </trans-unit>
+      <trans-unit id="4qiA28b" resname="Qui sommes nous?">
+        <source>Qui sommes nous?</source>
+        <target>Who are we?</target>
+      </trans-unit>
+      <trans-unit id="3BhnqMc" resname="Origines de la cuisine">
+        <source>Origines de la cuisine</source>
+        <target>Origins of the kitchen</target>
+      </trans-unit>
+      <trans-unit id="ILvPos3" resname="Nos spécialités">
+        <source>Nos spécialités</source>
+        <target>Our specialties</target>
+      </trans-unit>
+      <trans-unit id="xABbF.b" resname="L'établissement n'as pas encore ajouté de spécialité">
+        <source>L'établissement n'as pas encore ajouté de spécialité</source>
+        <target>The establishment has not yet added any specialty</target>
+      </trans-unit>
+      <trans-unit id="C_6uNY5" resname="Restaurants">
+        <source>Restaurants</source>
+        <target>restaurants</target>
+      </trans-unit>
+      <trans-unit id="QEAhp43" resname="Notre sélection d'établissements">
+        <source>Notre sélection d'établissements</source>
+        <target>Our selection of establishments</target>
+      </trans-unit>
+      <trans-unit id="7BZxDg5" resname="Filtrer">
+        <source>Filtrer</source>
+        <target>Filter</target>
+      </trans-unit>
+      <trans-unit id="e6XKG5R" resname="Suppression du restaurant">
+        <source>Suppression du restaurant</source>
+        <target>suppressionYouRestaurant</target>
+      </trans-unit>
+      <trans-unit id="vI.RVGp" resname="Supprimer Mon établissement">
+        <source>Supprimer Mon établissement</source>
+        <target>deleteMyEstablishment</target>
+      </trans-unit>
+      <trans-unit id="qw6tMLY" resname="Êtes-vous sûr de vouloir supprimer l'établissement">
+        <source>Êtes-vous sûr de vouloir supprimer l'établissement</source>
+        <target>areYouSureYouWantToDeleteTheEstablishment</target>
+      </trans-unit>
+      <trans-unit id="TTdQcuE" resname="Les données du restaurants seront supprimées">
+        <source>Les données du restaurants seront supprimées</source>
+        <target>restaurantDataWillBeDeleted</target>
+      </trans-unit>
+      <trans-unit id="LMQbvwp" resname="Les statistiques seront perdues">
+        <source>Les statistiques seront perdues</source>
+        <target>statisticsWillBeLost</target>
+      </trans-unit>
+      <trans-unit id="jXop6Q1" resname="Vous perdrez toutes les personnes qui suivent l'établissement">
+        <source>Vous perdrez toutes les personnes qui suivent l'établissement</source>
+        <target>youWillLoseAllThePeopleWhoFollowTheEstablishment</target>
+      </trans-unit>
+      <trans-unit id="DK9iQCW" resname="Créer l'horaire de votre établissement">
+        <source>Créer l'horaire de votre établissement</source>
+        <target>createTheScheduleForYourEstablishment</target>
+      </trans-unit>
+      <trans-unit id="S_MhFjG" resname="Bon à savoir">
+        <source>Bon à savoir</source>
+        <target>Good to know</target>
+      </trans-unit>
+      <trans-unit id="d1ICwKt" resname="Laisser les champs vides si l'établissement est fermé.">
+        <source>Laisser les champs vides si l'établissement est fermé.</source>
+        <target>Leave the empty fields if the establishment is closed.</target>
+      </trans-unit>
+      <trans-unit id="GZAVoX4" resname="Heure d'ouverture">
+        <source>Heure d'ouverture</source>
+        <target>Opening time</target>
+      </trans-unit>
+      <trans-unit id="eYrDRk9" resname="Retour vers le profil">
+        <source>Retour vers le profil</source>
+        <target>Back to profile</target>
+      </trans-unit>
+      <trans-unit id="zY1PlQe" resname="Sauvegarder l'horaire">
+        <source>Sauvegarder l'horaire</source>
+        <target>Save the schedule</target>
+      </trans-unit>
+      <trans-unit id="dL5RoEX" resname="Liste des commentaires de l'établissement">
+        <source>Liste des commentaires de l'établissement</source>
+        <target>List of Comments from the establishment</target>
+      </trans-unit>
+      <trans-unit id="puoXzfe" resname="Aucun avis pour le moment">
+        <source>Aucun avis pour le moment</source>
+        <target>No opinion at the moment</target>
+      </trans-unit>
+      <trans-unit id="uJ6z0G_" resname="'Cacher les commentaires'">
+        <source>'Cacher les commentaires'</source>
+        <target>'Hide comments'</target>
+      </trans-unit>
+      <trans-unit id="xO2R5.N" resname="'Afficher plus de commentaires'">
+        <source>'Afficher plus de commentaires'</source>
+        <target>'Show more comments'</target>
+      </trans-unit>
+      <trans-unit id="3bsWEp7" resname="Laisser votre avis">
+        <source>Laisser votre avis</source>
+        <target>Give your opinion</target>
+      </trans-unit>
+      <trans-unit id="ZiwDmz7" resname="Ajouter le commentaire">
+        <source>Ajouter le commentaire</source>
+        <target>Add the comment</target>
+      </trans-unit>
+      <trans-unit id="k1.jAmN" resname="Où nous trouver ?">
+        <source>Où nous trouver ?</source>
+        <target>Where to find us ?</target>
+      </trans-unit>
+      <trans-unit id="wEGSeou" resname="Fermé toute la journée">
+        <source>Fermé toute la journée</source>
+        <target>Closed all day</target>
+      </trans-unit>
+      <trans-unit id="9rgIU4C" resname="Vous n'avez pas de compte?">
+        <source>Vous n'avez pas de compte?</source>
+        <target>You do not have an account?</target>
+      </trans-unit>
+      <trans-unit id="fsGRbqD" resname="Changement photo profil">
+        <source>Changement photo profil</source>
+        <target>Change photo profile</target>
+      </trans-unit>
+      <trans-unit id="vDzCOuu" resname="Mise à jour avatar profil">
+        <source>Mise à jour avatar profil</source>
+        <target>Avatar profile update</target>
+      </trans-unit>
+      <trans-unit id="YmunqJ." resname="Valider">
+        <source>Valider</source>
+        <target>To validate</target>
+      </trans-unit>
+      <trans-unit id="27gfyQ5" resname="Mise à jour utilisateur">
+        <source>Mise à jour utilisateur</source>
+        <target>User update</target>
+      </trans-unit>
+      <trans-unit id="IukJMMl" resname="Mise à jour de votre compte">
+        <source>Mise à jour de votre compte</source>
+        <target>Update your account</target>
+      </trans-unit>
+      <trans-unit id="KIeucxj" resname="Votre Email">
+        <source>Votre Email</source>
+        <target>Your email</target>
+      </trans-unit>
+      <trans-unit id="0gMuu7S" resname="Votre pseudo">
+        <source>Votre pseudo</source>
+        <target>Your username</target>
+      </trans-unit>
+      <trans-unit id="eG4Vly8" resname="Mise à jour du mot de passe">
+        <source>Mise à jour du mot de passe</source>
+        <target>Password update</target>
+      </trans-unit>
+      <trans-unit id="10MHBUC" resname="Confirmation">
+        <source>Confirmation</source>
+        <target>confirmation</target>
+      </trans-unit>
+      <trans-unit id="bAFptPO" resname="Fast-foods">
+        <source>Fast-foods</source>
+        <target>fastFoods</target>
+      </trans-unit>
+      <trans-unit id="akscyP2" resname="Voir tout">
+        <source>Voir tout</source>
+        <target>See everything</target>
+      </trans-unit>
+      <trans-unit id="waesueR" resname="&quot;Entrer une ville, nom du restaurant&quot;">
+        <source>"Entrer une ville, nom du restaurant"</source>
+        <target>"Enter a city, name of the restaurant"</target>
+      </trans-unit>
+      <trans-unit id="pG3zdaU" resname="Tous les établissements">
+        <source>Tous les établissements</source>
+        <target>All establishments</target>
+      </trans-unit>
+      <trans-unit id="YdaVBBA" resname="Connexion">
+        <source>Connexion</source>
+        <target>connexion</target>
+      </trans-unit>
+      <trans-unit id="z7GsDIB" resname="Inscription">
+        <source>Inscription</source>
+        <target>inscription</target>
+      </trans-unit>
+      <trans-unit id="oVir1m4" resname="&quot;cercle avec drapeau en fond&quot;">
+        <source>"cercle avec drapeau en fond"</source>
+        <target>"Circle with flag in the background"</target>
+      </trans-unit>
+      <trans-unit id="OEiHGYU" resname="Voir mon profil">
+        <source>Voir mon profil</source>
+        <target>See my profile</target>
+      </trans-unit>
+      <trans-unit id="EuYXdin" resname="Voir mes favoris">
+        <source>Voir mes favoris</source>
+        <target>See my favorites</target>
+      </trans-unit>
+      <trans-unit id="9ReJxRi" resname="Voir mes restaurants">
+        <source>Voir mes restaurants</source>
+        <target>See my restaurants</target>
+      </trans-unit>
+      <trans-unit id="_1_eksG" resname="Déconnexion">
+        <source>Déconnexion</source>
+        <target>Déconnexion</target>
+      </trans-unit>
+      <trans-unit id="DQQCXO1" resname="Aller sur mon profil">
+        <source>Aller sur mon profil</source>
+        <target>Go on my profile</target>
+      </trans-unit>
+      <trans-unit id="jLRmorC" resname="Ajouter des images">
+        <source>Ajouter des images</source>
+        <target>Add images</target>
+      </trans-unit>
+      <trans-unit id="fVzaG4U" resname="Découvrez les restaurations de la semaine.">
+        <source>Découvrez les restaurations de la semaine.</source>
+        <target>Discover the restorations of the week.</target>
+      </trans-unit>
+      <trans-unit id="3TrjMlD" resname="En savoir plus">
+        <source>En savoir plus</source>
+        <target>Learn more</target>
+      </trans-unit>
+      <trans-unit id="h6i2KZG" resname="Soyez le premier restaurant sur notre page d'accueil!">
+        <source>Soyez le premier restaurant sur notre page d'accueil!</source>
+        <target>Be the first restaurant on our home page!</target>
+      </trans-unit>
+      <trans-unit id="Gk7BIR0" resname="Inscrivez vous ici">
+        <source>Inscrivez vous ici</source>
+        <target>Register here</target>
+      </trans-unit>
+      <trans-unit id="p.D7L27" resname="Termes et Conditions">
+        <source>Termes et Conditions</source>
+        <target>Terms and conditions</target>
+      </trans-unit>
+      <trans-unit id="s6wefBA" resname="supprimé des images pour en ajouter d'autres">
+        <source>supprimé des images pour en ajouter d'autres</source>
+        <target>deleted images to add others</target>
+      </trans-unit>
+      <trans-unit id="ADSMnfA" resname="L'utilisation du Site par les Utilisateurs pourra entraîner la communication de données personnelles. Le traitement de ces données par ToLink, en sa qualité de Responsable du traitement, ou par les prestataires agissant au nom et pour le compte de ToLink, sera conforme à la Loi et au Règlement. Les données à caractère personnel seront traitées par ToLink, conformément aux finalités citées plus bas, via: Une procédure automatisée à l'inscription,Traitement des données pour les sécurisées.">
+        <source>L'utilisation du Site par les Utilisateurs pourra entraîner la communication de données personnelles. Le traitement de ces données par ToLink, en sa qualité de Responsable du traitement, ou par les prestataires agissant au nom et pour le compte de ToLink, sera conforme à la Loi et au Règlement. Les données à caractère personnel seront traitées par ToLink, conformément aux finalités citées plus bas, via: Une procédure automatisée à l'inscription,Traitement des données pour les sécurisées.</source>
+        <target>The use of the site by users can lead to the communication of personal data.The processing of this data by Tolink, in its capacity as controller, or by providers acting on behalf and on behalf of Tolink, will comply with the law and the regulations.Personal data will be processed by Tolink, in accordance with the purposes mentioned below, via: an automated procedure for registration, processing of data for secure.</target>
+      </trans-unit>
+      <trans-unit id="o7XaoCb" resname="En m'inscrivant, je confirme que j'ai accepté :">
+        <source>En m'inscrivant, je confirme que j'ai accepté :</source>
+        <target>By registering, I confirm that I accepted :</target>
+      </trans-unit>
+      <trans-unit id="5ccNvGH" resname="les Termes et conditions de Tolink">
+        <source>les Termes et conditions de Tolink</source>
+        <target>Tolink terms and conditions</target>
+      </trans-unit>
+      <trans-unit id="UMxLDOE" resname="avoir lu la Politique de confidentialité">
+        <source>avoir lu la Politique de confidentialité</source>
+        <target>Have read the Privacy Policy</target>
+      </trans-unit>
+      <trans-unit id="PCX0_17" resname="S'inscrire">
+        <source>S'inscrire</source>
+        <target>Register</target>
+      </trans-unit>
+      <trans-unit id="4zKPkU4" resname="Image actuelle de l'établissemnt">
+        <source>Image actuelle de l'établissemnt</source>
+        <target>Current image of the establishment</target>
+      </trans-unit>
+      <trans-unit id="gvoI3mf" resname="Mon nom de resto ici">
+        <source>Mon nom de resto ici</source>
+        <target>My restaurant name here</target>
+      </trans-unit>
+      <trans-unit id="6kpvz0N" resname="choisisez votre ville">
+        <source>choisisez votre ville</source>
+        <target>Choose your city</target>
+      </trans-unit>
+      <trans-unit id="eMZqm2." resname="Catégorie du restaurant">
+        <source>Catégorie du restaurant</source>
+        <target>Restaurant category</target>
+      </trans-unit>
+      <trans-unit id="QBw.cT7" resname="Origine de la cuisine">
+        <source>Origine de la cuisine</source>
+        <target>Origin of cooking</target>
+      </trans-unit>
+      <trans-unit id="1NzhbzO" resname="vous avez dépassé le nombre d`\image autorisées">
+        <source>vous avez dépassé le nombre d`\image autorisées</source>
+        <target>You have exceeded the number of authorized image</target>
+      </trans-unit>
+      <trans-unit id="YtMJ1Vm" resname="Nom de l'établissement">
+        <source>Nom de l'établissement</source>
+        <target>Facility Name</target>
+      </trans-unit>
+      <trans-unit id="fbLVTFH" resname="Votre situation géographique">
+        <source>Votre situation géographique</source>
+        <target>Your geographical situation</target>
+      </trans-unit>
+      <trans-unit id="a4tXcuD" resname="Description de votre établissement">
+        <source>Description de votre établissement</source>
+        <target>Description of your establishment</target>
+      </trans-unit>
+      <trans-unit id="ubO3iDz" resname="Choisissez le(s) type(s) et la ou les catégorie(s)  &#10;&#9;&#9;&#9;&#9;qui correspondent à votre établissement">
+        <source>Choisissez le(s) type(s) et la ou les catégorie(s)  
+				qui correspondent à votre établissement</source>
+        <target>Choose the type (s) and the category (s)
+which correspond to your establishment</target>
+      </trans-unit>
+      <trans-unit id="Ke0ZUnl" resname=" mis à jour">
+        <source> mis à jour</source>
+        <target>update</target>
+      </trans-unit>
+      <trans-unit id="ljDJF8_" resname="minimum 5 caractères">
+        <source>minimum 5 caractères</source>
+        <target>at least 5 characters</target>
+      </trans-unit>
+      <trans-unit id="6j5uWSH" resname="vous remercie pour votre avis">
+        <source>vous remercie pour votre avis</source>
+        <target>thank you for your review</target>
+      </trans-unit>
+      <trans-unit id="z0ONZaA" resname="Fermé au matin">
+        <source>Fermé au matin</source>
+        <target>Closed morning</target>
+      </trans-unit>
+      <trans-unit id="malUc4K" resname="Votre Pseudo">
+        <source>Votre Pseudo</source>
+        <target>Your username</target>
+      </trans-unit>
+      <trans-unit id="y_6YaaZ" resname="Veuillez compléter le champ">
+        <source>Veuillez compléter le champ</source>
+        <target>Please complete the field</target>
+      </trans-unit>
+      <trans-unit id="zriFhbq" resname="Veuillez Ajouter au minimum une image">
+        <source>Veuillez Ajouter au minimum une image</source>
+        <target>Please Add at least one image</target>
+      </trans-unit>
+      <trans-unit id="6ZNlJZg" resname="Minimum une image">
+        <source>Minimum une image</source>
+        <target>__Minimum une image</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

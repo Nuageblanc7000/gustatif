@@ -33,7 +33,11 @@
 			</div>
 			<div class="form-step">
 				{{form_start(form , {'attr':{'class':'form'}})}}
-				<h2>Nom de l'établissement</h2>
+				<h2>
+					{% trans %}
+				Nom de l'établissement
+					{% endtrans %}
+				</h2>
 				<div class="form-groups create-form-name">
 					<div class="design-form-input">
 						<div class="design-form-icon anim-icon">
@@ -46,7 +50,11 @@
 					</div>
 				</div>
 
-				<h2>Votre situation géographique</h2>
+				<h2>
+				{% trans %}
+				Votre situation géographique
+				{% endtrans %}
+				</h2>
 				<div class="form-groups create-form-coord">
 					<div class="container-design-form">
 						<div class="design-form-input">
@@ -83,7 +91,11 @@
 					</div>
 
 				</div>
-				<h2>Description de votre établissement</h2>
+				<h2>
+				{% trans %}
+				Description de votre établissement
+				{% endtrans %}
+				</h2>
 				<div class="form-groups create-form-descr">
 					<div class="container-design-form">
 						<div class="design-form-input">
@@ -98,7 +110,12 @@
 					</div>
 
 				</div>
-				<h2>Choisissez le(s) type(s) et la ou les catégorie(s)  qui correspondent à votre établissement</h2>
+				<h2>
+				{% trans %}
+				Choisissez le(s) type(s) et la ou les catégorie(s)  
+				qui correspondent à votre établissement
+				{% endtrans %}
+				</h2>
 				<div class="form-groups create-form-coord">
 					<div class="container-design-form">
 						<div class="design-form-input or-cat">

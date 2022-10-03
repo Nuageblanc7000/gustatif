@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 class UserPasswordChangeType extends AbstractType
@@ -29,7 +30,8 @@ class UserPasswordChangeType extends AbstractType
                 "first_options" =>[ "label" => $this->translator->trans("Nouveau mot de passe") , 'attr'=>["placeholder" => '#487Robs2'] , 'always_empty' =>false , ],
                 'second_options' => ['label' => $this->translator->trans('Confirmer le mot de passe') , 'attr'=>["placeholder" => '#487Robs2'] , 'always_empty' =>false,  ],
                 'constraints' => [
-                    new NotNull(message: $this->translator->trans('veuillez compléter les champs'))
+                    new NotNull(message: $this->translator->trans('veuillez compléter les champs')),
+                    new Length(min:5,minMessage: $this->translator->trans('minimum 5 caractères'))
                 ]
                 
             ]

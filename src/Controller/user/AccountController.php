@@ -8,16 +8,15 @@ use App\Form\UserEditType;
 use App\Service\FileUpload;
 use App\Service\ImageDelService;
 use App\Form\UserModifyAvatarType;
-use App\Repository\CityRepository;
 use App\Repository\UserRepository;
 use App\Service\DeleteImageService;
 use App\Service\DeleteRestoService;
 use Symfony\UX\Chartjs\Model\Chart;
 use App\Form\UserPasswordChangeType;
-use App\Service\DeleteImagesService;
+
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\TokenResolveRepository;
-use App\Service\DeleteImagesEntityService;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -84,7 +83,7 @@ class AccountController extends AbstractController
     }
 
     /**
-     * Undocumented function
+     * permet la modif d'un user
      *
      * @param Request $req
      * @param EntityManagerInterface $em

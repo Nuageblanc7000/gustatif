@@ -37,20 +37,32 @@
       {{ form_errors(form.isResto) }}
 </div>
     {# {{form_rest(form)}} #}
-    <button class="btn">{{ button_label|default('S\'inscrire') }}</button>
+    <button class="btn">
+    {% trans %}
+        S'inscrire
+    {% endtrans %}
+    </button>
 {{ form_end(form) }}
 
 <div class="info-form-user">
-<span> En m'inscrivant, je confirme que j'ai accepté :</span>
+<span> 
+{% trans %}
+En m'inscrivant, je confirme que j'ai accepté :
+{% endtrans %}
+</span>
 <ul>
     <li>
         <a href="{{path('app_terms')}}">
+        {% trans %}
             les Termes et conditions de Tolink
+        {% endtrans %}
         </a>
     </li>
      <li>
         <a href="{{path('app_policy')}}">
+        {% trans %}
         avoir lu la Politique de confidentialité
+        {% endtrans %}
         </a>
     </li>
 </ul>

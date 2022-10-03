@@ -5,6 +5,9 @@ use Exception;
 use Doctrine\ORM\EntityManagerInterface;
 
 
+/**
+ * sercice pour la suppression d'image
+ */
 class DeleteImagesEntityService
 {
 
@@ -27,7 +30,7 @@ class DeleteImagesEntityService
             $this->em->flush();
        ;
      } catch (Exception $e) {
-        dd($e);
+        
         return;
         }
 
