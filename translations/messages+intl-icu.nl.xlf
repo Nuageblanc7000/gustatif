@@ -1294,7 +1294,19 @@ die overeenkomen met uw vestiging</target>
       </trans-unit>
       <trans-unit id="6ZNlJZg" resname="Minimum une image">
         <source>Minimum une image</source>
-        <target>__Minimum une image</target>
+        <target>Minimaal één afbeelding</target>
+      </trans-unit>
+      <trans-unit id="zSEEJ1P" resname="Insérrer une adresse valide (chemin de la montagne,24/chemin de la montagne,24b)">
+        <source>Insérrer une adresse valide (chemin de la montagne,24/chemin de la montagne,24b)</source>
+        <target>Insérrer een geldig adres (bergweg,24/bergweg,24b)</target>
+      </trans-unit>
+      <trans-unit id="r7tFU6_" resname="veuillez insérer un numéro valide, exemple +32477000000 ou 0477000000">
+        <source>veuillez insérer un numéro valide, exemple +32477000000 ou 0477000000</source>
+        <target>voer een geldig nummer in, bijvoorbeeld +32477000000 of 0477000000</target>
+      </trans-unit>
+      <trans-unit id="N.NuA9m" resname="Adresse valide exemple: rue paul,25 / chemin de montignies, 23b">
+        <source>Adresse valide exemple: rue paul,25 / chemin de montignies, 23b</source>
+        <target>Adresse geldig voorbeeld: rue paul,25 / chemin de montignies, 23b</target>
       </trans-unit>
     </body>
   </file>

@@ -1289,7 +1289,19 @@ which correspond to your establishment</target>
       </trans-unit>
       <trans-unit id="6ZNlJZg" resname="Minimum une image">
         <source>Minimum une image</source>
-        <target>__Minimum une image</target>
+        <target>minimum An Image</target>
+      </trans-unit>
+      <trans-unit id="zSEEJ1P" resname="Insérrer une adresse valide (chemin de la montagne,24/chemin de la montagne,24b)">
+        <source>Insérrer une adresse valide (chemin de la montagne,24/chemin de la montagne,24b)</source>
+        <target>__Insert a valid address (chemin de la Montagne, 24/chemin de la Montagne, 24b)</target>
+      </trans-unit>
+      <trans-unit id="r7tFU6_" resname="veuillez insérer un numéro valide, exemple +32477000000 ou 0477000000">
+        <source>veuillez insérer un numéro valide, exemple +32477000000 ou 0477000000</source>
+        <target>Please insert a valid number, example +32477000000 or 0477000000</target>
+      </trans-unit>
+      <trans-unit id="N.NuA9m" resname="Adresse valide exemple: rue paul,25 / chemin de montignies, 23b">
+        <source>Adresse valide exemple: rue paul,25 / chemin de montignies, 23b</source>
+        <target>Valid address Example: rue Paul, 25 / chemin de Montignies, 23b</target>
       </trans-unit>
     </body>
   </file>
