@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}common{% endblock %}
+{% block title %}
+{% trans %}
+    Inscription
+{% endtrans %}
+{% endblock %}
 
 {% block body %}
 <div class="bg-common">
@@ -47,21 +51,21 @@
 <div class="info-form-user">
 <span> 
 {% trans %}
-En m'inscrivant, je confirme que j'ai accepté :
+En vous inscrivant, vous acceptez:
 {% endtrans %}
 </span>
 <ul>
     <li>
         <a href="{{path('app_terms')}}">
         {% trans %}
-            les Termes et conditions de Tolink
+            Les termes et conditions de Tolink
         {% endtrans %}
         </a>
     </li>
      <li>
         <a href="{{path('app_policy')}}">
         {% trans %}
-        avoir lu la Politique de confidentialité
+        La politique de confidentialité
         {% endtrans %}
         </a>
     </li>

@@ -36,13 +36,13 @@ class UserType extends AbstractType
             ->add('pseudo',TextType::class,[
                 'required' =>false,
                 'attr' =>[
-                    'placeholder' => $this->translator->trans('pseudo')
+                    'placeholder' => $this->translator->trans('Pseudo')
                     ]
                     ])
                     ->add('city',EntityType::class,[
                         'class' => City::class,
                         'choice_label' => 'localite',
-                        'label' => $this->translator->trans('ville'),
+                        'label' => $this->translator->trans('Ville'),
                         'placeholder' => $this->translator->trans('Ville'),
                         'required'=> false,
                         'autocomplete' => true,
@@ -52,7 +52,7 @@ class UserType extends AbstractType
                     ])
                     
             ->add('isResto',CheckboxType::class,[
-                'label' => $this->translator->trans('Êtes vous restaurateur?'),
+                'label' => $this->translator->trans('Êtes-vous restaurateur?'),
                 'required' => false,
                 'attr' => [
                     'class'=> 'form-boolean'

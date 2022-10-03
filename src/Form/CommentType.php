@@ -25,6 +25,7 @@ class CommentType extends AbstractType
     {
         $builder
             ->add('description',TextareaType::class,[
+                'attr'=>['placeholder'=> $this->translator->trans('Placer un commentaire ici')],
                 'constraints'=> [
                     new NotNull(message:$this->translator->trans('Veuillez indiquer votre avis')),
                     new Length(min:4,minMessage:$this->translator->trans('Le commentaire doit faire minimum 4 caractères'),max:500 , maxMessage:$this->translator->trans('Le commentaire doit faire maximum 500 caractères'))

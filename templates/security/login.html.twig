@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!
+{% block title %}
+{% trans %}
+	Connexion
+{% endtrans %}
 {% endblock %}
 
 {% block body %}
@@ -35,7 +38,9 @@
 				    #}
 
 				<button class="btn" type="submit">
-					Connection
+				{% trans %}
+					Connexion
+				{% endtrans %}
 				</button>
 			</form>
 				{% if error %}

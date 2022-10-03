@@ -1316,6 +1316,74 @@ die overeenkomen met uw vestiging</target>
         <source>Ajouter une spécialité</source>
         <target>Een specialiteit toevoegen</target>
       </trans-unit>
+      <trans-unit id="xPuWn4w" resname="Placer un commentaire ici">
+        <source>Placer un commentaire ici</source>
+        <target>Plaats hier een reactie</target>
+      </trans-unit>
+      <trans-unit id="JLLWj41" resname="Un des champs n'est pas complété">
+        <source>Un des champs n'est pas complété</source>
+        <target>Een van de velden is niet ingevuld</target>
+      </trans-unit>
+      <trans-unit id="asxPn0f" resname="Photo actuelle">
+        <source>Photo actuelle</source>
+        <target>huidige foto</target>
+      </trans-unit>
+      <trans-unit id="3iFR_fy" resname="Statistiques">
+        <source>Statistiques</source>
+        <target>Statistieken</target>
+      </trans-unit>
+      <trans-unit id="YfHspO7" resname="Ajoutez jusque 4 de vos spécialités">
+        <source>Ajoutez jusque 4 de vos spécialités</source>
+        <target>Voeg tot 4 van uw specialiteiten toe</target>
+      </trans-unit>
+      <trans-unit id="FzOQdV5" resname="Ajoutez jusque 4 images de votre établissement">
+        <source>Ajoutez jusque 4 images de votre établissement</source>
+        <target>Voeg tot 4 afbeeldingen van uw etablissement toe</target>
+      </trans-unit>
+      <trans-unit id="gaiC8Jg" resname="Laissez les champs vides si l'établissement est fermé.">
+        <source>Laissez les champs vides si l'établissement est fermé.</source>
+        <target>Laat de velden leeg als de vestiging gesloten is.</target>
+      </trans-unit>
+      <trans-unit id="NWUJyQx" resname="Laissez votre avis">
+        <source>Laissez votre avis</source>
+        <target>Laat je recensie achter</target>
+      </trans-unit>
+      <trans-unit id="t_wuVI9" resname="En vous inscrivant, vous acceptez:">
+        <source>En vous inscrivant, vous acceptez:</source>
+        <target>Door te registreren gaat u akkoord met:</target>
+      </trans-unit>
+      <trans-unit id="H1nQ2pT" resname="Les termes et conditions de Tolink">
+        <source>Les termes et conditions de Tolink</source>
+        <target>Algemene voorwaarden Tolink</target>
+      </trans-unit>
+      <trans-unit id="oZRAp3n" resname="La politique de confidentialité">
+        <source>La politique de confidentialité</source>
+        <target>Privacybeleid</target>
+      </trans-unit>
+      <trans-unit id="J7ll5Bi" resname="&quot;Entrez une ville, nom du restaurant&quot;">
+        <source>"Entrez une ville, nom du restaurant"</source>
+        <target>"Voer een stad, restaurantnaam in"</target>
+      </trans-unit>
+      <trans-unit id="EUkRHTo" resname="Images actuelles de l'établissemnt">
+        <source>Images actuelles de l'établissemnt</source>
+        <target>Actuele beelden van het etablissement</target>
+      </trans-unit>
+      <trans-unit id="MozW8VK" resname="Êtes-vous restaurateur?">
+        <source>Êtes-vous restaurateur?</source>
+        <target>Bent u een restauranteigenaar?</target>
+      </trans-unit>
+      <trans-unit id="GhT_AUB" resname="Changement de photo profil">
+        <source>Changement de photo profil</source>
+        <target>Profielfoto wijzigen</target>
+      </trans-unit>
+      <trans-unit id="YlOAGYi" resname="3.1 Utilisation du site pour les restaurateurs">
+        <source>3.1 Utilisation du site pour les restaurateurs</source>
+        <target>3.1 Gebruik van de site voor restauranthouders</target>
+      </trans-unit>
+      <trans-unit id="0iJdxQk" resname="L'utilisateur pourra utiliser le site ToLink pour y placer son établissement ou tout simplement pour y consulter les divers établissements mis à disposition par la communauté ToLink. Toute création d'une annonce pour mettre son établissement en valeur se devra de refléter la réalité et vous devez être dans l'obligation d'être le propriétaire de cet établissement ou une personne autorisée par celui-ci. Si toutefois ce n'est pas le cas ToLink peux à tout moment supprimer l'établissement ou temporairement le mettre en attente le temps de prendre contact avec l'établissement et de vérifier l'authenticité de celui-ci.">
+        <source>L'utilisateur pourra utiliser le site ToLink pour y placer son établissement ou tout simplement pour y consulter les divers établissements mis à disposition par la communauté ToLink. Toute création d'une annonce pour mettre son établissement en valeur se devra de refléter la réalité et vous devez être dans l'obligation d'être le propriétaire de cet établissement ou une personne autorisée par celui-ci. Si toutefois ce n'est pas le cas ToLink peux à tout moment supprimer l'établissement ou temporairement le mettre en attente le temps de prendre contact avec l'établissement et de vérifier l'authenticité de celui-ci.</source>
+        <target>De gebruiker kan de ToLink-site gebruiken om zijn vestiging daar te plaatsen of gewoon om de verschillende vestigingen te raadplegen die door de ToLink-gemeenschap ter beschikking worden gesteld. Elke creatie van een advertentie om uw etablissement onder de aandacht te brengen, moet de realiteit weerspiegelen en u moet verplicht zijn de eigenaar van dit etablissement of een door haar gemachtigde persoon te zijn. Als dit echter niet het geval is, kan ToLink op elk moment de vestiging verwijderen of tijdelijk in de wacht zetten terwijl ze contact opneemt met de vestiging en de authenticiteit ervan controleert.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

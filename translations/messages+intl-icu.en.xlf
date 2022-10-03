@@ -1293,7 +1293,7 @@ which correspond to your establishment</target>
       </trans-unit>
       <trans-unit id="zSEEJ1P" resname="Insérrer une adresse valide (chemin de la montagne,24/chemin de la montagne,24b)">
         <source>Insérrer une adresse valide (chemin de la montagne,24/chemin de la montagne,24b)</source>
-        <target>__Insert a valid address (chemin de la Montagne, 24/chemin de la Montagne, 24b)</target>
+        <target>Insert a valid address (chemin de la Montagne, 24/chemin de la Montagne, 24b)</target>
       </trans-unit>
       <trans-unit id="r7tFU6_" resname="veuillez insérer un numéro valide, exemple +32477000000 ou 0477000000">
         <source>veuillez insérer un numéro valide, exemple +32477000000 ou 0477000000</source>
@@ -1310,6 +1310,74 @@ which correspond to your establishment</target>
       <trans-unit id="m0nttUW" resname="Ajouter une spécialité">
         <source>Ajouter une spécialité</source>
         <target>Add a specialty</target>
+      </trans-unit>
+      <trans-unit id="xPuWn4w" resname="Placer un commentaire ici">
+        <source>Placer un commentaire ici</source>
+        <target>Place a comment here</target>
+      </trans-unit>
+      <trans-unit id="JLLWj41" resname="Un des champs n'est pas complété">
+        <source>Un des champs n'est pas complété</source>
+        <target>One of the fields is not completed</target>
+      </trans-unit>
+      <trans-unit id="asxPn0f" resname="Photo actuelle">
+        <source>Photo actuelle</source>
+        <target>Current photo</target>
+      </trans-unit>
+      <trans-unit id="3iFR_fy" resname="Statistiques">
+        <source>Statistiques</source>
+        <target>Statistics</target>
+      </trans-unit>
+      <trans-unit id="YfHspO7" resname="Ajoutez jusque 4 de vos spécialités">
+        <source>Ajoutez jusque 4 de vos spécialités</source>
+        <target>Add up to 4 of your specialties</target>
+      </trans-unit>
+      <trans-unit id="FzOQdV5" resname="Ajoutez jusque 4 images de votre établissement">
+        <source>Ajoutez jusque 4 images de votre établissement</source>
+        <target>Add up to 4 images from your establishment</target>
+      </trans-unit>
+      <trans-unit id="gaiC8Jg" resname="Laissez les champs vides si l'établissement est fermé.">
+        <source>Laissez les champs vides si l'établissement est fermé.</source>
+        <target>Leave the empty fields if the establishment is closed.</target>
+      </trans-unit>
+      <trans-unit id="NWUJyQx" resname="Laissez votre avis">
+        <source>Laissez votre avis</source>
+        <target>Leave your opinion</target>
+      </trans-unit>
+      <trans-unit id="t_wuVI9" resname="En vous inscrivant, vous acceptez:">
+        <source>En vous inscrivant, vous acceptez:</source>
+        <target>By registering, you accept:</target>
+      </trans-unit>
+      <trans-unit id="H1nQ2pT" resname="Les termes et conditions de Tolink">
+        <source>Les termes et conditions de Tolink</source>
+        <target>Tolink terms and conditions</target>
+      </trans-unit>
+      <trans-unit id="oZRAp3n" resname="La politique de confidentialité">
+        <source>La politique de confidentialité</source>
+        <target>Privacy policy</target>
+      </trans-unit>
+      <trans-unit id="J7ll5Bi" resname="&quot;Entrez une ville, nom du restaurant&quot;">
+        <source>"Entrez une ville, nom du restaurant"</source>
+        <target>"Enter a city, name of the restaurant"</target>
+      </trans-unit>
+      <trans-unit id="EUkRHTo" resname="Images actuelles de l'établissemnt">
+        <source>Images actuelles de l'établissemnt</source>
+        <target>Current images of the establishment</target>
+      </trans-unit>
+      <trans-unit id="MozW8VK" resname="Êtes-vous restaurateur?">
+        <source>Êtes-vous restaurateur?</source>
+        <target>Are you a restaurateur?</target>
+      </trans-unit>
+      <trans-unit id="GhT_AUB" resname="Changement de photo profil">
+        <source>Changement de photo profil</source>
+        <target>Photo change profile</target>
+      </trans-unit>
+      <trans-unit id="YlOAGYi" resname="3.1 Utilisation du site pour les restaurateurs">
+        <source>3.1 Utilisation du site pour les restaurateurs</source>
+        <target>3.1 Use of the site for restaurateurs</target>
+      </trans-unit>
+      <trans-unit id="0iJdxQk" resname="L'utilisateur pourra utiliser le site ToLink pour y placer son établissement ou tout simplement pour y consulter les divers établissements mis à disposition par la communauté ToLink. Toute création d'une annonce pour mettre son établissement en valeur se devra de refléter la réalité et vous devez être dans l'obligation d'être le propriétaire de cet établissement ou une personne autorisée par celui-ci. Si toutefois ce n'est pas le cas ToLink peux à tout moment supprimer l'établissement ou temporairement le mettre en attente le temps de prendre contact avec l'établissement et de vérifier l'authenticité de celui-ci.">
+        <source>L'utilisateur pourra utiliser le site ToLink pour y placer son établissement ou tout simplement pour y consulter les divers établissements mis à disposition par la communauté ToLink. Toute création d'une annonce pour mettre son établissement en valeur se devra de refléter la réalité et vous devez être dans l'obligation d'être le propriétaire de cet établissement ou une personne autorisée par celui-ci. Si toutefois ce n'est pas le cas ToLink peux à tout moment supprimer l'établissement ou temporairement le mettre en attente le temps de prendre contact avec l'établissement et de vérifier l'authenticité de celui-ci.</source>
+        <target>The user can use the ToLink site to place his establishment there or simply to consult the various establishments made available by the ToLink community. Any creation of an ad to highlight your establishment will have to reflect reality and you must be under the obligation to be the owner of this establishment or a person authorized by it. However, if this is not the case, ToLink can at any time delete the establishment or temporarily put it on hold while contacting the establishment and verifying its authenticity.</target>
       </trans-unit>
     </body>
   </file>
