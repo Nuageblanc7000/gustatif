@@ -1,0 +1,72 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    {% trans %}
+        Compte perdu
+    {% endtrans %}
+{% endblock %}
+
+{% block body %}
+    <div class="bg-style-create">
+		<div class="container-resto-form">
+			<div class="title">
+				<h1>
+					{% trans %}
+					Récupérer un nouveau mot de passe
+					{% endtrans %}
+					</h1>
+			</div>
+			<div class="form-step">
+				{{form_start(form)}}
+				<div class="form-groups create-form-coord">
+					<div class="container-design-form">
+						<h2>{% trans %}Entrer votre email{% endtrans %}</h2>
+						<div class="design-form-input">
+							<div class="design-form-icon anim-icon">
+								<img src="{{asset('/build/images/profil/pseudo.svg')}}" alt="badge avec tête" width="40px" height="40px">
+							</div>
+							{{ form_widget(form.mail) }}
+						</div>
+						<div class="form-create-error">
+							{{ form_errors(form.mail) }}
+						</div>
+					</div>
+				</div>
+
+
+				<div class="container-btn-action-form">
+
+					<div class="button-container-2">
+						<span class="mas">
+							{% trans %}
+							Retour sur connection
+							{% endtrans %}
+						</span>
+						<a href="{{path('login')}}" name="Hover">
+							{% trans %}
+							Retour sur connection
+							{% endtrans %}
+						</a>
+					</div>
+					<div class="button-container-1">
+						<span class="mas-1">
+							{% trans %}
+							Envoyer
+							{% endtrans %}
+						</span>
+						<button type="submit" name="Hover">
+							{% trans %}
+								Envoyer
+							{% endtrans %}
+						</button>
+					</div>
+				</div>
+				{{form_rest(form)}}
+				{{form_end(form)}}
+			</div>
+		</div>
+	</diV>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}    
+{% endblock %}

@@ -1383,6 +1383,70 @@ which correspond to your establishment</target>
         <source>Bienvenue sur l'application!</source>
         <target>Welcome to the app!</target>
       </trans-unit>
+      <trans-unit id="WSc5DvS" resname="Vous avez fait une demande de réinitialisation de mot de passe">
+        <source>Vous avez fait une demande de réinitialisation de mot de passe</source>
+        <target>You have applied for password resetting</target>
+      </trans-unit>
+      <trans-unit id="T1gVFRZ" resname="Pour finaliser votre demande vous pouvez cliquer sur le lien ci-dessous">
+        <source>Pour finaliser votre demande vous pouvez cliquer sur le lien ci-dessous</source>
+        <target>To finalize your request you can click on the link below</target>
+      </trans-unit>
+      <trans-unit id="i0zZUyD" resname="Si vous n'êtes pas l'auteur de la demande veuillez ne pas tenir compte de cet email">
+        <source>Si vous n'êtes pas l'auteur de la demande veuillez ne pas tenir compte de cet email</source>
+        <target>If you are not the author of the request please do not take this email into account</target>
+      </trans-unit>
+      <trans-unit id="dTieYgV" resname="veuillez insérer un email valide">
+        <source>veuillez insérer un email valide</source>
+        <target>Please insert a valid email</target>
+      </trans-unit>
+      <trans-unit id="SkIA23W" resname="Entrer votre email">
+        <source>Entrer votre email</source>
+        <target>Get your email</target>
+      </trans-unit>
+      <trans-unit id=".FGd.Sf" resname="Un email vous a été envoyé pour réinitialiser votre mot de passe">
+        <source>Un email vous a été envoyé pour réinitialiser votre mot de passe</source>
+        <target>An email was sent to you to reset your password</target>
+      </trans-unit>
+      <trans-unit id="aa4DlGo" resname="Votre demande est expirée veuillez refaire une demande">
+        <source>Votre demande est expirée veuillez refaire une demande</source>
+        <target>Your request has expired please make a request</target>
+      </trans-unit>
+      <trans-unit id="3BA_QDx" resname="Mot de passe modifié">
+        <source>Mot de passe modifié</source>
+        <target>Modified password</target>
+      </trans-unit>
+      <trans-unit id="PdvEmIS" resname="Mot de passe oublié?">
+        <source>Mot de passe oublié?</source>
+        <target>Forgot your password?</target>
+      </trans-unit>
+      <trans-unit id="Em5q0at" resname="Compte perdu">
+        <source>Compte perdu</source>
+        <target>Lost account</target>
+      </trans-unit>
+      <trans-unit id="rE3sRoZ" resname="Récupérer un nouveau mot de passe">
+        <source>Récupérer un nouveau mot de passe</source>
+        <target>Recover a new password</target>
+      </trans-unit>
+      <trans-unit id="du61SEX" resname="Retour sur connection">
+        <source>Retour sur connection</source>
+        <target>Back to connection</target>
+      </trans-unit>
+      <trans-unit id="eQdSCfK" resname="Envoyer">
+        <source>Envoyer</source>
+        <target>Send</target>
+      </trans-unit>
+      <trans-unit id="nKRkbF." resname="Modifier mon mot de passe">
+        <source>Modifier mon mot de passe</source>
+        <target>Change my password</target>
+      </trans-unit>
+      <trans-unit id="bpTZIxl" resname="Modifier le mot de pase">
+        <source>Modifier le mot de pase</source>
+        <target>change the password</target>
+      </trans-unit>
+      <trans-unit id="lW.Fwvv" resname="Modifier le mot de passe">
+        <source>Modifier le mot de passe</source>
+        <target>change the password</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

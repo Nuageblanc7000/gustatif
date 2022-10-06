@@ -33,6 +33,7 @@ export default class Notyf_flash extends HTMLElement {
    */
   connectedCallback() {
     this.lineSize = this.onePourcent;
+  
     this.spanTimer.animate(
       [
         {

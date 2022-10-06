@@ -254,7 +254,7 @@ class AccountController extends AbstractController
         $message = $translator->trans('Nous espérons vous revoir vite') . ' ' . $user->getPseudo();
         $em->remove($user);
         $em->flush();
-        $this->addFlash('sucess', $message);
+        $this->addFlash('success', $message);
 
         return $this->redirectToRoute('home');
     }

@@ -1388,6 +1388,67 @@ die overeenkomen met uw vestiging</target>
         <source>Bienvenue sur l'application!</source>
         <target>Welkom bij de app!</target>
       </trans-unit>
+      <trans-unit id="WSc5DvS" resname="Vous avez fait une demande de réinitialisation de mot de passe">
+        <source>Vous avez fait une demande de réinitialisation de mot de passe</source>
+        <target>U heeft een verzoek voor het opnieuw instellen van uw wachtwoord ingediend</target>
+      </trans-unit>
+      <trans-unit id="T1gVFRZ" resname="Pour finaliser votre demande vous pouvez cliquer sur le lien ci-dessous">
+        <source>Pour finaliser votre demande vous pouvez cliquer sur le lien ci-dessous</source>
+        <target>Om uw aanvraag te voltooien, klikt u op de onderstaande link</target>
+      </trans-unit>
+      <trans-unit id="i0zZUyD" resname="Si vous n'êtes pas l'auteur de la demande veuillez ne pas tenir compte de cet email">
+        <source>Si vous n'êtes pas l'auteur de la demande veuillez ne pas tenir compte de cet email</source>
+        <target>Als u niet de aanvrager bent, kunt u deze e-mail negeren.</target>
+      </trans-unit>
+      <trans-unit id="dTieYgV" resname="veuillez insérer un email valide">
+        <source>veuillez insérer un email valide</source>
+        <target>Gelieve een geldig e-mailadres in te geven</target>
+      </trans-unit>
+      <trans-unit id="SkIA23W" resname="Entrer votre email">
+        <source>Entrer votre email</source>
+        <target>Vul je e-mailadres in</target>
+      </trans-unit>
+      <trans-unit id=".FGd.Sf" resname="Un email vous a été envoyé pour réinitialiser votre mot de passe">
+        <source>Un email vous a été envoyé pour réinitialiser votre mot de passe</source>
+        <target>Er is een e-mail naar u verzonden om uw wachtwoord opnieuw in te stellen</target>
+      </trans-unit>
+      <trans-unit id="aa4DlGo" resname="Votre demande est expirée veuillez refaire une demande">
+        <source>Votre demande est expirée veuillez refaire une demande</source>
+        <target>Uw verzoek is verlopen, dient u opnieuw een verzoek in</target>
+      </trans-unit>
+      <trans-unit id="3BA_QDx" resname="Mot de passe modifié">
+        <source>Mot de passe modifié</source>
+        <target>Wachtwoord gewijzigd</target>
+      </trans-unit>
+      <trans-unit id="PdvEmIS" resname="Mot de passe oublié?">
+        <source>Mot de passe oublié?</source>
+        <target>Je wachtwoord vergeten?</target>
+      </trans-unit>
+      <trans-unit id="Em5q0at" resname="Compte perdu">
+        <source>Compte perdu</source>
+        <target>Account kwijt</target>
+      </trans-unit>
+      <trans-unit id="rE3sRoZ" resname="Récupérer un nouveau mot de passe">
+        <source>Récupérer un nouveau mot de passe</source>
+        <target>Een nieuw wachtwoord ophalen</target>
+      </trans-unit>
+      <trans-unit id="du61SEX" resname="Retour sur connection">
+        <source>Retour sur connection</source>
+        <target>Terug naar verbinding</target>
+      </trans-unit>
+      <trans-unit id="eQdSCfK" resname="Envoyer">
+        <source>Envoyer</source>
+        <target>sturen</target>
+      </trans-unit>
+      <trans-unit id="nKRkbF." resname="Modifier mon mot de passe">
+        <source>Modifier mon mot de passe</source>
+        <target>Verander wachtwoord</target>
+      </trans-unit>
+   
+      <trans-unit id="lW.Fwvv" resname="Modifier le mot de passe">
+        <source>Modifier le mot de passe</source>
+        <target>verander het wachtwoord</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

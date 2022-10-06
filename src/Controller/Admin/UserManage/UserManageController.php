@@ -124,7 +124,7 @@ class UserManageController extends AbstractController
         $message = $translator->trans('Utilisateur') . ' ' . $user->getPseudo() . ' ' . $translator->trans('supprimé');
         $em->remove($user);
         $em->flush();
-        $this->addFlash('sucess', $message);
+        $this->addFlash('success', $message);
         return $this->redirectToRoute('app_admin_users');
     }
 }

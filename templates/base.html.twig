@@ -33,7 +33,7 @@
                 {% block adFlash %}
 				{% for key,flashes in app.flashes %}
 					{% for message in flashes %}
-                    <flash-message attr={{key}} time='5000'>
+                    <flash-message data-attr={{key}} class="message-{{key}}" time='5000'>
 				        <img src="{{asset('/build/images/resto.svg')}}" alt="chef cuisto">
 			            <h2>{{message}}</h2>
 		            </flash-message>	
@@ -48,8 +48,8 @@
         {% include "/_partials/header/_header-bottom.html.twig" %}
 
        
-    </body>
         {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
         {% endblock %}
+    </body>
 </html>

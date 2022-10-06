@@ -19,10 +19,17 @@ class TokenResolve
 
     private $user;
 
-    #[ORM\OneToOne(inversedBy: 'tokenResolve', targetEntity: User::class, cascade: ['persist'])]
+    #[ORM\OneToOne( inversedBy: 'tokenResolve', targetEntity: User::class)]
     #[ORM\JoinColumn(nullable: false)]
     private $userCurrent;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $createdAt = null;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();       
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -48,6 +55,18 @@ class TokenResolve
     public function setUserCurrent(User $userCurrent): self
     {
         $this->userCurrent = $userCurrent;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
