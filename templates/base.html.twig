@@ -34,7 +34,7 @@
 				{% for key,flashes in app.flashes %}
 					{% for message in flashes %}
                     <flash-message data-attr={{key}} class="message-{{key}}" time='5000'>
-				        <img src="{{asset('/build/images/resto.svg')}}" alt="chef cuisto">
+				        <img src="{{asset('/build/images/resto.svg')}}" alt="chef cuisto" width="40" height="40">
 			            <h2>{{message}}</h2>
 		            </flash-message>	
 					{% endfor %}

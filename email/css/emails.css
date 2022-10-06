@@ -12,7 +12,8 @@ img{
     border: 0;
     width: inherit;
     height: inherit;
-    object-fit: cover;
+    object-fit: contain;
+    height: 400px;
 }
 .img{
     width: 100%;
