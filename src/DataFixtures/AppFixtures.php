@@ -16,7 +16,6 @@ use Faker\Factory as fake;
 use App\Service\FileUpload;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -29,6 +28,39 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = fake::create('fr_FR');
+
+        //on regarde que les dossiers restaurant/plats/avatar soit vide avant de refaire des fixtures
+        if(file_exists($this->parameterBag->get('resto_images')))
+        {
+            $scanResto = scandir($this->parameterBag->get('resto_images'));
+           $restoFiles = array_splice($scanResto, 2, count($scanResto));
+            foreach ($restoFiles as  $value) {
+             unlink($this->parameterBag->get('resto_images').'/'.$value);
+            }
+        }else{
+            mkdir($this->parameterBag->get('resto_images'));
+        }
+        if(file_exists($this->parameterBag->get('resto_images')))
+        {
+            $scanPlats = scandir($this->parameterBag->get('resto_plats'));
+           $restoFiles = array_splice($scanPlats, 2, count($scanPlats));
+            foreach ($restoFiles as  $value) {
+             unlink($this->parameterBag->get('resto_plats').'/'.$value);
+            }
+        }else{
+            mkdir($this->parameterBag->get('resto_plats'));
+        }
+        if(file_exists($this->parameterBag->get('resto_images')))
+        {
+            $scanPlats = scandir($this->parameterBag->get('avatar_user'));
+           $restoFiles = array_splice($scanPlats, 2, count($scanPlats));
+            foreach ($restoFiles as  $value) {
+             unlink($this->parameterBag->get('avatar_user').'/'.$value);
+            }
+        }else{
+            mkdir($this->parameterBag->get('avatar_user'));
+        }
+
         //création d'un fichier json avec les villes pour pouvoir faires des fixtures plus facilement.
         $cities = json_decode(file_get_contents($this->parameterBag->get('json_path_fixtures')), true);
 
