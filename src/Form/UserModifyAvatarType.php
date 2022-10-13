@@ -24,6 +24,7 @@ class UserModifyAvatarType extends AbstractType
                     'attr' => ['class' =>'avatar-btn js-btn-avatar'],
                     'label' => $this->translator->trans('Choisir une autre photo'),
                     'label_attr' => ['class'=> 'label-avatar'],
+                    'required' => false,
 
                     'constraints' => [
                         new File(mimeTypes:['image/jpg','image/jpeg','image/png'],mimeTypesMessage: $this->translator->trans('veuillez mettre un fichier image (png,jpg,jpeg)'),maxSize:'100000k'),

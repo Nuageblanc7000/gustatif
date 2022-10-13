@@ -217,7 +217,7 @@ btnViewComment.addEventListener("click", () => {
       : (counterComment = countComment)
   );
 });
-
+/********************************************* */
 
 //ajout du système de like
 if (document.querySelectorAll(".js-like-resto") !== null) {

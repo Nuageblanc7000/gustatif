@@ -13,7 +13,9 @@
 
             img{
                 -o-object-fit: contain;
-                   object-fit: contain;
+                height: 180px;
+                width: 180px;
+                   object-fit: cover;
                 border-radius: 50%;
             }
         }

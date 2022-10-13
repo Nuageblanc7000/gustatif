@@ -183,6 +183,10 @@ class AccountController extends AbstractController
                 $message = $translator->trans('Photo profil modifiée');
                 $this->addFlash('success', $message);
                 return $this->redirectToRoute('app_profil', [], Response::HTTP_FOUND);
+            }else{
+                $message = $translator->trans('Photo profil modifiée');
+                $this->addFlash('success', $message);
+                return $this->redirectToRoute('app_profil', [], Response::HTTP_FOUND);
             }
         }
         return $this->renderForm('/user/avatar_modify.html.twig', ['form' => $form]);
