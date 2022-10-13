@@ -223,7 +223,7 @@ btnViewComment.addEventListener("click", () => {
 if (document.querySelectorAll(".js-like-resto") !== null) {
   const js_like = document.querySelectorAll(".js-like-resto");
   function like(e) {
-    const url = this.href+'test';
+    const url = this.href;
     e.preventDefault();
     e.stopPropagation();
     const fetching = fetch(url, {
@@ -244,7 +244,6 @@ if (document.querySelectorAll(".js-like-resto") !== null) {
         }
       })
       .catch((err) => {
-        console.log(err)
         return;
       });
   }

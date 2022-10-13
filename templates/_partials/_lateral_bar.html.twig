@@ -42,7 +42,11 @@
 		<div class="cube-search-submit">
 			<i class="fa-solid fa-filter"></i>
 		</div>
-		<button type="submit" class="btn-submit">Filtrer</button>
+		<button type="submit" class="btn-submit">
+		{% trans %}
+		Filtrer
+		{% endtrans %}
+		</button>
 	</div>
 	{{form_rest(form)}}
 	{{form_end(form)}}

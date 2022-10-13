@@ -35,7 +35,11 @@ class LocaleEventListenner implements EventSubscriberInterface
             $request->setLocale($request->getSession()->get('_locale', $this->defaultLocale));
         }
     }
-
+    /**
+     * Undocumented function
+     *
+     * @return array
+     */
     public static function getSubscribedEvents()
     {
         return [

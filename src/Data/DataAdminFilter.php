@@ -9,6 +9,7 @@ class DataAdminFilter
 {
     private $search;
     private $resto;
+    private $verif;
 
 
     public function getSearch(): ?string
@@ -35,4 +36,24 @@ class DataAdminFilter
         return $this;
     }  
 
+
+    /**
+     * Get the value of verif
+     */ 
+    public function getVerif() : ?bool
+    {
+        return $this->verif;
+    }
+
+    /**
+     * Set the value of verif
+     *
+     * @return  self
+     */ 
+    public function setVerif(?bool $verif)
+    {
+        $this->verif = $verif;
+
+        return $this;
+    }
 }

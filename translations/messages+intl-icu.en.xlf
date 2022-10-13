@@ -201,9 +201,9 @@
         <source>aucun résultat</source>
         <target>No result</target>
       </trans-unit>
-      <trans-unit id="PgdreT2" resname="Plat supprimé ">
-        <source>Plat supprimé </source>
-        <target>Dish removed </target>
+      <trans-unit id="IQJEn41" resname="Plat supprimé">
+        <source>Plat supprimé</source>
+        <target>Dish removed</target>
       </trans-unit>
       <trans-unit id="slXA4Qn" resname="lundi">
         <source>lundi</source>
@@ -1011,7 +1011,7 @@ Tolink, leaves the possibility of expressing themselves about the establishment,
       </trans-unit>
       <trans-unit id="qw6tMLY" resname="Êtes-vous sûr de vouloir supprimer l'établissement">
         <source>Êtes-vous sûr de vouloir supprimer l'établissement</source>
-        <target>areYouSureYouWantToDeleteTheEstablishment</target>
+        <target>Are you sure you want to delete the stablishment</target>
       </trans-unit>
       <trans-unit id="TTdQcuE" resname="Les données du restaurants seront supprimées">
         <source>Les données du restaurants seront supprimées</source>
@@ -1023,7 +1023,7 @@ Tolink, leaves the possibility of expressing themselves about the establishment,
       </trans-unit>
       <trans-unit id="jXop6Q1" resname="Vous perdrez toutes les personnes qui suivent l'établissement">
         <source>Vous perdrez toutes les personnes qui suivent l'établissement</source>
-        <target>youWillLoseAllThePeopleWhoFollowTheEstablishment</target>
+        <target>You will lose all the people Who follow yhe establishment</target>
       </trans-unit>
       <trans-unit id="DK9iQCW" resname="Créer l'horaire de votre établissement">
         <source>Créer l'horaire de votre établissement</source>
@@ -1143,7 +1143,7 @@ Tolink, leaves the possibility of expressing themselves about the establishment,
       </trans-unit>
       <trans-unit id="z7GsDIB" resname="Inscription">
         <source>Inscription</source>
-        <target>inscription</target>
+        <target>registration</target>
       </trans-unit>
       <trans-unit id="oVir1m4" resname="&quot;cercle avec drapeau en fond&quot;">
         <source>"cercle avec drapeau en fond"</source>
@@ -1163,7 +1163,7 @@ Tolink, leaves the possibility of expressing themselves about the establishment,
       </trans-unit>
       <trans-unit id="_1_eksG" resname="Déconnexion">
         <source>Déconnexion</source>
-        <target>Déconnexion</target>
+        <target>Logout</target>
       </trans-unit>
       <trans-unit id="DQQCXO1" resname="Aller sur mon profil">
         <source>Aller sur mon profil</source>
@@ -1446,6 +1446,50 @@ which correspond to your establishment</target>
       <trans-unit id="lW.Fwvv" resname="Modifier le mot de passe">
         <source>Modifier le mot de passe</source>
         <target>change the password</target>
+      </trans-unit>
+      <trans-unit id="Kb_9k.7" resname="Le saviez vous?">
+        <source>Le saviez vous?</source>
+        <target>Did you know ?</target>
+      </trans-unit>
+      <trans-unit id="ZECOM9b" resname="Ajouter une photo de vos plats, permet de donner envie aux utilisateurs de se rendre dans votre établissement.">
+        <source>Ajouter une photo de vos plats, permet de donner envie aux utilisateurs de se rendre dans votre établissement.</source>
+        <target>Adding a photo of your dishes makes users want to visit your establishment.</target>
+      </trans-unit>
+      <trans-unit id="0rq52Bz" resname="le plat ">
+        <source>le plat </source>
+        <target>The dish</target>
+      </trans-unit>
+      <trans-unit id="YxC4x3z" resname="à été supprimé">
+        <source>à été supprimé</source>
+        <target>has been deleted</target>
+      </trans-unit>
+      <trans-unit id="LzilM2n" resname="le plat">
+        <source>le plat</source>
+        <target>The dish</target>
+      </trans-unit>
+      <trans-unit id="6KVpILC" resname=" à bien été modifié">
+        <source> à bien été modifié</source>
+        <target>was modified</target>
+      </trans-unit>
+      <trans-unit id="Xede2QL" resname="Compte non actif">
+        <source>Compte non actif</source>
+        <target>account disabled</target>
+      </trans-unit>
+      <trans-unit id="hyHPtUH" resname="Votre plat">
+        <source>Votre plat</source>
+        <target>Your dish</target>
+      </trans-unit>
+      <trans-unit id="aAkwkxs" resname="A bien été supprimé.">
+        <source>A bien été supprimé.</source>
+        <target>Has been successfully deleted.</target>
+      </trans-unit>
+      <trans-unit id="jM31tNR" resname="Ajoutez jusqu'à 4 de vos spécialités">
+        <source>Ajoutez jusqu'à 4 de vos spécialités</source>
+        <target>Add up to 4 of your specialties</target>
+      </trans-unit>
+      <trans-unit id="WakQUm0" resname="Ajoutez une photo de vos plats, pour rendre les utilisateurs désireux de visiter votre établissement.">
+        <source>Ajoutez une photo de vos plats, pour rendre les utilisateurs désireux de visiter votre établissement.</source>
+        <target>Add a photo of your dishes, to make people want to visit your establishment.</target>
       </trans-unit>
     </body>
   </file>

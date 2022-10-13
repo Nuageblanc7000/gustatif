@@ -138,10 +138,10 @@ class RestoController extends AbstractController
      * @return Response
      */
     #[Route('/like/{id}', name: 'like_resto', methods: ['POST'])]
-    public function likeResto(Restaurant $resto, EntityManagerInterface $em, LikeRepository $likeRepository): Response
+    public function likeResto(Restaurant $resto, EntityManagerInterface $em, LikeRepository $likeRepository, Request $req): Response
     {
         $user = $this->getUser();
-
+       
         if (!$user) {
             $pageLogin = $this->generateUrl('login');
             return $this->json(['route' => $pageLogin, 200]);

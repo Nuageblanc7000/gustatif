@@ -43,3 +43,11 @@ img{
     position: relative;
     z-index: 1;
 }
+
+input,textarea,select{
+    font-size: 17px !important;
+}
+
+.break-word{
+    word-break: break-word;
+}

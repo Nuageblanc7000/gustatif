@@ -54,7 +54,7 @@ if (document.querySelector("flash-message") !== null) {
 
 const langButton = document.querySelector('.dropdown-country');
 const langDown = document.querySelector('.first-country');
-console.log(langButton);
+
 
 const activeLangdown = () =>  
 {

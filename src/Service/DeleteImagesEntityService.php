@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 
 /**
- * sercice pour la suppression d'image
+ * service pour la suppression d'image
  */
 class DeleteImagesEntityService
 {

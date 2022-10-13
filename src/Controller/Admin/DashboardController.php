@@ -2,22 +2,23 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Restaurant;
 use App\Service\StatService;
 use App\Data\DataAdminFilter;
-use App\Entity\Restaurant;
 use App\Form\AdminFilterUserType;
-use App\Repository\CommentRepository;
-use App\Repository\RestaurantRepository;
 use App\Repository\UserRepository;
 use Symfony\UX\Chartjs\Model\Chart;
+use App\Repository\CommentRepository;
+use App\Repository\RestaurantRepository;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DashboardController extends AbstractController
@@ -70,10 +71,15 @@ class DashboardController extends AbstractController
      * @return Response
      */
     #[Route('/admin/users/manage', name: 'app_admin_users')]
-    public function userManage(UserRepository $userRepository,Request $req, PaginatorInterface $paginatorInterface): Response
+    public function userManage(UserRepository $userRepository,Request $req, PaginatorInterface $paginatorInterface,TranslatorInterface $translator): Response
     {
         $data = new DataAdminFilter();
         $form = $this->createForm(AdminFilterUserType::class, $data);
+        $form->add('verif',CheckboxType::class,[
+            'label' => false,
+            'required' => false,
+            'data' => false
+        ]);
         $form->handleRequest($req);
         $paginator = $paginatorInterface->paginate($userRepository->findFilterUserAdmin($data), $req->query->getInt('page', 1),10);
         if ($form->isSubmitted() && $form->isValid()) {

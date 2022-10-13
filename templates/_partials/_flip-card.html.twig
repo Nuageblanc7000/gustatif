@@ -11,10 +11,12 @@
 		<div class="card-flip">
 			<div class="card-restaurant card-flip-front side card-random">
 				{% for cat in resto.category %}
+				{% if loop.first %}
 					{% if cat.name == 'restaurant' %}
 						<img src="{{ asset('/build/images/resto.svg') }}" alt="icon d'une tête de chef de restaurant">
 					{% else %}
 						<img src="{{ asset('/build/images/fast.svg') }}" alt="icon d'un burger illuminé ">
+					{% endif %}
 					{% endif %}
 				{% endfor %}
 				<img class="touch-flip-card" src="{{ asset('/build/images/home/touch.svg') }}" alt="doigt qui click">
@@ -31,7 +33,7 @@
 			{% endif %}
 			>
 				<div class="info-flip-card-back">
-					<p class="info-flip-card-name">{{resto.name}}</p>
+					<p class="info-flip-card-name break-word">{{resto.name}}</p>
 					<p>
 						<i class='bx bxs-city'></i>
 						{{resto.city.localite}}

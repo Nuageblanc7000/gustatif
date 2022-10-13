@@ -15,6 +15,12 @@
 				{{form_row(form.search,{'attr':{'placeholder':'pseudo/ville/adresse'}})}}
 				<button type="submit"><img src="{{asset('/build/images/header/search-header.svg')}}" alt="loupe"></button>
 				</div>
+
+				<div class="container-checkbox-actif-admin">
+				{{form_widget(form.verif)}}
+				<span>{% trans %} Compte non actif {% endtrans %}</span>
+				</div>
+				{{form_rest(form)}}
 				{{form_end(form)}}
 				</div>
 				<table>

@@ -62,7 +62,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
 
     /**
-     * permet de filtrer un user
+     * permet de faire une recherche dans ma liste d'utilisateurs.
      *
      * @param DataAdminFilter $data
      * @return void
@@ -76,11 +76,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
              ->leftJoin('u.comments','co')          
              ;
             
-             if (!empty($data->getSearch())) {
+             if (!empty($data->getSearch())) 
+             {
                 $query->andWhere('u.pseudo LIKE :search')
               ->orWhere('c.localite LIKE :search')
               ->orWhere('u.adress LIKE :search')
               ->setParameter('search' , "%{$data->getSearch()}%");
+             }
+             if(!empty($data->getVerif()))
+             {
+                $query->andWhere('u.isAcountVerified = :verif')
+                ->setParameter('verif' , "%{$data->getVerif()}%");
              }
             $query->orderBy('u.pseudo','ASC')
                   ->getQuery()->getResult()

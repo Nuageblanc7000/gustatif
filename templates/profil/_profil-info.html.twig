@@ -1,12 +1,12 @@
 <section class="resto-main-container-profil info-user-profil">
 	<div class="profil-info-all">
 		<picture>
-		{% if app.user.avatar is empty %}
-			<img src="{{asset('/build/images/avatar/avatar-default.svg')}}" alt="photo profil de {{app.user.pseudo}}">
+			{% if app.user.avatar is empty %}
+				<img src="{{asset('/build/images/avatar/avatar-default.svg')}}" alt="photo profil de {{app.user.pseudo}}">
 			{% else %}
 				<img src="{{asset('/images/avatar/' ~ app.user.avatar )|imagine_filter('avatar_mini') }}" alt="profil de {{app.user.pseudo}}">
-		{% endif %}
-		
+			{% endif %}
+
 		</picture>
 		<h2>
 			{% trans %}profil de
@@ -15,7 +15,7 @@
 		<div class="profil-info-container">
 			<div class="adress-profil">
 				<span>
-					<span class="adress-profil-title">
+					<span class="adress-profil-title break-word">
 						{% trans %}
 						Rue :
 						{% endtrans %}
@@ -28,11 +28,11 @@
 						{{app.user.adress}}
 					{% endif %}
 				</span>
-                <!--    --> 
-                <span>
-					<span class="adress-profil-title">
+				<!--    -->
+				<span>
+					<span class="adress-profil-title break-word">
 						{% trans %}
-						Ville : 
+						Ville :
 						{% endtrans %}
 					</span>
 					{% if app.user.city is empty %}
@@ -43,7 +43,7 @@
 						{{app.user.city.localite}}
 					{% endif %}
 				</span>
-                <span>
+				<span>
 					<span class="adress-profil-title">
 						{% trans %}
 						Code postal :
@@ -58,13 +58,13 @@
 					{% endif %}
 				</span>
 
-                    <span>
-					<span class="adress-profil-title">
+				<span class="break-word">
+					<span class="adress-profil-title break-word">
 						{% trans %}
 						Email :
 						{% endtrans %}
 					</span>
-						{{app.user.email}}
+					{{app.user.email}}
 				</span>
 
 			</div>

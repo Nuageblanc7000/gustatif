@@ -5,9 +5,7 @@ namespace App\Service;
 use App\Entity\Restaurant;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Service\DeleteImagesEntityService;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
-use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**permet de supprimer un restaurant complet avec ces liaisons et toutes les images liée */
 class DeleteRestoService

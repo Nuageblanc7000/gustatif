@@ -222,9 +222,9 @@
         <source>aucun résultat</source>
         <target>Geen resultaat</target>
       </trans-unit>
-      <trans-unit id="PgdreT2" resname="Plat supprimé ">
-        <source>Plat supprimé </source>
-        <target>Schotel verwijderd </target>
+      <trans-unit id="IQJEn41" resname="Plat supprimé">
+        <source>Plat supprimé</source>
+        <target>Schotel verwijderd</target>
       </trans-unit>
       <trans-unit id="slXA4Qn" resname="lundi">
         <source>lundi</source>
@@ -590,7 +590,7 @@ ToLink is vrij om elke natuurlijke of rechtspersoon te kiezen die de persoonlijk
       </trans-unit>
       <trans-unit id=".55EnLo" resname="8. Droits des Utilisateurs">
         <source>8. Droits des Utilisateurs</source>
-        <target>8. Droits des Utilisateurs</target>
+        <target>8. Gebruikersrechten</target>
       </trans-unit>
       <trans-unit id="lIUWszt" resname="A tout moment, l'Utilisateur peut exercer ses droits en envoyant un message par courrier électronique à l'adresse suivante: anonyme.remy@gmail.com, ou une lettre par voie postale adressée, en joignant une copie de sa carte d'identité à l'adresse suivante: Chemin de Mont">
         <source>A tout moment, l'Utilisateur peut exercer ses droits en envoyant un message par courrier électronique à l'adresse suivante: anonyme.remy@gmail.com, ou une lettre par voie postale adressée, en joignant une copie de sa carte d'identité à l'adresse suivante: Chemin de Mont</source>
@@ -598,7 +598,7 @@ ToLink is vrij om elke natuurlijke of rechtspersoon te kiezen die de persoonlijk
       </trans-unit>
       <trans-unit id="8RYX75Y" resname="a. Droit d'accès">
         <source>a. Droit d'accès</source>
-        <target>a. Droit d'accès</target>
+        <target>heeft. Toegangsrechten</target>
       </trans-unit>
       <trans-unit id="QgiSA.Y" resname="Conformément à l'article 15 du Règlement, ToLink garantit le droit d'accès à l'Utilisateur à ses données personnelles. L'Utilisateur a le droit d'obtenir l'accès auxdites données à caractère personnel ainsi que les informations suivantes:&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;les finalités du traitement;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;les catégories de données à caractère personnel concernées;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;les destinataires ou catégories de destinataires auxquels les données à caractère personnel ont été ou seront communiquées, en particulier les destinataires qui sont établis dans des pays tiers ou les organisations internationales;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;lorsque cela est possible, la durée de conservation des données à caractère personnel envisagée ou, lorsque ce n'est pas possible, les critères utilisés pour déterminer cette durée;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;l'existence d'une prise de décision automatisée, y compris un profilage, visée à l'article 22, paragraphes 1 et 4 du Règlement, et, au moins en pareils cas, des informations utiles concernant la logique sous-jacente, ainsi que l'importance et les conséquences prévues de ce traitement pour la personne concernée&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;Le Responsable du Traitement peut exiger le paiement de frais raisonnables basés sur les coûts administratifs pour toute copie supplémentaire demandée par l'Utilisateur. Lorsque l'Utilisateur introduit cette demande par voie électronique (par le biais de l'adresse électronique par exemple), les informations sont fournies sous une forme électronique d'usage courant, à moins que l'Utilisateur ne demande qu'il en soit autrement. La copie de ses données sera communiquée à l'Utilisateur au plus tard dans le mois après la réception de la demande.">
         <source>Conformément à l'article 15 du Règlement, ToLink garantit le droit d'accès à l'Utilisateur à ses données personnelles. L'Utilisateur a le droit d'obtenir l'accès auxdites données à caractère personnel ainsi que les informations suivantes:
@@ -1062,7 +1062,7 @@ die overeenkomen met uw vestiging</target>
       </trans-unit>
       <trans-unit id="TTdQcuE" resname="Les données du restaurants seront supprimées">
         <source>Les données du restaurants seront supprimées</source>
-        <target>Restaurantgegevens worden verwijderd</target>
+        <target>Restaurant gegevens worden verwijderd</target>
       </trans-unit>
       <trans-unit id="LMQbvwp" resname="Les statistiques seront perdues">
         <source>Les statistiques seront perdues</source>
@@ -1206,7 +1206,7 @@ die overeenkomen met uw vestiging</target>
       </trans-unit>
       <trans-unit id="z7GsDIB" resname="Inscription">
         <source>Inscription</source>
-        <target>Inschrijving</target>
+        <target>registratie</target>
       </trans-unit>
       <trans-unit id="oVir1m4" resname="&quot;cercle avec drapeau en fond&quot;">
         <source>"cercle avec drapeau en fond"</source>
@@ -1444,10 +1444,57 @@ die overeenkomen met uw vestiging</target>
         <source>Modifier mon mot de passe</source>
         <target>Verander wachtwoord</target>
       </trans-unit>
-   
       <trans-unit id="lW.Fwvv" resname="Modifier le mot de passe">
         <source>Modifier le mot de passe</source>
         <target>verander het wachtwoord</target>
+      </trans-unit>
+      <trans-unit id="Kb_9k.7" resname="Le saviez vous?">
+        <source>Le saviez vous?</source>
+        <target>Wist je dat?</target>
+      </trans-unit>
+      <trans-unit id="ZECOM9b" resname="Ajouter une photo de vos plats, permet de donner envie aux utilisateurs de se rendre dans votre établissement.">
+        <source>Ajouter une photo de vos plats, permet de donner envie aux utilisateurs de se rendre dans votre établissement.</source>
+        <target>Door een foto van uw gerechten toe te voegen, willen gebruikers uw etablissement bezoeken.</target>
+      </trans-unit>
+      <trans-unit id="0rq52Bz" resname="le plat ">
+        <source>le plat </source>
+        <target>het gerecht</target>
+      </trans-unit>
+      <trans-unit id="YxC4x3z" resname="à été supprimé">
+        <source>à été supprimé</source>
+        <target>is verwijderd</target>
+      </trans-unit>
+      <trans-unit id="LzilM2n" resname="le plat">
+        <source>le plat</source>
+        <target>het gerecht</target>
+      </trans-unit>
+      <trans-unit id="BqtnIVk" resname="Italienne">
+        <source>Italienne</source>
+        <target>Italiaans</target>
+      </trans-unit>
+      <trans-unit id="6KVpILC" resname=" à bien été modifié">
+        <source> à bien été modifié</source>
+        <target>is veranderd</target>
+      </trans-unit>
+      <trans-unit id="Xede2QL" resname="Compte non actif">
+        <source>Compte non actif</source>
+        <target>Account niet actief</target>
+      </trans-unit>
+      <trans-unit id="hyHPtUH" resname="Votre plat">
+        <source>Votre plat</source>
+        <target>Jouw gerecht</target>
+      </trans-unit>
+      <trans-unit id="aAkwkxs" resname="A bien été supprimé.">
+        <source>A bien été supprimé.</source>
+        <target>Is succesvol verwijderd.</target>
+      </trans-unit>
+      <trans-unit id="jM31tNR" resname="Ajoutez jusqu'à 4 de vos spécialités">
+        <source>Ajoutez jusqu'à 4 de vos spécialités</source>
+        <target>Voeg tot 4 van uw specialiteiten toe</target>
+      </trans-unit>
+      <trans-unit id="WakQUm0" resname="Ajoutez une photo de vos plats, pour rendre les utilisateurs désireux de visiter votre établissement.">
+        <source>Ajoutez une photo de vos plats, pour rendre les utilisateurs désireux de visiter votre établissement.</source>
+        <target>Voeg een foto van uw gerechten toe om ervoor te zorgen dat mensen uw plaats willen bezoeken.</target>
       </trans-unit>
     </body>
   </file>

@@ -163,8 +163,8 @@ class RestaurateurController extends AbstractController
                     }
                     $em->persist($resto);
                     $em->flush();
-                    $message = 'Restaurant ' . $resto->getName() . ' à bien été modifié';
-                    $this->addFlash('succes', $message);
+                    $message = 'Restaurant ' . $resto->getName() .  $translator->trans(' à bien été modifié');
+                    $this->addFlash('success', $message);
 
                     if ($this->isGranted('ROLE_ADMIN') and $resto->getUser() !== $user) {
                         return $this->redirectToRoute('app_admin_restos');
@@ -262,7 +262,7 @@ class RestaurateurController extends AbstractController
                 ]
             );
             $deleteImageService->delete($plat);
-            $message = $translator->trans('Plat supprimé ' . $plat->getName() . '');
+            $message = $translator->trans('Votre plat') .' '. $plat->getName() .' '. $translator->trans('A bien été supprimé.');
             $this->addFlash('success', $message);
             return $this->redirectToRoute('create_plat', ['id' => $idResto], Response::HTTP_FOUND);
         } else {
