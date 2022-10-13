@@ -1,44 +1,44 @@
-
-	{% block _plat_images_widget %}
+{% block _plat_images_widget %}
 	{# définition du champ plat_image, la variable form correspond au champ plat_image#}
 	{{form_widget(form)}}
-	<input type="hidden" id="widgets-counter" value="0"> <div class="form-group">	
-	<button type="button" class="btn button-container-2" id="add-image">
+	<input type="hidden" id="widgets-counter" value="0">
+	<div class="form-group">
+		<button type="button" class="btn" id="add-image">
 			{% trans %}
-				Ajouter une spécialité
+			Ajouter une spécialité
 			{% endtrans %}
 		</button>
-{% endblock %}
-<div class="container-collectionss">
+	{% endblock %}
+	<div class="container-collectionss">
 
-            {% block _plat_images_entry_row %}
-            <div class="div" id="block_{{id}}">
-            {{form_widget(form)}}
-		<div class="form-create-error mb-1">
-		{{form_errors(form.path)}}
-		</div>
-			<div class="container-text-plat">
-			{{form_label(form.alt)}}
-            {{form_widget(form.alt,{'attr':{'class':'input-collection-text' }})}}
-			<div class="form-create-error">
-			{{form_errors(form.alt)}}
+		{% block _plat_images_entry_row %}
+			<div class="div" id="block_{{id}}">
+				{{form_widget(form)}}
+				<div class="container-text-plat">
+					{{form_label(form.alt)}}
+					{{form_widget(form.alt,{'attr':{'class':'input-collection-text' }})}}
+					<div class="form-create-error">
+						{{form_errors(form.alt)}}
+					</div>
+				</div>
 			</div>
-			</div>
-            </div>
 
-        {% endblock %}
-        </div>
-            {% block _plat_images_entry_widget %}
-                <div class="img-collection" > {{form_label(form.path)}}
-                <button type="button" class="delete-btn-file" data-action="delete" data-target="#block_{{id}}" title={% trans %} "Supprimer l'image" {% endtrans %}>
-                    <i class="fa-solid fa-trash-can"></i>
-
-                </button>
-		
-        
-        {{form_widget(form.path , {'attr':{'class':'input-collection' }}) }}
-
-
-
+		{% endblock %}
 	</div>
-{% endblock %}
+	{% block _plat_images_entry_widget %}
+		<div class="img-collection">
+			{{form_label(form.path)}}
+			<div class="form-create-error mb-1">
+					{{form_errors(form.path)}}
+				</div>
+			<button type="button" class="delete-btn-file" data-action="delete" data-target="#block_{{id}}" title={% trans %} "Supprimer l'image" {% endtrans %}>
+				<i class="fa-solid fa-trash-can"></i>
+
+			</button>
+
+
+			{{form_widget(form.path , {'attr':{'class':'input-collection' }}) }}
+
+
+		</div>
+	{% endblock %}

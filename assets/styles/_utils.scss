@@ -64,3 +64,10 @@
 .bg-primary{
     background-color: var(--primary) !important;
 }
+.create-error-js{
+    text-align: center;
+    color:var(--error2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

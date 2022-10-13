@@ -26,7 +26,7 @@ class ImageUploadType extends AbstractType
                 'label_attr'=>['class'=>'label-input-file'],
                 'required' => false,
                 'constraints' => [
-                    new File(mimeTypes:['image/*'],mimeTypesMessage: $this->translator->trans('veuillez mettre un fichier image (png,jpg,jpeg)'),maxSize:'100000k'),
+                    new File(mimeTypes:['image/jpg','image/jpeg','image/png'],mimeTypesMessage: $this->translator->trans('veuillez mettre un fichier image (png,jpg,jpeg)'),maxSize:'100000k'),
                     new NotNull(message:$this->translator->trans('veuillez insérer une image')),
             ], 
             ]

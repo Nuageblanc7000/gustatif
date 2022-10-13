@@ -178,7 +178,7 @@ class RestaurateurController extends AbstractController
                     ));
                 }
             } else {
-                $form->get('images')->addError(new FormError($this->translator->trans('Minimum une image')));
+                $form->get('images')->addError(new FormError($translator->trans('Minimum une image')));
             }
         }
         return $this->renderForm('/restaurant/create_resto.html.twig', [

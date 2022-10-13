@@ -6,6 +6,7 @@ let inputCollection = [];
 let inputs = 0;
 const limit = 4
 let counter = 0
+let messageError = '';
 function addImages(e=null) {
 
   e !== null ? e.stopPropagation() : ''
@@ -57,12 +58,27 @@ function addImages(e=null) {
   
   function viewImage(event) {
       const file = event.target.files[0];
-      const file_extension_regex = /\.(jpeg|jpg|png|svg)$/i;
+      const file_extension_regex = /\.(jpeg|jpg|png)$/i;
       const parent = event.target.parentNode;
-      
+      const errorMessage = document.createElement('span')
+            errorMessage.classList.add('create-error-js')
+            if(parent.querySelectorAll('.create-error-js') !== null){
+              parent.querySelectorAll('.create-error-js').forEach(element => {
+                element.remove()
+              });
+            }
+            if(parent.querySelectorAll('.form-create-error') !== null){
+              parent.querySelectorAll('.form-create-error').forEach(element => {
+                element.remove()
+              });
+            }
+            
       if (file) {
           if (file.length === 0 || !file_extension_regex.test(file.name)) {
-              currentParent.querySelector(".label-input-file").innerHTML = "";
+            let label = parent.querySelector(".label-input-file");
+            label.innerHTML = "";
+            label.insertAdjacentElement('afterend',errorMessage); 
+            errorMessage.innerHTML = 'Veuillez insérer une image de type jpg|jpeg|png'
               return;
             }
             const file_reader = new FileReader();
