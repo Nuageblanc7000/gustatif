@@ -108,7 +108,9 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $mailData = $form->get('mail')->getData();
             $userCurrent = $user->findOneBy(['email' => $mailData]);
-            if (!$userCurrent->isIsAcountVerified()) {
+           
+            if ($userCurrent) {
+                 if (!$userCurrent->isIsAcountVerified()) {
                 $message = $translator->trans('Un email vous a été envoyé pour réinitialiser votre mot de passe');
                 $this->addFlash(
                     'success',
@@ -117,7 +119,7 @@ class UserController extends AbstractController
                 return $this->redirectToRoute('login');
             }
 
-            if ($userCurrent) {
+
                 $oldResetPassword = $tokenResolveRepository->findOneBy(['userCurrent' => $userCurrent]);
                 if ($oldResetPassword) {
                     $em->remove($oldResetPassword);
