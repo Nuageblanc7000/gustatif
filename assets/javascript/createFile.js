@@ -1,4 +1,9 @@
 
+/**
+ * MANAGE COLLECTION IMAGE (ADD AND REMOVE) + LIMIT
+ * VERSION 1.0 RW
+ *
+ */
 const addImage = document.querySelector("#add-image");
 const preview = document.querySelectorAll('.preview-image').length
 let lengths = 0

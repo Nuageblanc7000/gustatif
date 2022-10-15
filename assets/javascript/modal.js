@@ -1,5 +1,8 @@
 import Modal from "./component_modal";
 
+/**
+ * ACTIVATE COMPONENT MODAL 
+ */
 const lists_button_delete = document.querySelectorAll('.action-btn-admin-delete')
 const body = document.querySelector('body')
 customElements.define('modal-admin',Modal)

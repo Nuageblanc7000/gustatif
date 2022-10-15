@@ -1,3 +1,8 @@
+
+/**
+ * MODAL CREATED BY RW 
+ * VERSION 1.0
+ */
 export default class Modal extends HTMLElement{
     static get observedAttributes() {
         return ["data-path","data-pseudo"];

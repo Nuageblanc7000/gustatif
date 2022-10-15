@@ -1,4 +1,10 @@
 import RatingForm from "./component_rating";
+
+
+/**
+ * Création du slider de la page restaurant
+ */
+
 const slider_container = document.querySelector(".slider-resto");
 const images = slider_container.querySelectorAll(".slider-img");
 const controls = slider_container.querySelectorAll(".control-slider");
@@ -35,11 +41,13 @@ controls.forEach((elem, c) => {
   elem.addEventListener("click", () => slider((n = c)));
 });
 
+
+
 //map
 const coord = document.querySelector("#map");
 // test rapide 
 
-// REVENIR ICI POUR VOIR SI ON FAIT UN TRUC AVEC LA POS
+// REVENIR ICI POUR VOIR SI ON FAIT UN TRUC AVEC LA POS dans le futur
 // navigator.geolocation.getCurrentPosition(elem => console.log(elem));
 
 // function distance(lat1, lon1, lat2, lon2, unit) {
@@ -122,59 +130,6 @@ function scrollResponsive(e) {
     behavior: "smooth",
   });
 }
-
-//système de rating
-
-// On va chercher toutes les étoiles
-
-// if (
-//   document.querySelectorAll(".container-star-js") !== null &&
-//   document.querySelectorAll(".js-stars") !== null &&
-//   document.querySelector(".js-value-rating") !== null
-// ) {
-//   const container_stars = document.querySelector(".container-star-js");
-//   const stars = container_stars.querySelectorAll(".js-stars");
-//   const notation = document.querySelector(".js-value-rating");
-
-//   stars.forEach((star) => {
-//     star.addEventListener("mouseover", function () {
-//       resetStar();
-//       star.classList.remove("fa-regular");
-//       star.classList.add("fa-solid");
-//       let previous = this.previousElementSibling;
-
-//       while (previous) {
-//         previous.classList.remove("fa-regular");
-//         previous.classList.add("fa-solid");
-//         previous = previous.previousElementSibling;
-//       }
-//     });
-    
-//     star.addEventListener("mouseout", function () {
-//       resetStar(notation.value);
-//     });
-//     star.addEventListener("click", function () {
-//       if (notation.value == 1) {
-//         notation.value = 0;
-//       } else {
-//         notation.value = this.dataset.val;
-//       }
-//       resetStar(notation.value);
-//     });
-//   });
-
-//   function resetStar(rating = 0) {
-//     stars.forEach((star) => {
-//       if (star.dataset.val <= notation.value) {
-//         star.classList.remove("fa-regular");
-//         star.classList.add("fa-solid");
-//       } else {
-//         star.classList.remove("fa-solid");
-//         star.classList.add("fa-regular");
-//       }
-//     });
-//   }
-// }
 // pour la partie cachée
 const comments = document.querySelectorAll(".js-box-comment");
 

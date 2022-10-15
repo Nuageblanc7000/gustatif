@@ -1,4 +1,8 @@
 // permet de donner un aperçu de l'avatar actuel
+/**
+ * permet de donner un aperçu de l'avatar actuel
+ * VERSION 1.0 
+ */
 const avatar = document.querySelector(".js-avatar");
 const label_avatar = document.querySelector(".label-avatar");
 const avatar_input = document.querySelector(".js-btn-avatar");

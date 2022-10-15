@@ -1,3 +1,6 @@
+/**
+ * SYSTEM FOR FLIP CARD PAGE HOME
+ */
 const cards = document.querySelectorAll('.card-flip');
 function transition() {
   if (this.classList.contains('active-flip')) {

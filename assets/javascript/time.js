@@ -1,4 +1,7 @@
-10//horloge
+/**
+ * CREATE TIMER PAGE SCHEDULE
+ * VERSION 1.0 R.W
+ */
 const  container_timer = document.querySelector('.js-timer')
 const  minute = container_timer.querySelector('.js-m')
 const  hour = container_timer.querySelector('.js-h')

@@ -1,6 +1,8 @@
-//système de rating
+/**
+ * RATING CREATED BY RW 
+ * VERSION 1.0
+ */
 
-// On va chercher toutes les étoiles
 
 export default class Rating extends HTMLElement {
   static get observedAttributes() {

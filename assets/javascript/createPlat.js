@@ -1,3 +1,8 @@
+/**
+ * MANAGE COLLECTION IMAGE PLAT (ADD AND REMOVE) + LIMIT
+ * VERSION 1.0 RW
+ *
+ */
 const addImage = document.querySelector("#add-image");
 const imageStamp = document.querySelectorAll(".container-file");
 const preview = document.querySelectorAll('.preview-image').length
@@ -56,7 +61,10 @@ function addImages(e=null) {
     });
   };
 
-  
+  /**
+   * SYSTEM PREVIEW IMAGE 
+   * VERSION 0.8
+   */
   function viewImage(event) {
       const file = event.target.files[0];
       const file_extension_regex = /\.(jpeg|jpg|png)$/i;

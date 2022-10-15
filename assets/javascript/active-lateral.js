@@ -1,5 +1,4 @@
-//menu-lateral
-
+//menu-lateral filtre restaurant
 
 const lateral = document.querySelector('.lateral')
 const btnFilter = document.querySelector('.btn-filter-responsive')

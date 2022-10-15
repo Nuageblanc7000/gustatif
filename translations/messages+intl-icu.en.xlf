@@ -1139,7 +1139,7 @@ Tolink, leaves the possibility of expressing themselves about the establishment,
       </trans-unit>
       <trans-unit id="YdaVBBA" resname="Connexion">
         <source>Connexion</source>
-        <target>connexion</target>
+        <target>Connection</target>
       </trans-unit>
       <trans-unit id="z7GsDIB" resname="Inscription">
         <source>Inscription</source>

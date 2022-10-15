@@ -21,6 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 class RestaurateurController extends AbstractController
@@ -141,8 +142,11 @@ class RestaurateurController extends AbstractController
         $this->denyAccessUnlessGranted('VIEW_PAGE_RESTO', $resto);
 
         $form = $this->createForm(RestoType::class, $resto);
+        
         $limit = 4;
+        
         $form->handleRequest($req);
+        
         $images = $resto->getImages();
         $CountImages = count($resto->getImages());
         if ($form->isSubmitted() && $form->isValid()) {
