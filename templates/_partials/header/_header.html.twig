@@ -121,7 +121,12 @@
 
 		{# partie profil  #}
 		<div class="menu-down-profil">
-			<div class="menu-down-info-profil">
+			<a class="menu-down-info-profil" href="{{path('app_profil')}}">
+			<span class="info-profil-down">
+					{% trans %}
+					Voir mon profil
+					{% endtrans %}
+				</span>
 				{% if app.user %}
 					<button class="header-btn-profil">
 						<picture>
@@ -137,12 +142,7 @@
 
 					</button>
 				{% endif %}
-				<a href="{{path('app_profil')}}">
-					{% trans %}
-					Voir mon profil
-					{% endtrans %}
-				</a>
-			</div>
+			</a>
 			<ul>
 				<li>
 					<a href="{{path('app_profil')}}/favoris-profil">

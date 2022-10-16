@@ -1,7 +1,7 @@
 {% set path = '/images/restaurant/' %}
 {% for resto in restos %}
 	<a class="card" href="{{path('resto_view',{'id':resto.id})}}">
-	
+
 		<figure class="ps-r figure-card" 
 		{% if resto.cover is empty %}
 					style="background-image:url({{asset('/build/images/site/default_resto.jpg' )}})"

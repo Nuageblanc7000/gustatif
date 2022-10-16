@@ -10,7 +10,7 @@
 					<ul>
 						{% for key,time in resto.schedule.timetables %}
 
-							<li {% if time.open == null and time.close == null %} class="closed-resto" {% endif %}>
+							<li {% if time.open == null and time.close == null and time.openpm == null and time.closepm == null %} class="closed-resto" {% endif %}>
 								<span class="day">{{days[key]}}</span>
 								<span class="container-hour">
 									<span>
